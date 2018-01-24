@@ -8,6 +8,9 @@ namespace DungeonCrawler
     {
         public MainPage()
         {
+
+
+
             Page itemsPage, aboutPage = null;
 
             switch (Device.RuntimePlatform)
