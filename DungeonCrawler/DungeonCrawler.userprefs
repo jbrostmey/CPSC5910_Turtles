@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{D029CD12-A4AB-4A7A-8082-DB19B0DE8448}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler Status">
+    <Files>
+      <File FileName="DungeonCrawler/Views/AboutPage.xaml" Line="30" Column="29" />
+      <File FileName="DungeonCrawler Status" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.DungeonCrawler.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.CF887AD4-70D2-4236-A54F-F79AAC673A82">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam />
+  </MonoDevelop.Ide.ItemProperties.DungeonCrawler.iOS>
+  <MultiItemStartupConfigurations />
+</Properties>
