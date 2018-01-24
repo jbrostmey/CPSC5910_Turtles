@@ -15,7 +15,7 @@ namespace DungeonCrawler
 
             switch (Device.RuntimePlatform)
             {
-                case Device.iOS:
+                case Device.iOS: //bryan was here
                     itemsPage = new NavigationPage(new ItemsPage())
                     {
                         Title = "Browse"
