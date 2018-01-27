@@ -19,6 +19,14 @@ namespace DungeonCrawler.Models
             speedModifier = 1;
         }
 
+        public Attributes setLevelUpModifier(int attack, int defense, int speed){
+            this.health = 0;
+            this.speed = speed;
+            this.attack = attack;
+            this.defense = defense;
+            return this;
+        }
+
         // set/get max health
         public int health { get; set; }
 
