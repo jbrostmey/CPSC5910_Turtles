@@ -18,43 +18,43 @@ namespace DungeonCrawler.Models
              *   to apply when moving to the next level.
              */
 
-            levels[1] = new Attributes().setLevelUpModifier(0,1,0);
+            levels[1] = new Attributes().SetLevelUpModifier(0,1,0);
 
-            levels[2] = new Attributes().setLevelUpModifier(1,1,0);
+            levels[2] = new Attributes().SetLevelUpModifier(1,1,0);
 
-            levels[3] = new Attributes().setLevelUpModifier(0,0,0);
+            levels[3] = new Attributes().SetLevelUpModifier(0,0,0);
 
-            levels[4] = new Attributes().setLevelUpModifier(0,1,1);
+            levels[4] = new Attributes().SetLevelUpModifier(0,1,1);
 
-            levels[5] = new Attributes().setLevelUpModifier(1,0,0);
+            levels[5] = new Attributes().SetLevelUpModifier(1,0,0);
 
-            levels[6] = new Attributes().setLevelUpModifier(0,1,0);
+            levels[6] = new Attributes().SetLevelUpModifier(0,1,0);
 
-            levels[7] = new Attributes().setLevelUpModifier(0,0,0);
+            levels[7] = new Attributes().SetLevelUpModifier(0,0,0);
 
-            levels[8] = new Attributes().setLevelUpModifier(0,0,0);
+            levels[8] = new Attributes().SetLevelUpModifier(0,0,0);
 
-            levels[9] = new Attributes().setLevelUpModifier(1,1,1);
+            levels[9] = new Attributes().SetLevelUpModifier(1,1,1);
 
-            levels[10] = new Attributes().setLevelUpModifier(0,0,0);
+            levels[10] = new Attributes().SetLevelUpModifier(0,0,0);
 
-            levels[11] = new Attributes().setLevelUpModifier(0,0,0);
+            levels[11] = new Attributes().SetLevelUpModifier(0,0,0);
 
-            levels[12] = new Attributes().setLevelUpModifier(0,1,0);
+            levels[12] = new Attributes().SetLevelUpModifier(0,1,0);
 
-            levels[13] = new Attributes().setLevelUpModifier(1,0,0);
+            levels[13] = new Attributes().SetLevelUpModifier(1,0,0);
 
-            levels[14] = new Attributes().setLevelUpModifier(0,0,1);
+            levels[14] = new Attributes().SetLevelUpModifier(0,0,1);
 
-            levels[15] = new Attributes().setLevelUpModifier(0,1,0);
+            levels[15] = new Attributes().SetLevelUpModifier(0,1,0);
 
-            levels[16] = new Attributes().setLevelUpModifier(0,0,0);
+            levels[16] = new Attributes().SetLevelUpModifier(0,0,0);
 
-            levels[17] = new Attributes().setLevelUpModifier(1,0,0);
+            levels[17] = new Attributes().SetLevelUpModifier(1,0,0);
 
-            levels[18] = new Attributes().setLevelUpModifier(1,1,0);
+            levels[18] = new Attributes().SetLevelUpModifier(1,1,0);
 
-            levels[19] = new Attributes().setLevelUpModifier(1,1,1);
+            levels[19] = new Attributes().SetLevelUpModifier(1,1,1);
 
         }
     }
