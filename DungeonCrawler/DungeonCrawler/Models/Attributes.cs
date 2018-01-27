@@ -5,20 +5,18 @@ namespace DungeonCrawler.Models
     {
 
         //Basic constructor for attributes class
-        public Attributes(int health = 10, int xp = 0, int speed = 1, int attack = 1,
-                          int defense = 1, int level = 1, bool alive = true, int attackMod = 1, int defenseMod = 1, int speedMod = 1)
-        {
-            this.health = health;
-            currentHealth = health;
-            currentExperience = xp;
-            this.speed = speed;
-            this.attack = attack;
-            this.defense = defense;
-            this.level = level;
-            this.alive = alive;
-            this.attackMod = attackMod;
-            this.defenseMod = defenseMod;
-            this.speedMod = speedMod;
+        public Attributes(){
+            health = 10;
+            currentHealth = 10;
+            currentExperience = 0;
+            speed = 1;
+            attack = 1;
+            defense = 1;
+            level = 1;
+            alive = true;
+            attackModifier = 1;
+            defenseModifier = 1;
+            speedModifier = 1;
         }
 
         // set/get max health
@@ -46,13 +44,13 @@ namespace DungeonCrawler.Models
         public bool alive { get; set; }
 
         // set/get attack modifier (for class specific modifiers)
-        public int attackMod { get; set; }
+        public int attackModifier { get; set; }
 
         // set/get defense modifier (for class specific modifiers)
-        public int defenseMod { get; set; }
+        public int defenseModifier { get; set; }
 
         // set/get speed modifier (for class specific modifiers)
-        public int speedMod { get; set; }
+        public int speedModifier { get; set; }
 
     }
 }
