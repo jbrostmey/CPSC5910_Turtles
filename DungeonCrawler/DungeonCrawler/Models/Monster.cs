@@ -1,15 +1,21 @@
 ﻿using System;
-
-using Xamarin.Forms;
-
 namespace DungeonCrawler.Models
 {
-    public class Monster : ContentView
+    /* Team: Turtles 
+    * Julia Brostmeyer 
+    * Bryan Herr 
+    * Denny Tran 
+    *  
+    *  
+    * Compiling Implemented code for character: 
+        Properties implementation 
+        Method stubs implementation */
+    public class Monster : Actor
     {
         public Monster()
         {
-            Content = new Label { Text = "Hello ContentView" };
         }
+
     }
 }
 

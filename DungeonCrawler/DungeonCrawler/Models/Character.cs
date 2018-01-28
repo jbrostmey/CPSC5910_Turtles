@@ -10,7 +10,7 @@ namespace DungeonCrawler.Models
      * Compiling Implemented code for character: 
          Properties implementation 
         Method stubs implementation */
-    public class Character
+    public class Character : Actor
     {
         //Basic constructor. Each character must have a name on creation.
         // Each character will initialize their own d10 on creation.
@@ -49,8 +49,9 @@ namespace DungeonCrawler.Models
         //  being filled, will return false.
         public bool EquipItem(Item item) { }
 
+
         //Decreases attributes.currentHealth based on damage parameter.
-        public void TakeDamage(int damage) { }
+        //public void TakeDamage(int damage) { }
 
         //Level up, called from GainXP when a level up is needed.
         private void LevelUp() { 
@@ -101,7 +102,7 @@ namespace DungeonCrawler.Models
         public Item[] Die(){
             
         }
-
+/*
         //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
         public int Attack(){}
 
@@ -110,6 +111,7 @@ namespace DungeonCrawler.Models
 
         //Calculates accuracy, taking into account speed stats, speed modifiers, and item speed values.
         public int Accuracy(){}
+*/
     }
 }
 
