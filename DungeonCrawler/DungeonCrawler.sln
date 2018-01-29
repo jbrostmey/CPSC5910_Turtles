@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonCrawler.iOS", "iOS\D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonCrawler.Droid", "Droid\DungeonCrawler.Droid.csproj", "{0D5E43DF-F375-439B-B292-32B06C3D9121}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{321D08EF-9EA1-40B0-954E-A0166F03339B}"
+	ProjectSection(SolutionItems) = preProject
+		DungeonCrawler.sln = DungeonCrawler.sln
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator

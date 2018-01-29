@@ -5,7 +5,8 @@ namespace DungeonCrawler.Models
     {
 
         //Basic constructor for attributes class
-        public Attributes(){
+        public Attributes()
+        {
             health = 10;
             currentHealth = 10;
             currentExperience = 0;
@@ -19,7 +20,8 @@ namespace DungeonCrawler.Models
             speedModifier = 1;
         }
 
-        public Attributes SetLevelUpModifier(int experience, int attack, int defense, int speed){
+        public Attributes SetLevelUpModifier(int experience, int attack, int defense, int speed)
+        {
             this.health = 0;
             this.currentExperience = experience;
             this.speed = speed;
