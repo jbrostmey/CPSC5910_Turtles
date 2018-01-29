@@ -14,21 +14,13 @@ namespace DungeonCrawler.Models
     {
         //Basic constructor. Each character must have a name on creation.
         // Each character will initialize their own d10 on creation.
-        public Character(String name) {
+        public Character() {
             d10 = new Random((int) DateTime.Now.Ticks & 0x0000FFFF);
         }
 
-        // d10 used for calculations with
-        private Random d10;
 
         // local variable to hold the levelstats that change on a per-level base.
         private LevelStats LEVELSTATS = new LevelStats();
-
-        //User must name their character.
-        public String name { get; set; }
-
-        //Allows getting of Attributes. No setting: must be done through methods.
-        public Attributes attributes { get; }
 
         //Allows for getting/setting of the character class. Players can choose from
         //  one of 6 character classes. This is where it is stored. May change
@@ -48,10 +40,6 @@ namespace DungeonCrawler.Models
         //Equips new item if it can. If it cannot equip the item due to the item slot
         //  being filled, will return false.
         public bool EquipItem(Item item) { }
-
-
-        //Decreases attributes.currentHealth based on damage parameter.
-        //public void TakeDamage(int damage) { }
 
         //Level up, called from GainXP when a level up is needed.
         private void LevelUp() { 
@@ -91,18 +79,10 @@ namespace DungeonCrawler.Models
             }
         }
 
-        //Returns true if the character is still alive.
-        public bool IsAlive()
-        {
-            return attributes.alive;
-        }
 
-        //If a character has died, it will drop all of its equipment and return it to
-        // the field as an array of items.
-        public Item[] Die(){
-            
-        }
 /*
+ * We may reinstate the following code if/when we start making subclasses.
+ * 
         //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
         public int Attack(){}
 
