@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace DungeonCrawler.Models
 {
     /*
@@ -12,10 +14,10 @@ namespace DungeonCrawler.Models
         }
 
         //Name for actor. Actors can be characters or monsters.
-        public String name { get; set; }
+        public string name { get; set; }
 
         //The description for the actor. 
-        public String description { get; set; }
+        public string description { get; set; }
 
         // d10 used for calculations
         protected Random d10;
@@ -43,7 +45,7 @@ namespace DungeonCrawler.Models
 
         //If a character has died, it will drop all of its equipment and return it to
         // the field as an array of items.
-        public Item[] Die()
+        public List<Item> Die()
         {
 
         }

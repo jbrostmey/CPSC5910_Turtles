@@ -25,7 +25,7 @@ namespace DungeonCrawler.Models
         //Allows for getting/setting of the character class. Players can choose from
         //  one of 6 character classes. This is where it is stored. May change
         //  to an enum in the future.
-        public String characterClass { get; set; }
+        public string characterClass { get; set; }
 
         //Inventory size is 7 for all characters. enum will be created for location:number specifications.
         public const int inventorySize = 7;

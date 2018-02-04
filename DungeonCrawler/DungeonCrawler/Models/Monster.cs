@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace DungeonCrawler.Models
 {
     /* Team: Turtles 
@@ -28,7 +30,7 @@ namespace DungeonCrawler.Models
         private int dropRate = 5;
 
         // Upon death, the monster may drop an item (based on d10 roll and drop rate)
-        public override Item[] Die(){
+        public override List<Item> Die(){
             
         }
 
