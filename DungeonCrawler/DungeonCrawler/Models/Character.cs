@@ -20,7 +20,7 @@ namespace DungeonCrawler.Models
 
 
         // local variable to hold the levelstats that change on a per-level base.
-        private LevelStats LEVELSTATS = new LevelStats();
+        private LevelStats _levelStats = new LevelStats();
 
         //Allows for getting/setting of the character class. Players can choose from
         //  one of 6 character classes. This is where it is stored. May change
@@ -44,9 +44,9 @@ namespace DungeonCrawler.Models
         //Level up, called from GainXP when a level up is needed.
         private void LevelUp() { 
             //first grab all the attribute changes
-            attributes.attack += LEVELSTATS.levels[attributes.level].attack;
-            attributes.defense += LEVELSTATS.levels[attributes.level].defense;
-            attributes.speed += LEVELSTATS.levels[attributes.level].speed;
+            attributes.attack += _levelStats.levels[attributes.level].attack;
+            attributes.defense += _levelStats.levels[attributes.level].defense;
+            attributes.speed += _levelStats.levels[attributes.level].speed;
 
             //then update level
             attributes.level++;
@@ -62,8 +62,8 @@ namespace DungeonCrawler.Models
         //logic to check if a character is eligable for a levelup
         private bool CheckLevelUp(){
             //if not max level and has enough xp to level up
-            return attributes.level < LEVELSTATS.MaxLevel()
-                             && attributes.currentExperience >= LEVELSTATS.levels[attributes.level].currentExperience;
+            return attributes.level < _levelStats.MaxLevel()
+                             && attributes.currentExperience >= _levelStats.levels[attributes.level].currentExperience;
         }
 
         //Increases xp based on xp passed as parameter. Can call LevelUp when necessary.
