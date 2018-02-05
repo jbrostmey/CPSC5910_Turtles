@@ -27,8 +27,9 @@ namespace DungeonCrawler.Models
         //  to an enum in the future.
         public string characterClass { get; set; }
 
-        //Inventory size is 7 for all characters. enum will be created for location:number specifications.
-        public const int inventorySize = 7;
+        //Inventory size is 8 for all characters. enum will be created for location:number specifications.
+        //  Slot 0 is unused.
+        public const int inventorySize = 8;
 
         //This will hold the items the character has equiped. It is publically gettable
         //  to allow views to grab the entire inventory of the characters to display on different screens.

@@ -13,6 +13,8 @@ namespace DungeonCrawler.Models
         {
         }
 
+        public EquipmentPosition equipmentPositions { get; set; }
+
         //Name for actor. Actors can be characters or monsters.
         public string name { get; set; }
 
