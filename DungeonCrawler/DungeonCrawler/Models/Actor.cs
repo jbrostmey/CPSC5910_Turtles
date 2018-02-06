@@ -31,13 +31,13 @@ namespace DungeonCrawler.Models
         public void TakeDamage(int damage) { }
 
         //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
-        public int Attack() { }
+        public int Attack() { return 5; }
 
         //Calculates defense, taking into account defense stats, defense modifiers, and item defense values
-        public int Defense() { }
+        public int Defense() { return 5; }
 
         //Calculates accuracy, taking into account speed stats, speed modifiers, and item speed values.
-        public int Accuracy() { }
+        public int Accuracy() { return 5; }
 
         //Returns true if the character is still alive.
         public bool IsAlive()
@@ -47,9 +47,9 @@ namespace DungeonCrawler.Models
 
         //If a character has died, it will drop all of its equipment and return it to
         // the field as an array of items.
-        public List<Item> Die()
+        public virtual List<Item> Die()
         {
-
+            return null;
         }
     }
 }

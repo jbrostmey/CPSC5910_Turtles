@@ -31,18 +31,18 @@ namespace DungeonCrawler.Models
 
         // Upon death, the monster may drop an item (based on d10 roll and drop rate)
         public override List<Item> Die(){
-            
+            return null;
         }
 
         // Helper function to select an item from the monsters drop pool to drop.
         //     Simply rolls a dice the size of the drop pool and returns that drop.
         private Item ChooseDrop(){
-            
+            return null; 
         }
 
         // Call this when you want to deal damage to the monster.
         //      First calculates how much experience to return, then reduces health of the monster.
-        public int TakeDamage(int Damage){}
+        public int TakeDamage(int Damage) { return 5; }
 
 
         /*This belongs in game engine (so we can change business rules later) 

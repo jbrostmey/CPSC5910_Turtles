@@ -36,11 +36,11 @@ namespace DungeonCrawler.Models
         public Item[] inventory { get; }
 
         //Drops item being held in the specific item type slot
-        public Item DropItem(Enum itemType) { }
+        public Item DropItem(Enum itemType) { return null; }
 
         //Equips new item if it can. If it cannot equip the item due to the item slot
         //  being filled, will return false.
-        public bool EquipItem(Item item) { }
+        public bool EquipItem(Item item) { return false; }
 
         //Level up, called from GainXP when a level up is needed.
         private void LevelUp() { 

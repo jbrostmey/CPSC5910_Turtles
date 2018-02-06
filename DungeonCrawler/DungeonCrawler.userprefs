@@ -1,16 +1,11 @@
 ﻿<Properties StartupConfiguration="{D029CD12-A4AB-4A7A-8082-DB19B0DE8448}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler Status">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler/Models/Battle.cs">
     <Files>
-      <File FileName="DungeonCrawler/Views/AboutPage.xaml" Line="67" Column="1" />
-      <File FileName="DungeonCrawler/Views/MainPage.cs" Line="13" Column="13" />
-      <File FileName="DungeonCrawler/Models/Item.cs" Line="12" Column="1" />
-      <File FileName="Droid/Resources/Resource.designer.cs" Line="1" Column="1" />
-      <File FileName="DungeonCrawler/Models/Actor.cs" Line="30" Column="20" />
-      <File FileName="DungeonCrawler/Models/Attributes.cs" Line="2" Column="22" />
-      <File FileName="DungeonCrawler/Models/Character.cs" Line="84" Column="6" />
-      <File FileName="DungeonCrawler/Models/LevelStats.cs" Line="66" Column="2" />
-      <File FileName="DungeonCrawler/Models/Monster.cs" Line="99" Column="44" />
-      <File FileName="DungeonCrawler Status" />
+      <File FileName="DungeonCrawler/Models/Character.cs" Line="4" Column="1" />
+      <File FileName="DungeonCrawler/Models/Actor.cs" Line="34" Column="42" />
+      <File FileName="DungeonCrawler/Models/Monster.cs" Line="1" Column="1" />
+      <File FileName="DungeonCrawler/Models/EquipmentPosition.cs" Line="1" Column="1" />
+      <File FileName="DungeonCrawler/Models/Battle.cs" Line="10" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
@@ -18,7 +13,7 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.DungeonCrawler.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0E2C1E5D-0FA2-4536-97BF-F0930CAEED69">
+  <MonoDevelop.Ide.ItemProperties.DungeonCrawler.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.10618696-EA91-4983-BA7E-CAFB11E601A5">
     <MonoDevelop.MacDev.AppleDevelopmentTeam />
   </MonoDevelop.Ide.ItemProperties.DungeonCrawler.iOS>
   <MultiItemStartupConfigurations />
