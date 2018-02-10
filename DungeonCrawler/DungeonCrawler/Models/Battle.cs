@@ -9,8 +9,7 @@ namespace DungeonCrawler.Models
     *  Bryan Herr 
     *  Denny Tran 
     *  
-    *  
-    * Compiling Implemented code for character: 
+    * Compiling Implemented code for Battle: 
       Properties implementation 
       Method stubs implementation */
 
