@@ -15,13 +15,47 @@ namespace DungeonCrawler.Models
 
     public class Battle : Actor
     {
-        public bool inSession = false;
-        public bool currentTurn = false; // 0 is character, 1 is for monster
+        public bool inSession;
+        public bool currentTurn; // 0 is character, 1 is for monster
         public Character currentChar { get; set; }
         public Monster currentMon { get; set; }
 
         public Battle()
         {
+            inSession = false;
+            currentTurn = false;
+        }
+
+        // Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
+        public void Turn(Monster aMon, Character aChar)
+        {
+            if (inSession == true)
+            {
+                if (currentTurn == false) // Character's turn
+                {
+                    int getCharAtt = aChar.Attack();
+                    int getMonDef = aMon.Defense();
+
+                    //Character attacks, monster loses health
+                    aMon.TakeDamage(getCharAtt);
+                    if (!aMon.IsAlive())
+                    {
+                        aChar.GainExperience(1); // EXP not yet determined
+                        Item[] drops = aMon.dropPool; // Items dropped from monster's death
+                    }
+                }
+                else // Monster's turn
+                {
+                    int getMonAtt = aMon.Attack();
+                    int getCharDef = aChar.Defense();
+
+                    //Character attacks, monster loses health
+                    aChar.TakeDamage(getMonAtt);
+
+                    if (!aChar.IsAlive())
+                        aChar.Die(); // Relinquish inventory and drop all items
+                }
+            }
         }
 
         // User begins game, switch inSession to true
@@ -40,8 +74,6 @@ namespace DungeonCrawler.Models
 
         //User selects AutoPlay, switch inSession to true, as well as other implementation code to automate gameplay (will call other battle methods)
         public void AutoPlay() { inSession = true; }
-
-
     }
 }
 

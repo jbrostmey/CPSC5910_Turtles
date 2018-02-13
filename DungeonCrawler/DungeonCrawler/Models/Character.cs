@@ -80,6 +80,23 @@ namespace DungeonCrawler.Models
             }
         }
 
+        //Item gets passed into this function to update attributes of character
+        public void updateAttr(Item someItem, bool flag)
+        {
+            if (flag == true)
+            {
+                attributes.defense += someItem.defense;
+                attributes.attack += someItem.attack;
+                attributes.speed += someItem.speed;
+            }
+            else 
+            {
+                attributes.defense -= someItem.defense;
+                attributes.attack -= someItem.attack;
+                attributes.speed -= someItem.speed;   
+            }
+        }
+
 
 /*
  * We may reinstate the following code if/when we start making subclasses.
