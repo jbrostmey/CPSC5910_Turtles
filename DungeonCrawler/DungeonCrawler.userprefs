@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{D029CD12-A4AB-4A7A-8082-DB19B0DE8448}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler/Models/Item.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler/Models/Character.cs">
     <Files>
       <File FileName="DungeonCrawler/Models/Battle.cs" Line="60" Column="9" />
-      <File FileName="DungeonCrawler/Models/Item.cs" Line="52" Column="6" />
+      <File FileName="DungeonCrawler/Models/Item.cs" Line="10" Column="8" />
+      <File FileName="DungeonCrawler/Models/Character.cs" Line="81" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />

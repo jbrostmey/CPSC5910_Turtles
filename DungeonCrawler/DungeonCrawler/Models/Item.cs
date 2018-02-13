@@ -23,6 +23,10 @@ namespace DungeonCrawler
         public int speed;
         public int attack;
 
+        //Base attributes
+        public int range { get; set; }
+        public EquipmentPosition position { get; set; }
+
 
         // To determine where the item goes, just an example of a equip on the body
         public EquipmentPosition ItemLocation(Item item)
@@ -37,14 +41,14 @@ namespace DungeonCrawler
         public void ItemEquipped(Item someItem, Character currentChar)
         {
             bool flag = true;
-            currentChar.updateAttr(someItem, flag);
+            currentChar.updateAttributes(someItem, flag);
         }
 
         //If flag is false, then we remove the item from the character and update attributes
         public void ItemRemoved(Item someItem, Character currentChar)
         {
             bool flag = false;
-            currentChar.updateAttr(someItem, flag);
+            currentChar.updateAttributes(someItem, flag);
         }
 
         //Get attributes of current item in certain position

@@ -81,7 +81,7 @@ namespace DungeonCrawler.Models
         }
 
         //Item gets passed into this function to update attributes of character
-        public void updateAttr(Item someItem, bool flag)
+        public void updateAttributes(Item someItem, bool flag)
         {
             if (flag == true)
             {
