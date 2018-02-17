@@ -14,6 +14,7 @@ namespace DungeonCrawler
 
     public class Item
     {
+        // [PrimaryKey]
         public string Id { get; set; } // name of item
         public string Text { get; set; }
         public string Description { get; set; }
@@ -53,5 +54,25 @@ namespace DungeonCrawler
 
         //Get attributes of current item in certain position
         public void GetCurrentItem(EquipmentPosition location) { }
+
+
+        public void Update(Item newData)
+        {
+            if (newData == null)
+            {
+                return;
+            }
+
+            // Update all the fields in the Data, except for the Id
+            Text = newData.Text;
+            Description = newData.Description;
+            defense = newData.defense;
+            speed = newData.speed;
+            attack = newData.attack;
+            range = newData.range;
+            position = newData.position;
+        }
+
+
     }
 }
