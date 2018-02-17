@@ -7,9 +7,30 @@
 		<StackLayout Spacing="20" Padding="15">
 			<Label Text="Text" FontSize="Medium" />
 			<Entry Text="{Binding Item.Text}" FontSize="Small" />
+            
 			<Label Text="Description" FontSize="Medium" />
             <Entry Text="{Binding Item.Description}" FontSize="Small" />
 
+            <Label Text="Defense" FontSize="Medium" />
+            <Entry Text="{Binding Item.defense}" FontSize="Small" />
+
+            <Label Text="Speed" FontSize="Medium" />
+            <Entry Text="{Binding Item.speed}" FontSize="Small" />
+
+            <Label Text="Attack" FontSize="Medium" />
+            <Entry Text="{Binding Item.attack}" FontSize="Small" />
+
+            <Label Text="Range" FontSize="Medium" />
+            <Entry Text="{Binding Item.range}" FontSize="Small" />
+
+
+            <Label Text="Position" FontSize="Medium" />
+            <Entry Text="{Binding Item.position}" FontSize="Small" />
+
+
+        
+
+            
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
