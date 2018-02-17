@@ -81,13 +81,13 @@ namespace DungeonCrawler.Services
 
         private async void InitilizeSeedData()
         {
-
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(),  Description = "This is an item description." });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Description = "This is an item description." });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(),  Description = "This is an item description." });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Description = "This is an item description." });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(),  Description = "This is an item description." });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(),  Description = "This is an item description." });
+            
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
 
 
            /* await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", Description = "This is an Character description.", Level = 1 });
