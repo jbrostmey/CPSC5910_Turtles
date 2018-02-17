@@ -21,6 +21,11 @@ namespace DungeonCrawler
             {
                 Text = "Item name",
                 Description = "This is an item description.",
+                defense = 1,
+                speed = 2,
+                attack = 3,
+                range = 1,
+                position = EquipmentPosition.body,
                 Id = Guid.NewGuid().ToString()
             };
 

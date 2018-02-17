@@ -9,7 +9,7 @@ using DungeonCrawler.ViewModels;
 
 namespace DungeonCrawler
 {
-  //  [XamlCompilation(XamlCompilationOptions.Compile)]
+   [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemsPage : ContentPage
     {
         private ItemsViewModel _viewModel;

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.ItemsPage" Title="{Binding Title}" x:Name="BrowseItemsPage">
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
@@ -12,6 +12,12 @@
 							<StackLayout Padding="10">
 								<Label Text="{Binding Text}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
 								<Label Text="{Binding Description}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Text="{Binding defense}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Text="{Binding speed}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                              <Label Text="{Binding attack}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                              <Label Text="{Binding range}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                              <Label Text="{Binding position}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+
 							</StackLayout>
 						</ViewCell>
 					</DataTemplate>
