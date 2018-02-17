@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using SQLite;
 using DungeonCrawler.Models;
 namespace DungeonCrawler
 {
@@ -14,7 +15,7 @@ namespace DungeonCrawler
 
     public class Item
     {
-        // [PrimaryKey]
+        [PrimaryKey]
         public string Id { get; set; } // name of item
         public string Text { get; set; }
         public string Description { get; set; }

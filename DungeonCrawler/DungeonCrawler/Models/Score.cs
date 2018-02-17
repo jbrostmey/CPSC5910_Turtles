@@ -1,9 +1,10 @@
 ﻿using System;
+using SQLite;
 namespace DungeonCrawler.Models
 {
     public class Score
     {
-        // [PrimaryKey]
+        [PrimaryKey]
         public string Id { get; set; }
         public int ScoreTotal { get; set; }
 
