@@ -4,12 +4,15 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
-
+using DungeonCrawler.Services;
 namespace DungeonCrawler
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+     //   public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+
+         //public IDataStore DataStore => DependencyService.Get<IDataStore>() ?? MockDataStore.Instance;
+        public IDataStore DataStore => DependencyService.Get<IDataStore>() ?? SQLDataStore.Instance;
 
         bool isBusy = false;
         public bool IsBusy

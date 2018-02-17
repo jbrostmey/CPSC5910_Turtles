@@ -10,7 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Item.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\CloudDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
@@ -47,6 +46,25 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Items\EditItemPage.xaml.cs">
       <DependentUpon>EditItemPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Scores\DeleteScorePage.xaml.cs">
+      <DependentUpon>DeleteScorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Scores\EditScorePage.xaml.cs">
+      <DependentUpon>EditScorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Scores\NewScorePage.xaml.cs">
+      <DependentUpon>NewScorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Scores\ScoreDetailPage.xaml.cs">
+      <DependentUpon>ScoreDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Scores\ScoresPage.xaml.cs">
+      <DependentUpon>ScoresPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ScoreDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ScoresViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\SQLDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IFileHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
@@ -59,6 +77,26 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Items\EditItemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Scores\DeleteScorePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Scores\EditScorePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Scores\NewScorePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Scores\ScoreDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Scores\ScoresPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
