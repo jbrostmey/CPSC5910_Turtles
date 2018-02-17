@@ -1,13 +1,11 @@
-﻿
-
-using System;
+﻿using System;
 using System.IO;
 using Xamarin.Forms;
 using DungeonCrawler.Services;
 using DungeonCrawler.Droid;
 
 [assembly: Dependency(typeof(FileHelper))]
-namespace MasterDetailsCRUDi.Droid
+namespace DungeonCrawler.Droid
 {
     public class FileHelper : IFileHelper
     {
@@ -18,4 +16,3 @@ namespace MasterDetailsCRUDi.Droid
         }
     }
 }
-
