@@ -25,7 +25,7 @@ namespace DungeonCrawler
                 speed = 2,
                 attack = 3,
                 range = 1,
-                position = EquipmentPosition.body,
+            //    position = EquipmentPosition.body,
                 Id = Guid.NewGuid().ToString()
             };
 

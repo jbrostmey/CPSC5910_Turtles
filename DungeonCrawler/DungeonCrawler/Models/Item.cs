@@ -71,7 +71,7 @@ namespace DungeonCrawler
             speed = newData.speed;
             attack = newData.attack;
             range = newData.range;
-            position = newData.position;
+       //     position = newData.position;
         }
 
 

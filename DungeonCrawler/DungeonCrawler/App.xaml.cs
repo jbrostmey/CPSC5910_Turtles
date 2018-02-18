@@ -44,7 +44,7 @@ namespace DungeonCrawler
             {
                 if (_database == null)
                 {
-                    _database = new SQLiteAsyncConnection(DependencyService.Get<IFileHelper>().GetLocalFilePath("CRUDiDatabase.db3"));
+                    _database = new SQLiteAsyncConnection(DependencyService.Get<IFileHelper>().GetLocalFilePath("DungeonCrawler.db3"));
                 }
                 return _database;
             }

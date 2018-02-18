@@ -13,6 +13,15 @@ using System.Linq;
 
 namespace DungeonCrawler.ViewModels
 {
+    public class ScoresViewModel
+    {
+        public ScoresViewModel()
+        {
+        }
+    }
+}
+
+    /*
     public class ScoresViewModel : BaseViewModel
     {
         // Make this a singleton so it only exist one time because holds all the data records in memory
@@ -119,11 +128,4 @@ namespace DungeonCrawler.ViewModels
     }
 }
 
-  /*  public class ScoresViewModel
-    {
-        public ScoresViewModel()
-        {
-        }
-    }
-}
 */

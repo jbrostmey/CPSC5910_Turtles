@@ -27,7 +27,6 @@
         <Label Text="Range:" FontSize="Medium" />
         <Label Text="{Binding Data.range}" FontSize="Small"/>
 
-        <Label Text="Position:" FontSize="Medium" />
-        <Label Text="{Binding Data.position}" FontSize="Small"/>
+   
     </StackLayout>
 </ContentPage>

@@ -26,20 +26,20 @@ namespace DungeonCrawler.Services
         }
 
         private List<Item> _itemDataset = new List<Item>();
-       // private List<Character> _characterDataset = new List<Character>();
-       // private List<Monster> _monsterDataset = new List<Monster>();
-        private List<Score> _scoreDataset = new List<Score>();
+        // private List<Character> _characterDataset = new List<Character>();
+        // private List<Monster> _monsterDataset = new List<Monster>();
+        //private List<Score> _scoreDataset = new List<Score>();
 
         private MockDataStore()
         {
             var mockItems = new List<Item>
-            { 
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position =  EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body}
+            {
+                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description.", defense = 1, speed = 2, attack = 3, range = 4}, //position =  EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4},// position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body}
             };
 
             foreach (var data in mockItems)
@@ -47,50 +47,50 @@ namespace DungeonCrawler.Services
                 _itemDataset.Add(data);
             }
 
-       /*     var mockCharacters = new List<Character>
-            {
-                new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", Description="This is an Character description.", Level = 1 },
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Second Character", Description="This is an Character description." , Level = 1},
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Third Character", Description="This is an Character description." , Level = 2},
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Fourth Character", Description="This is an Character description." , Level = 2},
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Fifth Character", Description="This is an Character description." , Level = 3},
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Sixth Character", Description="This is an Character description." , Level = 3},
-            };
+            /*     var mockCharacters = new List<Character>
+                 {
+                     new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", Description="This is an Character description.", Level = 1 },
+                     new Character { Id = Guid.NewGuid().ToString(), Name = "Second Character", Description="This is an Character description." , Level = 1},
+                     new Character { Id = Guid.NewGuid().ToString(), Name = "Third Character", Description="This is an Character description." , Level = 2},
+                     new Character { Id = Guid.NewGuid().ToString(), Name = "Fourth Character", Description="This is an Character description." , Level = 2},
+                     new Character { Id = Guid.NewGuid().ToString(), Name = "Fifth Character", Description="This is an Character description." , Level = 3},
+                     new Character { Id = Guid.NewGuid().ToString(), Name = "Sixth Character", Description="This is an Character description." , Level = 3},
+                 };
 
-            foreach (var data in mockCharacters)
-            {
-                _characterDataset.Add(data);
-            }
+                 foreach (var data in mockCharacters)
+                 {
+                     _characterDataset.Add(data);
+                 }
 
-            var mockMonsters = new List<Monster>
-            {
-                new Monster { Id = Guid.NewGuid().ToString(), Name = "First Monster", Description="This is an Monster description." },
-                new Monster { Id = Guid.NewGuid().ToString(), Name = "Second Monster", Description="This is an Monster description." },
-                new Monster { Id = Guid.NewGuid().ToString(), Name = "Third Monster", Description="This is an Monster description." },
-                new Monster { Id = Guid.NewGuid().ToString(), Name = "Fourth Monster", Description="This is an Monster description." },
-                new Monster { Id = Guid.NewGuid().ToString(), Name = "Fifth Monster", Description="This is an Monster description." },
-                new Monster { Id = Guid.NewGuid().ToString(), Name = "Sixth Monster", Description="This is an Monster description." },
-            };
+                 var mockMonsters = new List<Monster>
+                 {
+                     new Monster { Id = Guid.NewGuid().ToString(), Name = "First Monster", Description="This is an Monster description." },
+                     new Monster { Id = Guid.NewGuid().ToString(), Name = "Second Monster", Description="This is an Monster description." },
+                     new Monster { Id = Guid.NewGuid().ToString(), Name = "Third Monster", Description="This is an Monster description." },
+                     new Monster { Id = Guid.NewGuid().ToString(), Name = "Fourth Monster", Description="This is an Monster description." },
+                     new Monster { Id = Guid.NewGuid().ToString(), Name = "Fifth Monster", Description="This is an Monster description." },
+                     new Monster { Id = Guid.NewGuid().ToString(), Name = "Sixth Monster", Description="This is an Monster description." },
+                 };
 
-            foreach (var data in mockMonsters)
-            {
-                _monsterDataset.Add(data);
-            }*/
+                 foreach (var data in mockMonsters)
+                 {
+                     _monsterDataset.Add(data);
+                 }*/
 
-           /* var mockScores = new List<Score>
-            {
-                new Score { Id = Guid.NewGuid().ToString(), Name = "First Score", ScoreTotal = 111},
-                new Score { Id = Guid.NewGuid().ToString(), Name = "Second Score", ScoreTotal = 222},
-                new Score { Id = Guid.NewGuid().ToString(), Name = "Third Score", ScoreTotal = 333},
-                new Score { Id = Guid.NewGuid().ToString(), Name = "Fourth Score", ScoreTotal = 444},
-                new Score { Id = Guid.NewGuid().ToString(), Name = "Fifth Score", ScoreTotal = 555},
-                new Score { Id = Guid.NewGuid().ToString(), Name = "Sixth Score", ScoreTotal = 666},
-            };
+            /* var mockScores = new List<Score>
+             {
+                 new Score { Id = Guid.NewGuid().ToString(), Name = "First Score", ScoreTotal = 111},
+                 new Score { Id = Guid.NewGuid().ToString(), Name = "Second Score", ScoreTotal = 222},
+                 new Score { Id = Guid.NewGuid().ToString(), Name = "Third Score", ScoreTotal = 333},
+                 new Score { Id = Guid.NewGuid().ToString(), Name = "Fourth Score", ScoreTotal = 444},
+                 new Score { Id = Guid.NewGuid().ToString(), Name = "Fifth Score", ScoreTotal = 555},
+                 new Score { Id = Guid.NewGuid().ToString(), Name = "Sixth Score", ScoreTotal = 666},
+             };
 
-            foreach (var data in mockScores)
-            {
-                _scoreDataset.Add(data);
-            }*/
+             foreach (var data in mockScores)
+             {
+                 _scoreDataset.Add(data);
+             }*/
 
         }
 
@@ -133,7 +133,8 @@ namespace DungeonCrawler.Services
             return await Task.FromResult(_itemDataset);
         }
 
-
+    }
+}
        /* // Character
         public async Task<bool> AddAsync_Character(Character data)
         {
@@ -213,6 +214,8 @@ namespace DungeonCrawler.Services
             return await Task.FromResult(_monsterDataset);
         }
         */
+
+        /*
         // Score
         public async Task<bool> AddAsync_Score(Score data)
         {
@@ -256,7 +259,7 @@ namespace DungeonCrawler.Services
 }
 
     
-
+*/
     /*
 
     public class MockDataStore : IDataStore<Item>

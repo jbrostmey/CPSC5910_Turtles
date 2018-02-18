@@ -23,12 +23,7 @@
 
             <Label Text="Range" FontSize="Medium" />
             <Entry Text="{Binding Item.range}" FontSize="Small" />
-
-
-            <Label Text="Position" FontSize="Medium" />
-            <Entry Text="{Binding Item.position}" FontSize="Small" />
-
-
+           
 
             
 		</StackLayout>

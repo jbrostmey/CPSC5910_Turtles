@@ -13,16 +13,3 @@ namespace DungeonCrawler.ViewModels
     }
 }
 
-
-
-/*
-namespace DungeonCrawler.ViewModels
-{
-    public class ScoreDetailViewModel
-    {
-        public ScoreDetailViewModel()
-        {
-        }
-    }
-}
-*/

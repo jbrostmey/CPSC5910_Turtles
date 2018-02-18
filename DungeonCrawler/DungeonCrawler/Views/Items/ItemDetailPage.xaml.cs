@@ -27,8 +27,8 @@ namespace DungeonCrawler
                 defense = 1,
                 speed = 2,
                 attack = 3,
-                range = 4,
-                position = EquipmentPosition.head
+                range = 4
+             //   position = EquipmentPosition.head
 
 
 

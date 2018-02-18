@@ -8,6 +8,8 @@ namespace DungeonCrawler.Views.Scores
 {
     public partial class DeleteScorePage : ContentPage
     {
+
+
         // ReSharper disable once NotAccessedField.Local
         private ScoreDetailViewModel _viewModel;
 

@@ -33,7 +33,7 @@ namespace DungeonCrawler.Services
             App.Database.CreateTableAsync<Item>().Wait();
            // App.Database.CreateTableAsync<Character>().Wait();
             //App.Database.CreateTableAsync<Monster>().Wait();
-            App.Database.CreateTableAsync<Score>().Wait();
+         //   App.Database.CreateTableAsync<Score>().Wait();
         }
 
         // Create the Database Tables
@@ -42,7 +42,7 @@ namespace DungeonCrawler.Services
             App.Database.CreateTableAsync<Item>().Wait();
             //App.Database.CreateTableAsync<Character>().Wait();
             //App.Database.CreateTableAsync<Monster>().Wait();
-            App.Database.CreateTableAsync<Score>().Wait();
+           // App.Database.CreateTableAsync<Score>().Wait();
 
         }
 
@@ -52,7 +52,7 @@ namespace DungeonCrawler.Services
             App.Database.DropTableAsync<Item>().Wait();
             //App.Database.DropTableAsync<Character>().Wait();
             //App.Database.DropTableAsync<Monster>().Wait();
-            App.Database.DropTableAsync<Score>().Wait();
+        //    App.Database.DropTableAsync<Score>().Wait();
         }
 
         // Tells the View Models to update themselves.
@@ -61,7 +61,7 @@ namespace DungeonCrawler.Services
             ItemsViewModel.Instance.SetNeedsRefresh(true);
             //MonstersViewModel.Instance.SetNeedsRefresh(true);
             //CharactersViewModel.Instance.SetNeedsRefresh(true);
-            ScoresViewModel.Instance.SetNeedsRefresh(true);
+        //    ScoresViewModel.Instance.SetNeedsRefresh(true);
         }
 
         public void InitializeDatabaseNewTables()
@@ -82,12 +82,12 @@ namespace DungeonCrawler.Services
         private async void InitilizeSeedData()
         {
             
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
 
 
            /* await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", Description = "This is an Character description.", Level = 1 });
@@ -104,12 +104,12 @@ namespace DungeonCrawler.Services
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Fifth Monster", Description = "This is an Monster description." });
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Sixth Monster", Description = "This is an Monster description." });
 */
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111 });
+        /*    await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 333 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 444 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 555 });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 666 });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 666 });*/
 
         }
 
@@ -254,6 +254,7 @@ namespace DungeonCrawler.Services
 
         }
         */
+        /*
         // Score
         public async Task<bool> AddAsync_Score(Score data)
         {
@@ -299,7 +300,7 @@ namespace DungeonCrawler.Services
             var result = await App.Database.Table<Score>().ToListAsync();
             return result;
 
-        }
+        }*/
 
     }
 }
