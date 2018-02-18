@@ -45,15 +45,3 @@ namespace DungeonCrawler.Views.Scores
 }
 
 
-
-
-
-
-
-       /* public DeleteScorePage()
-        {
-            InitializeComponent();
-        }
-    }
-}
-*/

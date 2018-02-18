@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.Views.Scores.EditScorePage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="DungeonCrawler.Views.Scores.EditScorePage">
 	<ContentPage.Content>
 	</ContentPage.Content>
 </ContentPage>
+  <!--< 
+   Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout Spacing="20" Padding="15">
+
+                <Label Text="Score Edit Page" FontSize="Small" />
+
+                <Label Text="Name" FontSize="Medium" />
+                <Entry Text="{Binding Data.Name}" FontSize="Small" />
+
+                <Label Text="Score:" FontSize="Medium" />
+                <Entry Text="{Binding Data.ScoreTotal}" FontSize="Small"/>
+                           
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+
+</ContentPage>
+
+
+>-->

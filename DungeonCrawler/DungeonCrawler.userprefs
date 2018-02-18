@@ -16,10 +16,10 @@
       <File FileName="DungeonCrawler/ViewModels/AboutViewModel.cs" Line="1" Column="1" />
       <File FileName="DungeonCrawler/ViewModels/BaseViewModel.cs" Line="15" Column="9" />
       <File FileName="iOS/obj/iPhoneSimulator/Debug/DungeonCrawler.iOS.Views.AboutPage.xaml.g.cs" Line="20" Column="1" />
-      <File FileName="DungeonCrawler/Views/Items/NewItemPage.xaml" Line="22" Column="6" />
-      <File FileName="DungeonCrawler/Views/Items/ItemDetailPage.xaml" Line="31" Column="7" />
-      <File FileName="DungeonCrawler/Views/Items/ItemsPage.xaml" Line="19" Column="1" />
-      <File FileName="DungeonCrawler/Views/Items/DeleteItemPage.xaml" Line="30" Column="4" />
+      <File FileName="DungeonCrawler/Views/Items/NewItemPage.xaml" Line="34" Column="1" />
+      <File FileName="DungeonCrawler/Views/Items/ItemDetailPage.xaml" Line="35" Column="2" />
+      <File FileName="DungeonCrawler/Views/Items/ItemsPage.xaml" Line="28" Column="1" />
+      <File FileName="DungeonCrawler/Views/Items/DeleteItemPage.xaml" Line="33" Column="1" />
       <File FileName="DungeonCrawler/Views/Items/DeleteItemPage.xaml.cs" Line="17" Column="30" />
       <File FileName="DungeonCrawler/Views/Items/EditItemPage.xaml" Line="6" Column="1" />
       <File FileName="DungeonCrawler/Views/Items/EditItemPage.xaml.cs" Line="26" Column="10" />
@@ -27,20 +27,20 @@
       <File FileName="DungeonCrawler/ViewModels/ItemsViewModel.cs" Line="42" Column="1" />
       <File FileName="DungeonCrawler/Views/Items/ItemDetailPage.xaml.cs" Line="39" Column="41" />
       <File FileName="DungeonCrawler/Views/Scores/DeleteScorePage.xaml" Line="24" Column="15" />
-      <File FileName="DungeonCrawler/Views/Scores/DeleteScorePage.xaml.cs" Line="12" Column="1" />
-      <File FileName="DungeonCrawler/Views/Scores/EditScorePage.xaml" Line="2" Column="115" />
-      <File FileName="DungeonCrawler/Views/Scores/EditScorePage.xaml.cs" Line="1" Column="1" />
-      <File FileName="DungeonCrawler/Views/Scores/NewScorePage.xaml" Line="6" Column="1" />
-      <File FileName="DungeonCrawler/Views/Scores/NewScorePage.xaml.cs" Line="1" Column="1" />
-      <File FileName="DungeonCrawler/Views/Scores/ScoreDetailPage.xaml" Line="6" Column="1" />
+      <File FileName="DungeonCrawler/Views/Scores/DeleteScorePage.xaml.cs" Line="48" Column="1" />
+      <File FileName="DungeonCrawler/Views/Scores/EditScorePage.xaml" Line="35" Column="1" />
+      <File FileName="DungeonCrawler/Views/Scores/EditScorePage.xaml.cs" Line="54" Column="3" />
+      <File FileName="DungeonCrawler/Views/Scores/NewScorePage.xaml" Line="23" Column="12" />
+      <File FileName="DungeonCrawler/Views/Scores/NewScorePage.xaml.cs" Line="49" Column="3" />
+      <File FileName="DungeonCrawler/Views/Scores/ScoreDetailPage.xaml" Line="31" Column="1" />
       <File FileName="DungeonCrawler/Views/Scores/ScoreDetailPage.xaml.cs" Line="22" Column="3" />
-      <File FileName="DungeonCrawler/Views/Scores/ScoresPage.xaml" Line="6" Column="1" />
-      <File FileName="DungeonCrawler/Views/Scores/ScoresPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="DungeonCrawler/Views/Scores/ScoresPage.xaml" Line="48" Column="5" />
+      <File FileName="DungeonCrawler/Views/Scores/ScoresPage.xaml.cs" Line="74" Column="3" />
       <File FileName="DungeonCrawler/ViewModels/ScoreDetailViewModel.cs" Line="16" Column="1" />
       <File FileName="DungeonCrawler/ViewModels/ScoresViewModel.cs" Line="23" Column="1" />
       <File FileName="DungeonCrawler/Services/IDataStore.cs" Line="11" Column="31" />
       <File FileName="DungeonCrawler/Services/MockDataStore.cs" Line="113" Column="20" />
-      <File FileName="DungeonCrawler/Services/SQLDataStore.cs" Line="24" Column="1" />
+      <File FileName="DungeonCrawler/Services/SQLDataStore.cs" Line="302" Column="13" />
       <File FileName="DungeonCrawler/Services/IFileHelper.cs" Line="1" Column="1" />
       <File FileName="Droid/FileHelper.cs" Line="19" Column="1" />
       <File FileName="iOS/FileHelper.cs" Line="3" Column="14" />
