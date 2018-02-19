@@ -7,20 +7,9 @@ using Xamarin.Forms.Xaml;
 using DungeonCrawler.Models;
 
 using DungeonCrawler.ViewModels;
-namespace DungeonCrawler.Views.Scores{
-    public partial class ScoreDetailPage : ContentPage
-{
+namespace DungeonCrawler.Views.Scores {  
+                     
 
-    public ScoreDetailPage()
-    {
-        InitializeComponent();
-    }
-}
-}
-
-
-/*                        
-{
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ScoreDetailPage : ContentPage
     {
@@ -64,6 +53,6 @@ namespace DungeonCrawler.Views.Scores{
             await Navigation.PopAsync();
         }
     }
-}*/
+}
 
     

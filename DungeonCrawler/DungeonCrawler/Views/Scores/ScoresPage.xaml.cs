@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using DungeonCrawler.Views;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+using DungeonCrawler.ViewModels;
+using DungeonCrawler.Models;
 
 namespace DungeonCrawler.Views.Scores
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+
     public partial class ScoresPage : ContentPage
     {
-        public ScoresPage()
-        {
-            InitializeComponent();
-        }
-    }
-}
-
-/*
- * 
- * private ScoresViewModel _viewModel;
+    private ScoresViewModel _viewModel;
 
         public ScoresPage()
         {
@@ -32,16 +29,12 @@ namespace DungeonCrawler.Views.Scores
 
             await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(data)));
 
-            // Manually deselect item.
             ItemsListView.SelectedItem = null;
         }
 
         private async void AddItem_Clicked(object sender, EventArgs e)
         {
-            // Bug in the Score page for lecture
-            // await Navigation.PushAsync(new NewItemPage());
-
-
+   
             await Navigation.PushAsync(new NewScorePage());
         }
 
@@ -71,4 +64,3 @@ namespace DungeonCrawler.Views.Scores
         }
     }
 }
-*/

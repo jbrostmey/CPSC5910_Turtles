@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Xamarin.Forms;
-
+using DungeonCrawler.Views.Scores;
 namespace DungeonCrawler
 {
     public class MainPage : TabbedPage
@@ -11,7 +11,7 @@ namespace DungeonCrawler
 
 
 
-            Page itemsPage, aboutPage = null;
+            Page itemsPage, aboutPage, scorePage = null;
 
             switch (Device.RuntimePlatform)
             {
@@ -20,12 +20,17 @@ namespace DungeonCrawler
                     {
                         Title = "Browse"
                     };
+                    scorePage = new NavigationPage(new ScoresPage())
+                    {
+                        Title = "Score"
+                    };
 
                     aboutPage = new NavigationPage(new AboutPage())
                     {
                         Title = "About"
                     };
                     itemsPage.Icon = "tab_feed.png";
+                    scorePage.Icon = "tab_feed.png";
                     aboutPage.Icon = "tab_about.png";
                     break;
                 default:
@@ -33,6 +38,12 @@ namespace DungeonCrawler
                     {
                         Title = "Browse"
                     };
+
+                    scorePage = new ScoresPage()
+                    {
+                        Title = "Score"
+                    };
+
 
                     aboutPage = new AboutPage()
                     {
@@ -42,6 +53,7 @@ namespace DungeonCrawler
             }
 
             Children.Add(itemsPage);
+            Children.Add(scorePage);
             Children.Add(aboutPage);
 
             Title = Children[0].Title;

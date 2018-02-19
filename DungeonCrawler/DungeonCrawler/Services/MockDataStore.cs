@@ -28,18 +28,18 @@ namespace DungeonCrawler.Services
         private List<Item> _itemDataset = new List<Item>();
         // private List<Character> _characterDataset = new List<Character>();
         // private List<Monster> _monsterDataset = new List<Monster>();
-        //private List<Score> _scoreDataset = new List<Score>();
+        private List<Score> _scoreDataset = new List<Score>();
 
         private MockDataStore()
         {
             var mockItems = new List<Item>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description.", defense = 1, speed = 2, attack = 3, range = 4}, //position =  EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4},// position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body}
+                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description."},// defense = 1, speed = 2, attack = 3, range = 4}, //position =  EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description."},// , defense = 1, speed = 2, attack = 3, range = 4},// position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description."},// , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description."},// , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },//, defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }//, defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body}
             };
 
             foreach (var data in mockItems)
@@ -77,20 +77,20 @@ namespace DungeonCrawler.Services
                      _monsterDataset.Add(data);
                  }*/
 
-            /* var mockScores = new List<Score>
+            var mockScores = new List<Score>
              {
-                 new Score { Id = Guid.NewGuid().ToString(), Name = "First Score", ScoreTotal = 111},
-                 new Score { Id = Guid.NewGuid().ToString(), Name = "Second Score", ScoreTotal = 222},
-                 new Score { Id = Guid.NewGuid().ToString(), Name = "Third Score", ScoreTotal = 333},
-                 new Score { Id = Guid.NewGuid().ToString(), Name = "Fourth Score", ScoreTotal = 444},
-                 new Score { Id = Guid.NewGuid().ToString(), Name = "Fifth Score", ScoreTotal = 555},
-                 new Score { Id = Guid.NewGuid().ToString(), Name = "Sixth Score", ScoreTotal = 666},
+                 new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111},
+                 new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222},
+                 new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 333},
+                 new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 444},
+                 new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 555},
+                 new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 666},
              };
 
-             foreach (var data in mockScores)
-             {
-                 _scoreDataset.Add(data);
-             }*/
+            foreach (var data in mockScores)
+            {
+                _scoreDataset.Add(data);
+            }
 
         }
 
@@ -133,89 +133,90 @@ namespace DungeonCrawler.Services
             return await Task.FromResult(_itemDataset);
         }
 
-    }
-}
-       /* // Character
-        public async Task<bool> AddAsync_Character(Character data)
-        {
-            _characterDataset.Add(data);
-
-            return await Task.FromResult(true);
-        }
-
-        public async Task<bool> UpdateAsync_Character(Character data)
-        {
-            var myData = _characterDataset.FirstOrDefault(arg => arg.Id == data.Id);
-            if (myData == null)
-            {
-                return false;
-            }
-
-            myData.Update(data);
-
-            return await Task.FromResult(true);
-        }
-
-        public async Task<bool> DeleteAsync_Character(Character data)
-        {
-            var myData = _characterDataset.FirstOrDefault(arg => arg.Id == data.Id);
-            _characterDataset.Remove(myData);
-
-            return await Task.FromResult(true);
-        }
-
-        public async Task<Character> GetAsync_Character(string id)
-        {
-            return await Task.FromResult(_characterDataset.FirstOrDefault(s => s.Id == id));
-        }
-
-        public async Task<IEnumerable<Character>> GetAllAsync_Character(bool forceRefresh = false)
-        {
-            return await Task.FromResult(_characterDataset);
-        }
 
 
-        //Monster
-        public async Task<bool> AddAsync_Monster(Monster data)
-        {
-            _monsterDataset.Add(data);
 
-            return await Task.FromResult(true);
-        }
+        /* // Character
+         public async Task<bool> AddAsync_Character(Character data)
+         {
+             _characterDataset.Add(data);
 
-        public async Task<bool> UpdateAsync_Monster(Monster data)
-        {
-            var myData = _monsterDataset.FirstOrDefault(arg => arg.Id == data.Id);
-            if (myData == null)
-            {
-                return false;
-            }
+             return await Task.FromResult(true);
+         }
 
-            myData.Update(data);
+         public async Task<bool> UpdateAsync_Character(Character data)
+         {
+             var myData = _characterDataset.FirstOrDefault(arg => arg.Id == data.Id);
+             if (myData == null)
+             {
+                 return false;
+             }
 
-            return await Task.FromResult(true);
-        }
+             myData.Update(data);
 
-        public async Task<bool> DeleteAsync_Monster(Monster data)
-        {
-            var myData = _monsterDataset.FirstOrDefault(arg => arg.Id == data.Id);
-            _monsterDataset.Remove(myData);
+             return await Task.FromResult(true);
+         }
 
-            return await Task.FromResult(true);
-        }
+         public async Task<bool> DeleteAsync_Character(Character data)
+         {
+             var myData = _characterDataset.FirstOrDefault(arg => arg.Id == data.Id);
+             _characterDataset.Remove(myData);
 
-        public async Task<Monster> GetAsync_Monster(string id)
-        {
-            return await Task.FromResult(_monsterDataset.FirstOrDefault(s => s.Id == id));
-        }
+             return await Task.FromResult(true);
+         }
 
-        public async Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false)
-        {
-            return await Task.FromResult(_monsterDataset);
-        }
-        */
+         public async Task<Character> GetAsync_Character(string id)
+         {
+             return await Task.FromResult(_characterDataset.FirstOrDefault(s => s.Id == id));
+         }
 
-        /*
+         public async Task<IEnumerable<Character>> GetAllAsync_Character(bool forceRefresh = false)
+         {
+             return await Task.FromResult(_characterDataset);
+         }
+
+
+         //Monster
+         public async Task<bool> AddAsync_Monster(Monster data)
+         {
+             _monsterDataset.Add(data);
+
+             return await Task.FromResult(true);
+         }
+
+         public async Task<bool> UpdateAsync_Monster(Monster data)
+         {
+             var myData = _monsterDataset.FirstOrDefault(arg => arg.Id == data.Id);
+             if (myData == null)
+             {
+                 return false;
+             }
+
+             myData.Update(data);
+
+             return await Task.FromResult(true);
+         }
+
+         public async Task<bool> DeleteAsync_Monster(Monster data)
+         {
+             var myData = _monsterDataset.FirstOrDefault(arg => arg.Id == data.Id);
+             _monsterDataset.Remove(myData);
+
+             return await Task.FromResult(true);
+         }
+
+         public async Task<Monster> GetAsync_Monster(string id)
+         {
+             return await Task.FromResult(_monsterDataset.FirstOrDefault(s => s.Id == id));
+         }
+
+         public async Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false)
+         {
+             return await Task.FromResult(_monsterDataset);
+         }
+         */
+
+
         // Score
         public async Task<bool> AddAsync_Score(Score data)
         {
@@ -254,12 +255,13 @@ namespace DungeonCrawler.Services
         {
             return await Task.FromResult(_scoreDataset);
         }
-
     }
 }
 
-    
-*/
+
+
+  
+
     /*
 
     public class MockDataStore : IDataStore<Item>

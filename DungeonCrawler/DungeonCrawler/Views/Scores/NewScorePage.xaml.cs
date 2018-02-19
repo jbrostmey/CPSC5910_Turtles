@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using DungeonCrawler.Models;
+
+using Xamarin.Forms.Xaml;
+
 
 namespace DungeonCrawler.Views.Scores
 {
+    /*
     public partial class NewScorePage : ContentPage
     {
         public NewScorePage()
@@ -13,9 +18,9 @@ namespace DungeonCrawler.Views.Scores
         }
     }
 }
+*/
 
-/*
- *  [XamlCompilation(XamlCompilationOptions.Compile)]
+  [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewScorePage : ContentPage
     {
         public Score Data { get; set; }
@@ -26,7 +31,7 @@ namespace DungeonCrawler.Views.Scores
 
             Data = new Score
             {
-                Name = "Score name",
+              //  Name = "Score name",
                 ScoreTotal = 0,
                 Id = Guid.NewGuid().ToString()
             };
@@ -46,4 +51,3 @@ namespace DungeonCrawler.Views.Scores
         }
     }
 }
-*/

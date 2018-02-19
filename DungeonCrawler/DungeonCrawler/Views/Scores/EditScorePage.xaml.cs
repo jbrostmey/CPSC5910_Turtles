@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using Xamarin.Forms.Xaml;
 
 using Xamarin.Forms;
 
+using DungeonCrawler.Models;
+using DungeonCrawler.ViewModels;
+
 namespace DungeonCrawler.Views.Scores
 {
+   
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditScorePage : ContentPage
-    {
-        public EditScorePage()
-        {
-            InitializeComponent();
-        }
-    }
-}
-
-/* // ReSharper disable once NotAccessedField.Local
-        private ScoreDetailViewModel _viewModel;
+    {   
+    private ScoreDetailViewModel _viewModel;
 
         public Score Data { get; set; }
 
@@ -51,4 +49,3 @@ namespace DungeonCrawler.Views.Scores
         }
     }
 }
-*/

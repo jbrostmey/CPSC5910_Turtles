@@ -12,18 +12,7 @@
 			<Label Text="Description" FontSize="Medium" />
             <Entry Text="{Binding Item.Description}" FontSize="Small" />
 
-            <Label Text="Defense" FontSize="Medium" />
-            <Entry Text="{Binding Item.defense}" FontSize="Small" />
-
-            <Label Text="Speed" FontSize="Medium" />
-            <Entry Text="{Binding Item.speed}" FontSize="Small" />
-
-            <Label Text="Attack" FontSize="Medium" />
-            <Entry Text="{Binding Item.attack}" FontSize="Small" />
-
-            <Label Text="Range" FontSize="Medium" />
-            <Entry Text="{Binding Item.range}" FontSize="Small" />
-           
+          
 
             
 		</StackLayout>

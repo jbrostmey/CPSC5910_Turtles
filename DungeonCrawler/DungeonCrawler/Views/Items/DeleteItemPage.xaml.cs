@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace DungeonCrawler.Views.Items
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+
     public partial class DeleteItemPage : ContentPage
     {
         private ItemDetailViewModel _viewModel;

@@ -67,11 +67,7 @@ namespace DungeonCrawler
             // Update all the fields in the Data, except for the Id
             Text = newData.Text;
             Description = newData.Description;
-            defense = newData.defense;
-            speed = newData.speed;
-            attack = newData.attack;
-            range = newData.range;
-       //     position = newData.position;
+          
         }
 
 
