@@ -10,15 +10,43 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
+        <ScrollView> 
         <StackLayout Spacing="20" Padding="15">
 
-            <Label Text="Item Edit Page" FontSize="Small" />
+               <Label Text="Edit Item" FontSize="Large" HorizontalOptions="CenterAndExpand" />
 
+            
             <Label Text="Text" FontSize="Medium" />
             <Entry Text="{Binding Data.Name}" FontSize="Small" />
+            
             <Label Text="Description" FontSize="Medium" />
             <Editor Text="{Binding Data.Description}" FontSize="Small" Margin="0" />
+
+
+
+              <Label Text="Defense:" FontSize="Medium" />
+        <Editor Text="{Binding Data.defense}" FontSize="Small" Margin="0"/>
+
+         <Label Text="Speed:" FontSize="Medium" />
+        <Editor Text="{Binding Data.speed}" FontSize="Small" Margin="0"/>
+
+         <Label Text="Attack:" FontSize="Medium" />
+        <Editor Text="{Binding Data.attacl}" FontSize="Small" Margin="0"/>
+
+         <Label Text="Range:" FontSize="Medium" />
+        <Editor Text="{Binding Data.ramge}" FontSize="Small" Margin="0"/>
+
+
+         <Label Text="Position:" FontSize="Medium" />
+        <Editor Text="{Binding Data.position}" FontSize="Small" Margin="0"/>
+
+
+            
+
+
+            
         </StackLayout>
+            </ScrollView>
     </ContentPage.Content>
     
 </ContentPage>

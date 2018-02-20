@@ -82,12 +82,12 @@ namespace DungeonCrawler.Services
         private async void InitilizeSeedData()
         {
             
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description."});//, defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
-        await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description."});//, defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
-    await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description."});//, defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
-await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description."});//, defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
-await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description."});//, defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
-await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description."});//, defense = 1, speed = 2, attack = 3, range = 4}); //position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
 
 
            /* await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", Description = "This is an Character description.", Level = 1 });
@@ -104,12 +104,12 @@ await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First ite
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Fifth Monster", Description = "This is an Monster description." });
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Sixth Monster", Description = "This is an Monster description." });
 */
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111 });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222 });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 333 });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 444 });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 555 });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 666 });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 333, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 444, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 555, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 666 , GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
 
         }
 

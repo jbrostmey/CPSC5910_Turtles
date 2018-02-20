@@ -11,14 +11,45 @@
 
     <StackLayout Spacing="20" Padding="15">
 
-        <Label Text="Items Detail Page" FontSize="Small" />
-           <Label Text="Text:" FontSize="Medium" />
+
+         <Label Text="Item Description" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+
+        
+           <Label Text="Name:" FontSize="Medium" />
         <Label Text="{Binding Data.Text}" FontSize="Small"/>
 
        <Label Text="Description:" FontSize="Medium" />
         <Label Text="{Binding Data.Description}" FontSize="Small"/>
       
 
+
+               <Label Text="Defense:" FontSize="Medium" />
+            <Label Text="{Binding Data.defense}" FontSize="Small" />
+
+            <Label Text="Speed:" FontSize="Medium" />
+            <Label Text="{Binding Data.speed}" FontSize="Small" />
+
+            <Label Text="Attack:" FontSize="Medium" />
+            <Label Text="{Binding Data.attack}" FontSize="Small" />
+
+            <Label Text="Range:" FontSize="Medium" />
+            <Label Text="{Binding Data.range}" FontSize="Small" />
+
+            <Label Text="Position:" FontSize="Medium" />
+            <Label Text="{Binding Data.position}" FontSize="Small" />
+
+          
+
+
+
+
+
+
+
+
+
+
+        
       
     </StackLayout>
 </ContentPage>

@@ -9,7 +9,7 @@ Title="{Binding Title}"
     <ContentPage.Content>
         <StackLayout>
 
-            <Label Text="Scores List Page" FontSize="Small" />
+               <Label Text="All Scores" FontSize="Large" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
 
             <ListView x:Name="ItemsListView" 
                 ItemsSource="{Binding Dataset}"
@@ -28,10 +28,37 @@ Title="{Binding Title}"
                        LineBreakMode="NoWrap" 
                        Style="{DynamicResource ListItemTextStyle}" 
                        FontSize="16" />
+                                
                                 <Label Text="{Binding ScoreTotal}" 
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemDetailTextStyle}"
                        FontSize="13" />
+
+
+
+
+                             <Label Text="{Binding GameDate}" 
+                       LineBreakMode="NoWrap"
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

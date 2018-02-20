@@ -14,12 +14,60 @@
 
             <StackLayout Spacing="20" Padding="15">
 
-                <Label Text="Score Edit Page" FontSize="Small" />
+                <Label Text="Edit Score" FontSize="Large" HorizontalOptions="CenterAndExpand" />
 
-                <Label Text="Score:" FontSize="Medium" />
-                <Entry Text="{Binding Data.ScoreTotal}" FontSize="Small"/>
-                           
 
+     
+
+                   <Label Text="Score:" FontSize="Medium" />
+            <Entry Text="{Binding Data.ScoreTotal}" FontSize="Small"/>
+
+             <Label Text="Name:" FontSize="Medium" />
+            <Entry Text="{Binding Data.Name}" FontSize="Small"/>
+
+
+                    <Label Text="Date:" FontSize="Medium" />
+            <Entry Text="{Binding Data.GameDate}" FontSize="Small"/>
+
+
+                    <Label Text="Auto Battle:" FontSize="Medium" />
+            <Entry Text="{Binding Data.AutoBattle}" FontSize="Small"/>
+
+
+                    <Label Text="Turn Number:" FontSize="Medium" />
+            <Entry Text="{Binding Data.TurnNumber}" FontSize="Small"/>
+
+                  <Label Text="Monster Slain Number:" FontSize="Medium" />
+            <Entry Text="{Binding Data.MonsterSlainNumber}" FontSize="Small"/>
+
+
+                   <Label Text="Experience Gained Total:" FontSize="Medium" />
+            <Entry Text="{Binding Data.ExperienceGainedTotal}" FontSize="Small"/>
+
+
+                       <Label Text="Character At Death List:" FontSize="Medium" />
+            <Entry Text="{Binding Data.CharacterAtDeathList}" FontSize="Small"/>
+
+
+                       <Label Text="Monsters Killed List:" FontSize="Medium" />
+            <Entry Text="{Binding Data.MonstersKilledList}" FontSize="Small"/>
+
+
+                       <Label Text="Items Dropped List:" FontSize="Medium" />
+            <Entry Text="{Binding Data.ItemsDroppedList}" FontSize="Small"/>
+
+                
+
+
+
+
+
+
+
+
+
+
+                
             </StackLayout>
         </ScrollView>
 

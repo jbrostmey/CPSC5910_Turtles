@@ -29,8 +29,18 @@ namespace DungeonCrawler.Views.Scores {
 
             var data = new Score
             {
-               // Name = "Score name",
-                ScoreTotal = 0
+                Name = "Score name",
+                ScoreTotal = 0,
+                Id = Guid.NewGuid().ToString(),
+                GameDate = new DateTime(),
+                AutoBattle = false,
+                TurnNumber = 1,
+                MonsterSlainNumber = 0,
+                ExperienceGainedTotal = 0,
+                CharacterAtDeathList = "Characters dead",
+                MonstersKilledList = "Monsters killed",
+                ItemsDroppedList = "Items dropped"
+
             };
 
             _viewModel = new ScoreDetailViewModel(data);

@@ -19,11 +19,17 @@ namespace DungeonCrawler
 
             Data = new Item
             {
+
                 Text = "Item name",
                 Description = "This is an item description.",
+                defense = 1,
+                speed = 2,
+                attack = 3,
+                range = 4,
+                position = EquipmentPosition.body,
       
-            //    position = EquipmentPosition.body,
-                Id = Guid.NewGuid().ToString()
+                Id = Guid.NewGuid().ToString(),
+
             };
 
             BindingContext = this;
@@ -42,29 +48,4 @@ namespace DungeonCrawler
     }
 }
 
-    /*
-    public partial class NewItemPage : ContentPage
-    {
-        public Item Item { get; set; }
-
-        public NewItemPage()
-        {
-            InitializeComponent();
-
-            Item = new Item
-            {
-                Text = "Item name",
-                Description = "This is an item description."
-            };
-
-            BindingContext = this;
-        }
-
-        async void Save_Clicked(object sender, EventArgs e)
-        {
-            MessagingCenter.Send(this, "AddItem", Item);
-            await Navigation.PopToRootAsync();
-        }
-    }
-}
-*/
+ 

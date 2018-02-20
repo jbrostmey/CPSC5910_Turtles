@@ -21,9 +21,13 @@ namespace DungeonCrawler
         public string Description { get; set; }
 
         // Attributes of item
-        public int defense;
-        public int speed;
-        public int attack;
+       // public int defense;
+       // public int speed;
+       // public int attack;
+
+        public int defense{ get; set; }
+        public int speed{ get; set; }
+        public int attack{ get; set; }
 
         //Base attributes
         public int range { get; set; }
@@ -67,6 +71,11 @@ namespace DungeonCrawler
             // Update all the fields in the Data, except for the Id
             Text = newData.Text;
             Description = newData.Description;
+            defense = newData.defense;
+            speed = newData.speed;
+            attack = newData.attack;
+            range = newData.range;
+            position = newData.position;
           
         }
 

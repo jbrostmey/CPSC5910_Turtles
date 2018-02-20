@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Xamarin.Forms.Xaml;
 
 using Xamarin.Forms;
 using DungeonCrawler.ViewModels;
 using DungeonCrawler.Models;
 namespace DungeonCrawler.Views.Scores
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+
     public partial class DeleteScorePage : ContentPage
     {
 

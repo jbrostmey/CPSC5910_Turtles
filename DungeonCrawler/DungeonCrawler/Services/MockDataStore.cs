@@ -34,12 +34,12 @@ namespace DungeonCrawler.Services
         {
             var mockItems = new List<Item>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description."},// defense = 1, speed = 2, attack = 3, range = 4}, //position =  EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description."},// , defense = 1, speed = 2, attack = 3, range = 4},// position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description."},// , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description."},// , defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },//, defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }//, defense = 1, speed = 2, attack = 3, range = 4}, //position = EquipmentPosition.body}
+                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position =  EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body},
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." , defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body}
             };
 
             foreach (var data in mockItems)
@@ -79,12 +79,12 @@ namespace DungeonCrawler.Services
 
             var mockScores = new List<Score>
              {
-                 new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111},
-                 new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222},
-                 new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 333},
-                 new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 444},
-                 new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 555},
-                 new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 666},
+                new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" },
+                new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" },
+                new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 333, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" },
+                new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 444, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" },
+                new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 555, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" },
+                new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 666, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" }
              };
 
             foreach (var data in mockScores)

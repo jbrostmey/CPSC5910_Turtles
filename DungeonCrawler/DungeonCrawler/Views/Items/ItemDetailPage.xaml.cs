@@ -23,10 +23,15 @@ namespace DungeonCrawler
 
             var data = new Item
             {
-                Text = "Item 1",
-                Description = "This is an item description.",
-             //   position = EquipmentPosition.head
+                Id = Guid.NewGuid().ToString(),
 
+                Text = "Item 1",
+                Description = "This is an item description", //!!
+                defense = 1,
+                speed = 2,
+                attack = 3,
+                range = 4,
+                position = EquipmentPosition.body
 
 
 
@@ -57,30 +62,3 @@ namespace DungeonCrawler
 
 
 
-
-        /*ItemDetailViewModel viewModel;
-
-        // Note - The Xamarin.Forms Previewer requires a default, parameterless constructor to render a page.
-        public ItemDetailPage()
-        {
-            InitializeComponent();
-
-            var item = new Item
-            {
-                Text = "Item 1",
-                Description = "This is an item description."
-            };
-
-            viewModel = new ItemDetailViewModel(item);
-            BindingContext = viewModel;
-        }
-
-        public ItemDetailPage(ItemDetailViewModel viewModel)
-        {
-            InitializeComponent();
-
-            BindingContext = this.viewModel = viewModel;
-        }
-    }
-}
-*/

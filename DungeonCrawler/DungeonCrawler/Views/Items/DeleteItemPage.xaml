@@ -9,7 +9,7 @@
 
     <StackLayout Spacing="20" Padding="15">
 
-        <Label Text="Item Delete Page" FontSize="Small" />
+        <Label Text="Delete Item" FontSize="Small" />
 
 
         <Label Text="Text:" FontSize="Medium" />
@@ -19,7 +19,22 @@
         <Label Text="Description:" FontSize="Medium" />
         <Label Text="{Binding Data.Description}" FontSize="Small"/>
 
-      
+         <Label Text="Defense:" FontSize="Medium" />
+        <Label Text="{Binding Data.defense}" FontSize="Small"/>
+
+         <Label Text="Speed:" FontSize="Medium" />
+        <Label Text="{Binding Data.speed}" FontSize="Small"/>
+
+         <Label Text="Attack:" FontSize="Medium" />
+        <Label Text="{Binding Data.attacl}" FontSize="Small"/>
+
+         <Label Text="Range:" FontSize="Medium" />
+        <Label Text="{Binding Data.ramge}" FontSize="Small"/>
+
+
+         <Label Text="Position:" FontSize="Medium" />
+        <Label Text="{Binding Data.position}" FontSize="Small"/>
+
    
     </StackLayout>
 </ContentPage>

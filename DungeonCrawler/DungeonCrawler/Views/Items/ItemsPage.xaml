@@ -9,7 +9,8 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Label Text="Items List Page" FontSize="Small" />
+            <Label Text="Choose Items" FontSize="Large" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        <Label Text="Equipment" FontSize="Medium" HorizontalOptions="CenterAndExpand" FontAttributes="Italic"/>
 
             <ListView x:Name="ItemsListView" 
                 ItemsSource="{Binding Dataset}"
@@ -23,15 +24,61 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Name}" 
+                                
+                                <Label Text="{Binding Text}" 
                        LineBreakMode="NoWrap" 
+                                    
                        Style="{DynamicResource ListItemTextStyle}" 
                        FontSize="16" />
+                                
                                 <Label Text="{Binding Description}" 
                        LineBreakMode="NoWrap"
+                                
                        Style="{DynamicResource ListItemDetailTextStyle}"
                        FontSize="13" />
+
+
+
+                                <!--
+
+                                   <Label Text="{Binding defense}" 
+                       LineBreakMode="NoWrap"
+                                
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+
+
+                                            <Label Text="{Binding speed}" 
+                       LineBreakMode="NoWrap"
+                                
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+
+
+
+                                            <Label Text="{Binding attack}" 
+                       LineBreakMode="NoWrap"
+                                
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+
+                        <Label Text="{Binding range}" 
+                       LineBreakMode="NoWrap"
+                                
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+                                
+                           <Label Text="{Binding position}" 
+                       LineBreakMode="NoWrap"
+                                
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+
+                                -->
+
+                               
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
