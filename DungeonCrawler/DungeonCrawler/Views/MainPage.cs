@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 
 using Xamarin.Forms;
 using DungeonCrawler.Views.Scores;
+using DungeonCrawler.Views;
 namespace DungeonCrawler
 {
     public class MainPage : TabbedPage
@@ -11,8 +12,7 @@ namespace DungeonCrawler
 
 
 
-
-            Page itemsPage, scorePage, characterPage, monsterPage = null;
+            Page itemsPage, aboutPage, scorePage, characterPage = null;
 
             switch (Device.RuntimePlatform)
             {
@@ -27,47 +27,46 @@ namespace DungeonCrawler
                     //    Title = "Monsters"
                     //};
 
-                    itemsPage = new ItemsPage()
+                    itemsPage = new ItemsPage();
+                    itemsPage = new NavigationPage(new ItemsPage())
                     {
-                        Title = "Items"
+                        Title = "Browse"
                     };
                     scorePage = new  ScoresPage()
                     {
                         Title = "Score"
                     };
 
-                    scorePage = new ScoresPage()
+                    scorePage = new ScoresPage();
+                    aboutPage = new NavigationPage(new AboutPage())
                     {
-                        Title = "Scores"
+                        Title = "About"
                     };
                     characterPage.Icon = "tab_feed.png";
                     //monsterPage.Icon = "tab_feed.png";
                     itemsPage.Icon = "tab_feed.png";
                     scorePage.Icon = "tab_feed.png";
+                    aboutPage.Icon = "tab_about.png";
                     break;
                 default:
                     itemsPage = new ItemsPage()
                     {
                         Title = "Browse"
                     };
-                    characterPage = new CharacterPage()
-                    {
-                        Title = "Characters"
-                    };
 
                     //monsterPage = new MonstersPage()
                     //{
                     //    Title = "Monsters"
                     //};
-
-                    itemsPage = new ItemsPage()
-                    {
-                        Title = "Items"
-                    };
-
                     scorePage = new ScoresPage()
                     {
-                        Title = "Scores"
+                        Title = "Score"
+                    };
+
+
+                    aboutPage = new AboutPage()
+                    {
+                        Title = "About"
                     };
                     break;
             }
@@ -76,6 +75,7 @@ namespace DungeonCrawler
             //Children.Add(monsterPage);
             Children.Add(itemsPage);
             Children.Add(scorePage);
+            Children.Add(aboutPage);
 
             Title = Children[0].Title;
         }

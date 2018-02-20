@@ -24,6 +24,8 @@ namespace DungeonCrawler.Services
         //Task<Monster> GetAsync_Monster(string id);
         //Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false);
 
+
+
         Task<bool> AddAsync_Score(Score data);
         Task<bool> UpdateAsync_Score(Score data);
         Task<bool> DeleteAsync_Score(Score data);
@@ -34,4 +36,15 @@ namespace DungeonCrawler.Services
 }
 
 
-    
+    /*
+
+    public interface IDataStore<T>
+    {
+        Task<bool> AddItemAsync(T item);
+        Task<bool> UpdateItemAsync(T item);
+        Task<bool> DeleteItemAsync(string id);
+        Task<T> GetItemAsync(string id);
+        Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+    }
+}
+*/
