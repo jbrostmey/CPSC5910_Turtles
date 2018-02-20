@@ -16,6 +16,7 @@
 
    
 
+
                 <Label Text="Score:" FontSize="Medium" />
             <Label Text="{Binding Data.ScoreTotal}" FontSize="Small"/>
 

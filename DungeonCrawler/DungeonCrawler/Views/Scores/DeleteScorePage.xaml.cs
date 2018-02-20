@@ -36,8 +36,8 @@ namespace DungeonCrawler.Views.Scores
 
             // Remove Item Details Page manualy
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-
-            await Navigation.PopAsync();
+           // await Navigation.PopToRootAsync();
+            await Navigation.PopAsync(); //here
         }
 
         private async void Cancel_Clicked(object sender, EventArgs e)

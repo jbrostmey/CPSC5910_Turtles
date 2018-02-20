@@ -46,6 +46,18 @@
 						</FormattedString>
 					</Label.FormattedText>
 				</Label>
+
+                <Button  
+                    Text="Initialize Data" 
+                    Clicked="InitializeData_Command" 
+                    HorizontalOptions="Center"
+                    TextColor="Black" 
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    BorderWidth="2"
+                    FontSize="Large"
+                />
+                
    			</StackLayout>
 		</ScrollView>
 	</Grid>
