@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.Views.Battle.GameEnd">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Game Ended!" FontSize="Large" HorizontalOptions="Center"/>
+            <Label Text="Battle History Statistics: Ended!" FontSize="Medium" HorizontalOptions="Center"/>
+        
+
+            <StackLayout Padding="10">
+                <Label Text = "New High Score" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
+                <Label Text = "User1 1050" HorizontalOptions="Center" />
+                <Label Text = "User2 950" HorizontalOptions="Center"/>
+            </StackLayout> 
+
+            <Button Text = "Play Again!"
+                Clicked = "PlayAgain_Clicked"
+                BorderColor="Black"
+                BorderWidth = "1"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
