@@ -16,9 +16,6 @@ namespace DungeonCrawler.Models
             imageSource = "DapperDino.png";
         }
 
-        [PrimaryKey]
-        public string Id { get; set; }
-
         public EquipmentPosition equipmentPositions { get; set; }
 
         //Name for actor. Actors can be characters or monsters.

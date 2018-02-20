@@ -1,4 +1,5 @@
 ﻿using System;
+using SQLite;
 namespace DungeonCrawler.Models
 {
     /* Team: Turtles 
@@ -18,6 +19,8 @@ namespace DungeonCrawler.Models
             d10 = new Random((int) DateTime.Now.Ticks & 0x0000FFFF);
         }
 
+        [PrimaryKey]
+        public string Id { get; set; }
 
         // local variable to hold the levelstats that change on a per-level base.
         private LevelStats _levelStats = new LevelStats();
