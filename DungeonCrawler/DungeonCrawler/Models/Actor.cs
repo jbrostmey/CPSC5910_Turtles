@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SQLite;
 
 namespace DungeonCrawler.Models
 {
@@ -11,7 +12,11 @@ namespace DungeonCrawler.Models
     {
         public Actor()
         {
+            attributes = new Attributes();
         }
+
+        [PrimaryKey]
+        public string Id { get; set; }
 
         public EquipmentPosition equipmentPositions { get; set; }
 

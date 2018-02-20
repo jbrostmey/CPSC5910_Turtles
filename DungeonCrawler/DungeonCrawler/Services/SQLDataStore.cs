@@ -31,7 +31,7 @@ namespace DungeonCrawler.Services
         {
 
             App.Database.CreateTableAsync<Item>().Wait();
-           // App.Database.CreateTableAsync<Character>().Wait();
+            App.Database.CreateTableAsync<Character>().Wait();
             //App.Database.CreateTableAsync<Monster>().Wait();
             App.Database.CreateTableAsync<Score>().Wait();
         }
@@ -40,7 +40,7 @@ namespace DungeonCrawler.Services
         private void CreateTables()
         {
             App.Database.CreateTableAsync<Item>().Wait();
-            //App.Database.CreateTableAsync<Character>().Wait();
+            App.Database.CreateTableAsync<Character>().Wait();
             //App.Database.CreateTableAsync<Monster>().Wait();
             App.Database.CreateTableAsync<Score>().Wait();
 
@@ -50,7 +50,7 @@ namespace DungeonCrawler.Services
         private void DeleteTables()
         {
             App.Database.DropTableAsync<Item>().Wait();
-            //App.Database.DropTableAsync<Character>().Wait();
+            App.Database.DropTableAsync<Character>().Wait();
             //App.Database.DropTableAsync<Monster>().Wait();
            App.Database.DropTableAsync<Score>().Wait();
         }
@@ -60,7 +60,7 @@ namespace DungeonCrawler.Services
         {
             ItemsViewModel.Instance.SetNeedsRefresh(true);
             //MonstersViewModel.Instance.SetNeedsRefresh(true);
-            //CharactersViewModel.Instance.SetNeedsRefresh(true);
+            CharacterViewModel.Instance.SetNeedsRefresh(true);
             ScoresViewModel.Instance.SetNeedsRefresh(true);
         }
 
@@ -90,13 +90,13 @@ namespace DungeonCrawler.Services
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
 
 
-           /* await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", Description = "This is an Character description.", Level = 1 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Second Character", Description = "This is an Character description.", Level = 1 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Third Character", Description = "This is an Character description.", Level = 2 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Fourth Character", Description = "This is an Character description.", Level = 2 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Fifth Character", Description = "This is an Character description.", Level = 3 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Sixth Character", Description = "This is an Character description.", Level = 3 });
-
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "First Character", description = "This is an Character description.", Level = 1 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Second Character", description = "This is an Character description.", Level = 1 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Third Character", description = "This is an Character description.", Level = 2 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Fourth Character", description = "This is an Character description.", Level = 2 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Fifth Character", description = "This is an Character description.", Level = 3 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Sixth Character", description = "This is an Character description.", Level = 3 });
+            /*
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "First Monster", Description = "This is an Monster description." });
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Second Monster", Description = "This is an Monster description." });
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Third Monster", Description = "This is an Monster description." });
@@ -160,7 +160,7 @@ namespace DungeonCrawler.Services
         }
 
 
-       /* // Character
+        // Character
         public async Task<bool> AddAsync_Character(Character data)
         {
             var result = await App.Database.InsertAsync(data);
@@ -207,6 +207,7 @@ namespace DungeonCrawler.Services
         }
 
 
+        /*
         //Monster
         public async Task<bool> AddAsync_Monster(Monster data)
         {

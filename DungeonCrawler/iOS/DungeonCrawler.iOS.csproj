@@ -134,6 +134,9 @@
     <BundleResource Include="Resources\xamarin_logo.png" />
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
+    <BundleResource Include="Resources\DapperDino.png" />
+    <BundleResource Include="Resources\DapperDino%402x.png" />
+    <BundleResource Include="Resources\DapperDino%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />

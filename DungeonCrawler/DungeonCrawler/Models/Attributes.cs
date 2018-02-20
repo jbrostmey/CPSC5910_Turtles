@@ -63,5 +63,20 @@ namespace DungeonCrawler.Models
         // set/get speed modifier (for class specific modifiers)
         public int speedModifier { get; set; }
 
+        public void Update(Attributes c)
+        {
+            alive = c.alive;
+            attack = c.attack;
+            attackModifier = c.attackModifier;
+            currentExperience = c.currentExperience;
+            currentHealth = c.currentHealth;
+            defense = c.defense;
+            defenseModifier = c.defenseModifier;
+            health = c.health;
+            level = c.level;
+            speed = c.speed;
+            speedModifier = c.speedModifier;
+        }
+
     }
 }

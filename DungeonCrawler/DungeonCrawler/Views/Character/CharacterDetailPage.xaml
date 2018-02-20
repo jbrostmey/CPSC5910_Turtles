@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.CharacterDetailPage" 
+    Title="{Binding Title}">
+
+
+ <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" Clicked="Edit_Clicked" />
+        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Spacing="20" Padding="15">
+
+
+         <Label Text="Item Description" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+
+        
+           <Label Text="Name:" FontSize="Medium" />
+        <Label Text="{Binding Data.Text}" FontSize="Small"/>
+
+       <Label Text="Description:" FontSize="Medium" />
+        <Label Text="{Binding Data.Description}" FontSize="Small"/>
+      
+
+
+               <Label Text="Defense:" FontSize="Medium" />
+            <Label Text="{Binding Data.defense}" FontSize="Small" />
+
+            <Label Text="Speed:" FontSize="Medium" />
+            <Label Text="{Binding Data.speed}" FontSize="Small" />
+
+            <Label Text="Attack:" FontSize="Medium" />
+            <Label Text="{Binding Data.attack}" FontSize="Small" />
+
+            <Label Text="Range:" FontSize="Medium" />
+            <Label Text="{Binding Data.range}" FontSize="Small" />
+
+            <Label Text="Position:" FontSize="Medium" />
+            <Label Text="{Binding Data.position}" FontSize="Small" />
+
+          
+
+
+
+
+
+
+
+
+
+
+        
+      
+    </StackLayout>
+</ContentPage>
+
+ 

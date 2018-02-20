@@ -97,6 +97,20 @@ namespace DungeonCrawler.Models
             }
         }
 
+        public void update(Character c)
+        {
+            
+            name = c.name;
+            characterClass = c.characterClass;
+            description = c.description;
+
+            attributes.Update(c.attributes);
+
+            for (int i = 0; i < inventorySize; i++){
+                inventory[i].Update(c.inventory[i]);
+            }
+        }
+
 
 /*
  * We may reinstate the following code if/when we start making subclasses.
