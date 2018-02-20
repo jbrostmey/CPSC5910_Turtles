@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using DungeonCrawler.Models;
+using DungeonCrawler.ViewModels;
 using Xamarin.Forms;
 
-namespace DungeonCrawler.Views.Battle
+namespace DungeonCrawler.Views
 {
     public partial class BattleOver : ContentPage
     {

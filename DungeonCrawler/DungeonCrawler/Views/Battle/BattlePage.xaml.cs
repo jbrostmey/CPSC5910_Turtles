@@ -5,7 +5,7 @@ using DungeonCrawler.ViewModels;
 
 using Xamarin.Forms;
 
-namespace DungeonCrawler.Views.Battle
+namespace DungeonCrawler.Views
 {
     public partial class BattlePage : ContentPage
     {

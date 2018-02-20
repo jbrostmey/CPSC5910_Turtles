@@ -85,11 +85,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMessage.xaml.cs">
       <DependentUpon>BattleMessage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleOver.xaml.cs">
-      <DependentUpon>BattleOver.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\GameEnd.xaml.cs">
       <DependentUpon>GameEnd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleOver.xaml.cs">
+      <DependentUpon>BattleOver.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

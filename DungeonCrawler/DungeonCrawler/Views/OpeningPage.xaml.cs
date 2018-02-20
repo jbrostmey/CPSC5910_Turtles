@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using DungeonCrawler.Models;
+using DungeonCrawler.ViewModels;
+using DungeonCrawler.Views;
+
 
 using Xamarin.Forms;
 
@@ -16,7 +20,7 @@ namespace DungeonCrawler.Views
         //Need to add battle page when it is ready
         async void BattlePageButtonClick(Object sender, EventArgs e)
         {
-           // await Navigation.PushAsync(new Battle());
+            await Navigation.PushAsync(new BattlePage());
         }
 
         async void CRUDiPageButtonClick(Object sender, EventArgs e)

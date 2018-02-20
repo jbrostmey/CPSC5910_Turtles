@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace DungeonCrawler.Views.Battle
+namespace DungeonCrawler.Views
 {
     public partial class GameEnd : ContentPage
     {
