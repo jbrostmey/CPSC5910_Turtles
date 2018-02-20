@@ -11,7 +11,7 @@ Title="{Binding Title}"
 
                <Label Text="All Scores" FontSize="Large" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
 
-            <ListView x:Name="ItemsListView" 
+            <ListView x:Name="ScoreListView" 
                 ItemsSource="{Binding Dataset}"
                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"

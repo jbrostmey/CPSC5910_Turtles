@@ -103,6 +103,7 @@ namespace DungeonCrawler.Models
             name = c.name;
             characterClass = c.characterClass;
             description = c.description;
+            imageSource = c.imageSource;
 
             attributes.Update(c.attributes);
 

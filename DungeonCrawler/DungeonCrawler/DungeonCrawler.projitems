@@ -76,6 +76,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Character\CharacterDetailPage.xaml.cs">
       <DependentUpon>CharacterDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\NewCharacterPage.xaml.cs">
+      <DependentUpon>NewCharacterPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
@@ -117,6 +120,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\CharacterPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\CharacterDetailPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\NewCharacterPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\Scores\" />

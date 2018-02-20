@@ -41,33 +41,34 @@ namespace DungeonCrawler
             Dataset = new ObservableCollection<Character>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
-            MessagingCenter.Subscribe<DeleteCharacterPage, Character>(this, "DeleteData", async (obj, data) =>
-            {
-                Dataset.Remove(data);
-                await DataStore.DeleteAsync_Character(data);
-            });
+            //MessagingCenter.Subscribe<DeleteCharacterPage, Character>(this, "DeleteData", async (obj, data) =>
+            //{
+            //    Dataset.Remove(data);
+            //    await DataStore.DeleteAsync_Character(data);
+            //});
 
             MessagingCenter.Subscribe<NewCharacterPage, Character>(this, "AddData", async (obj, data) =>
             {
                 Dataset.Add(data);
                 await DataStore.AddAsync_Character(data);
-            });
-
-            MessagingCenter.Subscribe<EditCharacterPage, Character>(this, "EditData", async (obj, data) =>
-            {
-                // Find the Item, then update it
-                var myData = Dataset.FirstOrDefault(arg => arg.Id == data.Id);
-                if (myData == null)
-                {
-                    return;
-                }
-
-                myData.Update(data);
-                await DataStore.UpdateAsync_Character(myData);
-
                 _needsRefresh = true;
-
             });
+
+            //MessagingCenter.Subscribe<EditCharacterPage, Character>(this, "EditData", async (obj, data) =>
+            //{
+            //    // Find the Item, then update it
+            //    var myData = Dataset.FirstOrDefault(arg => arg.Id == data.Id);
+            //    if (myData == null)
+            //    {
+            //        return;
+            //    }
+
+            //    myData.Update(data);
+            //    await DataStore.UpdateAsync_Character(myData);
+
+            //    _needsRefresh = true;
+
+            //});
         }
 
         // Return True if a refresh is needed

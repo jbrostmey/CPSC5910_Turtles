@@ -90,12 +90,12 @@ namespace DungeonCrawler.Services
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
 
 
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "First Character", description = "This is an Character description.", Level = 1 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Second Character", description = "This is an Character description.", Level = 1 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Third Character", description = "This is an Character description.", Level = 2 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Fourth Character", description = "This is an Character description.", Level = 2 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Fifth Character", description = "This is an Character description.", Level = 3 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Sixth Character", description = "This is an Character description.", Level = 3 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "First Character", description = "This is an Character description.", characterClass = "Warrior"});
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Second Character", description = "This is an Character description.", characterClass = "Paladin"});
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Third Character", description = "This is an Character description.", characterClass = "Wizard"});
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Fourth Character", description = "This is an Character description.", characterClass = "Ranger"});
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Fifth Character", description = "This is an Character description.", characterClass = "Animal"});
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Sixth Character", description = "This is an Character description.", characterClass = "Alchemist"});
             /*
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "First Monster", Description = "This is an Monster description." });
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Second Monster", Description = "This is an Monster description." });

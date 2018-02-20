@@ -29,7 +29,7 @@ namespace DungeonCrawler.Views.Scores
 
             await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(data)));
 
-            ItemsListView.SelectedItem = null;
+            ScoreListView.SelectedItem = null;
         }
 
         private async void AddItem_Clicked(object sender, EventArgs e)

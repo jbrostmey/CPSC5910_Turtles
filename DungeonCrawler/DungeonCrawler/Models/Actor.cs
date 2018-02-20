@@ -13,6 +13,7 @@ namespace DungeonCrawler.Models
         public Actor()
         {
             attributes = new Attributes();
+            imageSource = "DapperDino.png";
         }
 
         [PrimaryKey]
@@ -22,6 +23,8 @@ namespace DungeonCrawler.Models
 
         //Name for actor. Actors can be characters or monsters.
         public string name { get; set; }
+
+        public string imageSource { get; set; }
 
         //The description for the actor. 
         public string description { get; set; }

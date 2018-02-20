@@ -18,7 +18,7 @@ namespace DungeonCrawler
             InitializeComponent();
 
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new OpeningPage());
         }
 
         protected override void OnStart ()

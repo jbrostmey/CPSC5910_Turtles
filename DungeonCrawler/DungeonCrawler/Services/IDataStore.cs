@@ -18,11 +18,11 @@ namespace DungeonCrawler.Services
         Task<Character> GetAsync_Character(string id);
         Task<IEnumerable<Character>> GetAllAsync_Character(bool forceRefresh = false);
 
-        Task<bool> AddAsync_Monster(Monster data);
-        Task<bool> UpdateAsync_Monster(Monster data);
-        Task<bool> DeleteAsync_Monster(Monster data);
-        Task<Monster> GetAsync_Monster(string id);
-        Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false);
+        //Task<bool> AddAsync_Monster(Monster data);
+        //Task<bool> UpdateAsync_Monster(Monster data);
+        //Task<bool> DeleteAsync_Monster(Monster data);
+        //Task<Monster> GetAsync_Monster(string id);
+        //Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false);
 
         Task<bool> AddAsync_Score(Score data);
         Task<bool> UpdateAsync_Score(Score data);
