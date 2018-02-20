@@ -79,6 +79,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Character\NewCharacterPage.xaml.cs">
       <DependentUpon>NewCharacterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattlePage.xaml.cs">
+      <DependentUpon>BattlePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMessage.xaml.cs">
+      <DependentUpon>BattleMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleOver.xaml.cs">
+      <DependentUpon>BattleOver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\GameEnd.xaml.cs">
+      <DependentUpon>GameEnd.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
@@ -121,11 +133,28 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\CharacterPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\CharacterDetailPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\NewCharacterPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattlePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattleOver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\GameEnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\Scores\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Items\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Character\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Monster\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Battle\" />
   </ItemGroup>
 </Project>
