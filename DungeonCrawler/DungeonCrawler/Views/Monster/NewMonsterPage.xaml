@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="DungeonCrawler.NewCharacterPage" Title="Add New Character">
+    x:Class="DungeonCrawler.NewMonsterPage" Title="Add New Monster">
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="Save" Clicked="Save_Clicked" />
 	</ContentPage.ToolbarItems>
@@ -13,9 +13,7 @@
 
 			<Label Text="Name" FontSize="Medium" />
 			<Entry Text="{Binding data.name}" FontSize="Small" />
-            
-            <Label Text="Class" FontSize="Medium" />
-            <Entry Text="{Binding data.characterClass}" FontSize="Small" />
+       
                 
 			<Label Text="Description" FontSize="Medium" />
             <Editor Text="{Binding data.description}" FontSize="Small" />

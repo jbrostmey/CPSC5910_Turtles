@@ -90,7 +90,30 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleOver.xaml.cs">
       <DependentUpon>BattleOver.xaml</DependentUpon>
+      </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\EditCharacterPage.xaml.cs">
+      <DependentUpon>EditCharacterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\DeleteCharacterPage.xaml.cs">
+      <DependentUpon>DeleteCharacterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterDetailPage.xaml.cs">
+      <DependentUpon>MonsterDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterPage.xaml.cs">
+      <DependentUpon>MonsterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\DeleteMonsterPage.xaml.cs">
+      <DependentUpon>DeleteMonsterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\EditMonsterPage.xaml.cs">
+      <DependentUpon>EditMonsterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\NewMonsterPage.xaml.cs">
+      <DependentUpon>NewMonsterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MonsterDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MonsterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
@@ -149,6 +172,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\EditCharacterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\DeleteCharacterPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterDetailPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\DeleteMonsterPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\EditMonsterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\NewMonsterPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\Scores\" />

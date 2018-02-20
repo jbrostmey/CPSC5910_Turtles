@@ -17,6 +17,7 @@ namespace DungeonCrawler.Models
         // Each character will initialize their own d10 on creation.
         public Character() {
             d10 = new Random((int) DateTime.Now.Ticks & 0x0000FFFF);
+            inventory = new Item[8];
         }
 
         [PrimaryKey]
@@ -111,6 +112,8 @@ namespace DungeonCrawler.Models
             attributes.Update(c.attributes);
 
             for (int i = 0; i < inventorySize; i++){
+                if(inventory[i] == null)
+                    inventory[i] = new Item();
                 inventory[i].Update(c.inventory[i]);
             }
         }

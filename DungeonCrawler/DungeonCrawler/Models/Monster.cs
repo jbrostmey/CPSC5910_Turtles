@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using SQLite;
+
 namespace DungeonCrawler.Models
 {
     /* Team: Turtles 
@@ -19,11 +21,15 @@ namespace DungeonCrawler.Models
         public Monster()
         {
             d10 = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+           // dropPool = new Item[1];
         }
+
+        [PrimaryKey]
+        public string Id { get; set; }
 
         // Upon creation, a monster is assigned items to be in its drop pool.
         //  These items can be dropped upon death.
-        public Item[] dropPool { get; set; }
+        //public Item[] dropPool { get; set; }
 
         // Droprate is used to determine if the monster drops its item upon death.
         //      This is done by comparing if a d10 dice roll is higher than the drop rate.
@@ -44,6 +50,13 @@ namespace DungeonCrawler.Models
         //      First calculates how much experience to return, then reduces health of the monster.
         public int TakeDamage(int Damage) { return 5; }
 
+
+        public void Update(Monster m)
+        {
+            name = m.name;
+            description = m.description;
+            attributes.Update(m.attributes);
+        }
 
         /*This belongs in game engine (so we can change business rules later) 
          * 

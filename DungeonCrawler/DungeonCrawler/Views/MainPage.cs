@@ -12,7 +12,7 @@ namespace DungeonCrawler
 
 
 
-            Page itemsPage, aboutPage, scorePage, characterPage = null;
+            Page itemsPage, monsterPage, scorePage, characterPage = null;
 
             switch (Device.RuntimePlatform)
             {
@@ -22,60 +22,52 @@ namespace DungeonCrawler
                         Title = "Characters"
                     };
 
-                    //monsterPage = new NavigationPage(new MonstersPage())
-                    //{
-                    //    Title = "Monsters"
-                    //};
-
-                    itemsPage = new ItemsPage();
-                    itemsPage = new NavigationPage(new ItemsPage())
+                    monsterPage = new MonsterPage()
                     {
-                        Title = "Browse"
+                        Title = "Monsters"
+                    };
+
+                    itemsPage = new ItemsPage()
+                    {
+                        Title = "Items"
                     };
                     scorePage = new  ScoresPage()
                     {
                         Title = "Score"
                     };
-
-                    scorePage = new ScoresPage();
-                    aboutPage = new NavigationPage(new AboutPage())
-                    {
-                        Title = "About"
-                    };
                     characterPage.Icon = "tab_feed.png";
-                    //monsterPage.Icon = "tab_feed.png";
+                    monsterPage.Icon = "tab_feed.png";
                     itemsPage.Icon = "tab_feed.png";
                     scorePage.Icon = "tab_feed.png";
-                    aboutPage.Icon = "tab_about.png";
                     break;
                 default:
+                    characterPage = new CharacterPage()
+                    {
+                        Title = "Characters"
+                    };
                     itemsPage = new ItemsPage()
                     {
-                        Title = "Browse"
+                        Title = "Items"
                     };
 
-                    //monsterPage = new MonstersPage()
-                    //{
-                    //    Title = "Monsters"
-                    //};
+                    monsterPage = new MonsterPage()
+                    {
+                        Title = "Monsters"
+                    };
                     scorePage = new ScoresPage()
                     {
                         Title = "Score"
                     };
-
-
-                    aboutPage = new AboutPage()
-                    {
-                        Title = "About"
-                    };
                     break;
+
+
+
             }
 
             Children.Add(characterPage);
-            //Children.Add(monsterPage);
+            Children.Add(monsterPage);
             Children.Add(itemsPage);
             Children.Add(scorePage);
-            Children.Add(aboutPage);
 
             Title = Children[0].Title;
         }

@@ -4,29 +4,28 @@ using Xamarin.Forms;
 using DungeonCrawler.Models;
 namespace DungeonCrawler
 {
-    public partial class CharacterDetailPage : ContentPage
+    public partial class MonsterDetailPage : ContentPage
     {
         // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
-        private CharacterDetailViewModel _viewModel;
+        private MonsterDetailViewModel _viewModel;
 
-        public CharacterDetailPage(CharacterDetailViewModel viewModel)
+        public MonsterDetailPage(MonsterDetailViewModel viewModel)
         {
             InitializeComponent();
 
             BindingContext = _viewModel = viewModel;
         }
 
-        public CharacterDetailPage()
+        public MonsterDetailPage()
         {
             InitializeComponent();
 
-            var data = new Character
+            var data = new Monster
             {
                 Id = Guid.NewGuid().ToString(),
 
-                name = "Dan",
-                description = "Dan is the man",
-                characterClass = "paladin",
+                name = "Ooze",
+                description = "Gooey and Gross",
             };
 
             data.attributes.defense = 1;
@@ -42,19 +41,19 @@ namespace DungeonCrawler
             data.attributes.speed = 1;
             data.attributes.speedModifier = 1;
 
-            _viewModel = new CharacterDetailViewModel(data);
+            _viewModel = new MonsterDetailViewModel(data);
             BindingContext = _viewModel;
         }
 
 
         private async void Edit_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditCharacterPage(_viewModel));
+            await Navigation.PushAsync(new EditMonsterPage(_viewModel));
         }
 
         private async void Delete_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DeleteCharacterPage(_viewModel));
+            await Navigation.PushAsync(new DeleteMonsterPage(_viewModel));
         }
 
         private async void Cancel_Clicked(object sender, EventArgs e)

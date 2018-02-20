@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="DungeonCrawler.NewCharacterPage" Title="Add New Character">
+    x:Class="DungeonCrawler.EditMonsterPage" Title="Edit Monster">
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="Save" Clicked="Save_Clicked" />
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
 	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
         <ScrollView>
 
 		<StackLayout Spacing="20" Padding="15">
 
-           <Label Text="Create Character" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+           <Label Text="Edit Monster" FontSize="Large" HorizontalOptions="CenterAndExpand" />
 
 			<Label Text="Name" FontSize="Medium" />
-			<Entry Text="{Binding data.name}" FontSize="Small" />
-            
-            <Label Text="Class" FontSize="Medium" />
-            <Entry Text="{Binding data.characterClass}" FontSize="Small" />
+			<Entry Text="{Binding Data.name}" FontSize="Small" />
+       
                 
 			<Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding data.description}" FontSize="Small" />
+            <Editor Text="{Binding Data.description}" FontSize="Small" />
 
             <Label Text="Defense" FontSize="Medium" />
-            <Editor Text="{Binding data.attributes.defense}" FontSize="Small" />
+            <Editor Text="{Binding Data.attributes.defense}" FontSize="Small" />
 
             <Label Text="Speed" FontSize="Medium" />
-            <Editor Text="{Binding data.attributes.speed}" FontSize="Small" />
+            <Editor Text="{Binding Data.attributes.speed}" FontSize="Small" />
 
             <Label Text="Attack" FontSize="Medium" />
-            <Editor Text="{Binding data.attributes.attack}" FontSize="Small" />
+            <Editor Text="{Binding Data.attributes.attack}" FontSize="Small" />
 
           
 

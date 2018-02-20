@@ -41,7 +41,7 @@ namespace DungeonCrawler.Models
                     if (!aMon.IsAlive())
                     {
                         aChar.GainExperience(1); // EXP not yet determined
-                        Item[] drops = aMon.dropPool; // Items dropped from monster's death
+                        //Item[] drops = aMon.dropPool; // Items dropped from monster's death
                     }
                 }
                 else // Monster's turn

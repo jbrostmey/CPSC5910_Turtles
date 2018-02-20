@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.CharacterDetailPage" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.DeleteMonsterPage" 
     Title="{Binding Title}">
 
 
  <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Edit" Clicked="Edit_Clicked" />
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
     </ContentPage.ToolbarItems>
@@ -12,14 +11,11 @@
     <StackLayout Spacing="20" Padding="15">
 
 
-         <Label Text="Character Description" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+         <Label Text="Delete Monster" FontSize="Large" HorizontalOptions="CenterAndExpand" />
 
         
            <Label Text="Name:" FontSize="Medium" />
         <Label Text="{Binding Data.name}" FontSize="Small"/>
-
-        <Label Text="Class:" FontSize="Medium" />
-        <Label Text="{Binding Data.characterClass}" FontSize="Small"/>
 
        <Label Text="Description:" FontSize="Medium" />
         <Label Text="{Binding Data.description}" FontSize="Small"/>

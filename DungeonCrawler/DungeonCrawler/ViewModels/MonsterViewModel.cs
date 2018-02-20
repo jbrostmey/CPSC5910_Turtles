@@ -13,48 +13,48 @@ using System.Linq;
 
 namespace DungeonCrawler
 {
-    public class CharacterViewModel : BaseViewModel
+    public class MonsterViewModel : BaseViewModel
     {
         // Make this a singleton so it only exist one time because holds all the data records in memory
-        private static CharacterViewModel _instance;
+        private static MonsterViewModel _instance;
 
-        public static CharacterViewModel Instance
+        public static MonsterViewModel Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new CharacterViewModel();
+                    _instance = new MonsterViewModel();
                 }
                 return _instance;
             }
         }
 
-        public ObservableCollection<Character> Dataset { get; set; }
+        public ObservableCollection<Monster> Dataset { get; set; }
         public Command LoadDataCommand { get; set; }
 
         private bool _needsRefresh;
 
-        public CharacterViewModel()
+        public MonsterViewModel()
         {
-            Title = "Character List";
-            Dataset = new ObservableCollection<Character>();
+            Title = "Monster List";
+            Dataset = new ObservableCollection<Monster>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
-            MessagingCenter.Subscribe<DeleteCharacterPage, Character>(this, "DeleteData", async (obj, data) =>
+            MessagingCenter.Subscribe<DeleteMonsterPage, Monster>(this, "DeleteData", async (obj, data) =>
             {
                 Dataset.Remove(data);
-                await DataStore.DeleteAsync_Character(data);
+                await DataStore.DeleteAsync_Monster(data);
             });
 
-            MessagingCenter.Subscribe<NewCharacterPage, Character>(this, "AddData", async (obj, data) =>
+            MessagingCenter.Subscribe<NewMonsterPage, Monster>(this, "AddData", async (obj, data) =>
             {
                 Dataset.Add(data);
-                await DataStore.AddAsync_Character(data);
+                await DataStore.AddAsync_Monster(data);
                 _needsRefresh = true;
             });
 
-            MessagingCenter.Subscribe<EditCharacterPage, Character>(this, "EditData", async (obj, data) =>
+            MessagingCenter.Subscribe<EditMonsterPage, Monster>(this, "EditData", async (obj, data) =>
             {
                 // Find the Item, then update it
                 var myData = Dataset.FirstOrDefault(arg => arg.Id == data.Id);
@@ -63,8 +63,8 @@ namespace DungeonCrawler
                     return;
                 }
 
-                myData.update(data);
-                await DataStore.UpdateAsync_Character(myData);
+                myData.Update(data);
+                await DataStore.UpdateAsync_Monster(myData);
 
                 _needsRefresh = true;
 
@@ -100,7 +100,7 @@ namespace DungeonCrawler
             try
             {
                 Dataset.Clear();
-                var dataset = await DataStore.GetAllAsync_Character(true);
+                var dataset = await DataStore.GetAllAsync_Monster(true);
                 foreach (var data in dataset)
                 {
                     Dataset.Add(data);

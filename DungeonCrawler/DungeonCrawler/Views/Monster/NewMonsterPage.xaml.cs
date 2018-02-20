@@ -1,32 +1,28 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
 using DungeonCrawler.Models;
+
 namespace DungeonCrawler
 {
-    public partial class CharacterDetailPage : ContentPage
+
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class NewMonsterPage : ContentPage
     {
-        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
-        private CharacterDetailViewModel _viewModel;
+        public Monster data { get; set; }
 
-        public CharacterDetailPage(CharacterDetailViewModel viewModel)
+        public NewMonsterPage()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = viewModel;
-        }
-
-        public CharacterDetailPage()
-        {
-            InitializeComponent();
-
-            var data = new Character
+            data = new Monster
             {
                 Id = Guid.NewGuid().ToString(),
 
                 name = "Dan",
                 description = "Dan is the man",
-                characterClass = "paladin",
             };
 
             data.attributes.defense = 1;
@@ -42,19 +38,13 @@ namespace DungeonCrawler
             data.attributes.speed = 1;
             data.attributes.speedModifier = 1;
 
-            _viewModel = new CharacterDetailViewModel(data);
-            BindingContext = _viewModel;
+            BindingContext = this;
         }
 
-
-        private async void Edit_Clicked(object sender, EventArgs e)
+        private async void Save_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditCharacterPage(_viewModel));
-        }
-
-        private async void Delete_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new DeleteCharacterPage(_viewModel));
+            MessagingCenter.Send(this, "AddData", data);
+            await Navigation.PopAsync();
         }
 
         private async void Cancel_Clicked(object sender, EventArgs e)
@@ -64,6 +54,4 @@ namespace DungeonCrawler
     }
 }
 
-
-
-
+ 

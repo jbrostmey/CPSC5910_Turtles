@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.CharacterDetailPage" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.MonsterDetailPage" 
     Title="{Binding Title}">
 
 
@@ -18,8 +18,6 @@
            <Label Text="Name:" FontSize="Medium" />
         <Label Text="{Binding Data.name}" FontSize="Small"/>
 
-        <Label Text="Class:" FontSize="Medium" />
-        <Label Text="{Binding Data.characterClass}" FontSize="Small"/>
 
        <Label Text="Description:" FontSize="Medium" />
         <Label Text="{Binding Data.description}" FontSize="Small"/>

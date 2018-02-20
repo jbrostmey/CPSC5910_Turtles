@@ -40,8 +40,8 @@ namespace DungeonCrawler.Services
         private void CreateTables()
         {
             App.Database.CreateTableAsync<Item>().Wait();
-            //App.Database.CreateTableAsync<Character>().Wait();
-            //App.Database.CreateTableAsync<Monster>().Wait();
+            App.Database.CreateTableAsync<Character>().Wait();
+            App.Database.CreateTableAsync<Monster>().Wait();
             App.Database.CreateTableAsync<Score>().Wait();
 
         }
@@ -50,8 +50,8 @@ namespace DungeonCrawler.Services
         private void DeleteTables()
         {
             App.Database.DropTableAsync<Item>().Wait();
-            //App.Database.DropTableAsync<Character>().Wait();
-            //App.Database.DropTableAsync<Monster>().Wait();
+            App.Database.DropTableAsync<Character>().Wait();
+            App.Database.DropTableAsync<Monster>().Wait();
            App.Database.DropTableAsync<Score>().Wait();
         }
 
@@ -59,8 +59,8 @@ namespace DungeonCrawler.Services
         private void NotifyViewModelsOfDataChange()
         {
             ItemsViewModel.Instance.SetNeedsRefresh(true);
-            //MonstersViewModel.Instance.SetNeedsRefresh(true);
-            //CharactersViewModel.Instance.SetNeedsRefresh(true);
+            MonsterViewModel.Instance.SetNeedsRefresh(true);
+            CharacterViewModel.Instance.SetNeedsRefresh(true);
             ScoresViewModel.Instance.SetNeedsRefresh(true);
         }
 
@@ -104,19 +104,13 @@ namespace DungeonCrawler.Services
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Fifth Monster", Description = "This is an Monster description." });
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Sixth Monster", Description = "This is an Monster description." });
 */
-            await AddAsync_Character(new Character {  characterClass = "First Character" });
-                await AddAsync_Character(new Character { characterClass = "First Character" });// Id = Guid.NewGuid().ToString(), Name = "Second Character", Description = "This is an Character description.", Level = 1 });
-            await AddAsync_Character(new Character { characterClass = "First Character" });//{ Id = Guid.NewGuid().ToString(), Name = "Third Character", Description = "This is an Character description.", Level = 2 });
-            await AddAsync_Character(new Character { characterClass = "First Character" });//{ Id = Guid.NewGuid().ToString(), Name = "Fourth Character", Description = "This is an Character description.", Level = 2 });
-            await AddAsync_Character(new Character { characterClass = "First Character" });//{ Id = Guid.NewGuid().ToString(), Name = "Fifth Character", Description = "This is an Character description.", Level = 3 });
-            await AddAsync_Character(new Character{ characterClass = "First Character" });// { Id = Guid.NewGuid().ToString(), Name = "Sixth Character", Description = "This is an Character description.", Level = 3 });
 
-            await AddAsync_Monster(new Monster  { dropPool = new Item[1] });//Id = Guid.NewGuid().ToString(), Name = "First Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { dropPool = new Item[1] });//{ Id = Guid.NewGuid().ToString(), Name = "Second Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { dropPool = new Item[1] });//{ Id = Guid.NewGuid().ToString(), Name = "Third Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster{ dropPool = new Item[1] });// { Id = Guid.NewGuid().ToString(), Name = "Fourth Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { dropPool = new Item[1] });//{ Id = Guid.NewGuid().ToString(), Name = "Fifth Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { dropPool = new Item[1] });//{ Id = Guid.NewGuid().ToString(), Name = "Sixth Monster", Description = "This is an Monster description." });
+            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(), description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "First Monster name" });
+            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Second Monster name" });
+            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Third Monster name" });
+            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Fourth Monster name" });
+            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Fifth Monster name" });
+            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Sixth Monster name" });
 
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
