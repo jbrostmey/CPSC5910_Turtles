@@ -31,20 +31,73 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\EquipmentPosition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Battle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Score.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Items\ItemsPage.xaml.cs">
-      <DependentUpon>ItemsPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IFileHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\SQLDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CharacterDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CharacterViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MonsterDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MonsterViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ScoreDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ScoresViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMessage.xaml.cs">
+      <DependentUpon>BattleMessage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Items\NewItemPage.xaml.cs">
-      <DependentUpon>NewItemPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleOver.xaml.cs">
+      <DependentUpon>BattleOver.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Items\ItemDetailPage.xaml.cs">
-      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattlePage.xaml.cs">
+      <DependentUpon>BattlePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\GameEnd.xaml.cs">
+      <DependentUpon>GameEnd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\CharacterDetailPage.xaml.cs">
+      <DependentUpon>CharacterDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\CharacterPage.xaml.cs">
+      <DependentUpon>CharacterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\DeleteCharacterPage.xaml.cs">
+      <DependentUpon>DeleteCharacterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\EditCharacterPage.xaml.cs">
+      <DependentUpon>EditCharacterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\NewCharacterPage.xaml.cs">
+      <DependentUpon>NewCharacterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Items\DeleteItemPage.xaml.cs">
       <DependentUpon>DeleteItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Items\EditItemPage.xaml.cs">
       <DependentUpon>EditItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Items\ItemDetailPage.xaml.cs">
+      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Items\ItemsPage.xaml.cs">
+      <DependentUpon>ItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Items\NewItemPage.xaml.cs">
+      <DependentUpon>NewItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\OpeningPage.xaml.cs">
+      <DependentUpon>OpeningPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\DeleteMonsterPage.xaml.cs">
+      <DependentUpon>DeleteMonsterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\EditMonsterPage.xaml.cs">
+      <DependentUpon>EditMonsterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterDetailPage.xaml.cs">
+      <DependentUpon>MonsterDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterPage.xaml.cs">
+      <DependentUpon>MonsterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\NewMonsterPage.xaml.cs">
+      <DependentUpon>NewMonsterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Scores\DeleteScorePage.xaml.cs">
       <DependentUpon>DeleteScorePage.xaml</DependentUpon>
@@ -61,71 +114,87 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Scores\ScoresPage.xaml.cs">
       <DependentUpon>ScoresPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ScoreDetailViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ScoresViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\SQLDataStore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\IFileHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\OpeningPage.xaml.cs">
-      <DependentUpon>OpeningPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\CharacterPage.xaml.cs">
-      <DependentUpon>CharacterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CharacterViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CharacterDetailViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\CharacterDetailPage.xaml.cs">
-      <DependentUpon>CharacterDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\NewCharacterPage.xaml.cs">
-      <DependentUpon>NewCharacterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattlePage.xaml.cs">
-      <DependentUpon>BattlePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMessage.xaml.cs">
-      <DependentUpon>BattleMessage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\GameEnd.xaml.cs">
-      <DependentUpon>GameEnd.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleOver.xaml.cs">
-      <DependentUpon>BattleOver.xaml</DependentUpon>
-      </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\EditCharacterPage.xaml.cs">
-      <DependentUpon>EditCharacterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Character\DeleteCharacterPage.xaml.cs">
-      <DependentUpon>DeleteCharacterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterDetailPage.xaml.cs">
-      <DependentUpon>MonsterDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterPage.xaml.cs">
-      <DependentUpon>MonsterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\DeleteMonsterPage.xaml.cs">
-      <DependentUpon>DeleteMonsterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\EditMonsterPage.xaml.cs">
-      <DependentUpon>EditMonsterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Monster\NewMonsterPage.xaml.cs">
-      <DependentUpon>NewMonsterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MonsterDetailViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MonsterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Items\ItemsPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Items\NewItemPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Items\ItemDetailPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattleOver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattlePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\GameEnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\CharacterDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\CharacterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\DeleteCharacterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\EditCharacterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\NewCharacterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Items\DeleteItemPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Items\EditItemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Items\ItemDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Items\ItemsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Items\NewItemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\OpeningPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\DeleteMonsterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\EditMonsterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\NewMonsterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -149,48 +218,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\OpeningPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\CharacterPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\CharacterDetailPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\NewCharacterPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattlePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMessage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattleOver.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\GameEnd.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\EditCharacterPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Character\DeleteCharacterPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterDetailPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\MonsterPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\DeleteMonsterPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\EditMonsterPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Monster\NewMonsterPage.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Views\Scores\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Views\Items\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Views\Character\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Views\Monster\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Battle\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Character\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Items\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Monster\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Scores\" />
   </ItemGroup>
 </Project>

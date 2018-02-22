@@ -17,12 +17,12 @@ namespace DungeonCrawler.Views
         //Nonfunctional at this time
         private async void ViewCharacters_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ItemsPage());
+            await Navigation.PushAsync(new CharacterPage());
         }
 
         private async void ViewMonsters_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ItemsPage());
+            await Navigation.PushAsync(new MonsterPage());
         }
 
 

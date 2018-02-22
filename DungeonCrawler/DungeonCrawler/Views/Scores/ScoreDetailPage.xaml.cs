@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using DungeonCrawler.Views;
-using Xamarin.Forms.Xaml;
+//using DungeonCrawler.Views;
+//using Xamarin.Forms.Xaml;
 using DungeonCrawler.Models;
 
 using DungeonCrawler.ViewModels;
 namespace DungeonCrawler.Views.Scores {  
                      
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ScoreDetailPage : ContentPage
     {
         // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
