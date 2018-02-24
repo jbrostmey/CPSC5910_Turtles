@@ -12,7 +12,7 @@
     <StackLayout Spacing="20" Padding="15">
 
 
-         <Label Text="Character Description" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+         <Label Text="Monster Description" FontSize="Large" HorizontalOptions="CenterAndExpand" />
 
         
            <Label Text="Name:" FontSize="Medium" />
