@@ -28,6 +28,7 @@ namespace DungeonCrawler
         public int defense{ get; set; }
         public int speed{ get; set; }
         public int attack{ get; set; }
+        public int damage { get; set; }
 
         //Base attributes
         public int range { get; set; }
@@ -41,21 +42,21 @@ namespace DungeonCrawler
             return equipPos;
         }
 
-        // To determine what the item modifies on the character.
-        // This function calls the updateAttr function in character to update character attributes
-        // Takes in the item and current character object
-        public void ItemEquipped(Item someItem, Character currentChar)
-        {
-            bool flag = true;
-            currentChar.updateAttributes(someItem, flag);
-        }
+        //// To determine what the item modifies on the character.
+        //// This function calls the updateAttr function in character to update character attributes
+        //// Takes in the item and current character object
+        //public ItemEquipped(Item someItem, Character currentChar)
+        //{
+        //    bool flag = true;
+        //    currentChar.updateAttributes(someItem, flag);
+        //}
 
-        //If flag is false, then we remove the item from the character and update attributes
-        public void ItemRemoved(Item someItem, Character currentChar)
-        {
-            bool flag = false;
-            currentChar.updateAttributes(someItem, flag);
-        }
+        ////If flag is false, then we remove the item from the character and update attributes
+        //public void ItemRemoved(Item someItem, Character currentChar)
+        //{
+        //    bool flag = false;
+        //    currentChar.updateAttributes(someItem, flag);
+        //}
 
         //Get attributes of current item in certain position
         public void GetCurrentItem(EquipmentPosition location) { }

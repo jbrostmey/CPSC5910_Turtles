@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SQLite;
 namespace DungeonCrawler.Models
 {
@@ -11,13 +12,12 @@ namespace DungeonCrawler.Models
      * Compiling Implemented code for character: 
          Properties implementation 
         Method stubs implementation */
-    public class Character : Actor
+    public class Character : BaseCharacter
     {
         //Basic constructor. Each character must have a name on creation.
         // Each character will initialize their own d10 on creation.
         public Character() {
             d10 = new Random((int) DateTime.Now.Ticks & 0x0000FFFF);
-            inventory = new Item[8];
         }
 
         [PrimaryKey]
@@ -30,14 +30,6 @@ namespace DungeonCrawler.Models
         //  one of 6 character classes. This is where it is stored. May change
         //  to an enum in the future.
         public string characterClass { get; set; }
-
-        //Inventory size is 8 for all characters. enum will be created for location:number specifications.
-        //  Slot 0 is unused.
-        public const int inventorySize = 8;
-
-        //This will hold the items the character has equiped. It is publically gettable
-        //  to allow views to grab the entire inventory of the characters to display on different screens.
-        public Item[] inventory { get; }
 
         //Drops item being held in the specific item type slot
         public Item DropItem(Enum itemType) { return null; }
@@ -84,22 +76,22 @@ namespace DungeonCrawler.Models
             }
         }
 
-        //Item gets passed into this function to update attributes of character
-        public void updateAttributes(Item someItem, bool flag)
-        {
-            if (flag == true)
-            {
-                attributes.defense += someItem.defense;
-                attributes.attack += someItem.attack;
-                attributes.speed += someItem.speed;
-            }
-            else 
-            {
-                attributes.defense -= someItem.defense;
-                attributes.attack -= someItem.attack;
-                attributes.speed -= someItem.speed;   
-            }
-        }
+        ////Item gets passed into this function to update attributes of character
+        //public void updateAttributes(Item someItem, bool flag)
+        //{
+        //    if (flag == true)
+        //    {
+        //        attributes.defense += someItem.defense;
+        //        attributes.attack += someItem.attack;
+        //        attributes.speed += someItem.speed;
+        //    }
+        //    else 
+        //    {
+        //        attributes.defense -= someItem.defense;
+        //        attributes.attack -= someItem.attack;
+        //        attributes.speed -= someItem.speed;   
+        //    }
+        //}
 
         public void update(Character c)
         {
@@ -111,23 +103,32 @@ namespace DungeonCrawler.Models
 
             attributes.Update(c.attributes);
 
-            for (int i = 0; i < inventorySize; i++){
-                if(inventory[i] == null)
-                    inventory[i] = new Item();
-                inventory[i].Update(c.inventory[i]);
-            }
+            inventory.Clear();
+            foreach (EquipmentPosition position in c.inventory.Keys)
+                inventory.Add(position,c.inventory[position]);
         }
 
 
-/*
- * We may reinstate the following code if/when we start making subclasses.
- * 
+
         //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
-        public int Attack(){}
+        public override int Attack()
+        {
+            return ItemDamageModifier() + (int) Math.Ceiling(attributes.level * .25);
+        }
         //Calculates defense, taking into account defense stats, defense modifiers, and item defense values
-        public int Defense(){}
+        public override int Defense()
+        {
+            return attributes.defense + ItemDefenseModifer() + 
+        }
         //Calculates accuracy, taking into account speed stats, speed modifiers, and item speed values.
-        public int Accuracy(){}
-*/
+        public override int Accuracy()
+        {
+            return attributes.attack + ItemAttackModifier() + attributes.level + (d10.Next() % 20 + 1);
+        }
+
+        public override int Speed()
+        {
+            
+        }
     }
 }

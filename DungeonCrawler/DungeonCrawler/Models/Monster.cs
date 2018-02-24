@@ -14,14 +14,13 @@ namespace DungeonCrawler.Models
     * Compiling Implemented code for monster: 
         Properties implementation 
         Method stubs implementation */
-    public class Monster : Actor
+    public class Monster : BaseMonster
     {
         //Basic constructor.
         // Each monster will initialize their own d10 on creation.
         public Monster()
         {
             d10 = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
-           // dropPool = new Item[1];
         }
 
         [PrimaryKey]
