@@ -35,18 +35,6 @@ namespace DungeonCrawler.Models
         //Decreases attributes.currentHealth based on damage parameter.
         public void TakeDamage(int damage) { }
 
-        //Calculates damage, taking into account Level damage, and item attack values
-        public virtual int Attack() { return 5; }
-
-        //Calculates defense, taking into account defense stats, defense modifiers, and item defense values
-        public virtual int Defense() { return 5; }
-
-        //Calculates accuracy, taking into account attack stats, attack modifiers, and item attack values.
-        public virtual int Accuracy() { return 5; }
-
-        //Calculates speed, taking into account speed stats, speed modifiers and item speed values.
-        public virtual int Speed() { return 5; }
-
         //Returns true if the character is still alive.
         public bool IsAlive()
         {
