@@ -13,25 +13,32 @@ namespace DungeonCrawler.Models
       Properties implementation 
       Method stubs implementation */
 
+//BATTLE LIVES INSIDE BATTLEPAGE.XAML
     public class Battle 
     {
         public bool inSession;
         public bool currentTurn; // 0 is character, 1 is for monster
-        public Character currentChar { get; set; }
-        public Monster currentMon { get; set; }
+        public int currentChar; 
+        public int currentMon; 
+        public Character[] aChar;
+        public Monster[] aMon;
+
 
         public Battle()
         {
-            inSession = false;
+            inSession = true;
             currentTurn = false;
         }
 
         // Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
-        public void Turn(Monster aMon, Character aChar)
+//return string for BattleMessage.xaml
+        public string Turn(Character aChar, Monster aMon)
         {
+            string msg = "";
+
             if (inSession == true)
             {
-                if (currentTurn == false) // Character's turn
+                if (currentTurn == false) // Character's turn (by default, character goes first)
                 {
                     int getCharAtt = CharacterAttack(aChar);
                     int getMonDef = MonsterDefense(aMon);
@@ -42,7 +49,11 @@ namespace DungeonCrawler.Models
                     {
                         aChar.GainExperience(1); // EXP not yet determined
                         //Item[] drops = aMon.dropPool; // Items dropped from monster's death
+                        currentMon++;
                     }
+
+                    msg = "Character " + currentChar + " attacked Monster " + currentMon + " with a damage of " + getCharAtt;
+                    currentTurn = true;
                 }
                 else // Monster's turn
                 {
@@ -53,13 +64,37 @@ namespace DungeonCrawler.Models
                     aChar.TakeDamage(getMonAtt);
 
                     if (!aChar.IsAlive())
+                    {
                         aChar.Die(); // Relinquish inventory and drop all items
+                        currentChar++;
+                    }
+                    msg = "Monster " + currentMon + " attacked Character " + currentChar + " with a damage of " + getMonAtt;
+                    currentTurn = false; 
                 }
             }
+            return msg;
         }
 
         // User begins game, switch inSession to true
-        public void BeginGame() { inSession = true; }
+//This function will be the Green light to begin Battle Engine. It will initialize characters and monsters, as well as handle turns
+//This function is to be called in BattlePage.xaml.cs
+        public void BeginGame(){ 
+
+            aChar = new Character[6];
+            aMon = new Monster[6];
+
+            for (int i = 0; i < 6; i++)
+            {
+                aChar[i] = new Character();
+                aMon[i] = new Monster();
+            }
+
+            //For now, selection of Character and Monster are automated (characer 1 fights monster 1 until one dies)
+            //Will go in order from index 0 to index 6
+
+            currentMon = 0;
+            currentChar = 0;
+        }
 
         //Will take in a character object and retrieve stats of that character to determine what the attack will be. OR if it is a monster, will retrieve attack of monster
         // Check to see what turn, then grab the monster or character stats and perform calculation
@@ -70,6 +105,7 @@ namespace DungeonCrawler.Models
         public bool DamageDie() { return false; }
 
         // User ends game, switch inSession to false
+//Connect function to UI Button "Quit Game"
         public void EndGame() { inSession = false; }
 
         //User selects AutoPlay, switch inSession to true, as well as other implementation code to automate gameplay (will call other battle methods)
