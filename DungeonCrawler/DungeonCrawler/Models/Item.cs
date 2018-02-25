@@ -34,6 +34,8 @@ namespace DungeonCrawler
         public int range { get; set; }
         public EquipmentPosition position { get; set; }
 
+        public string ImageURI { get; set; }
+
 
         // To determine where the item goes, just an example of a equip on the body
         public EquipmentPosition ItemLocation(Item item)

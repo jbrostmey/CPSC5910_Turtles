@@ -1,20 +1,29 @@
 ﻿<Properties StartupConfiguration="{D029CD12-A4AB-4A7A-8082-DB19B0DE8448}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler/Views/Battle/BattlePage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler Status">
     <Files>
       <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml.cs" Line="28" Column="9" />
       <File FileName="DungeonCrawler/Views/Character/CharacterPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="DungeonCrawler/Models/Battle.cs" Line="1" Column="1" />
+      <File FileName="DungeonCrawler/Models/Item.cs" Line="38" Column="1" />
+      <File FileName="DungeonCrawler/Models/Character.cs" Line="14" Column="30" />
+      <File FileName="DungeonCrawler/Views/Items/ItemsPage.xaml" Line="34" Column="66" />
+      <File FileName="DungeonCrawler/Views/Items/ItemsPage.xaml.cs" Line="36" Column="9" />
+      <File FileName="DungeonCrawler/Views/Items/NewItemPage.xaml" Line="46" Column="55" />
+      <File FileName="DungeonCrawler/Views/Items/NewItemPage.xaml.cs" Line="48" Column="41" />
+      <File FileName="DungeonCrawler/Views/Items/ItemDetailPage.xaml" Line="22" Column="43" />
+      <File FileName="DungeonCrawler Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/BryanHerr/Projects/turtles/herrbSU/DungeonCrawler/DungeonCrawler/ViewModels/ScoresViewModel.cs" relfile="DungeonCrawler/ViewModels/ScoresViewModel.cs" line="95" column="1" />
-      <Breakpoint file="/Users/BryanHerr/Projects/turtles/herrbSU/DungeonCrawler/DungeonCrawler/Views/Scores/ScoresPage.xaml.cs" relfile="DungeonCrawler/Views/Scores/ScoresPage.xaml.cs" line="41" column="1" />
+      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/ViewModels/ScoresViewModel.cs" relfile="DungeonCrawler/ViewModels/ScoresViewModel.cs" line="95" column="1" />
+      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Views/Scores/ScoresPage.xaml.cs" relfile="DungeonCrawler/Views/Scores/ScoresPage.xaml.cs" line="41" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.DungeonCrawler.Droid PreferredExecutionTarget="Android.7.1.1" />
-  <MonoDevelop.Ide.ItemProperties.DungeonCrawler.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.02DB99AD-2AEF-4B43-AD0A-3452C3879C4E">
+  <MonoDevelop.Ide.ItemProperties.DungeonCrawler.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0E2C1E5D-0FA2-4536-97BF-F0930CAEED69">
     <MonoDevelop.MacDev.AppleDevelopmentTeam />
   </MonoDevelop.Ide.ItemProperties.DungeonCrawler.iOS>
   <MultiItemStartupConfigurations />

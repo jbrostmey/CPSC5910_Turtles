@@ -29,6 +29,7 @@ namespace DungeonCrawler
                 position = EquipmentPosition.body,
       
                 Id = Guid.NewGuid().ToString(),
+                ImageURI = "Item.png"
 
             };
 
@@ -37,6 +38,12 @@ namespace DungeonCrawler
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(Data.ImageURI))
+            {
+                Data.ImageURI = "Items.png";
+            }
+
             MessagingCenter.Send(this, "AddData", Data);
             await Navigation.PopAsync();
         }
