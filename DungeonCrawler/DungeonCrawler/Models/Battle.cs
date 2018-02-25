@@ -44,15 +44,17 @@ namespace DungeonCrawler.Models
                     int getMonDef = MonsterDefense(aMon);
 
                     //Character attacks, monster loses health
-                    aMon.TakeDamage(getCharAtt);
+                    int experience = aMon.TakeDamage(getCharAtt);
+
+
+                    msg = "Character " + currentChar + " attacked Monster " + currentMon + " with a damage of " + getCharAtt;
+
+                    aChar.GainExperience(experience); // EXP not yet determined
                     if (!aMon.IsAlive())
                     {
-                        aChar.GainExperience(1); // EXP not yet determined
                         //Item[] drops = aMon.dropPool; // Items dropped from monster's death
                         currentMon++;
                     }
-
-                    msg = "Character " + currentChar + " attacked Monster " + currentMon + " with a damage of " + getCharAtt;
                     currentTurn = true;
                 }
                 else // Monster's turn
@@ -63,12 +65,13 @@ namespace DungeonCrawler.Models
                     //Character attacks, monster loses health
                     aChar.TakeDamage(getMonAtt);
 
+                    msg = "Monster " + currentMon + " attacked Character " + currentChar + " with a damage of " + getMonAtt;
+
                     if (!aChar.IsAlive())
                     {
                         aChar.Die(); // Relinquish inventory and drop all items
                         currentChar++;
                     }
-                    msg = "Monster " + currentMon + " attacked Character " + currentChar + " with a damage of " + getMonAtt;
                     currentTurn = false; 
                 }
             }

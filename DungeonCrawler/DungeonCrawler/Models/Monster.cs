@@ -44,13 +44,25 @@ namespace DungeonCrawler.Models
         //      First calculates how much experience to return, then reduces health of the monster.
         public int TakeDamage(int Damage) {
 
+            // if the monster is going to die, returns all experience and sets health to 0
+            if(Damage >= attributes.currentHealth)
+            {
+                attributes.currentHealth = 0;
+                return attributes.currentExperience;
+            }
+                
             // % of damage dealt/health lost = % of experience given
-            int experience = ((Damage / 100) / Damage) * 100;
+            double experiencePercentage = (double)Damage / attributes.currentHealth;
 
             // damage reduces health by the damage amount as whole number
-            attributes.health = attributes.health - Damage;
+            attributes.currentHealth = attributes.currentHealth - Damage;
 
-            return experience; }
+            // calculates experience and updates remaining experience
+            int experience = (int)Math.Ceiling(attributes.currentExperience * experiencePercentage);
+            attributes.currentExperience -= experience;
+
+            return experience; 
+        }
 
 
         public void Update(Monster m)

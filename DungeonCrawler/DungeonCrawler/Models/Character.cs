@@ -57,6 +57,11 @@ namespace DungeonCrawler.Models
 
         }
 
+        public override void TakeDamage(int Damage)
+        {
+            attributes.currentHealth
+        }
+
         //logic to check if a character is eligable for a levelup
         private bool CheckLevelUp(){
             //if not max level and has enough xp to level up

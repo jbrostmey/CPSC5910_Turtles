@@ -1,4 +1,5 @@
-﻿<Properties StartupConfiguration="{D029CD12-A4AB-4A7A-8082-DB19B0DE8448}|Default">
+<Properties StartupConfiguration="{D029CD12-A4AB-4A7A-8082-DB19B0DE8448}|Default">
+<<<<<<< Updated upstream
   <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler Status">
     <Files>
       <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml.cs" Line="24" Column="1" />
@@ -56,13 +57,32 @@
       <File FileName="DungeonCrawler/ViewModels/MonsterViewModel.cs" Line="1" Column="1" />
       <File FileName="DungeonCrawler/ViewModels/BattlePageViewModel.cs" Line="44" Column="27" />
       <File FileName="DungeonCrawler Status" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler/Models/Character.cs">
+    <Files>
+      <File FileName="DungeonCrawler/Models/Character.cs" Line="2" Column="11" />
+      <File FileName="DungeonCrawler/Services/SQLDataStore.cs" Line="168" Column="10" />
+      <File FileName="DungeonCrawler/Models/EquipmentPosition.cs" Line="1" Column="1" />
+      <File FileName="DungeonCrawler/Models/BaseCharacter.cs" Line="22" Column="14" />
+      <File FileName="DungeonCrawler/Models/Actor.cs" Line="36" Column="47" />
+      <File FileName="DungeonCrawler/Models/Monster.cs" Line="42" Column="38" />
+      <File FileName="DungeonCrawler/Models/Item.cs" Line="54" Column="95" />
+      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml.cs" Line="18" Column="39" />
+      <File FileName="DungeonCrawler/Models/Battle.cs" Line="41" Column="32" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
+>>>>>>> Stashed changes
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
+<<<<<<< Updated upstream
       <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/ViewModels/ScoresViewModel.cs" relfile="DungeonCrawler/ViewModels/ScoresViewModel.cs" line="95" column="1" />
       <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Views/Scores/ScoresPage.xaml.cs" relfile="DungeonCrawler/Views/Scores/ScoresPage.xaml.cs" line="41" column="1" />
+=======
+      <Breakpoint file="/Users/BryanHerr/Projects/turtles/herrbSU/turtlesGit/DungeonCrawler/DungeonCrawler/ViewModels/ScoresViewModel.cs" relfile="DungeonCrawler/ViewModels/ScoresViewModel.cs" line="95" column="1" />
+      <Breakpoint file="/Users/BryanHerr/Projects/turtles/herrbSU/turtlesGit/DungeonCrawler/DungeonCrawler/Views/Scores/ScoresPage.xaml.cs" relfile="DungeonCrawler/Views/Scores/ScoresPage.xaml.cs" line="41" column="1" />
+>>>>>>> Stashed changes
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

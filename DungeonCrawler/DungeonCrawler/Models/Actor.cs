@@ -33,7 +33,10 @@ namespace DungeonCrawler.Models
         public Attributes attributes { get; }
 
         //Decreases attributes.currentHealth based on damage parameter.
-        public void TakeDamage(int damage) { }
+        public virtual void TakeDamage(int damage) 
+        {
+            
+        }
 
         //Returns true if the character is still alive.
         public bool IsAlive()
