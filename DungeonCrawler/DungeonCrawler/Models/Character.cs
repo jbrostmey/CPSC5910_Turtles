@@ -110,25 +110,6 @@ namespace DungeonCrawler.Models
 
 
 
-        //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
-        public override int Attack()
-        {
-            return ItemDamageModifier() + (int) Math.Ceiling(attributes.level * .25);
-        }
-        //Calculates defense, taking into account defense stats, defense modifiers, and item defense values
-        public override int Defense()
-        {
-            return attributes.defense + ItemDefenseModifer() + 
-        }
-        //Calculates accuracy, taking into account speed stats, speed modifiers, and item speed values.
-        public override int Accuracy()
-        {
-            return attributes.attack + ItemAttackModifier() + attributes.level + (d10.Next() % 20 + 1);
-        }
-
-        public override int Speed()
-        {
-            
-        }
+       
     }
 }

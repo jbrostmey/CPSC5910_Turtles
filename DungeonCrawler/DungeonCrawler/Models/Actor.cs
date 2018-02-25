@@ -27,7 +27,7 @@ namespace DungeonCrawler.Models
         public string description { get; set; }
 
         // d10 used for calculations
-        protected Random d10;
+        public Random d10;
 
         //Allows getting of Attributes. No setting: must be done through methods.
         public Attributes attributes { get; }

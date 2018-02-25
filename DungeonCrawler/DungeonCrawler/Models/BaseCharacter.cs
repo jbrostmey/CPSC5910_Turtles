@@ -14,7 +14,7 @@ namespace DungeonCrawler.Models
         //  to allow views to grab the entire inventory of the characters to display on different screens.
         public Dictionary<EquipmentPosition, Item> inventory { get; }
 
-        protected int ItemAttackModifier()
+        public int ItemAttackModifier()
         {
             int attackModifier = 0;
             foreach (Item item in inventory.Values)
@@ -23,12 +23,20 @@ namespace DungeonCrawler.Models
             return attackModifier;
         }
 
-        protected int ItemDamageModifier()
+        public int ItemDamageModifier()
         {
             int damageModifier = 0;
             foreach (Item item in inventory.Values)
                 damageModifier += item.damage;
             return damageModifier;
+        }
+
+        public int ItemDefenseModifer()
+        {
+            int defenseModifier = 0;
+            foreach (Item item in inventory.Values)
+                defenseModifier += item.defense;
+            return defenseModifier;
         }
     }
 }

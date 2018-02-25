@@ -13,7 +13,7 @@ namespace DungeonCrawler.Models
       Properties implementation 
       Method stubs implementation */
 
-    public class Battle : Actor
+    public class Battle 
     {
         public bool inSession;
         public bool currentTurn; // 0 is character, 1 is for monster
@@ -63,7 +63,7 @@ namespace DungeonCrawler.Models
 
         //Will take in a character object and retrieve stats of that character to determine what the attack will be. OR if it is a monster, will retrieve attack of monster
         // Check to see what turn, then grab the monster or character stats and perform calculation
-        public int AttackCalculation() { return 5; }
+        //public int AttackCalculation() { return 5; }
 
         //Will work with Damage() from Actor class and determine if character or monster dies
         //Check to see what turn, then grab monster or character stats (of opponent) to determine if the damage inflicted kills them 
@@ -74,6 +74,23 @@ namespace DungeonCrawler.Models
 
         //User selects AutoPlay, switch inSession to true, as well as other implementation code to automate gameplay (will call other battle methods)
         public void AutoPlay() { inSession = true; }
+
+        //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
+        public int CharacterAttack(Character character)
+        {
+            return character.ItemDamageModifier() + (int)Math.Ceiling(character.attributes.level * .25);
+        }
+        //Calculates defense, taking into account defense stats, defense modifiers, and item defense values
+        public int CharacterDefense(Character character)
+        {
+            return character.attributes.defense + character.ItemDefenseModifer() + character.attributes.level;
+        }
+        //Calculates accuracy, taking into account speed stats, speed modifiers, and item speed values.
+        public int Accuracy(Character character)
+        {
+            return character.attributes.attack + character.ItemAttackModifier() + character.attributes.level + (character.d10.Next() % 20 + 1);
+        }
+
     }
 }
 
