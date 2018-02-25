@@ -158,6 +158,8 @@
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\drawable\Item.png" />
     <AndroidResource Include="Resources\drawable\Monster.png" />
+    <AndroidResource Include="Resources\drawable\Character.png" />
+    <AndroidResource Include="Resources\drawable\Score.png" />
   </ItemGroup>
   <Import Project="..\DungeonCrawler\DungeonCrawler.projitems" Label="Shared" Condition="Exists('..\DungeonCrawler\DungeonCrawler.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

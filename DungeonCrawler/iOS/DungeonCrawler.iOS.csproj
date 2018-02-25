@@ -144,6 +144,12 @@
     <BundleResource Include="Monster%403x.png" />
     <BundleResource Include="Monster%402x.png" />
     <BundleResource Include="Monster.png" />
+    <BundleResource Include="Character.png" />
+    <BundleResource Include="Character%402x.png" />
+    <BundleResource Include="Character%403x.png" />
+    <BundleResource Include="Score.png" />
+    <BundleResource Include="Score%402x.png" />
+    <BundleResource Include="Score%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />

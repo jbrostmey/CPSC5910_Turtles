@@ -24,6 +24,8 @@ namespace DungeonCrawler
                 name = "Dan",
                 description = "Dan is the man",
                 characterClass = "paladin",
+                ImageURI = "Character.png"
+
             };
 
             data.attributes.defense = 1;
@@ -44,6 +46,11 @@ namespace DungeonCrawler
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(data.ImageURI))
+            {
+                data.ImageURI = "Character.png";
+            }
             MessagingCenter.Send(this, "AddData", data);
             await Navigation.PopAsync();
         }

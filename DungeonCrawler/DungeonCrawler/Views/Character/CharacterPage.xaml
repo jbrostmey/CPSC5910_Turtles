@@ -10,6 +10,13 @@
 					<DataTemplate>
 						<ViewCell>
 							<StackLayout Padding="10">
+
+                                  <Image Source="{Binding ImageURI}"
+                                       WidthRequest="60"
+                                       HeightRequest="60" 
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Start"/>
+                                
 								<Label Text="{Binding name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
 								<Label Text="{Binding characterClass}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                                 <Label Text="{Binding description}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
