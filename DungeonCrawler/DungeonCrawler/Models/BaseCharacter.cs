@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace DungeonCrawler.Models
 {
+    //Class build to deal with the inventory for the character
     public class BaseCharacter : Actor
     {
         public BaseCharacter()
@@ -18,7 +19,9 @@ namespace DungeonCrawler.Models
         {
             int attackModifier = 0;
             foreach (Item item in inventory.Values)
+            {
                 attackModifier += item.attack;
+            }
 
             return attackModifier;
         }
@@ -27,7 +30,9 @@ namespace DungeonCrawler.Models
         {
             int damageModifier = 0;
             foreach (Item item in inventory.Values)
+            {
                 damageModifier += item.damage;
+            }
             return damageModifier;
         }
 
@@ -35,8 +40,11 @@ namespace DungeonCrawler.Models
         {
             int defenseModifier = 0;
             foreach (Item item in inventory.Values)
+            {
                 defenseModifier += item.defense;
+            }
             return defenseModifier;
         }
+
     }
 }

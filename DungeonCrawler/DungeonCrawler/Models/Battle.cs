@@ -33,8 +33,8 @@ namespace DungeonCrawler.Models
             {
                 if (currentTurn == false) // Character's turn
                 {
-                    int getCharAtt = aChar.Attack();
-                    int getMonDef = aMon.Defense();
+                    int getCharAtt = CharacterAttack(aChar);
+                    int getMonDef = MonsterDefense(aMon);
 
                     //Character attacks, monster loses health
                     aMon.TakeDamage(getCharAtt);
@@ -46,8 +46,8 @@ namespace DungeonCrawler.Models
                 }
                 else // Monster's turn
                 {
-                    int getMonAtt = aMon.Attack();
-                    int getCharDef = aChar.Defense();
+                    int getMonAtt = MonsterAttack(aMon);
+                    int getCharDef = CharacterDefense(aChar);
 
                     //Character attacks, monster loses health
                     aChar.TakeDamage(getMonAtt);
@@ -86,9 +86,25 @@ namespace DungeonCrawler.Models
             return character.attributes.defense + character.ItemDefenseModifer() + character.attributes.level;
         }
         //Calculates accuracy, taking into account speed stats, speed modifiers, and item speed values.
-        public int Accuracy(Character character)
+        public int CharacterAccuracy(Character character)
         {
             return character.attributes.attack + character.ItemAttackModifier() + character.attributes.level + (character.d10.Next() % 20 + 1);
+        }
+
+        //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
+        public int MonsterAttack(Monster monster)
+        {
+            return monster.attributes.attack + (int)Math.Ceiling(monster.attributes.level * .25);
+        }
+        //Calculates defense, taking into account defense stats, defense modifiers, and item defense values
+        public int MonsterDefense(Monster monster)
+        {
+            return monster.attributes.defense + monster.attributes.level;
+        }
+        //Calculates accuracy, taking into account speed stats, speed modifiers, and item speed values.
+        public int MonsterAccuracy(Monster monster)
+        {
+            return monster.attributes.attack + monster.attributes.level + (monster.d10.Next() % 20 + 1);
         }
 
     }
