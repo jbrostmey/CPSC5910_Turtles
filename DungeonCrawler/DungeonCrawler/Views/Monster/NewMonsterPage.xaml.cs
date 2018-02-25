@@ -43,6 +43,11 @@ namespace DungeonCrawler
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(data.ImageURI))
+            {
+                data.ImageURI = "Monster.png";
+            }
             MessagingCenter.Send(this, "AddData", data);
             await Navigation.PopAsync();
         }

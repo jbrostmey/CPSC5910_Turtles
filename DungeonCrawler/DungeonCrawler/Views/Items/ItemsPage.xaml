@@ -28,10 +28,10 @@
                             <StackLayout Padding="10">
 
                                  <Image Source="{Binding ImageURI}"
-                                       WidthRequest="50"
-                                       HeightRequest="50" 
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"/>
+                                       WidthRequest="60"
+                                       HeightRequest="60" 
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Start"/>
                                 
                                 <Label Text="{Binding Text}" 
                        LineBreakMode="NoWrap" 

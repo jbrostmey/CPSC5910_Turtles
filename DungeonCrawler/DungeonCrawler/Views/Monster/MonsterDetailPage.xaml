@@ -8,12 +8,18 @@
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
     </ContentPage.ToolbarItems>
-
+    <ScrollView>
     <StackLayout Spacing="20" Padding="15">
 
 
          <Label Text="Monster Description" FontSize="Large" HorizontalOptions="CenterAndExpand" />
 
+          <Image Source="{Binding Data.ImageURI}"
+                WidthRequest="150"
+                HeightRequest="150" 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        
         
            <Label Text="Name:" FontSize="Medium" />
         <Label Text="{Binding Data.name}" FontSize="Small"/>
@@ -33,6 +39,7 @@
             <Label Text="{Binding Data.attributes.attack}" FontSize="Small" />
 
     </StackLayout>
+        </ScrollView>
 </ContentPage>
 
  

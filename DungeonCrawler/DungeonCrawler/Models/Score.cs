@@ -37,6 +37,8 @@ namespace DungeonCrawler.Models
         // All of the items dropped and their stats. Needs to be in json format, so saving as a string
         public string ItemsDroppedList { get; set; }
        
+        public string ImageURI { get; set; }
+
         //Basic constructor for Score class
        
         public Score()

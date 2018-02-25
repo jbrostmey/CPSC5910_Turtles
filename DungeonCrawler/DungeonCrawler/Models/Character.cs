@@ -37,6 +37,8 @@ namespace DungeonCrawler.Models
         //  being filled, will return false.
         public bool EquipItem(Item item) { return false; }
 
+        public string ImageURI { get; set; }
+
         //Level up, called from GainXP when a level up is needed.
         private void LevelUp() { 
             //first grab all the attribute changes

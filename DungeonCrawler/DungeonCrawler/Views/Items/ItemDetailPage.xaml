@@ -8,9 +8,8 @@
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
     </ContentPage.ToolbarItems>
-
+    <ScrollView>
     <StackLayout Spacing="20" Padding="15">
-
 
          <Label Text="Item Description" FontSize="Large" HorizontalOptions="CenterAndExpand" />
 
@@ -54,10 +53,10 @@
 
 
 
-
         
       
     </StackLayout>
+     </ScrollView>
 </ContentPage>
 
  

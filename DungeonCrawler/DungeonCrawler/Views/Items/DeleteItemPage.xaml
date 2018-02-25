@@ -9,8 +9,12 @@
 
     <StackLayout Spacing="20" Padding="15">
 
-        <Label Text="Delete Item" FontSize="Small" />
-
+        <Label Text="Delete Item" FontSize="Large"  />
+         <Image Source="{Binding Data.ImageURI}"
+                WidthRequest="150"
+                HeightRequest="150" 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
 
         <Label Text="Text:" FontSize="Medium" />
         <Label Text="{Binding Data.Text}" FontSize="Small"/>

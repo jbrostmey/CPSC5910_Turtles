@@ -31,6 +31,8 @@ namespace DungeonCrawler.Models
         private int dropRate = 5;
 
         private string drop { get; set; }
+      
+        public string ImageURI { get; set; }
 
         // Upon death, the monster may drop an item (based on d10 roll and drop rate)
         public override List<Item> Die(){
