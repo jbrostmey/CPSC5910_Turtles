@@ -115,10 +115,8 @@
       <DependentUpon>ScoresPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseCharacter.cs" />
-<<<<<<< Updated upstream
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BattlePageViewModel.cs" />
-=======
->>>>>>> Stashed changes
+
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
