@@ -18,17 +18,26 @@ namespace DungeonCrawler.Views
 
         private async void NextLevel_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopToRootAsync();
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            await Navigation.PopAsync();
+
+         //   await Navigation.PopToRootAsync();
         }
 
         private async void OnPickUpItemsButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopToRootAsync();
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            await Navigation.PopAsync();
+
+         //   await Navigation.PopToRootAsync();
         }
 
         private async void OnViewStatistics_ButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PopToRootAsync();
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            await Navigation.PopAsync();
+
+          //  await Navigation.PopToRootAsync();
         }
     }
 }
