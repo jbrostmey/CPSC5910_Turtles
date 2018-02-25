@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using DungeonCrawler.Models;
 using DungeonCrawler.ViewModels;
-
+using Xamarin.Forms.Xaml;
 using Xamarin.Forms;
 
 namespace DungeonCrawler.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+
     public partial class BattlePage : ContentPage
     {
+        private BattlePageViewModel _viewModel;
+
 
         public Battle battleObj = new Battle();
 
         public BattlePage()
         {
             InitializeComponent();
+         
+            BindingContext = _viewModel = BattlePageViewModel.Instance;
+
+
             //initialize. OK to have here because we are only creating one instance of BattlePage in OpeningPage
             //Therefor we aren't recreating an instance each time we return to the BattlePage (i.g resets data)
             battleObj.BeginGame();
@@ -53,6 +61,66 @@ namespace DungeonCrawler.Views
             await Navigation.PushAsync(new GameEnd());
         }
 
+
+
+        public async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var data = args.SelectedItem as Character;
+            if (data == null)
+            {
+                return;
+            }
+
+            await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
+
+            // Manually deselect item.
+            CharacterInfoListView.SelectedItem = null;
+        }
+
+        private async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var data = args.SelectedItem as Monster;
+            if (data == null)
+                return;
+
+            await Navigation.PushAsync(new MonsterDetailPage(new MonsterDetailViewModel(data)));
+
+            // Manually deselect item.
+            MonsterListView.SelectedItem = null;
+        }
+
+       
+        protected override void OnAppearing()
+        {
+
+            //   BindableObject BindingContextMonster;
+
+            base.OnAppearing();
+
+            BindingContext = null;
+            if (ToolbarItems.Count > 0)
+            {
+                ToolbarItems.RemoveAt(0);
+            }
+
+            InitializeComponent();
+
+            if (_viewModel.Dataset.Count == 0)
+            {
+                _viewModel.LoadDataCommand.Execute(null);
+            }
+            else if (_viewModel.NeedsRefresh())
+            {
+                _viewModel.LoadDataCommand.Execute(null);
+            }
+
+            BindingContext = _viewModel;
+
+
+
+
+
+        }
 
     }
 }

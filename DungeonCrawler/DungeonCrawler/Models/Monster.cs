@@ -42,7 +42,15 @@ namespace DungeonCrawler.Models
 
         // Call this when you want to deal damage to the monster.
         //      First calculates how much experience to return, then reduces health of the monster.
-        public int TakeDamage(int Damage) { return 5; }
+        public int TakeDamage(int Damage) {
+
+            // % of damage dealt/health lost = % of experience given
+            int experience = ((Damage / 100) / Damage) * 100;
+
+            // damage reduces health by the damage amount as whole number
+            attributes.health = attributes.health - Damage;
+
+            return experience; }
 
 
         public void Update(Monster m)
