@@ -59,7 +59,8 @@ namespace DungeonCrawler.Models
 
         public override void TakeDamage(int Damage)
         {
-            attributes.currentHealth
+           
+            // attributes.currentHealth
         }
 
         //logic to check if a character is eligable for a levelup

@@ -9,7 +9,7 @@
 
 		<StackLayout Spacing="20" Padding="15">
 
-           <Label Text="Create Character" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+           <Label Text="Create Monster" FontSize="Large" HorizontalOptions="CenterAndExpand" />
 
 			<Label Text="Name" FontSize="Medium" />
 			<Entry Text="{Binding data.name}" FontSize="Small" />
