@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{D029CD12-A4AB-4A7A-8082-DB19B0DE8448}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler Status">
     <Files>
-      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml.cs" Line="52" Column="10" />
-      <File FileName="DungeonCrawler/Models/Battle.cs" Line="1" Column="1" />
+      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml.cs" Line="31" Column="32" />
+      <File FileName="DungeonCrawler/Models/Battle.cs" Line="70" Column="36" />
       <File FileName="DungeonCrawler/Models/Item.cs" Line="37" Column="31" />
-      <File FileName="DungeonCrawler/Models/Character.cs" Line="63" Column="15" />
+      <File FileName="DungeonCrawler/Models/Character.cs" Line="64" Column="13" />
       <File FileName="DungeonCrawler/Views/Items/ItemsPage.xaml" Line="95" Column="15" />
       <File FileName="DungeonCrawler/Views/Character/CharacterPage.xaml.cs" Line="67" Column="1" />
       <File FileName="DungeonCrawler/Views/Items/ItemsPage.xaml.cs" Line="36" Column="9" />
@@ -15,7 +15,7 @@
       <File FileName="DungeonCrawler/Views/Items/EditItemPage.xaml" Line="57" Column="15" />
       <File FileName="DungeonCrawler/Views/Items/EditItemPage.xaml.cs" Line="26" Column="10" />
       <File FileName="DungeonCrawler/Views/Monster/MonsterDetailPage.xaml" Line="45" Column="2" />
-      <File FileName="DungeonCrawler/Views/Monster/NewMonsterPage.xaml" Line="12" Column="39" />
+      <File FileName="DungeonCrawler/Views/Monster/NewMonsterPage.xaml" Line="49" Column="1" />
       <File FileName="DungeonCrawler/Views/Monster/NewMonsterPage.xaml.cs" Line="47" Column="51" />
       <File FileName="DungeonCrawler/Models/Monster.cs" Line="49" Column="13" />
       <File FileName="DungeonCrawler/Models/Score.cs" Line="41" Column="9" />
@@ -40,10 +40,10 @@
       <File FileName="DungeonCrawler/Views/Scores/NewScorePage.xaml" Line="72" Column="1" />
       <File FileName="DungeonCrawler/Views/Scores/NewScorePage.xaml.cs" Line="45" Column="34" />
       <File FileName="DungeonCrawler/Views/Character/NewCharacterPage.xaml.cs" Line="52" Column="49" />
-      <File FileName="DungeonCrawler/Models/Actor.cs" Line="36" Column="46" />
+      <File FileName="DungeonCrawler/Models/Actor.cs" Line="38" Column="52" />
       <File FileName="DungeonCrawler/Models/EquipmentPosition.cs" Line="1" Column="1" />
       <File FileName="DungeonCrawler/Models/BaseCharacter.cs" Line="1" Column="1" />
-      <File FileName="DungeonCrawler/Models/Attributes.cs" Line="21" Column="10" />
+      <File FileName="DungeonCrawler/Models/Attributes.cs" Line="15" Column="24" />
       <File FileName="DungeonCrawler/Views/Battle/BattleMessage.xaml" Line="26" Column="1" />
       <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml" Line="174" Column="1" />
       <File FileName="iOS/Main.cs" Line="18" Column="10" />
@@ -54,7 +54,7 @@
       <File FileName="DungeonCrawler/Views/Battle/BattleOver.xaml" Line="25" Column="1" />
       <File FileName="DungeonCrawler/Views/Battle/BattleMessage.xaml.cs" Line="74" Column="15" />
       <File FileName="DungeonCrawler/ViewModels/MonsterViewModel.cs" Line="1" Column="1" />
-      <File FileName="DungeonCrawler/ViewModels/BattlePageViewModel.cs" Line="52" Column="27" />
+      <File FileName="DungeonCrawler/ViewModels/BattlePageViewModel.cs" Line="35" Column="9" />
       <File FileName="DungeonCrawler/Views/Battle/BattleOver.xaml.cs" Line="39" Column="13" />
       <File FileName="DungeonCrawler/Models/LevelStats.cs" Line="1" Column="1" />
       <File FileName="DungeonCrawler/ViewModels/ItemDetailViewModel.cs" Line="15" Column="1" />

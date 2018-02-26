@@ -7,8 +7,8 @@ namespace DungeonCrawler.Models
         //Basic constructor for attributes class
         public Attributes()
         {
-            health = 10;
-            currentHealth = 10;
+            health = 2;
+            currentHealth = 2;
             currentExperience = 0;
             speed = 1;
             attack = 1;
