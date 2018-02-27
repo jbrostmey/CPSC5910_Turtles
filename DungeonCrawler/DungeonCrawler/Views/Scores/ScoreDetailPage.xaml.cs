@@ -32,7 +32,7 @@ namespace DungeonCrawler.Views.Scores {
                 Name = "Score name",
                 ScoreTotal = 0,
                 Id = Guid.NewGuid().ToString(),
-                GameDate = new DateTime(),
+                GameDate = DateTime.Now,
                 AutoBattle = false,
                 TurnNumber = 1,
                 MonsterSlainNumber = 0,
