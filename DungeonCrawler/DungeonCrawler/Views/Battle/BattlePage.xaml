@@ -5,11 +5,35 @@
         <StackLayout Spacing="10" Padding="15">
 
             <Label Text="Battle Page" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+        <Button Text="Level:"/>
+    </StackLayout>
+    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+        <Button Text="Current Score:"/>
+    </StackLayout>
+</StackLayout>
+
+
+
+                                   
+
+
+            <!--
+
+            
             <Label Text="Level: " FontSize="Medium" HorizontalOptions="Center"/>
             <Label Text="Current Score: " FontSize="Medium" HorizontalOptions = "Center" />
-                <Label Text="Characters:" FontSize="Medium" HorizontalOptions="Start"/>
+            -->
+
+
+
+            
+                <Label Text="Characters:" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
 
             <ScrollView>
+
 
 
                  <ListView x:Name="CharacterInfoListView" 
@@ -24,19 +48,48 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10">
+                            <StackLayout Padding="5">
 
-                                                      <Image Source="{Binding ImageURI}"
-                                       WidthRequest="60"
-                                       HeightRequest="60" 
-                                       HorizontalOptions="Start"
-                                       VerticalOptions="Start"/>
-                                
-                                <Label Text="{Binding name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding characterClass}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
-                                <Label Text="{Binding description}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
 
-                         
+                            
+                                         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Name:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding name}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Type:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding characterClass}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+                                    
+                             
+
+                                      <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Alive:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding attributes.alive}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+
+                                    
+                         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Health:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding attributes.health}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
                               
                             </StackLayout>
                         </ViewCell>
@@ -49,7 +102,7 @@
 
              </ScrollView>
 
-
+             <!--//todo: add name, type, item(s), alive/dead, health instead of characters, lists--> 
 
 
 
@@ -88,8 +141,9 @@
                         
            
 
-                            <Label Text="Monsters:" FontSize="Medium" HorizontalOptions="Start"/>
+                            <Label Text="Monsters:" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
                                <ScrollView>
+
 
 
                  <ListView x:Name="MonsterListView" 
@@ -100,20 +154,59 @@
                  IsPullToRefreshEnabled="true"
                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                  CachingStrategy="RecycleElement"
+
                  ItemSelected="OnMonsterSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10">
+                            <StackLayout Padding="5">
 
-              <Image Source="{Binding ImageURI}"
-                                       WidthRequest="60"
-                                       HeightRequest="60" 
-                                       HorizontalOptions="Start"
-                                       VerticalOptions="Start"/>
-                                
-                                <Label Text="{Binding name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding description}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Name:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding name}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Type:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding characterClass}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+                                    
+                             
+
+                                      <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Alive:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding attributes.alive}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+
+                                    
+                         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Health:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding attributes.health}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+                                   
+
+
+
+
+
+
+                                    
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -127,8 +220,9 @@
 
 
             
-            <ScrollView>
+           
 
+                <!--
                <StackLayout Padding="10">
                             <Label Text = "Character|Type|Item(s)|Alive/Dead|Health" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
                             <Label Text = "name1 | type | item1 | Alive | 50" HorizontalOptions="Center" />
@@ -141,29 +235,87 @@
                     <Label Text = "Monster|Type|Item(s)|Alive/Dead|Health" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
                     <Label Text = "name1 | type | item1 | Alive | 50" HorizontalOptions="Center" />
                     <Label Text = "name2 | type | item1 | Dead | 0" HorizontalOptions="Center"/>
+                    -->
 
+
+
+
+
+
+
+                         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                          
+
+   <Button Text="View Characters"
+                    Clicked="ViewCharacters_Clicked"
+                    BorderColor="Black"
+                    BorderWidth=".5"/>
+
+                </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+
+
+
+ <Button Text = "View Monsters"
+                
+                    Clicked = "ViewMonsters_Clicked"
+                    BorderWidth=".5"/>
+                    <Label Text =""/>
+                    <Label Text =""/>
+
+                </StackLayout>
+                                            </StackLayout>
+                                   
+
+                                              <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                          
+
+     <Button Text = "Play"
+                    Clicked = "Play_Clicked"
+                    BorderWidth=".5"/>
+
+                </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+
+
+ <Button Text="Exit Game"
+                    Clicked="ExitGame_Clicked"
+                    BorderColor="Black"
+                    BorderWidth=".5"/>
+
+                </StackLayout>
+                                            </StackLayout>
+                                   
+
+
+
+                                   <!--
+            
                     <Button Text="View Characters"
                     Clicked="ViewCharacters_Clicked"
                     BorderColor="Black"
-                    BorderWidth="1"/>
+                    BorderWidth=".5"/>
+            
                     <Button Text = "View Monsters"
+                
                     Clicked = "ViewMonsters_Clicked"
-                    BorderWidth="1"/>
+                    BorderWidth=".5"/>
                     <Label Text =""/>
-                    <Label Text =""/>
+                    <Label Text =""/> 
 
                     <Button Text = "Play"
                     Clicked = "Play_Clicked"
-                    BorderWidth="1"/>
-                    <Button Text="Exit Game"
+                    BorderWidth=".5"/>
+
+            <Button Text="Exit Game"
                     Clicked="ExitGame_Clicked"
                     BorderColor="Black"
-                    BorderWidth="1"/>
+                    BorderWidth=".5"/>
 
-                    
-                </StackLayout> 
-            </ScrollView>
-
+                    -->
+              
         </StackLayout>
 
     </ContentPage.Content>
