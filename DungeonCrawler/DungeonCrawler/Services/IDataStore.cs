@@ -6,6 +6,7 @@ namespace DungeonCrawler.Services
 {
     public interface IDataStore
     {
+       
         Task<bool> AddAsync_Item(Item data);
         Task<bool> UpdateAsync_Item(Item data);
         Task<bool> DeleteAsync_Item(Item data);
@@ -31,6 +32,7 @@ namespace DungeonCrawler.Services
         Task<bool> DeleteAsync_Score(Score data);
         Task<Score> GetAsync_Score(string id);
         Task<IEnumerable<Score>> GetAllAsync_Score(bool forceRefresh = false);
+
 
     }
 }

@@ -20,9 +20,9 @@ namespace DungeonCrawler.Models
         public bool currentTurn; // 0 is character, 1 is for monster
         public int currentChar; 
         public int currentMon; 
+
         public Character[] aChar;
         public Monster[] aMon;
-
 
         public Battle()
         {
@@ -75,6 +75,8 @@ namespace DungeonCrawler.Models
                     currentTurn = false; 
                 }
             }
+
+  
             return msg;
         }
 
@@ -149,3 +151,15 @@ namespace DungeonCrawler.Models
     }
 }
 
+
+
+// todo: replace view characters and view monsters with battle message
+// refresh entire page, characters will have stats refreshed/ shown * (when action happens, refresh page)
+
+// figure out score *
+
+// looting items: put together page that handles the items (create items page, choose piece of equipment, new page choose character)
+// could always randomize item pickup
+
+// rounds: start round function that should probably take character levels into account
+// less on priority: move battle.cs to viewmodel (Data and functions)

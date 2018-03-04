@@ -4,7 +4,7 @@ using DungeonCrawler.Models;
 using DungeonCrawler.ViewModels;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms;
-
+using DungeonCrawler.Services;
 namespace DungeonCrawler.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -12,33 +12,40 @@ namespace DungeonCrawler.Views
     public partial class BattlePage : ContentPage
     {
         private BattlePageViewModel _viewModel;
-
+        private String msg;
 
         public Battle battleObj = new Battle();
-
+       
         public BattlePage()
         {
+            msg = "Click Play to Begin!";
+
             InitializeComponent();
          
+
             BindingContext = _viewModel = BattlePageViewModel.Instance;
 
 
             //initialize. OK to have here because we are only creating one instance of BattlePage in OpeningPage
             //Therefor we aren't recreating an instance each time we return to the BattlePage (i.g resets data)
             battleObj.BeginGame();
+
+
         }
 
         private async void Play_Clicked(object sender, EventArgs e)
         {
+
             int currMon_index = battleObj.currentMon;
             int currChar_index = battleObj.currentChar;
-            string msg = "";
+
 
             if (battleObj.inSession)
             {
                 msg = battleObj.Turn(battleObj.aChar[currChar_index], battleObj.aMon[currMon_index]);
-            }
 
+
+            }
             await Navigation.PushAsync(new BattleMessage(msg));
         }
 
@@ -92,8 +99,7 @@ namespace DungeonCrawler.Views
        
         protected override void OnAppearing()
         {
-
-            //   BindableObject BindingContextMonster;
+         
 
             base.OnAppearing();
 
@@ -116,10 +122,9 @@ namespace DungeonCrawler.Views
 
             BindingContext = _viewModel;
 
+           // DEFINE MESSAGE HERE
 
-
-
-
+            BattleMessageName.Text = msg;
         }
 
     }

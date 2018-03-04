@@ -18,6 +18,8 @@ namespace DungeonCrawler
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static BattlePageViewModel _instance;
 
+     //   public string battlemessage = "dkjfakjldffjd";
+
         public static BattlePageViewModel Instance
         {
             get
@@ -40,9 +42,9 @@ namespace DungeonCrawler
         public BattlePageViewModel()
         {
             Title = "Battle Info List";
+         //   battlemessage = "tmp";
             Dataset = new ObservableCollection<Character>();
             DatasetMonster = new ObservableCollection<Monster>();
-
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
         }
@@ -88,6 +90,8 @@ namespace DungeonCrawler
                 {
                     DatasetMonster.Add(dataM);
                 }
+
+        
 
 
 

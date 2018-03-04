@@ -34,6 +34,7 @@ namespace DungeonCrawler.Services
             App.Database.CreateTableAsync<Character>().Wait();
             App.Database.CreateTableAsync<Monster>().Wait();
             App.Database.CreateTableAsync<Score>().Wait();
+
         }
 
         // Create the Database Tables
@@ -118,6 +119,8 @@ namespace DungeonCrawler.Services
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 444, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 555, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 666 , GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+
+
 
         }
 
@@ -310,6 +313,10 @@ namespace DungeonCrawler.Services
 
         }
 
+
+
+
+     
     }
 }
 

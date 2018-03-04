@@ -6,6 +6,8 @@
 
             <Label Text="Battle Page" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
 
+
+            
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
     <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
         <Button Text="Level:"/>
@@ -220,54 +222,13 @@
 
 
             
-           
 
-                <!--
-               <StackLayout Padding="10">
-                            <Label Text = "Character|Type|Item(s)|Alive/Dead|Health" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
-                            <Label Text = "name1 | type | item1 | Alive | 50" HorizontalOptions="Center" />
-                            <Label Text = "name2 | type | item1 | Alive | 50" HorizontalOptions="Center"/>
-                        </StackLayout>
+                  <Label x:Name="BattleMessageName" Text="Click Play to Begin!" />
 
+            
 
-                
-                <StackLayout Padding="10">
-                    <Label Text = "Monster|Type|Item(s)|Alive/Dead|Health" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
-                    <Label Text = "name1 | type | item1 | Alive | 50" HorizontalOptions="Center" />
-                    <Label Text = "name2 | type | item1 | Dead | 0" HorizontalOptions="Center"/>
-                    -->
-
-
-
-
-
-
-
-                         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                          
-
-   <Button Text="View Characters"
-                    Clicked="ViewCharacters_Clicked"
-                    BorderColor="Black"
-                    BorderWidth=".5"/>
-
-                </StackLayout>
-                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-
-
-
- <Button Text = "View Monsters"
-                
-                    Clicked = "ViewMonsters_Clicked"
-                    BorderWidth=".5"/>
-                    <Label Text =""/>
-                    <Label Text =""/>
-
-                </StackLayout>
-                                            </StackLayout>
-                                   
-
+                                                     
+            
                                               <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                             <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                           
