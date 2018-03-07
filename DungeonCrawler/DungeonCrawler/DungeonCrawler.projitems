@@ -117,6 +117,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseCharacter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BattlePageViewModel.cs" />
 
+    <Compile Include="$(MSBuildThisFileDirectory)Views\EquipItem\EquipItemPage.xaml.cs">
+      <DependentUpon>EquipItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EquipItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
@@ -221,6 +225,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\EquipItem\EquipItemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\Battle\" />
@@ -228,5 +236,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Views\Items\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Monster\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Scores\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\EquipItem\" />
   </ItemGroup>
 </Project>

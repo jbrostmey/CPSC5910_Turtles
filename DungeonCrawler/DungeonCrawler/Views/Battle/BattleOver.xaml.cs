@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using DungeonCrawler.Models;
 using DungeonCrawler.ViewModels;
 using Xamarin.Forms;
-
+using DungeonCrawler.Views.EquipItem;
+                    
 namespace DungeonCrawler.Views
 {
     public partial class BattleOver : ContentPage
@@ -26,8 +27,9 @@ namespace DungeonCrawler.Views
 
         private async void OnPickUpItemsButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-            await Navigation.PopAsync();
+           // Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+           // await Navigation.PopAsync();
+            await Navigation.PushAsync(new EquipItemPage());
 
          //   await Navigation.PopToRootAsync();
         }
