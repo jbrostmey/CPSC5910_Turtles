@@ -16,6 +16,9 @@ namespace DungeonCrawler.Models
 //BATTLE LIVES INSIDE BATTLEPAGE.XAML
     public class Battle 
     {
+        const int SIZE = 6; 
+
+
         public bool inSession;
         public bool currentTurn; // 0 is character, 1 is for monster
         public int currentChar; 
@@ -76,7 +79,15 @@ namespace DungeonCrawler.Models
                 }
             }
 
-  
+            /*If character party dies, END GAME (inSession = false). If monster party is dead, send message
+             * to begin a new round to a round function. 
+             */
+            if (CheckParty("character"))
+                inSession = false;
+            else if(CheckParty("monster")){
+                
+            }
+                  
             return msg;
         }
 
@@ -85,10 +96,10 @@ namespace DungeonCrawler.Models
 //This function is to be called in BattlePage.xaml.cs
         public void BeginGame(){ 
 
-            aChar = new Character[6];
-            aMon = new Monster[6];
+            aChar = new Character[SIZE];
+            aMon = new Monster[SIZE];
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < SIZE; i++)
             {
                 aChar[i] = new Character();
                 aMon[i] = new Monster();
@@ -113,8 +124,12 @@ namespace DungeonCrawler.Models
 //Connect function to UI Button "Quit Game"
         public void EndGame() { inSession = false; }
 
-        //User selects AutoPlay, switch inSession to true, as well as other implementation code to automate gameplay (will call other battle methods)
-        public void AutoPlay() { inSession = true; }
+        //User selects AutoPlay, run game indefinitely until inSession is switched to false
+        public void AutoPlay() { 
+        
+        
+        
+        }
 
         //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
         public int CharacterAttack(Character character)
@@ -147,6 +162,33 @@ namespace DungeonCrawler.Models
         {
             return monster.attributes.attack + monster.attributes.level + (monster.d10.Next() % 20 + 1);
         }
+
+
+        //Helper function used in Turn to help implement rounds. Return true if all have died in party. 
+        private bool CheckParty(string type)
+        {
+            bool status = false;
+            int count = 0;
+            if(type == "monster"){
+                for (int i = 0; i < SIZE; i++){
+                    if (!aMon[i].IsAlive())
+                        count++;
+                }
+            }
+            else{
+                for (int i = 0; i < SIZE; i++){
+                    if (!aMon[i].IsAlive())
+                        count++;
+                }
+                
+            }
+
+            if (count == SIZE)
+                status = true;
+
+            return status;
+        }
+
 
     }
 }
