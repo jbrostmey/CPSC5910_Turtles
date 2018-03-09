@@ -23,8 +23,8 @@ namespace DungeonCrawler.Models
 
         public bool inSession;
         public bool currentTurn; // 0 is character, 1 is for monster
-        public int currentChar;
-        public int currentMon;
+       // public int currentChar;
+       // public int currentMon;
         public int round;
 
         public Character[] aChar;
@@ -36,11 +36,18 @@ namespace DungeonCrawler.Models
             currentTurn = false;
         }
 
-        // Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
-        //return string for BattleMessage.xaml
+        /*Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
+          *return string for BattleMessage.xaml
+          *index 0 for aChar and aMon will always be passed in until CheckParty switches inSession
+          *to false or initiates a new round. EntityOrder sorts each character/monster from top speed to low speed
+          *and a monster is considered dead when it has -99 speed. 
+          */
+
         public string Turn(Character aChar, Monster aMon)
         {
             string msg = "";
+            EntityOrder(true);
+            EntityOrder(false);
 
             if (inSession == true)
             {
@@ -51,16 +58,15 @@ namespace DungeonCrawler.Models
 
                     //Character attacks, monster loses health
                     int experience = aMon.TakeDamage(getCharAtt);
+//need to figure out how to store character number/monster number... maybe for loop in default constructor
+//and initalize default order by ascending order?
 
-
-                    msg = "Character " + currentChar + " attacked Monster " + currentMon + " with a damage of " + getCharAtt;
+                    //msg = "Character " + currentChar + " attacked Monster " + currentMon + " with a damage of " + getCharAtt;
 
                     aChar.GainExperience(experience); // EXP not yet determined
                     if (!aMon.IsAlive())
-                    {
                         //Item[] drops = aMon.dropPool; // Items dropped from monster's death
-                        currentMon++;
-                    }
+ 
                     currentTurn = true;
                 }
                 else // Monster's turn
@@ -71,13 +77,11 @@ namespace DungeonCrawler.Models
                     //Character attacks, monster loses health
                     aChar.TakeDamage(getMonAtt);
 
-                    msg = "Monster " + currentMon + " attacked Character " + currentChar + " with a damage of " + getMonAtt;
+                    //msg = "Monster " + currentMon + " attacked Character " + currentChar + " with a damage of " + getMonAtt;
 
                     if (!aChar.IsAlive())
-                    {
                         aChar.Die(); // Relinquish inventory and drop all items
-                        currentChar++;
-                    }
+
                     currentTurn = false;
                 }
             }
@@ -85,9 +89,9 @@ namespace DungeonCrawler.Models
             /*If character party dies, END GAME (inSession = false). If monster party is dead, send message
              * to begin a new round to a round function. 
              */
-            if (CheckParty("character"))
+            if (CheckParty(true))
                 inSession = false;
-            else if (CheckParty("monster"))
+            else if (CheckParty(false))
             {
                 round++;
                 msg += "\n Next round! Round " + round;
@@ -114,8 +118,8 @@ namespace DungeonCrawler.Models
             //For now, selection of Character and Monster are automated (characer 1 fights monster 1 until one dies)
             //Will go in order from index 0 to index 6
 
-            currentMon = 0;
-            currentChar = 0;
+            //currentMon = 0;
+            //currentChar = 0;
             round = 1;
         }
 
@@ -173,15 +177,15 @@ namespace DungeonCrawler.Models
 
 
         //Helper function used in Turn to help implement rounds. Return true if all have died in party. 
-        private bool CheckParty(string type)
+        private bool CheckParty(bool type) // 1 for characters, 0 for monsters
         {
             bool status = false;
             int count = 0;
-            if (type == "monster")
+            if (type)
             {
                 for (int i = 0; i < SIZE; i++)
                 {
-                    if (!aMon[i].IsAlive())
+                    if (!aChar[i].IsAlive())
                         count++;
                 }
             }
@@ -192,7 +196,6 @@ namespace DungeonCrawler.Models
                     if (!aMon[i].IsAlive())
                         count++;
                 }
-
             }
 
             if (count == SIZE)
@@ -214,7 +217,7 @@ namespace DungeonCrawler.Models
         //Once a character or monster dies, switch their speed to -99 so they are sorted to the bottom)
         //Keep a member that holds the count of monster/chars alive
 
-        private void EntityOrder(bool type)
+        public void EntityOrder(bool type)
         { // true for character, false for monster
             if (type)
             {

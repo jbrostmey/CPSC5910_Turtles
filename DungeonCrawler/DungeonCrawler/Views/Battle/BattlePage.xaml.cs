@@ -35,15 +35,9 @@ namespace DungeonCrawler.Views
 
         private async void Play_Clicked(object sender, EventArgs e)
         {
-
-            int currMon_index = battleObj.currentMon;
-            int currChar_index = battleObj.currentChar;
-
-
             if (battleObj.inSession)
             {
-                msg = battleObj.Turn(battleObj.aChar[currChar_index], battleObj.aMon[currMon_index]);
-
+                msg = battleObj.Turn(battleObj.aChar[0], battleObj.aMon[0]);
 
             }
             await Navigation.PushAsync(new BattleMessage(msg));
