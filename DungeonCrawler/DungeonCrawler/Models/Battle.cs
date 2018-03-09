@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 using Xamarin.Forms;
 
@@ -13,16 +15,17 @@ namespace DungeonCrawler.Models
       Properties implementation 
       Method stubs implementation */
 
-//BATTLE LIVES INSIDE BATTLEPAGE.XAML
-    public class Battle 
+    //BATTLE LIVES INSIDE BATTLEPAGE.XAML
+    public class Battle
     {
-        const int SIZE = 6; 
+        const int SIZE = 6;
 
 
         public bool inSession;
         public bool currentTurn; // 0 is character, 1 is for monster
-        public int currentChar; 
-        public int currentMon; 
+        public int currentChar;
+        public int currentMon;
+        public int round;
 
         public Character[] aChar;
         public Monster[] aMon;
@@ -34,7 +37,7 @@ namespace DungeonCrawler.Models
         }
 
         // Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
-//return string for BattleMessage.xaml
+        //return string for BattleMessage.xaml
         public string Turn(Character aChar, Monster aMon)
         {
             string msg = "";
@@ -75,7 +78,7 @@ namespace DungeonCrawler.Models
                         aChar.Die(); // Relinquish inventory and drop all items
                         currentChar++;
                     }
-                    currentTurn = false; 
+                    currentTurn = false;
                 }
             }
 
@@ -84,17 +87,20 @@ namespace DungeonCrawler.Models
              */
             if (CheckParty("character"))
                 inSession = false;
-            else if(CheckParty("monster")){
-                
+            else if (CheckParty("monster"))
+            {
+                round++;
+                msg += "\n Next round! Round " + round;
             }
-                  
+
             return msg;
         }
 
         // User begins game, switch inSession to true
-//This function will be the Green light to begin Battle Engine. It will initialize characters and monsters, as well as handle turns
-//This function is to be called in BattlePage.xaml.cs
-        public void BeginGame(){ 
+        //This function will be the Green light to begin Battle Engine. It will initialize characters and monsters, as well as handle turns
+        //This function is to be called in BattlePage.xaml.cs
+        public void BeginGame()
+        {
 
             aChar = new Character[SIZE];
             aMon = new Monster[SIZE];
@@ -110,6 +116,7 @@ namespace DungeonCrawler.Models
 
             currentMon = 0;
             currentChar = 0;
+            round = 1;
         }
 
         //Will take in a character object and retrieve stats of that character to determine what the attack will be. OR if it is a monster, will retrieve attack of monster
@@ -121,14 +128,15 @@ namespace DungeonCrawler.Models
         public bool DamageDie() { return false; }
 
         // User ends game, switch inSession to false
-//Connect function to UI Button "Quit Game"
+        //Connect function to UI Button "Quit Game"
         public void EndGame() { inSession = false; }
 
         //User selects AutoPlay, run game indefinitely until inSession is switched to false
-        public void AutoPlay() { 
-        
-        
-        
+        public void AutoPlay()
+        {
+
+
+
         }
 
         //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
@@ -169,18 +177,22 @@ namespace DungeonCrawler.Models
         {
             bool status = false;
             int count = 0;
-            if(type == "monster"){
-                for (int i = 0; i < SIZE; i++){
+            if (type == "monster")
+            {
+                for (int i = 0; i < SIZE; i++)
+                {
                     if (!aMon[i].IsAlive())
                         count++;
                 }
             }
-            else{
-                for (int i = 0; i < SIZE; i++){
+            else
+            {
+                for (int i = 0; i < SIZE; i++)
+                {
                     if (!aMon[i].IsAlive())
                         count++;
                 }
-                
+
             }
 
             if (count == SIZE)
@@ -190,6 +202,50 @@ namespace DungeonCrawler.Models
         }
 
 
+        private void InitNewRound()
+        {
+            for (int i = 0; i < SIZE; i++)
+            {
+
+            }
+        }
+
+        //To be called in Turn function after every Turn. Sorts character and monster for next turn
+        //Once a character or monster dies, switch their speed to -99 so they are sorted to the bottom)
+        //Keep a member that holds the count of monster/chars alive
+
+        private void EntityOrder(bool type)
+        { // true for character, false for monster
+            if (type)
+            {
+                List<Character> sortChar = new List<Character>();
+                //obj is a temp var that holds the entire list and looks at individual objects
+                sortChar = sortChar.OrderBy(obj => obj.attributes.speed)
+                     .ThenBy(obj => obj.attributes.level)
+                     .ThenBy(obj => obj.attributes.currentExperience)
+                     .ThenBy(obj => obj.name)
+                     .ToList();
+
+                //overwrite base objects with sorted list
+                for (int i = 0; i < SIZE; i++)
+                    aChar[i] = sortChar[i];
+            }
+            else
+            {
+                //Convert aMon array to aMon list so we can use Linq to sort the list, then pushback/overwrite into original aMon array
+                List<Monster> sortMon = new List<Monster>();
+                //obj is a temp var that holds the entire list and looks at individual objects
+                sortMon = sortMon.OrderBy(obj => obj.attributes.speed)
+                     .ThenBy(obj => obj.attributes.level)
+                     .ThenBy(obj => obj.attributes.currentExperience)
+                     .ThenBy(obj => obj.name)
+                     .ToList();
+
+                //overwrite base objects with sorted list
+                for (int i = 0; i < SIZE; i++)
+                    aMon[i] = sortMon[i];
+            }
+        }
     }
 }
 
