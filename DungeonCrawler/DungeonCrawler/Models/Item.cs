@@ -20,6 +20,8 @@ namespace DungeonCrawler
         public string Text { get; set; }
         public string Description { get; set; }
 
+        public string Guid { get; set; }
+
         // Attributes of item
        // public int defense;
        // public int speed;
@@ -63,6 +65,53 @@ namespace DungeonCrawler
         //Get attributes of current item in certain position
         public void GetCurrentItem(EquipmentPosition location) { }
 
+        public Item(){
+            
+        }
+
+
+
+
+        // Helper to combine the attributes into a single line, to make it easier to display the item as a string
+        public string FormatOutput()
+        {
+            var myReturn = Text;// + " , " +
+                       //     Description + " for " +
+                       //     Location.ToString() + " with " +
+                        //    Attribute.ToString() +
+                         //   "+" + Value + " , " +
+                         //   "Range:" + Range;
+
+
+            return myReturn.Trim();
+        }
+
+        // Constructor for Item called if needed to create a new item with set values.
+        public Item(string text, string description, string guid, string imageuri, int _speed, int _attack, int _range, int _defense, EquipmentPosition _position)
+        {
+
+            Text = text;
+            Guid = guid;
+            ImageURI = imageuri;
+            Description = description;
+            defense = _defense;
+            speed = _speed;
+            attack = _attack;
+            range = _range;
+            position = _position;
+          
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         public void Update(Item newData)
         {
@@ -73,6 +122,8 @@ namespace DungeonCrawler
 
             // Update all the fields in the Data, except for the Id
             Text = newData.Text;
+            Guid = newData.Guid;
+
             Description = newData.Description;
             defense = newData.defense;
             speed = newData.speed;
