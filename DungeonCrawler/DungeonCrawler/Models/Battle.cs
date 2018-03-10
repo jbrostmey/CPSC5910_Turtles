@@ -23,8 +23,8 @@ namespace DungeonCrawler.Models
 
         public bool inSession;
         public bool currentTurn; // 0 is character, 1 is for monster
-       // public int currentChar;
-       // public int currentMon;
+        public int currentChar;
+        public int currentMon;
         public int round;
 
         public Character[] aChar;
@@ -38,16 +38,12 @@ namespace DungeonCrawler.Models
 
         /*Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
           *return string for BattleMessage.xaml
-          *index 0 for aChar and aMon will always be passed in until CheckParty switches inSession
-          *to false or initiates a new round. EntityOrder sorts each character/monster from top speed to low speed
-          *and a monster is considered dead when it has -99 speed. 
+          *CheckParty switches inSession to false or initiates a new round. 
           */
 
         public string Turn(Character aChar, Monster aMon)
         {
             string msg = "";
-            EntityOrder(true);
-            EntityOrder(false);
 
             if (inSession == true)
             {
@@ -58,10 +54,7 @@ namespace DungeonCrawler.Models
 
                     //Character attacks, monster loses health
                     int experience = aMon.TakeDamage(getCharAtt);
-//need to figure out how to store character number/monster number... maybe for loop in default constructor
-//and initalize default order by ascending order?
-
-                    //msg = "Character " + currentChar + " attacked Monster " + currentMon + " with a damage of " + getCharAtt;
+                    msg = "Character " + currentChar + " attacked Monster " + currentMon + " with a damage of " + getCharAtt;
 
                     aChar.GainExperience(experience); // EXP not yet determined
                     if (!aMon.IsAlive())
@@ -77,7 +70,7 @@ namespace DungeonCrawler.Models
                     //Character attacks, monster loses health
                     aChar.TakeDamage(getMonAtt);
 
-                    //msg = "Monster " + currentMon + " attacked Character " + currentChar + " with a damage of " + getMonAtt;
+                    msg = "Monster " + currentMon + " attacked Character " + currentChar + " with a damage of " + getMonAtt;
 
                     if (!aChar.IsAlive())
                         aChar.Die(); // Relinquish inventory and drop all items
@@ -138,8 +131,13 @@ namespace DungeonCrawler.Models
         //User selects AutoPlay, run game indefinitely until inSession is switched to false
         public void AutoPlay()
         {
+            string msg = ""; // one long message output at the end of the game 
+            while(inSession){
+
+                //round implementation with a litte refactoring
 
 
+            }
 
         }
 
