@@ -26,6 +26,7 @@ namespace DungeonCrawler.Models
         public int currentChar;
         public int currentMon;
         public int round;
+        public List<Item> itemInventory; // holds item id's
 
         public Character[] aChar;
         public Monster[] aMon;
@@ -34,6 +35,7 @@ namespace DungeonCrawler.Models
         {
             inSession = true;
             currentTurn = false;
+            itemInventory = new List<Item>();
         }
 
         /*Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
@@ -59,8 +61,8 @@ namespace DungeonCrawler.Models
                     aChar.GainExperience(experience); // EXP not yet determined
                     if (!aMon.IsAlive())
                         //Item[] drops = aMon.dropPool; // Items dropped from monster's death
- 
-                    currentTurn = true;
+
+                        currentTurn = true;
                 }
                 else // Monster's turn
                 {
@@ -132,7 +134,8 @@ namespace DungeonCrawler.Models
         public void AutoPlay()
         {
             string msg = ""; // one long message output at the end of the game 
-            while(inSession){
+            while (inSession)
+            {
 
                 //round implementation with a litte refactoring
 
@@ -247,6 +250,10 @@ namespace DungeonCrawler.Models
                     aMon[i] = sortMon[i];
             }
         }
+
+        public void AddItem(Item item){
+            itemInventory.Add(item);
+        } 
     }
 }
 

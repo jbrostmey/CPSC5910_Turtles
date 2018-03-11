@@ -23,13 +23,13 @@ namespace DungeonCrawler
         public string Guid { get; set; }
 
         // Attributes of item
-       // public int defense;
-       // public int speed;
-       // public int attack;
+        // public int defense;
+        // public int speed;
+        // public int attack;
 
-        public int defense{ get; set; }
-        public int speed{ get; set; }
-        public int attack{ get; set; }
+        public int defense { get; set; }
+        public int speed { get; set; }
+        public int attack { get; set; }
         public int damage { get; set; }
 
         //Base attributes
@@ -65,8 +65,9 @@ namespace DungeonCrawler
         //Get attributes of current item in certain position
         public void GetCurrentItem(EquipmentPosition location) { }
 
-        public Item(){
-            
+        public Item()
+        {
+
         }
 
 
@@ -76,11 +77,11 @@ namespace DungeonCrawler
         public string FormatOutput()
         {
             var myReturn = Text;// + " , " +
-                       //     Description + " for " +
-                       //     Location.ToString() + " with " +
-                        //    Attribute.ToString() +
-                         //   "+" + Value + " , " +
-                         //   "Range:" + Range;
+                                //     Description + " for " +
+                                //     Location.ToString() + " with " +
+                                //    Attribute.ToString() +
+                                //   "+" + Value + " , " +
+                                //   "Range:" + Range;
 
 
             return myReturn.Trim();
@@ -99,7 +100,7 @@ namespace DungeonCrawler
             attack = _attack;
             range = _range;
             position = _position;
-          
+
         }
 
 
@@ -130,7 +131,7 @@ namespace DungeonCrawler
             attack = newData.attack;
             range = newData.range;
             position = newData.position;
-          
+
         }
 
 

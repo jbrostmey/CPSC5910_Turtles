@@ -32,7 +32,7 @@ namespace DungeonCrawler.Views.EquipItem
 
         }
 
- 
+
 
         private void SelectCharacter_Clicked(object sender, SelectedItemChangedEventArgs args)
         {
@@ -41,7 +41,7 @@ namespace DungeonCrawler.Views.EquipItem
             {
                 return;
             }
-           // await Navigation.PushAsync(new CharacterPage()); 
+            // await Navigation.PushAsync(new CharacterPage()); 
         }
 
 
@@ -58,7 +58,7 @@ namespace DungeonCrawler.Views.EquipItem
 
 
 
-        private async void Save_Clicked(object sender, EventArgs e)
+        private void Save_Clicked(object sender, EventArgs e)
         {
 
             if (itemSelected == null || characterSelected == null)
@@ -66,57 +66,14 @@ namespace DungeonCrawler.Views.EquipItem
                 return;
             }
 
-            // store equipment as a json string so we can save it in the SQL Database.
-
-
-            Console.WriteLine("item selected text:" + itemSelected.Text);
-                   
-
-            // function to take the string and translate into a dictionary of item slots to items.
-            var dict = new Dictionary<string, string>
-            {
-                { "Id", itemSelected.Id},
-                {"Text", itemSelected.Text},
-                {"Description", itemSelected.Description.ToString()},
-                {"Defense", itemSelected.defense.ToString()},
-                {"Speed", itemSelected.speed.ToString()},
-                {"Attack", itemSelected.attack.ToString()},
-                {"Range", itemSelected.range.ToString()},
-                {"Position", itemSelected.position.ToString()}
-            };
-
-            // update the dictionary
-            // Convert parameters to a key value pairs to a json object
-            JObject finalContentJson = (JObject)JToken.FromObject(dict);
-
-            //todo: call function using json object or item id
-        
-            // Parse them
-            /*
-            var myList = ParseJson(DataResult);
-
-            if (myList == null)
-            {
-                Console.WriteLine("list is null");
-            }
-            else {
-                var myOutput = string.Empty;
-                foreach (var item in myList)
-                {
-                    myOutput = myOutput + item.Id + "\n" + item.Text + "\n" + item.Description; // output list
-
-                }
-
-                 var answer = await DisplayAlert("Returned List", myOutput, "Yes", "No");
-                
-           */
-
+            // add item to inventory
+            BattlePage.Instance.AddItem(itemSelected);
+            // equip item for character in actor class
+            characterSelected.actorItemsCorrespondingToLocation[(int)itemSelected.position] = itemSelected.Id; // todo: might want to add the item instead of the id
+                             
         }
 
 
-
-
-           
 
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
@@ -124,7 +81,7 @@ namespace DungeonCrawler.Views.EquipItem
         }
 
 
-            // The returned data will be a list of items.  Need to pull that list out
+        // The returned data will be a list of items.  Need to pull that list out
         private List<Item> ParseJson(string myJsonData)
         {
             var myData = new List<Item>();
@@ -171,15 +128,6 @@ namespace DungeonCrawler.Views.EquipItem
                 myData.Guid = JsonHelper.GetJsonString(json, "Guid");
                 myData.Id = myData.Guid;
 
-
-                // myData.Id = JsonHelper.GetJsonString(json, "Id");
-
-                //   myData.Guid = JsonHelper.GetJsonString(json, "Guid");
-                //    myData.Id = myData.Guid; 
-                //   // myData.Id = JsonHelper.GetJsonString(json, "Id");
-
-                //  myData.Id = myData.Id;    // Set to be the same as Guid, does not come down from server, but needed for DB
-                // todo: may need to change to guid
                 myData.defense = JsonHelper.GetJsonInteger(json, "Defense");
                 myData.speed = JsonHelper.GetJsonInteger(json, "Speed");
 
@@ -205,7 +153,7 @@ namespace DungeonCrawler.Views.EquipItem
         }
 
 
-    
+
 
         protected override void OnAppearing()
         {

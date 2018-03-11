@@ -14,14 +14,17 @@ namespace DungeonCrawler.Views
         private BattlePageViewModel _viewModel;
         private String msg;
 
-        public Battle battleObj = new Battle();
-       
+
+        // todo: might need to change
+        public static Battle battleObj = new Battle();
+        public static Battle Instance { get { return battleObj; } }
+
         public BattlePage()
         {
             msg = "Click Play to Begin!";
 
             InitializeComponent();
-         
+
 
             BindingContext = _viewModel = BattlePageViewModel.Instance;
 
@@ -29,7 +32,6 @@ namespace DungeonCrawler.Views
             //initialize. OK to have here because we are only creating one instance of BattlePage in OpeningPage
             //Therefor we aren't recreating an instance each time we return to the BattlePage (i.g resets data)
             battleObj.BeginGame();
-
 
 
         }
@@ -91,10 +93,10 @@ namespace DungeonCrawler.Views
             MonsterListView.SelectedItem = null;
         }
 
-       
+
         protected override void OnAppearing()
         {
-         
+
 
             base.OnAppearing();
 
@@ -117,9 +119,22 @@ namespace DungeonCrawler.Views
 
             BindingContext = _viewModel;
 
-           // DEFINE MESSAGE HERE
+            // DEFINE MESSAGE HERE
 
             BattleMessageName.Text = msg;
+
+            var inventory = string.Empty;
+            foreach (var item in battleObj.itemInventory)
+            {
+                inventory = inventory + item.Text + "\n";
+
+            }
+            if (battleObj.itemInventory.Count <= 0) {
+                inventory = "No items in Inventory.";
+            }
+
+
+            BattleInventory.Text = inventory;
         }
 
     }
