@@ -7,9 +7,11 @@ namespace DungeonCrawler.Views
 {
     public partial class GameEnd : ContentPage
     {
-        public GameEnd()
+        public GameEnd(string msg)
         {
             InitializeComponent();
+
+            //output to screen game summary (end game) 
         }
 
         private async void PlayAgain_Clicked(object sender, EventArgs e)

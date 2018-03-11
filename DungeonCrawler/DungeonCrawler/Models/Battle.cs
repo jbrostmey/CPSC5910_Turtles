@@ -26,6 +26,8 @@ namespace DungeonCrawler.Models
         public int currentChar;
         public int currentMon;
         public int round;
+        public string summary;
+
         public List<Item> itemInventory; // holds item id's
 
         public Character[] aChar;
@@ -75,7 +77,10 @@ namespace DungeonCrawler.Models
                     msg = "Monster " + currentMon + " attacked Character " + currentChar + " with a damage of " + getMonAtt;
 
                     if (!aChar.IsAlive())
+                    {
                         aChar.Die(); // Relinquish inventory and drop all items
+
+                    }
 
                     currentTurn = false;
                 }
@@ -89,7 +94,7 @@ namespace DungeonCrawler.Models
             else if (CheckParty(false))
             {
                 round++;
-                msg += "\n Next round! Round " + round;
+                msg += "\n\n\n Next round! Round: " + round;
             }
 
             return msg;
@@ -133,7 +138,7 @@ namespace DungeonCrawler.Models
         //User selects AutoPlay, run game indefinitely until inSession is switched to false
         public void AutoPlay()
         {
-            string msg = ""; // one long message output at the end of the game 
+            string msg = ""; // one long message output at the end of the game summary
             while (inSession)
             {
 
