@@ -235,9 +235,20 @@ namespace DungeonCrawler.Models
                      .ThenBy(obj => obj.name)
                      .ToList();
 
+                if (sortChar.Count() <= 0)
+                {
+                 //   for (int i = 0; i < SIZE; i++)
+                  ///      sortChar[i] =;
+                }
+            
+
+                Console.WriteLine("size: " + SIZE);
+                Console.WriteLine("achar count: " + aChar.Count());
+                Console.WriteLine("sortchar count: " + sortChar.Count());
+
                 //overwrite base objects with sorted list
                 for (int i = 0; i < SIZE; i++)
-                    aChar[i] = sortChar[i];
+                    aChar[i] = sortChar[i]; // sortChar has a size of 0
             }
             else
             {
@@ -256,9 +267,10 @@ namespace DungeonCrawler.Models
             }
         }
 
-        public void AddItem(Item item){
+        public void AddItem(Item item)
+        {
             itemInventory.Add(item);
-        } 
+        }
     }
 }
 

@@ -4,7 +4,7 @@ using DungeonCrawler.Models;
 using DungeonCrawler.ViewModels;
 using Xamarin.Forms;
 using DungeonCrawler.Views.EquipItem;
-                    
+
 namespace DungeonCrawler.Views
 {
     public partial class BattleOver : ContentPage
@@ -14,7 +14,7 @@ namespace DungeonCrawler.Views
             InitializeComponent();
         }
 
-
+        public BattleOver(string message){}
         //Functions below are not functional at this time.
 
         private async void NextLevel_Clicked(object sender, EventArgs e)
@@ -22,16 +22,16 @@ namespace DungeonCrawler.Views
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             await Navigation.PopAsync();
 
-         //   await Navigation.PopToRootAsync();
+            //   await Navigation.PopToRootAsync();
         }
 
         private async void OnPickUpItemsButton_Clicked(object sender, EventArgs e)
         {
-           // Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-           // await Navigation.PopAsync();
+            // Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            // await Navigation.PopAsync();
             await Navigation.PushAsync(new EquipItemPage());
 
-         //   await Navigation.PopToRootAsync();
+            //   await Navigation.PopToRootAsync();
         }
 
         private async void OnViewStatistics_ButtonClicked(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace DungeonCrawler.Views
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             await Navigation.PopAsync();
 
-          //  await Navigation.PopToRootAsync();
+            //  await Navigation.PopToRootAsync();
         }
     }
 }

@@ -121,11 +121,6 @@
       <DependentUpon>EquipItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EquipItemViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\JsonHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controllers\ItemsController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\HttpClientService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\VersionGlobals.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\WebGlobals.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />

@@ -39,7 +39,8 @@ namespace DungeonCrawler.Views
         private async void Play_Clicked(object sender, EventArgs e)
         {
             //Game over -- send battle summary to Battle Over
-            if(!battleObj.inSession){
+            if (!battleObj.inSession)
+            {
                 await Navigation.PushAsync(new BattleOver(battleObj.summary));
             }
 
@@ -49,7 +50,7 @@ namespace DungeonCrawler.Views
             int currentChar = 0;
             int currentMon = 0;
             battleObj.EntityOrder(true);
-            battleObj.EntityOrder(false);
+            battleObj.EntityOrder(false); // error here
 
             for (int i = 0; i < 6; i++)
             {
@@ -88,7 +89,7 @@ namespace DungeonCrawler.Views
         //Return to Opening Page
         private async void ExitGame_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GameEnd());
+            await Navigation.PushAsync(new GameEnd("temp message"));
         }
 
 
@@ -155,7 +156,8 @@ namespace DungeonCrawler.Views
                 inventory = inventory + item.Text + "\n";
 
             }
-            if (battleObj.itemInventory.Count <= 0) {
+            if (battleObj.itemInventory.Count <= 0)
+            {
                 inventory = "No items in Inventory.";
             }
 

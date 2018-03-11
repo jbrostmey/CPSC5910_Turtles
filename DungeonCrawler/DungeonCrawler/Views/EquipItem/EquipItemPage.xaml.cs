@@ -5,7 +5,6 @@ using DungeonCrawler.ViewModels;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms;
 using DungeonCrawler.Services;
-using DungeonCrawler.Controllers;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 namespace DungeonCrawler.Views.EquipItem
@@ -79,7 +78,7 @@ namespace DungeonCrawler.Views.EquipItem
         {
             await Navigation.PopAsync();
         }
-
+        /*
 
         // The returned data will be a list of items.  Need to pull that list out
         private List<Item> ParseJson(string myJsonData)
@@ -154,6 +153,7 @@ namespace DungeonCrawler.Views.EquipItem
 
 
 
+        */
 
         protected override void OnAppearing()
         {
