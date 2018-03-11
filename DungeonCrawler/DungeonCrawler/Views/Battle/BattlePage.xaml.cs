@@ -50,18 +50,24 @@ namespace DungeonCrawler.Views
             int currentChar = 0;
             int currentMon = 0;
             battleObj.EntityOrder(true);
-            battleObj.EntityOrder(false); // error here
+            battleObj.EntityOrder(false); 
 
             for (int i = 0; i < 6; i++)
             {
                 if (battleObj.aChar[i].IsAlive())
+                {
                     currentChar = i;
+                    break;
+                }
             }
 
             for (int i = 0; i < 6; i++)
             {
                 if (battleObj.aMon[i].IsAlive())
+                {
                     currentMon = i;
+                    break;
+                }
             }
 
             battleObj.currentChar = currentChar;

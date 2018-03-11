@@ -62,8 +62,9 @@ namespace DungeonCrawler.Models
 
                     aChar.GainExperience(experience); // EXP not yet determined
                     if (!aMon.IsAlive())
+                    {
                         //Item[] drops = aMon.dropPool; // Items dropped from monster's death
-
+                    }
                         currentTurn = true;
                 }
                 else // Monster's turn
@@ -228,23 +229,15 @@ namespace DungeonCrawler.Models
             if (type)
             {
                 List<Character> sortChar = new List<Character>();
+
+                for (int i = 0; i < SIZE; i++)                     sortChar.Add(aChar[i]);
+                
                 //obj is a temp var that holds the entire list and looks at individual objects
                 sortChar = sortChar.OrderBy(obj => obj.attributes.speed)
                      .ThenBy(obj => obj.attributes.level)
                      .ThenBy(obj => obj.attributes.currentExperience)
                      .ThenBy(obj => obj.name)
                      .ToList();
-
-                if (sortChar.Count() <= 0)
-                {
-                 //   for (int i = 0; i < SIZE; i++)
-                  ///      sortChar[i] =;
-                }
-            
-
-                Console.WriteLine("size: " + SIZE);
-                Console.WriteLine("achar count: " + aChar.Count());
-                Console.WriteLine("sortchar count: " + sortChar.Count());
 
                 //overwrite base objects with sorted list
                 for (int i = 0; i < SIZE; i++)
@@ -254,6 +247,10 @@ namespace DungeonCrawler.Models
             {
                 //Convert aMon array to aMon list so we can use Linq to sort the list, then pushback/overwrite into original aMon array
                 List<Monster> sortMon = new List<Monster>();
+                for (int i = 0; i < SIZE; i++)
+                    sortMon.Add(aMon[i]);
+
+
                 //obj is a temp var that holds the entire list and looks at individual objects
                 sortMon = sortMon.OrderBy(obj => obj.attributes.speed)
                      .ThenBy(obj => obj.attributes.level)
