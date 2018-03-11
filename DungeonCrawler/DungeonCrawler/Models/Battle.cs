@@ -58,7 +58,7 @@ namespace DungeonCrawler.Models
 
                     //Character attacks, monster loses health
                     int experience = aMon.TakeDamage(getCharAtt);
-                    msg = "Character " + currentChar + " attacked Monster " + currentMon + " with a damage of " + getCharAtt;
+                    msg = "Character " + aChar.number + " attacked Monster " + aMon.number + " with a damage of " + getCharAtt;
 
                     aChar.GainExperience(experience); // EXP not yet determined
                     if (!aMon.IsAlive())
@@ -75,11 +75,12 @@ namespace DungeonCrawler.Models
                     //Character attacks, monster loses health
                     aChar.TakeDamage(getMonAtt);
 
-                    msg = "Monster " + currentMon + " attacked Character " + currentChar + " with a damage of " + getMonAtt;
+                    msg = "Monster " + aMon.number + " attacked Character " + aChar.number + " with a damage of " + getMonAtt;
 
                     if (!aChar.IsAlive())
                     {
                         aChar.Die(); // Relinquish inventory and drop all items
+                        msg += "\n Character " + aChar.number + " has died!";
 
                     }
 
@@ -114,6 +115,8 @@ namespace DungeonCrawler.Models
             {
                 aChar[i] = new Character();
                 aMon[i] = new Monster();
+                aChar[i].number = i;
+                aMon[i].number = i;
             }
 
             //For now, selection of Character and Monster are automated (characer 1 fights monster 1 until one dies)
@@ -121,6 +124,12 @@ namespace DungeonCrawler.Models
 
             //currentMon = 0;
             //currentChar = 0;
+
+
+//Test functionality of EntityOrder, character 2 should always attack first
+            aChar[2].attributes.speed = 500;
+
+
             round = 1;
         }
 
@@ -233,7 +242,7 @@ namespace DungeonCrawler.Models
                 for (int i = 0; i < SIZE; i++)                     sortChar.Add(aChar[i]);
                 
                 //obj is a temp var that holds the entire list and looks at individual objects
-                sortChar = sortChar.OrderBy(obj => obj.attributes.speed)
+                sortChar = sortChar.OrderByDescending(obj => obj.attributes.speed)
                      .ThenBy(obj => obj.attributes.level)
                      .ThenBy(obj => obj.attributes.currentExperience)
                      .ThenBy(obj => obj.name)
@@ -252,7 +261,7 @@ namespace DungeonCrawler.Models
 
 
                 //obj is a temp var that holds the entire list and looks at individual objects
-                sortMon = sortMon.OrderBy(obj => obj.attributes.speed)
+                sortMon = sortMon.OrderByDescending(obj => obj.attributes.speed)
                      .ThenBy(obj => obj.attributes.level)
                      .ThenBy(obj => obj.attributes.currentExperience)
                      .ThenBy(obj => obj.name)

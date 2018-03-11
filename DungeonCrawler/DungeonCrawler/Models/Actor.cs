@@ -31,6 +31,10 @@ namespace DungeonCrawler.Models
 
         //Name for actor. Actors can be characters or monsters.
         public string name { get; set; }
+        //Holds character/monster number (0-6) since EntityOrder overwrites base order, need to keep track of original ordering. 
+        public int number { get; set; } 
+
+
 
         public string imageSource { get; set; }
 
