@@ -56,17 +56,22 @@ namespace DungeonCrawler.Models
                     int getCharAtt = CharacterAttack(aChar);
                     int getMonDef = MonsterDefense(aMon);
 
-                    //Character attacks, monster loses health
-                    int experience = aMon.TakeDamage(getCharAtt);
-                    msg = "Character " + aChar.number + " attacked Monster " + aMon.number + " with a damage of " + getCharAtt + '\n';
-
-                    aChar.GainExperience(experience); // EXP not yet determined
-                    if (!aMon.IsAlive())
+                    if (CanAttackMonster(aChar, aMon) > 0)
                     {
-                        //Item[] drops = aMon.dropPool; // Items dropped from monster's death
-                        msg += "\nMonster " + aMon.number + " has died!" + '\n';
-                        summary += "Character " + aChar.number + " has killed " + aMon.number + '\n';
+                        //Character attacks, monster loses health
+                        int experience = aMon.TakeDamage(getCharAtt);
+                        msg = "Character " + aChar.number + " attacked Monster " + aMon.number + " with a damage of " + getCharAtt + '\n';
 
+                        aChar.GainExperience(experience); // EXP not yet determined
+                        if (!aMon.IsAlive())
+                        {
+                            //Item[] drops = aMon.dropPool; // Items dropped from monster's death
+                            msg += "\nMonster " + aMon.number + " has died!" + '\n';
+                            summary += "Character " + aChar.number + " has killed " + aMon.number + '\n';
+
+                        }
+                    }else{
+                        msg = "Character " + aChar.number + " attacked and missed Monster " + aMon.number + "!\n";
                     }
                         currentTurn = true;
                 }
@@ -75,17 +80,22 @@ namespace DungeonCrawler.Models
                     int getMonAtt = MonsterAttack(aMon);
                     int getCharDef = CharacterDefense(aChar);
 
-                    //Character attacks, monster loses health
-                    aChar.TakeDamage(getMonAtt);
-
-                    msg = "Monster " + aMon.number + " attacked Character " + aChar.number + " with a damage of " + getMonAtt;
-
-                    if (!aChar.IsAlive())
+                    if (CanAttackCharacter(aChar, aMon) > 0)
                     {
-                        aChar.Die(aChar); // Relinquish inventory and drop all items
-                        msg += "\nCharacter " + aChar.number + " has died!" + '\n';
-                        summary += "Monster " + aMon.number + " has killed Character " + aChar.number + '\n';
+                        //Character attacks, monster loses health
+                        aChar.TakeDamage(getMonAtt);
 
+                        msg = "Monster " + aMon.number + " attacked Character " + aChar.number + " with a damage of " + getMonAtt;
+
+                        if (!aChar.IsAlive())
+                        {
+                            aChar.Die(aChar); // Relinquish inventory and drop all items
+                            msg += "\nCharacter " + aChar.number + " has died!" + '\n';
+                            summary += "Monster " + aMon.number + " has killed Character " + aChar.number + '\n';
+
+                        }
+                    }else{
+                        msg = "Monster " + aMon.number + " attacked and missed Character " + aChar.number + "!\n";
                     }
 
                     currentTurn = false;
@@ -296,6 +306,32 @@ namespace DungeonCrawler.Models
         public void AddItem(Item item)
         {
             itemInventory.Add(item);
+        }
+
+        private int CanAttackMonster(Character character, Monster monster)
+        {
+            int DiceRoll = (character.d10.Next() % 20) + 1;
+            if (DiceRoll == 20)
+                return 2;
+            if (DiceRoll == 1)
+                return 0;
+            if ((DiceRoll + character.attributes.level + character.ItemAttackModifier() + character.attributes.attack)
+                > (monster.attributes.defense + monster.attributes.level))
+                return 1;
+            return 0;
+        }
+
+        private int CanAttackCharacter(Character character, Monster monster)
+        {
+            int DiceRoll = (monster.d10.Next() % 20) + 1;
+            if (DiceRoll == 20)
+                return 2;
+            if (DiceRoll == 1)
+                return 0;
+            if ((DiceRoll + monster.attributes.defense + monster.attributes.level)
+                > (character.attributes.level + character.ItemAttackModifier() + character.attributes.attack))
+                return 1;
+            return 0;
         }
     }
 }

@@ -18,15 +18,17 @@ namespace DungeonCrawler.Models
         public bool AutoBattle { get; set; }
 
         // The number of turns the battle took to finish
-
         // Missign property, to add as part of the SQL lecture...
         public int TurnNumber { get; set; }
+
+        // Number of battles this game
+        public int BattleCount { get; set; }
 
         // The count of monsters slain during battle
         public int MonsterSlainNumber { get; set; }
 
         // The total experience points all the characters received during the battle
-        public int ExperienceGainedTotal { get; set; }
+        public long ExperienceGainedTotal { get; set; }
 
         // A list of all the characters at the time of death and their stats.  Needs to be in json format, so saving a string
         public string CharacterAtDeathList { get; set; }
