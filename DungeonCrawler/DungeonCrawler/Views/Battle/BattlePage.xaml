@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.Views.BattlePage" Title="Battle Page">
+	<ContentPage.Content>
+        <StackLayout Spacing="10" Padding="15">
+            <Label Text="Battle Page" FontSize="Large" HorizontalOptions="Center"/>
+            <Label Text="Level: " FontSize="Large" HorizontalOptions="Center"/>
+            <Label Text="Current Score: " FontSize="Large" HorizontalOptions = "Center" />
+
+            <ScrollView>
+            <!-- To display information about the characters in this battle--> 
+               <!--
+               <ListView x:Name="CharacterInfosListView" />
+                    
+                    ItemsSource="{Binding CharacterInfo}"
+                    VerticalOptions="FillAndExpand"
+                    HasUnevenRows="true"
+                    RefreshCommand="{Binding LoadCharacterInfoCommand}" IsPullToRefreshEnabled="true"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnCharacterInfoSelected"> <ListView.ItemTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                        <ViewCell>
+                                <StackLayout Padding="10">
+                            
+                            <Label Text="{Binding CharacterName}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                            <Label Text="{Binding MonsterType}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" />
+                            <Label Text="{Binding CharacterType}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" />
+                            <Label Text="{Binding CharacterItems}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            <Label Text="{Binding CharacterState}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            <Label Text="{Binding CharacterHP}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            -->
+                        <StackLayout Padding="10">
+                            <Label Text = "Character|Type|Item(s)|Alive/Dead|Health" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
+                            <Label Text = "name1 | type | item1 | Alive | 50" HorizontalOptions="Center" />
+                            <Label Text = "name2 | type | item1 | Alive | 50" HorizontalOptions="Center"/>
+                        </StackLayout> 
+            </ScrollView>
+            <ScrollView>
+                <StackLayout Padding="10">
+                    <Label Text = "Monster|Type|Item(s)|Alive/Dead|Health" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
+                    <Label Text = "name1 | type | item1 | Alive | 50" HorizontalOptions="Center" />
+                    <Label Text = "name2 | type | item1 | Dead | 0" HorizontalOptions="Center"/>
+
+                    <Button Text="View Characters"
+                    Clicked="ViewCharacters_Clicked"
+                    BorderColor="Black"
+                    BorderWidth="1"/>
+                    <Button Text = "View Monsters"
+                    Clicked = "ViewMonsters_Clicked"
+                    BorderWidth="1"/>
+                    <Label Text =""/>
+                    <Label Text =""/>
+
+                    <Button Text = "Play"
+                    Clicked = "Play_Clicked"
+                    BorderWidth="1"/>
+                    <Button Text="Exit Game"
+                    Clicked="ExitGame_Clicked"
+                    BorderColor="Black"
+                    BorderWidth="1"/>
+
+                    
+                </StackLayout> 
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+                
+
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="DungeonCrawler.NewCharacterPage" Title="Add New Character">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Save" Clicked="Save_Clicked" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+        <ScrollView>
+
+		<StackLayout Spacing="20" Padding="15">
+
+           <Label Text="Create Character" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+
+			<Label Text="Name" FontSize="Medium" />
+			<Entry Text="{Binding data.name}" FontSize="Small" />
+            
+            <Label Text="Class" FontSize="Medium" />
+            <Entry Text="{Binding data.characterClass}" FontSize="Small" />
+                
+			<Label Text="Description" FontSize="Medium" />
+            <Editor Text="{Binding data.description}" FontSize="Small" />
+
+            <Label Text="Defense" FontSize="Medium" />
+            <Editor Text="{Binding data.attributes.defense}" FontSize="Small" />
+
+            <Label Text="Speed" FontSize="Medium" />
+            <Editor Text="{Binding data.attributes.speed}" FontSize="Small" />
+
+            <Label Text="Attack" FontSize="Medium" />
+            <Editor Text="{Binding data.attributes.attack}" FontSize="Small" />
+
+          
+
+            
+		</StackLayout>
+   </ScrollView>
+
+	</ContentPage.Content>
+</ContentPage>
