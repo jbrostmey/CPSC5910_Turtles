@@ -53,11 +53,13 @@ namespace DungeonCrawler.Views.EquipItem
                 return;
             }
 
+        
+
         }
 
 
 
-        private void Save_Clicked(object sender, EventArgs e)
+        private async void Save_Clicked(object sender, EventArgs e)
         {
 
             if (itemSelected == null || characterSelected == null)
@@ -69,7 +71,11 @@ namespace DungeonCrawler.Views.EquipItem
             BattlePage.Instance.AddItem(itemSelected);
             // equip item for character in actor class
             characterSelected.actorItemsCorrespondingToLocation[(int)itemSelected.position - 1] = itemSelected; // todo: might want to add the item instead of the id
-                             
+
+            await DisplayAlert("Equip Item", itemSelected.Text + " Equipped!", "Yes", "No");
+
+
+
         }
 
 
