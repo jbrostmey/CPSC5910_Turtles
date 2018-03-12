@@ -68,7 +68,7 @@ namespace DungeonCrawler.Views.EquipItem
             // add item to inventory
             BattlePage.Instance.AddItem(itemSelected);
             // equip item for character in actor class
-            characterSelected.actorItemsCorrespondingToLocation[(int)itemSelected.position] = itemSelected.Id; // todo: might want to add the item instead of the id
+            characterSelected.actorItemsCorrespondingToLocation[(int)itemSelected.position - 1] = itemSelected; // todo: might want to add the item instead of the id
                              
         }
 

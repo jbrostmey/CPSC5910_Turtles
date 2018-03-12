@@ -18,14 +18,15 @@ namespace DungeonCrawler.Models
 
             // contains item id's for each location
             // there are 7 item locations.
-            // id's are stored as strings.
-            actorItemsCorrespondingToLocation = new List<string> { }; 
-
-            var emumLocationNum = Enum.GetNames(typeof(EquipmentPosition)).Length;             int enumLocNum = Convert.ToInt32(emumLocationNum); // for our design there will be 7 possible positions             for (int i = 0; i <= enumLocNum; i++){ // create a list of 8 so numbers correspond to enum values. item at location 0 is a placeholder.                actorItemsCorrespondingToLocation.Add("placeholder"); // initialize item id to 0 for each location                            }  
+            // Items are stored, correspond to locations.
+            actorItemsCorrespondingToLocation = new List<Item> { }; 
+             for (int i = 0; i < ENUMLOCATIONS; i++){               
+                Item itemNew = new Item();                 actorItemsCorrespondingToLocation.Add(itemNew);                         }
 
         }
+        private int ENUMLOCATIONS = 7;
 
-        public List<string> actorItemsCorrespondingToLocation; // for inventory of a specific actor
+        public List<Item> actorItemsCorrespondingToLocation; // for inventory of a specific actor
 
         public EquipmentPosition equipmentPositions { get; set; }
 
@@ -61,13 +62,28 @@ namespace DungeonCrawler.Models
 
         //If a character has died, it will drop all of its equipment and return it to
         // the field as an array of items.
-        public virtual List<Item> Die()
+        public virtual List<Item> Die(Character character)
         {
-            return null;
+            List<Item> items = new List<Item>();
+            for (int i = 0; i < ENUMLOCATIONS; i++){
+                items.Add(character.actorItemsCorrespondingToLocation[i]);
+            }
+            return items;
+
+        }
+        // todo: combine monster and character die
+        public virtual List<Item> Die(Monster monster)
+        {
+            List<Item> items = new List<Item>();
+            for (int i = 0; i < ENUMLOCATIONS; i++)
+            {
+                items.Add(monster.actorItemsCorrespondingToLocation[i]);
+            }
+            return items;
+
         }
 
-
-        public virtual void EquipItem(Character character, Item item)         {             int itemLocation = (int)item.position;             actorItemsCorrespondingToLocation[itemLocation] = item.Id;
+        public virtual void EquipItem(Character character, Item item)         {             int itemLocation = (int)item.position;             actorItemsCorrespondingToLocation[itemLocation-1] = item;
          
         } 
     }

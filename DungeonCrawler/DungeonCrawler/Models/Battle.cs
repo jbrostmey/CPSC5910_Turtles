@@ -79,7 +79,7 @@ namespace DungeonCrawler.Models
 
                     if (!aChar.IsAlive())
                     {
-                        aChar.Die(); // Relinquish inventory and drop all items
+                        aChar.Die(aChar); // Relinquish inventory and drop all items
                         msg += "\n Character " + aChar.number + " has died!";
 
                     }
