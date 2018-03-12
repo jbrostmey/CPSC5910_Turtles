@@ -79,6 +79,12 @@ namespace DungeonCrawler
             try
             {
                 Dataset.Clear();
+
+                if (DataStore == null)
+                {
+                    SetDataStore(DataStoreEnum.Sql); // initialize to sql
+                }
+
                 var dataset = await DataStore.GetAllAsync_Character(true);
                 foreach (var data in dataset)
                 {

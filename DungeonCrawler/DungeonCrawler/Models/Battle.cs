@@ -70,10 +70,12 @@ namespace DungeonCrawler.Models
                             summary += "Character " + aChar.number + " has killed " + aMon.number + '\n';
 
                         }
-                    }else{
+                    }
+                    else
+                    {
                         msg = "Character " + aChar.number + " attacked and missed Monster " + aMon.number + "!\n";
                     }
-                        currentTurn = true;
+                    currentTurn = true;
                 }
                 else // Monster's turn
                 {
@@ -94,7 +96,9 @@ namespace DungeonCrawler.Models
                             summary += "Monster " + aMon.number + " has killed Character " + aChar.number + '\n';
 
                         }
-                    }else{
+                    }
+                    else
+                    {
                         msg = "Monster " + aMon.number + " attacked and missed Character " + aChar.number + "!\n";
                     }
 
@@ -144,7 +148,7 @@ namespace DungeonCrawler.Models
             //currentChar = 0;
 
 
-//Test functionality of EntityOrder, character 2 should always attack first
+            //Test functionality of EntityOrder, character 2 should always attack first
             aChar[2].attributes.speed = 500;
 
             round = 1;
@@ -192,10 +196,10 @@ namespace DungeonCrawler.Models
                     }
                 }
 
-                msg+= Turn(this.aChar[currentChar], this.aMon[currentMon]);
+                msg += Turn(this.aChar[currentChar], this.aMon[currentMon]);
             }
             msg += "\n\n\n" + summary;
-            return msg; 
+            return msg;
         }
 
         //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
@@ -270,7 +274,7 @@ namespace DungeonCrawler.Models
                 List<Character> sortChar = new List<Character>();
 
                 for (int i = 0; i < SIZE; i++)                     sortChar.Add(aChar[i]);
-                
+
                 //obj is a temp var that holds the entire list and looks at individual objects
                 sortChar = sortChar.OrderByDescending(obj => obj.attributes.speed)
                      .ThenBy(obj => obj.attributes.level)

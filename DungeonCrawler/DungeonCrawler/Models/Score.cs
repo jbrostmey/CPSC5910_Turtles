@@ -24,6 +24,8 @@ namespace DungeonCrawler.Models
         // Number of battles this game
         public int BattleCount { get; set; }
 
+
+
         // The count of monsters slain during battle
         public int MonsterSlainNumber { get; set; }
 
