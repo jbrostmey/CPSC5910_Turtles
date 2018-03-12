@@ -76,6 +76,7 @@ namespace DungeonCrawler.Views
             if (battleObj.inSession)
                 msg = battleObj.Turn(battleObj.aChar[currentChar], battleObj.aMon[currentMon]);
 
+ 
             await Navigation.PushAsync(new BattleMessage(msg));
         }
 
@@ -95,7 +96,14 @@ namespace DungeonCrawler.Views
         //Return to Opening Page
         private async void ExitGame_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GameEnd("temp message"));
+            await Navigation.PushAsync(new GameEnd());
+        }
+
+        private async void AutoPlay_Clicked(object sender, EventArgs e)
+        {
+            //game messages and summary
+            string output = battleObj.AutoPlay();
+            await Navigation.PushAsync(new BattleMessage(output));
         }
 
 

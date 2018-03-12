@@ -45,17 +45,20 @@ namespace DungeonCrawler.Views
             };
             button.Clicked += ContinueGame_Clicked;
 
-            this.Content = new StackLayout
+            var scroll = new ScrollView();
+            Content = scroll;
+            var stack = new StackLayout
             {
-
                 Children =
                 {
-
                     header,
                     message,
                     button
                 }
             };
+
+            scroll.Content = stack;
+
 
 
 

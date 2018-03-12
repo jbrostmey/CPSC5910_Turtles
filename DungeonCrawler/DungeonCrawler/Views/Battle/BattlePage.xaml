@@ -239,10 +239,18 @@
                     BorderWidth=".5"/>
 
                 </StackLayout>
+                                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                          
+
+     <Button Text = "Auto Play"
+                    Clicked = "AutoPlay_Clicked"
+                    BorderWidth=".5"/>
+
+                </StackLayout>
                                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
 
 
- <Button Text="Exit Game"
+     <Button Text="Exit Game"
                     Clicked="ExitGame_Clicked"
                     BorderColor="Black"
                     BorderWidth=".5"/>

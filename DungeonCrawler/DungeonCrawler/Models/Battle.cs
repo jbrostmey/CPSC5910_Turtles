@@ -58,12 +58,15 @@ namespace DungeonCrawler.Models
 
                     //Character attacks, monster loses health
                     int experience = aMon.TakeDamage(getCharAtt);
-                    msg = "Character " + aChar.number + " attacked Monster " + aMon.number + " with a damage of " + getCharAtt;
+                    msg = "Character " + aChar.number + " attacked Monster " + aMon.number + " with a damage of " + getCharAtt + '\n';
 
                     aChar.GainExperience(experience); // EXP not yet determined
                     if (!aMon.IsAlive())
                     {
                         //Item[] drops = aMon.dropPool; // Items dropped from monster's death
+                        msg += "\nMonster " + aMon.number + " has died!" + '\n';
+                        summary += "Character " + aChar.number + " has killed " + aMon.number + '\n';
+
                     }
                         currentTurn = true;
                 }
@@ -80,7 +83,8 @@ namespace DungeonCrawler.Models
                     if (!aChar.IsAlive())
                     {
                         aChar.Die(aChar); // Relinquish inventory and drop all items
-                        msg += "\n Character " + aChar.number + " has died!";
+                        msg += "\nCharacter " + aChar.number + " has died!" + '\n';
+                        summary += "Monster " + aMon.number + " has killed Character " + aChar.number + '\n';
 
                     }
 
@@ -97,6 +101,10 @@ namespace DungeonCrawler.Models
             {
                 round++;
                 msg += "\n\n\n Next round! Round: " + round;
+                summary += "Round: " + round + '\n';
+                //init new party of monsters
+                for (int i = 0; i < SIZE; i++)
+                    this.aMon[i] = new Monster();
             }
 
             return msg;
@@ -129,8 +137,8 @@ namespace DungeonCrawler.Models
 //Test functionality of EntityOrder, character 2 should always attack first
             aChar[2].attributes.speed = 500;
 
-
             round = 1;
+            summary = "Round: " + round + '\n';
         }
 
         //Will take in a character object and retrieve stats of that character to determine what the attack will be. OR if it is a monster, will retrieve attack of monster
@@ -146,17 +154,38 @@ namespace DungeonCrawler.Models
         public void EndGame() { inSession = false; }
 
         //User selects AutoPlay, run game indefinitely until inSession is switched to false
-        public void AutoPlay()
+        public string AutoPlay()
         {
-            string msg = ""; // one long message output at the end of the game summary
+            string msg = summary; // one long message output at the end of the game summary
             while (inSession)
             {
+                //loop through and select currentChar as the first one that is still alive. otherwise increment
+                //if at end of (index 5), restart to index 0 
+                EntityOrder(true);
+                EntityOrder(false);
 
-                //round implementation with a litte refactoring
+                for (int i = 0; i < 6; i++)
+                {
+                    if (this.aChar[i].IsAlive())
+                    {
+                        this.currentChar = i;
+                        break;
+                    }
+                }
 
+                for (int i = 0; i < 6; i++)
+                {
+                    if (this.aMon[i].IsAlive())
+                    {
+                        this.currentMon = i;
+                        break;
+                    }
+                }
 
+                msg+= Turn(this.aChar[currentChar], this.aMon[currentMon]);
             }
-
+            msg += "\n\n\n" + summary;
+            return msg; 
         }
 
         //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
@@ -218,15 +247,6 @@ namespace DungeonCrawler.Models
                 status = true;
 
             return status;
-        }
-
-
-        private void InitNewRound()
-        {
-            for (int i = 0; i < SIZE; i++)
-            {
-
-            }
         }
 
         //To be called in Turn function after every Turn. Sorts character and monster for next turn
