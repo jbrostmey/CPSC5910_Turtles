@@ -51,16 +51,22 @@ namespace DungeonCrawler.Models
 
             if (inSession == true)
             {
+                int HMC = CanAttackMonster(aChar, aMon); // hit miss critical
                 if (currentTurn == false) // Character's turn (by default, character goes first)
                 {
                     int getCharAtt = CharacterAttack(aChar);
                     int getMonDef = MonsterDefense(aMon);
-
-                    if (CanAttackMonster(aChar, aMon) > 0)
+                    if (HMC > 0)
                     {
+                        if (HMC == 2)
+                        {
+                            getCharAtt *= 2; // double regular attack
+                            msg += "***CRITICAL HIT!****\n";
+                        }
+                        
                         //Character attacks, monster loses health
                         int experience = aMon.TakeDamage(getCharAtt);
-                        msg = "Character " + aChar.number + " attacked Monster " + aMon.number + " with a damage of " + getCharAtt + '\n';
+                        msg += "Character " + aChar.number + " attacked Monster " + aMon.number + " with a damage of " + getCharAtt + '\n';
 
                         aChar.GainExperience(experience); // EXP not yet determined
                         if (!aMon.IsAlive())
@@ -82,8 +88,14 @@ namespace DungeonCrawler.Models
                     int getMonAtt = MonsterAttack(aMon);
                     int getCharDef = CharacterDefense(aChar);
 
-                    if (CanAttackCharacter(aChar, aMon) > 0)
+                    if (HMC > 0)
                     {
+                        if (HMC == 2)
+                        {
+                            getMonAtt *= 2;
+                            msg += "***CRITICAL HIT!****\n";
+                        }
+
                         //Character attacks, monster loses health
                         aChar.TakeDamage(getMonAtt);
 
