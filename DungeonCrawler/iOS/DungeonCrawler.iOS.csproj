@@ -108,9 +108,6 @@
     <Reference Include="SQLitePCLRaw.provider.sqlite3">
       <HintPath>..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
     </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_green">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
-    </Reference>
     <Reference Include="SQLitePCLRaw.batteries_v2">
       <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
@@ -119,6 +116,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +138,18 @@
     <BundleResource Include="Resources\DapperDino.png" />
     <BundleResource Include="Resources\DapperDino%402x.png" />
     <BundleResource Include="Resources\DapperDino%403x.png" />
+    <BundleResource Include="Item.png" />
+    <BundleResource Include="Item%402x.png" />
+    <BundleResource Include="Item%403x.png" />
+    <BundleResource Include="Monster%403x.png" />
+    <BundleResource Include="Monster%402x.png" />
+    <BundleResource Include="Monster.png" />
+    <BundleResource Include="Character.png" />
+    <BundleResource Include="Character%402x.png" />
+    <BundleResource Include="Character%403x.png" />
+    <BundleResource Include="Score.png" />
+    <BundleResource Include="Score%402x.png" />
+    <BundleResource Include="Score%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />

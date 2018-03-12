@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.AboutPage" xmlns:vm="clr-namespace:DungeonCrawler;" Title="{Binding Title}">
-	<ContentPage.BindingContext>
-		<vm:AboutViewModel />
-	</ContentPage.BindingContext>
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
 
 
             
-		</Grid.RowDefinitions>
-		<StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-			<StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-				<ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-					<Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
-				</ContentView>
-			</StackLayout>
-		</StackLayout>
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
 
 
         
-		<ScrollView Grid.Row="1">
-			<StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-				<Label FontSize="22">
-					<Label.FormattedText>
-						<FormattedString>
-							<FormattedString.Spans>
-								<Span Text="Dungeon Crawler" FontAttributes="Bold" FontSize="22" />
-								<Span Text=" " />
-								<Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}" />
-							</FormattedString.Spans>
-						</FormattedString>
-					</Label.FormattedText>
-				</Label>
-				<Label>
-					<Label.FormattedText>
-						<FormattedString>
-							<FormattedString.Spans>
-								<Span Text="Created by the Turtles team:" />
-								<Span Text=" " />
-								<Span Text="Julia Brostmeyer, Bryan Herr, and Denny Tran" FontAttributes="Bold" />
-								<Span Text="." />
-							</FormattedString.Spans>
-						</FormattedString>
-					</Label.FormattedText>
-				</Label>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                <Label FontSize="22">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Dungeon Crawler" FontAttributes="Bold" FontSize="22" />
+                                <Span Text=" " />
+                                <Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Created by the Turtles team:" />
+                                <Span Text=" " />
+                                <Span Text="Julia Brostmeyer, Bryan Herr, and Denny Tran" FontAttributes="Bold" />
+                                <Span Text="." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
                 <Button  
                     Text="Initialize Data" 
@@ -57,8 +57,55 @@
                     BorderWidth="2"
                     FontSize="Large"
                 />
+
+
+
+                                <Label Text="Debug Settings:" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
                 
-   			</StackLayout>
-		</ScrollView>
-	</Grid>
+                                <Label Text="Toggle to enable/disable debug controls." FontSize="Medium" FontAttributes="Italic" HorizontalOptions="Start"/>
+
+                                  <Switch 
+                    x:Name="DebugSettingsToggleSwitch"
+                    HorizontalOptions="CenterAndExpand"
+                    Toggled="DebugSettingsToggleSwitch_OnToggled"
+                    IsToggled="False"/>
+
+                                <Label Text="Use Mock Database" FontSize="Medium" FontAttributes="Italic" HorizontalOptions="Start"/>
+
+                                <Switch 
+                    x:Name="UseMockDatabaseSwitch"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="false"
+                    IsEnabled="false"
+                    Toggled="UseMockDatabaseSwitch_OnToggled"
+                    IsToggled="False"/>
+
+
+
+                   <Label Text="Use Post to get items from the server" FontSize="Medium" FontAttributes="Italic" HorizontalOptions="Start"/>
+
+                                   <Switch 
+                    x:Name="UsePostSwitch"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="false"
+                    IsEnabled="false"
+                    Toggled="UsePostSwitch_OnToggled"
+                    IsToggled="False"/>
+                
+                   <Label Text="Disable Random Numbers" FontSize="Medium" FontAttributes="Italic" HorizontalOptions="Start"/>
+                                  <Switch 
+                    x:Name="DisableRandomNumbersSwitch"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="false"
+                    IsEnabled="false"
+                    Toggled="DisableRandomNumbersSwitch_OnToggled"
+                    IsToggled="False"/>
+
+                   <Label Text="Edit Box to set a value for the Hit" FontSize="Medium" FontAttributes="Italic" HorizontalOptions="Start"/>
+               
+
+                
+               </StackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

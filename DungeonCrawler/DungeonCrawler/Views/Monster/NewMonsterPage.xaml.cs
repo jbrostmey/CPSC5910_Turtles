@@ -21,8 +21,8 @@ namespace DungeonCrawler
             {
                 Id = Guid.NewGuid().ToString(),
 
-                name = "Ooze",
-                description = "Eww it's an Ooze.",
+                name = "Dan",
+                description = "Dan is the man",
             };
 
             data.attributes.defense = 1;
@@ -43,6 +43,11 @@ namespace DungeonCrawler
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(data.ImageURI))
+            {
+                data.ImageURI = "Monster.png";
+            }
             MessagingCenter.Send(this, "AddData", data);
             await Navigation.PopAsync();
         }

@@ -34,6 +34,7 @@ namespace DungeonCrawler.Services
             App.Database.CreateTableAsync<Character>().Wait();
             App.Database.CreateTableAsync<Monster>().Wait();
             App.Database.CreateTableAsync<Score>().Wait();
+
         }
 
         // Create the Database Tables
@@ -112,14 +113,55 @@ namespace DungeonCrawler.Services
             await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Fifth Monster name" });
             await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Sixth Monster name" });
 
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 333, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 444, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 555, GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 666 , GameDate = new DateTime(), AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 333, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 444, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 555, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 666 , GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
 
+
+            //notate state when die, send message to scofe page, add to list, 
+            // when someone dies, send message, message will be picked up, store with character's ide
+            // send message with current game's ide
+            // grab information
+            //
         }
+
+
+        public async Task<bool> InsertUpdateAsync_Item(Item data)
+        {
+            if (data.Id == null)
+            {
+                Console.WriteLine("data id is null! "); // yes
+            }
+
+            // Check to see if the item exist
+            var oldData = await GetAsync_Item(data.Id);
+            if (oldData == null)
+            {
+                // If it does not exist, add it to the DB
+                var InsertResult = await App.Database.InsertAsync(data);
+                if (InsertResult == 1)
+                {
+                    return true;
+                }
+            }
+
+            // Compare it, if different update in the DB
+            var UpdateResult = await UpdateAsync_Item(data);
+            if (UpdateResult)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+
+
+
 
         // Item
         public async Task<bool> AddAsync_Item(Item data)
@@ -156,10 +198,35 @@ namespace DungeonCrawler.Services
         }
 
         public async Task<Item> GetAsync_Item(string id)
+
         {
-            var result = await App.Database.GetAsync<Item>(id);
-            return result;
+            // Need to add a try catch here, to catch when looking for something that does not exist in the db...
+            try
+            {
+                var result = await App.Database.GetAsync<Item>(id);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
+        /*
+        {
+            if(id == null) {
+                Console.WriteLine("ID IS NULL"); // ID IS not null
+            }
+            var result = await App.Database.GetAsync<Item>(id); //here
+
+
+            if(result == null) {
+                Console.WriteLine("result IS NULL"); 
+
+            }
+
+
+            return result;
+        }*/
 
         public async Task<IEnumerable<Item>> GetAllAsync_Item(bool forceRefresh = false)
         {
@@ -310,6 +377,10 @@ namespace DungeonCrawler.Services
 
         }
 
+
+
+
+     
     }
 }
 

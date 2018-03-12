@@ -12,7 +12,31 @@ namespace DungeonCrawler
      //   public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
 
          //public IDataStore DataStore => DependencyService.Get<IDataStore>() ?? MockDataStore.Instance;
-        public IDataStore DataStore => DependencyService.Get<IDataStore>() ?? SQLDataStore.Instance;
+       // public IDataStore DataStore => DependencyService.Get<IDataStore>() ?? SQLDataStore.Instance;
+
+       // public IDataStore DataStore => DependencyService.Get<IDataStore>() ?? SQLDataStore.Instance;
+      
+        private IDataStore DataStoreMock => DependencyService.Get<IDataStore>() ?? MockDataStore.Instance;
+        private IDataStore DataStoreSql => DependencyService.Get<IDataStore>() ?? SQLDataStore.Instance;
+
+        public IDataStore DataStore;
+
+        public enum DataStoreEnum { Unknown = 0, Sql = 1, Mock = 2 }
+        public void SetDataStore(DataStoreEnum data)
+        {
+            switch (data)
+            {
+                case DataStoreEnum.Mock:
+                    DataStore = DataStoreMock;
+                    break;
+
+                case DataStoreEnum.Sql:
+                case DataStoreEnum.Unknown:
+                default:
+                    DataStore = DataStoreSql;
+                    break;
+            }
+        }
 
         bool isBusy = false;
         public bool IsBusy

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using SQLite;
 namespace DungeonCrawler.Models
 {
@@ -12,13 +11,12 @@ namespace DungeonCrawler.Models
      * Compiling Implemented code for character: 
          Properties implementation 
         Method stubs implementation */
-    public class Character : Actor
+    public class Character : BaseCharacter
     {
         //Basic constructor. Each character must have a name on creation.
         // Each character will initialize their own d10 on creation.
         public Character() {
             d10 = new Random((int) DateTime.Now.Ticks & 0x0000FFFF);
-            inventory = new Dictionary<EquipmentPosition, string>();
         }
 
         [PrimaryKey]
@@ -32,18 +30,14 @@ namespace DungeonCrawler.Models
         //  to an enum in the future.
         public string characterClass { get; set; }
 
-
-        //This will hold the items the character has equiped. It is publically gettable
-        //  to allow views to grab the entire inventory of the characters to display on different screens.
-        //  NOTE: items will be stored as strings
-
-
         //Drops item being held in the specific item type slot
-        public string DropItem(Enum itemType) { return null; }
+        public Item DropItem(Enum itemType) { return null; }
 
         //Equips new item if it can. If it cannot equip the item due to the item slot
         //  being filled, will return false.
-        public bool EquipItem(string item) { return false; }
+        public bool EquipItem(Item item) { return false; }
+
+        public string ImageURI { get; set; }
 
         //Level up, called from GainXP when a level up is needed.
         private void LevelUp() { 
@@ -61,6 +55,13 @@ namespace DungeonCrawler.Models
             attributes.currentHealth += additionalHealth;
             attributes.health += additionalHealth;
 
+        }
+
+        public override void TakeDamage(int Damage)
+        {
+            attributes.currentHealth -= Damage;
+            if (attributes.currentHealth < 1)
+                attributes.alive = false;
         }
 
         //logic to check if a character is eligable for a levelup
@@ -83,22 +84,22 @@ namespace DungeonCrawler.Models
             }
         }
 
-        //Item gets passed into this function to update attributes of character
-        public void updateAttributes(Item someItem, bool flag)
-        {
-            if (flag == true)
-            {
-                attributes.defense += someItem.defense;
-                attributes.attack += someItem.attack;
-                attributes.speed += someItem.speed;
-            }
-            else 
-            {
-                attributes.defense -= someItem.defense;
-                attributes.attack -= someItem.attack;
-                attributes.speed -= someItem.speed;   
-            }
-        }
+        ////Item gets passed into this function to update attributes of character
+        //public void updateAttributes(Item someItem, bool flag)
+        //{
+        //    if (flag == true)
+        //    {
+        //        attributes.defense += someItem.defense;
+        //        attributes.attack += someItem.attack;
+        //        attributes.speed += someItem.speed;
+        //    }
+        //    else 
+        //    {
+        //        attributes.defense -= someItem.defense;
+        //        attributes.attack -= someItem.attack;
+        //        attributes.speed -= someItem.speed;   
+        //    }
+        //}
 
         public void update(Character c)
         {
@@ -110,20 +111,13 @@ namespace DungeonCrawler.Models
 
             attributes.Update(c.attributes);
 
-
-
+            inventory.Clear();
+            foreach (EquipmentPosition position in c.inventory.Keys)
+                inventory.Add(position,c.inventory[position]);
         }
 
 
-/*
- * We may reinstate the following code if/when we start making subclasses.
- * 
-        //Calculates damage, taking into account attack stats, attack modifiers, and item attack values
-        public int Attack(){}
-        //Calculates defense, taking into account defense stats, defense modifiers, and item defense values
-        public int Defense(){}
-        //Calculates accuracy, taking into account speed stats, speed modifiers, and item speed values.
-        public int Accuracy(){}
-*/
+
+       
     }
 }

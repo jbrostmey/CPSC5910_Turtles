@@ -33,7 +33,17 @@
             <Editor Text="{Binding Data.position}" FontSize="Small" />
 
           
+                 <Label 
+                            Text="Image" 
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
 
+                <Entry 
+                            Text="{Binding Data.ImageURI}" 
+                            FontSize="Small" 
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"/>
             
 		</StackLayout>
    </ScrollView>

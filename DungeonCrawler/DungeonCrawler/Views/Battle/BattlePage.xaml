@@ -1,22 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.Views.BattlePage" Title="Battle Page">
-	<ContentPage.Content>
+    <ContentPage.Content>
+
         <StackLayout Spacing="10" Padding="15">
-            <Label Text="Battle Page" FontSize="Large" HorizontalOptions="Center"/>
-            <Label Text="Level: " FontSize="Large" HorizontalOptions="Center"/>
-            <Label Text="Current Score: " FontSize="Large" HorizontalOptions = "Center" />
+
+            <Label Text="Battle Page" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+
+            
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+        <Button Text="Level:"/>
+    </StackLayout>
+    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+        <Button Text="Current Score:"/>
+    </StackLayout>
+</StackLayout>
+
+
+
+                                   
+
+
+            <!--
+            
+            <Label Text="Level: " FontSize="Medium" HorizontalOptions="Center"/>
+            <Label Text="Current Score: " FontSize="Medium" HorizontalOptions = "Center" />
+            -->
+
+
+
+            
+                <Label Text="Characters:" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
 
             <ScrollView>
+
+
+
+                 <ListView x:Name="CharacterInfoListView" 
+                ItemsSource="{Binding Dataset}"
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 RefreshCommand="{Binding LoadDataCommand}"
+                 IsPullToRefreshEnabled="true"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+                 ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5">
+
+
+                            
+                                         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Name:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding name}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Type:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding characterClass}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+                                    
+                             
+
+                                      <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Alive:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding attributes.alive}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+
+                                    
+                         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Health:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding attributes.health}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+                              
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+
+             </ScrollView>
+
+             <!--//todo: add name, type, item(s), alive/dead, health instead of characters, lists--> 
+
+
+
+
+                
             <!-- To display information about the characters in this battle--> 
-               <!--
+               <!-- 
                <ListView x:Name="CharacterInfosListView" />
                     
                     ItemsSource="{Binding CharacterInfo}"
                     VerticalOptions="FillAndExpand"
                     HasUnevenRows="true"
                     RefreshCommand="{Binding LoadCharacterInfoCommand}" IsPullToRefreshEnabled="true"
-                    IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnCharacterInfoSelected"> <ListView.ItemTemplate>
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnCharacterInfoSelected"> 
+                
                     <ListView.ItemTemplate>
+                    
                         <DataTemplate>
                         <ViewCell>
                                 <StackLayout Padding="10">
@@ -27,43 +131,159 @@
                             <Label Text="{Binding CharacterItems}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                             <Label Text="{Binding CharacterState}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                             <Label Text="{Binding CharacterHP}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
-                            -->
-                        <StackLayout Padding="10">
-                            <Label Text = "Character|Type|Item(s)|Alive/Dead|Health" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
-                            <Label Text = "name1 | type | item1 | Alive | 50" HorizontalOptions="Center" />
-                            <Label Text = "name2 | type | item1 | Alive | 50" HorizontalOptions="Center"/>
-                        </StackLayout> 
-            </ScrollView>
-            <ScrollView>
-                <StackLayout Padding="10">
-                    <Label Text = "Monster|Type|Item(s)|Alive/Dead|Health" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
-                    <Label Text = "name1 | type | item1 | Alive | 50" HorizontalOptions="Center" />
-                    <Label Text = "name2 | type | item1 | Dead | 0" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                                           -->
 
+
+                
+                        
+           
+
+                            <Label Text="Monsters:" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+                               <ScrollView>
+
+
+
+                 <ListView x:Name="MonsterListView" 
+                ItemsSource="{Binding DatasetMonster}"
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 RefreshCommand="{Binding LoadDataCommand}"
+                 IsPullToRefreshEnabled="true"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+
+                 ItemSelected="OnMonsterSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5">
+
+                                         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Name:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding name}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Type:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding characterClass}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+                                    
+                             
+
+                                      <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Alive:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding attributes.alive}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+
+                                    
+                         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                  <Label Text="Health:" FontSize="Small"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding attributes.health}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
+                                   
+
+
+
+
+
+
+                                    
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+
+             </ScrollView>
+
+
+                                          <Label Text="Battle Message: " FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+
+                  <Label x:Name="BattleMessageName" Text="Click Play to Begin!" />
+                              <Label Text="Inventory: " FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+              <Label x:Name="BattleInventory" Text="Start Battle to Collect Inventory!" />
+
+                                                     
+            
+                                              <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                          
+
+     <Button Text = "Play"
+                    Clicked = "Play_Clicked"
+                    BorderWidth=".5"/>
+
+                </StackLayout>
+                                            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                          
+
+     <Button Text = "Auto Play"
+                    Clicked = "AutoPlay_Clicked"
+                    BorderWidth=".5"/>
+
+                </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+
+
+     <Button Text="Exit Game"
+                    Clicked="ExitGame_Clicked"
+                    BorderColor="Black"
+                    BorderWidth=".5"/>
+
+                </StackLayout>
+                                            </StackLayout>
+                                   
+
+
+
+                                   <!--
+            
                     <Button Text="View Characters"
                     Clicked="ViewCharacters_Clicked"
                     BorderColor="Black"
-                    BorderWidth="1"/>
+                    BorderWidth=".5"/>
+            
                     <Button Text = "View Monsters"
+                
                     Clicked = "ViewMonsters_Clicked"
-                    BorderWidth="1"/>
+                    BorderWidth=".5"/>
                     <Label Text =""/>
-                    <Label Text =""/>
-
+                    <Label Text =""/> 
                     <Button Text = "Play"
                     Clicked = "Play_Clicked"
-                    BorderWidth="1"/>
-                    <Button Text="Exit Game"
+                    BorderWidth=".5"/>
+            <Button Text="Exit Game"
                     Clicked="ExitGame_Clicked"
                     BorderColor="Black"
-                    BorderWidth="1"/>
-
-                    
-                </StackLayout> 
-            </ScrollView>
+                    BorderWidth=".5"/>
+                    -->
+              
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>
-                
-
-

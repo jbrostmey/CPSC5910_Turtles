@@ -12,6 +12,13 @@
 
            <Label Text="Edit Character" FontSize="Large" HorizontalOptions="CenterAndExpand" />
 
+            <Image Source="{Binding Data.ImageURI}"
+                WidthRequest="75"
+                HeightRequest="75" 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+
+                
 			<Label Text="Name" FontSize="Medium" />
 			<Entry Text="{Binding Data.name}" FontSize="Small" />
             

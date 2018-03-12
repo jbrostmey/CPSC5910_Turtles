@@ -62,6 +62,8 @@ namespace DungeonCrawler
             }
             
             BindingContext = _viewModel;
+
+
         }
     }
 }

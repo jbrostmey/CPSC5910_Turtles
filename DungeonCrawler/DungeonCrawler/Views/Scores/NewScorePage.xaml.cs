@@ -34,14 +34,16 @@ namespace DungeonCrawler.Views.Scores
                 Name = "Score name",
                 ScoreTotal = 0,
                 Id = Guid.NewGuid().ToString(),
-                GameDate = new DateTime(),
+                GameDate =  DateTime.Now,
                 AutoBattle = false,
                 TurnNumber = 1,
                 MonsterSlainNumber = 0,
                 ExperienceGainedTotal = 0,
                 CharacterAtDeathList = "Characters dead",
                 MonstersKilledList = "Monsters killed",
-                ItemsDroppedList = "Items dropped"
+                ItemsDroppedList = "Items dropped",
+                ImageURI = "Score.png"
+
 
 
             };
@@ -51,6 +53,11 @@ namespace DungeonCrawler.Views.Scores
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(Data.ImageURI))
+            {
+                Data.ImageURI = "Score.png";
+            }
             MessagingCenter.Send(this, "AddData", Data);
             await Navigation.PopAsync();
         }

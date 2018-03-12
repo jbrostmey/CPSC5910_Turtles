@@ -27,6 +27,10 @@ namespace DungeonCrawler.Views.Items
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Data.ImageURI))
+            {
+                Data.ImageURI = "Item.png";
+            }
             MessagingCenter.Send(this, "EditData", Data);
 
             // removing the old ItemDetails page, 2 up counting this page

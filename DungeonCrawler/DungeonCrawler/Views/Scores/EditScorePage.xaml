@@ -16,7 +16,11 @@
 
                 <Label Text="Edit Score" FontSize="Large" HorizontalOptions="CenterAndExpand" />
 
-
+                 <Image Source="{Binding Data.ImageURI}"
+                WidthRequest="75"
+                HeightRequest="75" 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
      
 
                    <Label Text="Score:" FontSize="Medium" />
