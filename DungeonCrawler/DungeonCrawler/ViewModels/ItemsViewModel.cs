@@ -83,6 +83,77 @@ namespace DungeonCrawler
             return false;
         }
 
+
+        public async Task<bool> InsertUpdateAsync_Item(Item data)
+        {
+            if (data.Id == null)
+            {
+                Console.WriteLine("data id is null! "); // yes
+            }
+
+            // Check to see if the item exist
+            var oldData = await GetAsync_Item(data.Id); //here
+            if (oldData == null)
+            {
+                // If it does not exist, add it to the DB
+                var InsertResult = await App.Database.InsertAsync(data);
+                if (InsertResult == 1)
+                {
+                    return true;
+                }
+            }
+
+            // Compare it, if different update in the DB
+            var UpdateResult = await UpdateAsync_Item(data);
+            if (UpdateResult)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> UpdateAsync_Item(Item data)
+        {
+            var result = await App.Database.UpdateAsync(data);
+            if (result == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+        public async Task<Item> GetAsync_Item(string id)
+
+        {
+            // Need to add a try catch here, to catch when looking for something that does not exist in the db...
+
+
+            Console.WriteLine("id string: " + id.ToString());
+
+            if (id == null)
+            {
+                Console.WriteLine("id is null");
+            }
+            if (id != null)
+            {
+                Console.WriteLine("id is definitely not null");
+            }
+            try
+            {
+                BattlePageViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
+
+
+                var result = await App.Database.GetAsync<Item>(id);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         // Sets the need to refresh
         public void SetNeedsRefresh(bool value)
         {

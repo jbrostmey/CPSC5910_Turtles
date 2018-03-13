@@ -131,13 +131,13 @@ namespace DungeonCrawler.Services
 
         public async Task<bool> InsertUpdateAsync_Item(Item data)
         {
-            if (data.Id == null)
+             if (data.Id == null)
             {
                 Console.WriteLine("data id is null! "); // yes
             }
 
             // Check to see if the item exist
-            var oldData = await GetAsync_Item(data.Id);
+            var oldData = await GetAsync_Item(data.Id); //here
             if (oldData == null)
             {
                 // If it does not exist, add it to the DB
@@ -201,8 +201,22 @@ namespace DungeonCrawler.Services
 
         {
             // Need to add a try catch here, to catch when looking for something that does not exist in the db...
+
+
+            Console.WriteLine("id string: " + id.ToString());
+
+            if (id == null)
+            {
+                Console.WriteLine("id is null");
+            }
+            if(id != null){
+                Console.WriteLine("id is definitely not null");
+            }
             try
             {
+              //  BattlePageViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
+           
+
                 var result = await App.Database.GetAsync<Item>(id);
                 return result;
             }

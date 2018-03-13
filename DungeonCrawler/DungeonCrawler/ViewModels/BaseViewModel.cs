@@ -9,6 +9,13 @@ namespace DungeonCrawler
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        
+        public BaseViewModel(){
+            SetDataStore(DataStoreEnum.Sql);
+       }
+
+
+    
      //   public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
 
          //public IDataStore DataStore => DependencyService.Get<IDataStore>() ?? MockDataStore.Instance;

@@ -1,11 +1,19 @@
+﻿
 ﻿using System;
 
 using Xamarin.Forms;
 using DungeonCrawler.Services;
-
+using System;
+using Xamarin.Forms;
+using DungeonCrawler.Services;
+using DungeonCrawler.ViewModels;
+using DungeonCrawler.Models;
 using DungeonCrawler.ViewModels;
 using DungeonCrawler.Services;
 using DungeonCrawler.Controllers;
+using DungeonCrawler.Services;
+using DungeonCrawler.Controllers;
+
 namespace DungeonCrawler
 {
     public partial class AboutPage : ContentPage
@@ -113,12 +121,40 @@ namespace DungeonCrawler
             SetDataSource(e.Value);
         }
 
-        private void UsePostSwitch_OnToggled(object sender, ToggledEventArgs e)
+        private async void UsePostSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
-            Console.WriteLine("here");
+
+            var answerGet = await DisplayAlert("Get", "Would you like to Get Items from the Server?", "Yes", "No");
+            if (answerGet)
+            {
+                // Call to the Item Service and have it Get the Items
+                ItemsController.Instance.GetItemsFromServer();
+            }
+            // Use Post to get items from the server
+ 
+            var number = 10; // Set the number to 10 in order to get 10 items from the server.
+            var level = 20; // Set the level to 20; max value of 6.
+            var random = true; // Choose random to be true; random between 1 and level.
+            var attribute = Attributes.AttributeEnum.Unknown; // Choose any attribute.
+            var location = ItemLocationEnum.Unknown; // Choose any location.
+            var updateDatabase = true; // Set the local flag 
+
+            var myDataList = await ItemsController.Instance.GetItemsFromServerPost(number, level, attribute, location, random, updateDatabase);
+
+            var myOutput = string.Empty;
+            myOutput = myOutput + "Got from the server:";
+            foreach (var item in myDataList)
+            {
+                myOutput = myOutput + item.Text + "\n" + item.Description;
+
+            }
+
+            var answer = await DisplayAlert("Returned List", myOutput, "Yes", "No");        
         }
+      
 
 
 
     }
 }
+
