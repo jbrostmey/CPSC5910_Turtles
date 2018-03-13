@@ -102,8 +102,7 @@
                     IsToggled="False"/>
 
                    <Label Text="Edit Box to set a value for the Hit" FontSize="Medium" FontAttributes="Italic" HorizontalOptions="Start"/>
-                   <Entry Placeholder="Input Hit Value" />
-                   <Entry Completed="ToHit_EditBox" />
+                   <Entry Placeholder="Input Hit Value" Completed="ToHit_EditBox" />
                 
                </StackLayout>
         </ScrollView>

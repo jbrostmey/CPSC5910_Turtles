@@ -10,14 +10,17 @@ namespace DungeonCrawler
 {
     public partial class AboutPage : ContentPage
     {
-
+        void Handle_Focused(object sender, Xamarin.Forms.FocusEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         public void DisableRandomNumbersSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
             Switch toggleSwitch = sender as Switch;
-            if(toggleSwitch.IsToggled)
+            if (toggleSwitch.IsToggled)
             {
-                App.disabledRandom = true; 
+                App.disabledRandom = true;
             }
         }
 
