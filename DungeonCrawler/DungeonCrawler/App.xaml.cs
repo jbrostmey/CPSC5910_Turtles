@@ -12,6 +12,12 @@ namespace DungeonCrawler
 
     public partial class App : Application
     {
+        // What number should return for random numbers (1 is good choice...)
+        public static int globalForcedRandomValue = 1;
+        // What number to use for ToHit values (1,2, 19, 20)
+        public static int globalForceToHitValue = 20;
+        public static int inputHitVal = 0;
+        public static bool disabledRandom = false; 
 
         public App ()
         {

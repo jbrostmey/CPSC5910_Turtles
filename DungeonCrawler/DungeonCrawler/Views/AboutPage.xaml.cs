@@ -10,18 +10,29 @@ namespace DungeonCrawler
 {
     public partial class AboutPage : ContentPage
     {
+
+
+        public void DisableRandomNumbersSwitch_OnToggled(object sender, ToggledEventArgs e)
+        {
+            Switch toggleSwitch = sender as Switch;
+            if(toggleSwitch.IsToggled)
+            {
+                App.disabledRandom = true; 
+            }
+        }
+
+        public void ToHit_EditBox(object sender, EventArgs e)
+        {
+            var text = ((Entry)sender).Text; //cast sender to access the properties of the Entry
+            int num = Convert.ToInt32(text);
+            Console.WriteLine(num);
+            App.inputHitVal = num;
+        }
+
+
         public AboutPage()
         {
             InitializeComponent();
-
-
-
-
-
-
-
-
-
 
         }
 
@@ -103,10 +114,7 @@ namespace DungeonCrawler
         {
             Console.WriteLine("here");
         }
-        private void DisableRandomNumbersSwitch_OnToggled(object sender, ToggledEventArgs e)
-        {
-            Console.WriteLine("here");
-        }
+
 
 
     }

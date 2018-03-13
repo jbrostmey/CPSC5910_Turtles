@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace DungeonCrawler.Controllers
 {
-
     public class ItemsController
     {
         // Make this a singleton so it only exist one time because holds all the data records in memory
