@@ -54,16 +54,35 @@ namespace DungeonCrawler.Models
             if (inSession == true)
             {
                 int HMC = CanAttackMonster(aChar, aMon); // hit miss critical
+                Console.WriteLine("HMC: " + HMC);
+
                 if (currentTurn == false) // Character's turn (by default, character goes first)
                 {
                     int getCharAtt = CharacterAttack(aChar);
                     int getMonDef = MonsterDefense(aMon);
+
+                    //Force into if statement below
+                    if (App.inputHitVal == 1 || App.inputHitVal == 20)
+                        HMC = 3;
+                    else if (App.disabledRandom)
+                        HMC = 2; 
+
+
+
                     if (HMC > 0)
                     {
-                        if (HMC == 2)
+                        if(App.inputHitVal == 20){
+                            getCharAtt = App.globalForceToHitValue;;
+                        }
+                        else if (HMC == 2)
                         {
                             getCharAtt *= 2; // double regular attack
                             msg += "***CRITICAL HIT!****\n";
+                        }
+                        else if( App.inputHitVal == 1) 
+                        {
+                            getCharAtt =0; 
+                            msg += "***MISS!****\n";
                         }
                         
                         //Character attacks, monster loses health
@@ -90,18 +109,35 @@ namespace DungeonCrawler.Models
                     int getMonAtt = MonsterAttack(aMon);
                     int getCharDef = CharacterDefense(aChar);
 
+                    //Force into if statement below
+                    if (App.inputHitVal == 1 || App.inputHitVal == 20)
+                        HMC = 3;
+                    else if (App.disabledRandom)
+                        HMC = 2; 
+
+
+
                     if (HMC > 0)
                     {
-                        if (HMC == 2)
+                        if (App.inputHitVal == 20)
+                        {
+                            getMonAtt = App.globalForceToHitValue;
+                        }
+                        else if (HMC == 2)
                         {
                             getMonAtt *= 2;
                             msg += "***CRITICAL HIT!****\n";
+                        }
+                        else if (App.inputHitVal == 1)
+                        {
+                            getMonAtt = 0;
+                            msg += "***MISS!****\n";
                         }
 
                         //Character attacks, monster loses health
                         aChar.TakeDamage(getMonAtt);
 
-                        msg = "Monster " + aMon.number + " attacked Character " + aChar.number + " with a damage of " + getMonAtt;
+                        msg += "Monster " + aMon.number + " attacked Character " + aChar.number + " with a damage of " + getMonAtt;
 
                         if (!aChar.IsAlive())
                         {
@@ -339,6 +375,9 @@ namespace DungeonCrawler.Models
 
         private int CanAttackMonster(Character character, Monster monster)
         {
+            if (App.disabledRandom)
+                return App.globalForcedRandomValue;
+            
             int DiceRoll = (character.d10.Next() % 20) + 1;
             if (DiceRoll == 20)
                 return 2;
@@ -352,6 +391,10 @@ namespace DungeonCrawler.Models
 
         private int CanAttackCharacter(Character character, Monster monster)
         {
+            if (App.disabledRandom)
+                return App.globalForcedRandomValue;
+
+
             int DiceRoll = (monster.d10.Next() % 20) + 1;
             if (DiceRoll == 20)
                 return 2;
