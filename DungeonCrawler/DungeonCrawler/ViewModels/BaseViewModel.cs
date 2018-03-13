@@ -28,6 +28,10 @@ namespace DungeonCrawler
 
         public IDataStore DataStore;
 
+        public BaseViewModel(){
+            this.SetDataStore(DataStoreEnum.Sql);
+        }
+
         public enum DataStoreEnum { Unknown = 0, Sql = 1, Mock = 2 }
         public void SetDataStore(DataStoreEnum data)
         {

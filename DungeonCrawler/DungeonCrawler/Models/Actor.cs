@@ -48,12 +48,6 @@ namespace DungeonCrawler.Models
         //Allows getting of Attributes. No setting: must be done through methods.
         public Attributes attributes { get; }
 
-        //Decreases attributes.currentHealth based on damage parameter.
-        public virtual void TakeDamage(int damage)
-        {
-            // todo: character is not taking damage
-        }
-
         //Returns true if the character is still alive.
         public bool IsAlive()
         {

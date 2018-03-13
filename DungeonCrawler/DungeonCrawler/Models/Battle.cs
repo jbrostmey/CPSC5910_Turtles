@@ -53,11 +53,11 @@ namespace DungeonCrawler.Models
 
             if (inSession == true)
             {
-                int HMC = CanAttackMonster(aChar, aMon); // hit miss critical
-                Console.WriteLine("HMC: " + HMC);
-
+                int HMC; // hit miss critical
                 if (currentTurn == false) // Character's turn (by default, character goes first)
                 {
+                    HMC = CanAttackMonster(aChar, aMon); // hit miss critical
+                    Console.WriteLine("HMC: " + HMC);
                     int getCharAtt = CharacterAttack(aChar);
                     int getMonDef = MonsterDefense(aMon);
 
@@ -106,6 +106,8 @@ namespace DungeonCrawler.Models
                 }
                 else // Monster's turn
                 {
+                    HMC = CanAttackCharacter(aChar, aMon); // hit miss critical
+                    Console.WriteLine("HMC: " + HMC);
                     int getMonAtt = MonsterAttack(aMon);
                     int getCharDef = CharacterDefense(aChar);
 
@@ -146,6 +148,7 @@ namespace DungeonCrawler.Models
                                 aChar.MiracleMaxLive = false;
                                 CanReviveThisBattle = false;
                                 aChar.attributes.currentHealth = aChar.attributes.health;
+                                aChar.attributes.alive = true;
                                 msg += "\nMiraculously, Miracle Max saved the " + aChar.name + " from death!\n";
                             }else{
                                 aChar.Die(aChar); // Relinquish inventory and drop all items

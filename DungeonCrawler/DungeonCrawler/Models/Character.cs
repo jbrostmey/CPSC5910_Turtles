@@ -17,6 +17,7 @@ namespace DungeonCrawler.Models
         // Each character will initialize their own d10 on creation.
         public Character() {
             d10 = new Random((int) DateTime.Now.Ticks & 0x0000FFFF);
+            MiracleMaxLive = true;
         }
 
         [PrimaryKey]
@@ -57,7 +58,7 @@ namespace DungeonCrawler.Models
 
         }
 
-        public override void TakeDamage(int Damage)
+        public void TakeDamage(int Damage)
         {
             attributes.currentHealth -= Damage;
             if (attributes.currentHealth < 1)

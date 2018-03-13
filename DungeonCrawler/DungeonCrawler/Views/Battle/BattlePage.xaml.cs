@@ -158,6 +158,8 @@ namespace DungeonCrawler.Views
                 _viewModel.LoadDataCommand.Execute(null);
             }
 
+            _viewModel.LoadDataCommand.Execute(null);
+
             BindingContext = _viewModel;
 
             // DEFINE MESSAGE HERE
