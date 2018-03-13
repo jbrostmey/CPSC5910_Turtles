@@ -28,6 +28,8 @@ namespace DungeonCrawler.Models
         public int round;
         public string summary;
 
+        private bool CanReviveThisBattle = true;
+
         public List<Item> itemInventory; // holds item id's
 
         public Character[] aChar;
@@ -103,9 +105,17 @@ namespace DungeonCrawler.Models
 
                         if (!aChar.IsAlive())
                         {
-                            aChar.Die(aChar); // Relinquish inventory and drop all items
-                            msg += "\nCharacter " + aChar.number + " has died!" + '\n';
-                            summary += "Monster " + aMon.number + " has killed Character " + aChar.number + '\n';
+                            if (aChar.MiracleMaxLive && CanReviveThisBattle)
+                            {
+                                aChar.MiracleMaxLive = false;
+                                CanReviveThisBattle = false;
+                                aChar.attributes.currentHealth = aChar.attributes.health;
+                                msg += "\nMiraculously, Miracle Max saved the " + aChar.name + " from death!\n";
+                            }else{
+                                aChar.Die(aChar); // Relinquish inventory and drop all items
+                                msg += "\nCharacter " + aChar.number + " has died!" + '\n';
+                                summary += "Monster " + aMon.number + " has killed Character " + aChar.number + '\n';
+                            }
 
                         }
                     }
@@ -122,8 +132,10 @@ namespace DungeonCrawler.Models
              * to begin a new round to a round function. 
              */
             if (CheckParty(true))
+            {
                 inSession = false;
-            else if (CheckParty(false))
+                CanReviveThisBattle = true;
+            }else if (CheckParty(false))
             {
                 round++;
                 msg += "\n\n\n Next round! Round: " + round;
@@ -131,6 +143,7 @@ namespace DungeonCrawler.Models
                 //init new party of monsters
                 for (int i = 0; i < SIZE; i++)
                     this.aMon[i] = new Monster();
+                CanReviveThisBattle = true;
             }
 
             return msg;
