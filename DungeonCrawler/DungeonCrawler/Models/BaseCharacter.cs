@@ -9,11 +9,14 @@ namespace DungeonCrawler.Models
         public BaseCharacter()
         {
             inventory = new Dictionary<EquipmentPosition, Item>();
+            MiracleMaxLive = true;
         }
 
         //This will hold the items the character has equiped. It is publically gettable
         //  to allow views to grab the entire inventory of the characters to display on different screens.
         public Dictionary<EquipmentPosition, Item> inventory { get; }
+
+        public bool MiracleMaxLive { get; set; }
 
         public int ItemAttackModifier()
         {
