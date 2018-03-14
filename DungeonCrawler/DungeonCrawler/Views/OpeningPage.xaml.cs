@@ -32,5 +32,9 @@ namespace DungeonCrawler.Views
         {
             await Navigation.PushAsync(new AboutPage());
         }
+        async void ChoosePartyButtonClick(Object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AboutPage());
+        }
     }
 }

@@ -9,6 +9,8 @@
                <Button Text="CRUDi" Clicked="CRUDiPageButtonClick" BackgroundColor="{StaticResource Primary}" TextColor="White" />
                <Button Margin="0,20,0,0" Text="Battle" Clicked="BattlePageButtonClick" BackgroundColor="{StaticResource Primary}" TextColor="White" />
                <Button Margin="0,20,0,0" Text="About" Clicked="AboutPageButtonClick" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+               <Button Margin="0,20,0,0" Text="Choose Party" Clicked="ChoosePartyButtonClick" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+
             </StackLayout>
         </ScrollView>
     </StackLayout>
