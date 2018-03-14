@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DungeonCrawler.Models;
 using DungeonCrawler.ViewModels;
 using DungeonCrawler.Views;
+using DungeonCrawler.Services;
 
 
 using Xamarin.Forms;
@@ -15,6 +16,8 @@ namespace DungeonCrawler.Views
         {
             InitializeComponent();
             Title = "Main Menu";
+            //  BaseViewModel.DataStoreEnum.Sql; //.Instance.s;
+          //  BaseViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
         }
 
         //Need to add battle page when it is ready

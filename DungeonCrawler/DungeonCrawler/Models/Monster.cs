@@ -21,6 +21,10 @@ namespace DungeonCrawler.Models
         public Monster()
         {
             d10 = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+            attributes.health = 2;
+            attributes.currentHealth = 2;
+            attributes.level = 20;
+            attributes.currentExperience = 3000;
         }
 
         [PrimaryKey]
@@ -56,6 +60,7 @@ namespace DungeonCrawler.Models
             if(Damage >= attributes.currentHealth)
             {
                 attributes.currentHealth = 0;
+                attributes.alive = false;
                 return attributes.currentExperience;
             }
                 
