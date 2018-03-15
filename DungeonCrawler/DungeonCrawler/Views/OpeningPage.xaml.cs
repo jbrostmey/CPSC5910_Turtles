@@ -24,6 +24,7 @@ namespace DungeonCrawler.Views
         async void PlayButtonClick(Object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PartySelect());
+            //await Navigation.PushAsync(new BattlePage());
         }
 
         async void CRUDiPageButtonClick(Object sender, EventArgs e)
@@ -34,6 +35,14 @@ namespace DungeonCrawler.Views
         async void AboutPageButtonClick(Object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AboutPage());
+        }
+        async void AutoPlayButtonClick(Object sender, EventArgs e)
+        {
+            Battle battleObj = new Battle();
+            //game messages and summary
+            battleObj.BeginGame();
+            string output = battleObj.AutoPlay();
+            await Navigation.PushAsync(new BattleMessage(output));
         }
     }
 }

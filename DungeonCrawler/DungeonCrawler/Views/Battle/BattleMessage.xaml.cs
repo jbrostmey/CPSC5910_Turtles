@@ -37,13 +37,13 @@ namespace DungeonCrawler.Views
 
             Button button = new Button
             {
-                Text = "Continue Game",
+                Text = "Exit Game",
                 Font = Font.SystemFontOfSize(NamedSize.Medium),
                 BorderWidth = 1,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
             };
-            button.Clicked += ContinueGame_Clicked;
+            button.Clicked += ExitGame_Clicked;
 
             var scroll = new ScrollView();
             Content = scroll;
@@ -60,37 +60,9 @@ namespace DungeonCrawler.Views
             scroll.Content = stack;
 
 
-
-
-
-            //  InitializeComponent();
-
-            //this.BindingContext = message;
-
-
-
-
-
-
-            //message passed correctly. Having troubles with databinding and passing message to XAML 
-            /* this.Content = new Label
-             {
-                 Text = message
-             }
-         }
- */
-
-
-            /*      async void ContinueGame_Clicked(object sender, EventArgs e)
-                 {
-                     await Navigation.PushAsync(new BattleOver());
-                 }
-
-         */
-
-            async void ContinueGame_Clicked(object sender, EventArgs e)
+            async void ExitGame_Clicked(object sender, EventArgs e)
             {
-                await Navigation.PushAsync(new BattleOver());
+                await Navigation.PopToRootAsync();
             }
         }
     }
