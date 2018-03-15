@@ -4,7 +4,7 @@ using DungeonCrawler.Models;
 using DungeonCrawler.ViewModels;
 using DungeonCrawler.Views;
 using DungeonCrawler.Services;
-
+using DungeonCrawler.Views.Party;
 
 using Xamarin.Forms;
 
@@ -21,9 +21,9 @@ namespace DungeonCrawler.Views
         }
 
         //Need to add battle page when it is ready
-        async void BattlePageButtonClick(Object sender, EventArgs e)
+        async void PlayButtonClick(Object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new BattlePage());
+            await Navigation.PushAsync(new PartySelect());
         }
 
         async void CRUDiPageButtonClick(Object sender, EventArgs e)
@@ -32,10 +32,6 @@ namespace DungeonCrawler.Views
         }
 
         async void AboutPageButtonClick(Object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AboutPage());
-        }
-        async void ChoosePartyButtonClick(Object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AboutPage());
         }

@@ -17,6 +17,7 @@ namespace DungeonCrawler
     {
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static BattlePageViewModel _instance;
+        private int MaxPartySize = 6;
 
      //   public string battlemessage = "dkjfakjldffjd";
 
@@ -37,85 +38,36 @@ namespace DungeonCrawler
 
         public Command LoadDataCommand { get; set; }
 
-        private bool _needsRefresh;
-
         public BattlePageViewModel()
         {
             Title = "Battle Info List";
          //   battlemessage = "tmp";
             Dataset = new ObservableCollection<Character>();
             DatasetMonster = new ObservableCollection<Monster>();
-            LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
+            //LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
         }
 
-        // Return True if a refresh is needed
-        // It sets the refresh flag to false
-        public bool NeedsRefresh()
+        public void NewParty()
         {
-            if (_needsRefresh)
+            Dataset.Clear();
+            for (int i = 0; i < MaxPartySize; i++)
             {
-                _needsRefresh = false;
-                return true;
+                Dataset.Add(new Character { name = "Select Character", description = "", characterClass = "" });
             }
-
-            return false;
         }
 
-        // Sets the need to refresh
-        public void SetNeedsRefresh(bool value)
+        public bool ValidParty()
         {
-            _needsRefresh = value;
+            foreach (Character member in Dataset)
+            {
+                if (member.name == "Select Character")
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
-        private async Task ExecuteLoadDataCommand()
-        {
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-
-            try
-            {
-                Dataset.Clear();
-
-
-
-                if (DataStore == null)
-                {
-                    SetDataStore(DataStoreEnum.Sql); // initialize to sql
-                }
-         
-
-
-                var dataset = await DataStore.GetAllAsync_Character(true);
-                foreach (var data in dataset)
-                {
-                    Dataset.Add(data);
-                }
-
-                DatasetMonster.Clear();
-                var datasetMonster = await DataStore.GetAllAsync_Monster(true);
-                foreach (var dataM in datasetMonster)
-                {
-                    DatasetMonster.Add(dataM);
-                }
-
-        
-
-
-
-            }
-
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-
-            finally
-            {
-                IsBusy = false;
-            }
-        }
     }
 }

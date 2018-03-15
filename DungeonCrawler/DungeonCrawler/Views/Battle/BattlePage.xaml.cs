@@ -149,16 +149,6 @@ namespace DungeonCrawler.Views
 
             InitializeComponent();
 
-            if (_viewModel.Dataset.Count == 0)
-            {
-                _viewModel.LoadDataCommand.Execute(null);
-            }
-            else if (_viewModel.NeedsRefresh())
-            {
-                _viewModel.LoadDataCommand.Execute(null);
-            }
-
-            _viewModel.LoadDataCommand.Execute(null);
 
             BindingContext = _viewModel;
 

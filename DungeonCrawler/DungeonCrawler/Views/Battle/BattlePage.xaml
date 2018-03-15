@@ -41,9 +41,6 @@
                 ItemsSource="{Binding Dataset}"
                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"
-                 RefreshCommand="{Binding LoadDataCommand}"
-                 IsPullToRefreshEnabled="true"
-                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                  CachingStrategy="RecycleElement"
                  ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
@@ -151,9 +148,6 @@
                 ItemsSource="{Binding DatasetMonster}"
                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"
-                 RefreshCommand="{Binding LoadDataCommand}"
-                 IsPullToRefreshEnabled="true"
-                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                  CachingStrategy="RecycleElement"
 
                  ItemSelected="OnMonsterSelected">

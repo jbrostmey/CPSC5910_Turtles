@@ -128,6 +128,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\WebGlobals.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\VersionGlobals.cs" />
 
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Party\PartySelect.xaml.cs">
+      <DependentUpon>PartySelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Party\PartyMemberSelect.xaml.cs">
+      <DependentUpon>PartyMemberSelect.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
@@ -236,6 +242,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Party\PartySelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Party\PartyMemberSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\Battle\" />
@@ -245,5 +259,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Views\Scores\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\EquipItem\" />
     <Folder Include="$(MSBuildThisFileDirectory)Controllers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Party\" />
+    <Folder Include="$(MSBuildThisFileDirectory)iCommands\" />
   </ItemGroup>
 </Project>
