@@ -66,8 +66,7 @@ namespace DungeonCrawler.Models
                         HMC = 3;
                     else if (App.disabledRandom)
                         HMC = 2; 
-
-
+                    
 
                     if (HMC > 0)
                     {
@@ -93,8 +92,9 @@ namespace DungeonCrawler.Models
                         if (!aMon.IsAlive())
                         {
                             //Item[] drops = aMon.dropPool; // Items dropped from monster's death
-                            msg += "\nMonster " + aMon.number + " has died!" + '\n';
-                            summary += "Character " + aChar.number + " has killed " + aMon.number + '\n';
+                            aMon.Die(aMon);
+                            msg += "Monster " + aMon.number + " has died!" + '\n';
+                            summary += "Character " + aChar.number + " has killed Monster " + aMon.number + '\n';
 
                         }
                     }
@@ -139,7 +139,7 @@ namespace DungeonCrawler.Models
                         //Character attacks, monster loses health
                         aChar.TakeDamage(getMonAtt);
 
-                        msg += "Monster " + aMon.number + " attacked Character " + aChar.number + " with a damage of " + getMonAtt;
+                        msg += "Monster " + aMon.number + " attacked Character " + aChar.number + " with a damage of " + getMonAtt + '\n';
 
                         if (!aChar.IsAlive())
                         {
@@ -149,10 +149,11 @@ namespace DungeonCrawler.Models
                                 CanReviveThisBattle = false;
                                 aChar.attributes.currentHealth = aChar.attributes.health;
                                 aChar.attributes.alive = true;
-                                msg += "\nMiraculously, Miracle Max saved the " + aChar.name + " from death!\n";
-                            }else{
+                                msg += "Miraculously, Miracle Max saved the " + aChar.name + " from death!\n";
+                            }
+                            else{
                                 aChar.Die(aChar); // Relinquish inventory and drop all items
-                                msg += "\nCharacter " + aChar.number + " has died!" + '\n';
+                                msg += "Character " + aChar.number + " has died!" + '\n';
                                 summary += "Monster " + aMon.number + " has killed Character " + aChar.number + '\n';
                             }
 
@@ -165,6 +166,7 @@ namespace DungeonCrawler.Models
 
                     currentTurn = false;
                 }
+                msg += "\n\n";
             }
 
             /*If character party dies, END GAME (inSession = false). If monster party is dead, send message
@@ -174,15 +176,20 @@ namespace DungeonCrawler.Models
             {
                 inSession = false;
                 CanReviveThisBattle = true;
-            }else if (CheckParty(false))
+            }
+            else if (CheckParty(false))
             {
                 round++;
-                msg += "\n\n\n Next round! Round: " + round;
-                summary += "Round: " + round + '\n';
+                msg += "\n\n\n Next round! Round: " + round + '\n';
+                summary += "\nRound: " + round + '\n';
                 //init new party of monsters
                 for (int i = 0; i < SIZE; i++)
+                {
                     this.aMon[i] = new Monster();
+                    this.aMon[i].number = i;
+                }
                 CanReviveThisBattle = true;
+                currentTurn = true; 
             }
 
             return msg;
