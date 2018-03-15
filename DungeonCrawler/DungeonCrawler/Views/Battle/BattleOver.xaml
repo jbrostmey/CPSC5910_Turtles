@@ -5,6 +5,13 @@
             <Label Text="Battle Over!" FontSize="Large" HorizontalOptions="Center"/>
             <Image Source="battleCompleted.jpg" /> <!-- *Add image to project.-->
 
+            <ScrollView> 
+            <Label Text = "{Binding summary}"/>
+                </ScrollView>
+
+
+
+            
             <Button Text = "Continue to Next Level"
                 Clicked = "NextLevel_Clicked"
                 BorderColor = "Red"

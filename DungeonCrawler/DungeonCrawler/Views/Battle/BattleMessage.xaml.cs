@@ -11,7 +11,9 @@ namespace DungeonCrawler.Views
     public partial class BattleMessage : ContentPage
     {
         public string message;
-        //message passed in from Turn
+
+
+        //END GAME display
         public BattleMessage(string msg)
         {
 

@@ -9,12 +9,19 @@ namespace DungeonCrawler.Views
 {
     public partial class BattleOver : ContentPage
     {
+        public string summary { get; set; } 
         public BattleOver()
         {
             InitializeComponent();
         }
 
-        public BattleOver(string message){}
+        //New round display
+        public BattleOver(string message){
+            BindingContext = this;
+            summary = message;
+
+            InitializeComponent();
+        }
         //Functions below are not functional at this time.
 
         private async void NextLevel_Clicked(object sender, EventArgs e)
