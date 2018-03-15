@@ -1,63 +1,18 @@
 ﻿<Properties StartupConfiguration="{D029CD12-A4AB-4A7A-8082-DB19B0DE8448}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler/ViewModels/ItemsViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler Status">
     <Files>
-      <File FileName="DungeonCrawler/Views/AboutPage.xaml" Line="21" Column="9" />
-      <File FileName="DungeonCrawler/Views/AboutPage.xaml.cs" Line="100" Column="1" />
-      <File FileName="DungeonCrawler/Controllers/ItemsController.cs" Line="149" Column="34" />
-      <File FileName="DungeonCrawler/Views/OpeningPage.xaml" Line="15" Column="15" />
-      <File FileName="DungeonCrawler/Views/MainPage.cs" Line="70" Column="30" />
-      <File FileName="DungeonCrawler/Models/Attributes.cs" Line="33" Column="24" />
-      <File FileName="DungeonCrawler/Models/Actor.cs" Line="71" Column="49" />
-      <File FileName="DungeonCrawler/Models/EquipmentPosition.cs" Line="20" Column="25" />
-      <File FileName="DungeonCrawler/Models/WebGlobals.cs" Line="12" Column="46" />
-      <File FileName="DungeonCrawler/Models/VersionGlobals.cs" Line="1" Column="1" />
-      <File FileName="DungeonCrawler/Models/Item.cs" Line="139" Column="2" />
-      <File FileName="DungeonCrawler/Views/EquipItem/EquipItemPage.xaml" Line="120" Column="17" />
-      <File FileName="DungeonCrawler/Views/EquipItem/EquipItemPage.xaml.cs" Line="124" Column="17" />
-      <File FileName="DungeonCrawler/Models/BaseCharacter.cs" Line="1" Column="1" />
-      <File FileName="DungeonCrawler/Models/LevelStats.cs" Line="1" Column="1" />
-      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml" Line="289" Column="15" />
-      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml.cs" Line="152" Column="33" />
-      <File FileName="DungeonCrawler/Services/SQLDataStore.cs" Line="220" Column="58" />
-      <File FileName="DungeonCrawler/Services/MockDataStore.cs" Line="228" Column="22" />
-      <File FileName="DungeonCrawler/Views/Battle/BattleMessage.xaml" Line="26" Column="1" />
-      <File FileName="DungeonCrawler/ViewModels/BattlePageViewModel.cs" Line="106" Column="1" />
-      <File FileName="DungeonCrawler/ViewModels/BaseViewModel.cs" Line="16" Column="9" />
+      <File FileName="DungeonCrawler/Views/AboutPage.xaml.cs" Line="124" Column="71" />
+      <File FileName="DungeonCrawler/Views/AboutPage.xaml" Line="87" Column="63" />
+      <File FileName="DungeonCrawler/Views/MainPage.cs" Line="1" Column="1" />
+      <File FileName="DungeonCrawler/Views/OpeningPage.xaml" Line="9" Column="35" />
+      <File FileName="DungeonCrawler/Views/OpeningPage.xaml.cs" Line="1" Column="1" />
       <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="DungeonCrawler/ViewModels/AboutViewModel.cs" Line="10" Column="16" />
-      <File FileName="DungeonCrawler/Services/HttpClientService.cs" Line="223" Column="1" />
-      <File FileName="DungeonCrawler/Services/IDataStore.cs" Line="13" Column="20" />
-      <File FileName="DungeonCrawler/Services/IFileHelper.cs" Line="1" Column="1" />
-      <File FileName="DungeonCrawler/Views/OpeningPage.xaml.cs" Line="20" Column="13" />
-      <File FileName="DungeonCrawler/Views/Battle/BattleOver.xaml" Line="25" Column="1" />
-      <File FileName="DungeonCrawler/App.xaml.cs" Line="22" Column="13" />
-      <File FileName="DungeonCrawler/ViewModels/ItemDetailViewModel.cs" Line="8" Column="16" />
-      <File FileName="DungeonCrawler/ViewModels/ItemsViewModel.cs" Line="19" Column="43" />
+      <File FileName="DungeonCrawler Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Controllers/ItemsController.cs" relfile="DungeonCrawler/Controllers/ItemsController.cs" line="65" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Controllers/ItemsController.cs" relfile="DungeonCrawler/Controllers/ItemsController.cs" line="69" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="134" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="158" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="155" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="152" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="144" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="140" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="141" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="220" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="221" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="223" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="210" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Controllers/ItemsController.cs" relfile="DungeonCrawler/Controllers/ItemsController.cs" line="150" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Controllers/ItemsController.cs" relfile="DungeonCrawler/Controllers/ItemsController.cs" line="153" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="203" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="201" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="213" column="64" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Services/SQLDataStore.cs" relfile="DungeonCrawler/Services/SQLDataStore.cs" line="206" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.DungeonCrawler.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.59AADEE2-F2AB-4E41-8D10-366D9B17C710" />

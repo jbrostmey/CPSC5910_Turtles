@@ -84,13 +84,7 @@
 
                    <Label Text="Use Post to get items from the server" FontSize="Medium" FontAttributes="Italic" HorizontalOptions="Start"/>
 
-                                   <Switch 
-                    x:Name="UsePostSwitch"
-                    HorizontalOptions="CenterAndExpand"
-                    IsVisible="false"
-                    IsEnabled="false"
-                    Toggled="UsePostSwitch_OnToggled"
-                    IsToggled="False"/>
+                     <Button x:Name="PostButton"  Text="Post" Clicked="UsePostButtonClick" BackgroundColor="{StaticResource Primary}" TextColor="White" />
                 
                    <Label Text="Disable Random Numbers" FontSize="Medium" FontAttributes="Italic" HorizontalOptions="Start"/>
                                   <Switch 

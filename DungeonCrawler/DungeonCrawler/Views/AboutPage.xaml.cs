@@ -72,8 +72,8 @@ namespace DungeonCrawler
                         UseMockDatabaseSwitch.IsEnabled = true;
                         UseMockDatabaseSwitch.IsVisible = true;
 
-                    UsePostSwitch.IsEnabled = true;
-                    UsePostSwitch.IsVisible = true;
+                    PostButton.IsEnabled = true;
+                    PostButton.IsVisible = true;
 
                     DisableRandomNumbersSwitch.IsEnabled = true;
                     DisableRandomNumbersSwitch.IsVisible = true;
@@ -83,8 +83,8 @@ namespace DungeonCrawler
                     UseMockDatabaseSwitch.IsEnabled = false;
                     UseMockDatabaseSwitch.IsVisible = false;
 
-                    UsePostSwitch.IsEnabled = false;
-                    UsePostSwitch.IsVisible = false;
+                    PostButton.IsEnabled = false;
+                    PostButton.IsVisible = false;
 
                     DisableRandomNumbersSwitch.IsEnabled = false;
                     DisableRandomNumbersSwitch.IsVisible = false;
@@ -121,7 +121,7 @@ namespace DungeonCrawler
             SetDataSource(e.Value);
         }
 
-        private async void UsePostSwitch_OnToggled(object sender, ToggledEventArgs e)
+        private async void UsePostButtonClick(object sender, EventArgs e)
         {
 
             var answerGet = await DisplayAlert("Get", "Would you like to Get Items from the Server?", "Yes", "No");
