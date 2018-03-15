@@ -14,7 +14,6 @@ namespace DungeonCrawler.Views
         private BattlePageViewModel _viewModel;
         private String msg;
 
-
         // todo: might need to change
         public static Battle battleObj = new Battle();
         public static Battle Instance { get { return battleObj; } }
@@ -76,8 +75,12 @@ namespace DungeonCrawler.Views
             if (battleObj.inSession)
                 msg = battleObj.Turn(battleObj.aChar[currentChar], battleObj.aMon[currentMon]);
 
- 
-            await Navigation.PushAsync(new BattleMessage(msg));
+
+            //await Navigation.PushAsync(new BattleMessage(msg));
+            //await Navigation.PopAsync();
+
+            //BattleMessage populate = new BattleMessage(msg);
+            OnAppearing();
         }
 
         //Nonfunctional at this time
