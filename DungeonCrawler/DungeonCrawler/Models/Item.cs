@@ -39,6 +39,30 @@ namespace DungeonCrawler
         public string ImageURI { get; set; }
 
 
+        public Item()
+        {
+            CreateDefaultItem();
+        }
+
+        // Create a default item for the instantiation
+        private void CreateDefaultItem()
+        {
+            Id = "Unknown";
+            Text = "Unknown";
+            Description = "Unknown";
+
+            ImageURI = "Item.png";
+
+            defense = 0;
+            speed = 0;
+            attack = 0;
+            damage = 0;
+            range = 0;
+
+            position = EquipmentPosition.body;
+
+        }
+
         // To determine where the item goes, just an example of a equip on the body
         public EquipmentPosition ItemLocation(Item item)
         {
@@ -65,10 +89,7 @@ namespace DungeonCrawler
         //Get attributes of current item in certain position
         public void GetCurrentItem(EquipmentPosition location) { }
 
-        public Item()
-        {
-
-        }
+ 
 
 
 

@@ -203,15 +203,12 @@ namespace DungeonCrawler.Services
             // Need to add a try catch here, to catch when looking for something that does not exist in the db...
 
 
-            Console.WriteLine("id string: " + id.ToString());
 
             if (id == null)
             {
                 Console.WriteLine("id is null");
             }
-            if(id != null){
-                Console.WriteLine("id is definitely not null");
-            }
+   
             try
             {
               //  BattlePageViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);

@@ -142,7 +142,7 @@ namespace DungeonCrawler
             var myDataList = await ItemsController.Instance.GetItemsFromServerPost(number, level, attribute, location, random, updateDatabase);
 
             var myOutput = string.Empty;
-            myOutput = myOutput + "Got from the server:";
+            myOutput = myOutput + "Got from the server:" + "\n";
             foreach (var item in myDataList)
             {
                 myOutput = myOutput + item.Text + "\n" + item.Description;
