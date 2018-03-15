@@ -13,26 +13,23 @@ namespace DungeonCrawler.Views.EquipItem
     public partial class EquipItemPage : ContentPage
     {
         private EquipItemViewModel _viewModel;
-        // list items
-        // list characters
-        // equip item
+
+        // This view lists all available items and characters and allows the user to equip 
+        // an item for a given character. The selected item is saved for the actor, and is
+        // added to the battle inventory.
+
         private Character characterSelected;
         private Item itemSelected;
 
         public EquipItemPage()
         {
-
-
             InitializeComponent();
 
-
             BindingContext = _viewModel = EquipItemViewModel.Instance;
-
-
         }
 
 
-
+        // Allows the user to specify the character equipping the item
         private void SelectCharacter_Clicked(object sender, SelectedItemChangedEventArgs args)
         {
             characterSelected = args.SelectedItem as Character;
@@ -40,11 +37,10 @@ namespace DungeonCrawler.Views.EquipItem
             {
                 return;
             }
-            // await Navigation.PushAsync(new CharacterPage()); 
         }
 
 
-
+        // Allows the user to specify which item to equip
         private void SelectItem_Clicked(object sender, SelectedItemChangedEventArgs args)
         {
             itemSelected = args.SelectedItem as Item;
@@ -52,119 +48,37 @@ namespace DungeonCrawler.Views.EquipItem
             {
                 return;
             }
-
-        
-
         }
-
 
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
-
+            // Do nothing if equip button is pressed without a character and/or item is selected
             if (itemSelected == null || characterSelected == null)
             {
                 return;
             }
 
-            // add item to inventory
+            // Adds the item to inventory
             BattlePage.Instance.AddItem(itemSelected);
-            // equip item for character in actor class
-            characterSelected.actorItemsCorrespondingToLocation[(int)itemSelected.position - 1] = itemSelected; // todo: might want to add the item instead of the id
 
+            // Equip item for character in actor class. Item is stored in list corresponding to location
+            characterSelected.actorItemsCorrespondingToLocation[(int)itemSelected.position - 1] = itemSelected; 
+
+            // Ensures the user an item has been equipped.
             await DisplayAlert("Equip Item", itemSelected.Text + " Equipped!", "Yes", "No");
-
-
-
         }
-
 
 
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
         }
-        /*
 
-        // The returned data will be a list of items.  Need to pull that list out
-        private List<Item> ParseJson(string myJsonData)
-        {
-            var myData = new List<Item>();
-
-            try
-            {
-                JObject json;
-                json = JObject.Parse(myJsonData);
-
-                // Data is a List of Items, so need to pull them out one by one...
-
-                var myTempList = json["ItemList"].ToObject<List<JObject>>();
-
-                foreach (var myItem in myTempList)
-                {
-                    var myTempObject = ConvertFromJson(myItem);
-                    if (myTempObject != null)
-                    {
-                        myData.Add(myTempObject);
-                    }
-                }
-
-                return myData;
-            }
-            catch (Exception Ex)
-            {
-                Console.WriteLine(Ex.ToString());
-                return null;
-            }
-
-        }
-
-        private Item ConvertFromJson(JObject json)
-        {
-            var myData = new Item();
-
-            try
-            {
-                myData.Text = JsonHelper.GetJsonString(json, "Text");
-
-                myData.Description = JsonHelper.GetJsonString(json, "Description");
-
-
-                myData.Guid = JsonHelper.GetJsonString(json, "Guid");
-                myData.Id = myData.Guid;
-
-                myData.defense = JsonHelper.GetJsonInteger(json, "Defense");
-                myData.speed = JsonHelper.GetJsonInteger(json, "Speed");
-
-                myData.attack = JsonHelper.GetJsonInteger(json, "Attack");
-
-                myData.damage = JsonHelper.GetJsonInteger(json, "Damage");
-
-
-                myData.range = JsonHelper.GetJsonInteger(json, "Range");
-
-                myData.position = (EquipmentPosition)JsonHelper.GetJsonInteger(json, "Position");
-                myData.ImageURI = JsonHelper.GetJsonString(json, "ImageURI");
-
-            }
-
-            catch (Exception Ex)
-            {
-                Console.WriteLine(Ex.ToString());
-                return null;
-            }
-
-            return myData;
-        }
-
-
-
-        */
 
         protected override void OnAppearing()
         {
-
-
+            
             base.OnAppearing();
 
             BindingContext = null;
@@ -185,8 +99,6 @@ namespace DungeonCrawler.Views.EquipItem
             }
 
             BindingContext = _viewModel;
-
-            // DEFINE MESSAGE HERE
 
         }
 

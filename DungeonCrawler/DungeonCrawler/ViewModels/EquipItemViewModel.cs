@@ -19,8 +19,6 @@ namespace DungeonCrawler
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static EquipItemViewModel _instance;
 
-        //   public string battlemessage = "dkjfakjldffjd";
-
         public static EquipItemViewModel Instance
         {
             get
@@ -85,6 +83,7 @@ namespace DungeonCrawler
                     SetDataStore(DataStoreEnum.Sql); // initialize to sql
                 }
 
+                // Get all characters from database
                 var dataset = await DataStore.GetAllAsync_Character(true);
                 foreach (var data in dataset)
                 {
@@ -92,16 +91,13 @@ namespace DungeonCrawler
                 }
 
                 DatasetItems.Clear();
+
+                // Get all items from database
                 var datasetItems = await DataStore.GetAllAsync_Item(true);
                 foreach (var dataI in datasetItems)
                 {
                     DatasetItems.Add(dataI);
                 }
-
-
-
-
-
             }
 
             catch (Exception ex)

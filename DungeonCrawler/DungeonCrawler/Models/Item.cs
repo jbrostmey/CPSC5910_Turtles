@@ -23,10 +23,6 @@ namespace DungeonCrawler
         public string Guid { get; set; }
 
         // Attributes of item
-        // public int defense;
-        // public int speed;
-        // public int attack;
-
         public int defense { get; set; }
         public int speed { get; set; }
         public int attack { get; set; }

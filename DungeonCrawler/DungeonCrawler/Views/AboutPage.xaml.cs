@@ -3,15 +3,10 @@
 
 using Xamarin.Forms;
 using DungeonCrawler.Services;
-using System;
-using Xamarin.Forms;
-using DungeonCrawler.Services;
+
 using DungeonCrawler.ViewModels;
 using DungeonCrawler.Models;
-using DungeonCrawler.ViewModels;
-using DungeonCrawler.Services;
-using DungeonCrawler.Controllers;
-using DungeonCrawler.Services;
+
 using DungeonCrawler.Controllers;
 
 namespace DungeonCrawler
@@ -68,9 +63,8 @@ namespace DungeonCrawler
                 if (toggleSwitch.IsToggled == true)
                 {
                     // Enable Debug Controlls.
-
-                        UseMockDatabaseSwitch.IsEnabled = true;
-                        UseMockDatabaseSwitch.IsVisible = true;
+                    UseMockDatabaseSwitch.IsEnabled = true;
+                    UseMockDatabaseSwitch.IsVisible = true;
 
                     PostButton.IsEnabled = true;
                     PostButton.IsVisible = true;
@@ -79,6 +73,7 @@ namespace DungeonCrawler
                     DisableRandomNumbersSwitch.IsVisible = true;
                    
                 }
+                // Disable Debug Controlls.
                 if (toggleSwitch.IsToggled == false){
                     UseMockDatabaseSwitch.IsEnabled = false;
                     UseMockDatabaseSwitch.IsVisible = false;
@@ -110,28 +105,31 @@ namespace DungeonCrawler
                 ScoresViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
             }
 
-            // Have data refresh...
+            // Have the data refresh
             ItemsViewModel.Instance.SetNeedsRefresh(true);
             MonsterViewModel.Instance.SetNeedsRefresh(true);
             CharacterViewModel.Instance.SetNeedsRefresh(true);
             ScoresViewModel.Instance.SetNeedsRefresh(true);
         }
+
+        // Sets the DataStore to be the Mock Data Store if toggled on, or SQL if toggled off.
         private void UseMockDatabaseSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
             SetDataSource(e.Value);
         }
 
+        // Button to get the items from the server and insert them into the SQL Database.
         private async void UsePostButtonClick(object sender, EventArgs e)
         {
-
-            var answerGet = await DisplayAlert("Get", "Would you like to Get Items from the Server?", "Yes", "No");
+            // Ask the user if he or she is sure he would like to get the items
+            var answerGet = await DisplayAlert("Get Items", "Would you like to Get the Items from the Server?", "Yes", "No");
             if (answerGet)
             {
                 // Call to the Item Service and have it Get the Items
                 ItemsController.Instance.GetItemsFromServer();
             }
-            // Use Post to get items from the server
- 
+
+            // Using Post to get items from the server
             var number = 10; // Set the number to 10 in order to get 10 items from the server.
             var level = 20; // Set the level to 20; max value of 6.
             var random = true; // Choose random to be true; random between 1 and level.
@@ -142,7 +140,7 @@ namespace DungeonCrawler
             var myDataList = await ItemsController.Instance.GetItemsFromServerPost(number, level, attribute, location, random, updateDatabase);
 
             var myOutput = string.Empty;
-            myOutput = myOutput + "Got from the server:" + "\n";
+            myOutput = myOutput + "Got the following items from the server:" + "\n";
             foreach (var item in myDataList)
             {
                 myOutput = myOutput + item.Text + "\n" + item.Description;
@@ -152,9 +150,6 @@ namespace DungeonCrawler
             var answer = await DisplayAlert("Returned List", myOutput, "Yes", "No");        
         }
       
-
-
-
     }
 }
 

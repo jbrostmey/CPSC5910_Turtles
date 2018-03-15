@@ -106,6 +106,7 @@ namespace DungeonCrawler.Models
             speed = c.speed;
             speedModifier = c.speedModifier;
         }
+
         // Helper functions for the AttribureList
         public static class AttributeList
         {

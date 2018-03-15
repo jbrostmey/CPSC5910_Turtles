@@ -116,9 +116,6 @@ namespace DungeonCrawler.Models
             foreach (EquipmentPosition position in c.inventory.Keys)
                 inventory.Add(position,c.inventory[position]);
         }
-
-
-
        
     }
 }

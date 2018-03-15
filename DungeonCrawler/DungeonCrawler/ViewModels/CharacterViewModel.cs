@@ -35,6 +35,7 @@ namespace DungeonCrawler
 
         private bool _needsRefresh;
 
+
         public CharacterViewModel()
         {
             Title = "Character List";

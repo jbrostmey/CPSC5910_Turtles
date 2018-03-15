@@ -19,8 +19,6 @@ namespace DungeonCrawler
         private static BattlePageViewModel _instance;
         private int MaxPartySize = 6;
 
-     //   public string battlemessage = "dkjfakjldffjd";
-
         public static BattlePageViewModel Instance
         {
             get
@@ -41,11 +39,9 @@ namespace DungeonCrawler
         public BattlePageViewModel()
         {
             Title = "Battle Info List";
-         //   battlemessage = "tmp";
             Dataset = new ObservableCollection<Character>();
             DatasetMonster = new ObservableCollection<Monster>();
             //LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
-
         }
 
         public void NewParty()

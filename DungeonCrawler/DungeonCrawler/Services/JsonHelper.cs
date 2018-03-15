@@ -13,6 +13,8 @@ using DungeonCrawler.Services;
 
 namespace DungeonCrawler.Services
 {
+    // This class has been taken from the sample JsonHelper file.
+
     public static class JsonHelper
     {
         // Takes a json object, and retrieves a string from it matching the field

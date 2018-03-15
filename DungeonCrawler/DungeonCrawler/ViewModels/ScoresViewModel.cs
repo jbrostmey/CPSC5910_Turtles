@@ -47,9 +47,6 @@ namespace DungeonCrawler.ViewModels
                 await DataStore.DeleteAsync_Score(data);
             });
 
-
-
-
             MessagingCenter.Subscribe<NewScorePage, Score>(this, "AddData", async (obj, data) =>
             {
                 Dataset.Add(data);

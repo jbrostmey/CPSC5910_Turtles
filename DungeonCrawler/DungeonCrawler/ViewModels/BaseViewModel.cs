@@ -10,25 +10,18 @@ namespace DungeonCrawler
     public class BaseViewModel : INotifyPropertyChanged
     {
         
-        public BaseViewModel(){
+        public BaseViewModel() {
             SetDataStore(DataStoreEnum.Sql);
        }
 
-
-    
-     //   public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
-
-         //public IDataStore DataStore => DependencyService.Get<IDataStore>() ?? MockDataStore.Instance;
-       // public IDataStore DataStore => DependencyService.Get<IDataStore>() ?? SQLDataStore.Instance;
-
-       // public IDataStore DataStore => DependencyService.Get<IDataStore>() ?? SQLDataStore.Instance;
-      
         private IDataStore DataStoreMock => DependencyService.Get<IDataStore>() ?? MockDataStore.Instance;
         private IDataStore DataStoreSql => DependencyService.Get<IDataStore>() ?? SQLDataStore.Instance;
 
         public IDataStore DataStore;
 
         public enum DataStoreEnum { Unknown = 0, Sql = 1, Mock = 2 }
+
+        // Sets the initial datastore given enum value (sql or mock or unknown)
         public void SetDataStore(DataStoreEnum data)
         {
             switch (data)

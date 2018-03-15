@@ -84,7 +84,5 @@ namespace DungeonCrawler.Models
             description = m.description;
             attributes.Update(m.attributes);
         }
-
-
     }
 }

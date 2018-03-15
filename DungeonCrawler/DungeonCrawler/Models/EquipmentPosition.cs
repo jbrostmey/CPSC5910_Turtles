@@ -15,6 +15,8 @@ namespace DungeonCrawler.Models
         rightFinger = 7
     }
 
+
+    // Item location enums for getting the items from the server.
     public enum ItemLocationEnum
     {
         // Not specified
@@ -43,7 +45,6 @@ namespace DungeonCrawler.Models
 
         // Boots, shoes, socks or anything else on the feet
         Feet = 40,
-
     }
 
     // Helper functions for the Item Locations

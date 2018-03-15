@@ -128,23 +128,10 @@ namespace DungeonCrawler
         public async Task<Item> GetAsync_Item(string id)
 
         {
-            // Need to add a try catch here, to catch when looking for something that does not exist in the db...
-
-
-            Console.WriteLine("id string: " + id.ToString());
-
-            if (id == null)
-            {
-                Console.WriteLine("id is null");
-            }
-            if (id != null)
-            {
-                Console.WriteLine("id is definitely not null");
-            }
+            // Try catch added for when searching for something that does not exist in the database.
             try
             {
                 BattlePageViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
-
 
                 var result = await App.Database.GetAsync<Item>(id);
                 return result;
@@ -154,6 +141,7 @@ namespace DungeonCrawler
                 return null;
             }
         }
+
         // Sets the need to refresh
         public void SetNeedsRefresh(bool value)
         {

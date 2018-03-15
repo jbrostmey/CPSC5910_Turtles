@@ -90,21 +90,12 @@ namespace DungeonCrawler.Services
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
 
-
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "First Character", description = "This is an Character description.", characterClass = "Warrior"});
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Second Character", description = "This is an Character description.", characterClass = "Paladin"});
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Third Character", description = "This is an Character description.", characterClass = "Wizard"});
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Fourth Character", description = "This is an Character description.", characterClass = "Ranger"});
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Fifth Character", description = "This is an Character description.", characterClass = "Animal"});
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Sixth Character", description = "This is an Character description.", characterClass = "Alchemist"});
-            /*
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "First Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Second Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Third Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Fourth Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Fifth Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Sixth Monster", Description = "This is an Monster description." });
-*/
 
             await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(), description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "First Monster name" });
             await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Second Monster name" });
@@ -120,24 +111,14 @@ namespace DungeonCrawler.Services
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 555, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), ScoreTotal = 666 , GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
 
-
-            //notate state when die, send message to scofe page, add to list, 
-            // when someone dies, send message, message will be picked up, store with character's ide
-            // send message with current game's ide
-            // grab information
-            //
         }
 
 
         public async Task<bool> InsertUpdateAsync_Item(Item data)
         {
-             if (data.Id == null)
-            {
-                Console.WriteLine("data id is null! "); // yes
-            }
 
             // Check to see if the item exist
-            var oldData = await GetAsync_Item(data.Id); //here
+            var oldData = await GetAsync_Item(data.Id); 
             if (oldData == null)
             {
                 // If it does not exist, add it to the DB
@@ -200,20 +181,9 @@ namespace DungeonCrawler.Services
         public async Task<Item> GetAsync_Item(string id)
 
         {
-            // Need to add a try catch here, to catch when looking for something that does not exist in the db...
-
-
-
-            if (id == null)
-            {
-                Console.WriteLine("id is null");
-            }
-   
+            // Try catch added to catch when looking for something that does not exist in the database.
             try
             {
-              //  BattlePageViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
-           
-
                 var result = await App.Database.GetAsync<Item>(id);
                 return result;
             }
@@ -222,22 +192,6 @@ namespace DungeonCrawler.Services
                 return null;
             }
         }
-        /*
-        {
-            if(id == null) {
-                Console.WriteLine("ID IS NULL"); // ID IS not null
-            }
-            var result = await App.Database.GetAsync<Item>(id); //here
-
-
-            if(result == null) {
-                Console.WriteLine("result IS NULL"); 
-
-            }
-
-
-            return result;
-        }*/
 
         public async Task<IEnumerable<Item>> GetAllAsync_Item(bool forceRefresh = false)
         {
@@ -388,10 +342,6 @@ namespace DungeonCrawler.Services
 
         }
 
-
-
-
-     
     }
 }
 

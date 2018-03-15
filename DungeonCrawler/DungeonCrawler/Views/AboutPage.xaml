@@ -58,8 +58,6 @@
                     FontSize="Large"
                 />
 
-
-
                                 <Label Text="Debug Settings:" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
                 
                                 <Label Text="Toggle to enable/disable debug controls." FontSize="Medium" FontAttributes="Italic" HorizontalOptions="Start"/>

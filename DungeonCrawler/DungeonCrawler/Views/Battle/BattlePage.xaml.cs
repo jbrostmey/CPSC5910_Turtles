@@ -14,7 +14,6 @@ namespace DungeonCrawler.Views
         private BattlePageViewModel _viewModel;
         private String msg;
 
-        // todo: might need to change
         public static Battle battleObj = new Battle();
         public static Battle Instance { get { return battleObj; } }
 
@@ -24,15 +23,11 @@ namespace DungeonCrawler.Views
 
             InitializeComponent();
 
-
             BindingContext = _viewModel = BattlePageViewModel.Instance;
-
 
             //initialize. OK to have here because we are only creating one instance of BattlePage in OpeningPage
             //Therefor we aren't recreating an instance each time we return to the BattlePage (i.g resets data)
             battleObj.BeginGame();
-
-
         }
 
         private async void Play_Clicked(object sender, EventArgs e)
@@ -42,7 +37,6 @@ namespace DungeonCrawler.Views
             {
                 await Navigation.PushAsync(new BattleOver(battleObj.summary));
             }
-
 
             //loop through and select currentChar as the first one that is still alive. otherwise increment
             //if at end of (index 5), restart to index 0 
@@ -76,10 +70,6 @@ namespace DungeonCrawler.Views
                 msg = battleObj.Turn(battleObj.aChar[currentChar], battleObj.aMon[currentMon]);
 
 
-            //await Navigation.PushAsync(new BattleMessage(msg));
-            //await Navigation.PopAsync();
-
-            //BattleMessage populate = new BattleMessage(msg);
             OnAppearing();
         }
 
@@ -95,7 +85,6 @@ namespace DungeonCrawler.Views
         }
 
 
-
         //Return to Opening Page
         private async void ExitGame_Clicked(object sender, EventArgs e)
         {
@@ -108,7 +97,6 @@ namespace DungeonCrawler.Views
             string output = battleObj.AutoPlay();
             await Navigation.PushAsync(new BattleMessage(output));
         }
-
 
 
         public async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -140,8 +128,7 @@ namespace DungeonCrawler.Views
 
         protected override void OnAppearing()
         {
-
-
+            
             base.OnAppearing();
 
             BindingContext = null;
@@ -155,8 +142,7 @@ namespace DungeonCrawler.Views
 
             BindingContext = _viewModel;
 
-            // DEFINE MESSAGE HERE
-
+            // Battle MEssage defined here 
             BattleMessageName.Text = msg;
 
             var inventory = string.Empty;
@@ -169,7 +155,6 @@ namespace DungeonCrawler.Views
             {
                 inventory = "No items in Inventory.";
             }
-
 
             BattleInventory.Text = inventory;
         }
