@@ -32,43 +32,9 @@ namespace DungeonCrawler.Views
 
         private async void Play_Clicked(object sender, EventArgs e)
         {
-            //Game over -- send battle summary to Battle Over
-            if (!battleObj.inSession)
-            {
+            this.msg = battleObj.PlayHandler();
+            if(msg == null)
                 await Navigation.PushAsync(new BattleOver(battleObj.summary));
-            }
-
-            //loop through and select currentChar as the first one that is still alive. otherwise increment
-            //if at end of (index 5), restart to index 0 
-            int currentChar = 0;
-            int currentMon = 0;
-            battleObj.EntityOrder(true);
-            battleObj.EntityOrder(false); 
-
-            for (int i = 0; i < 6; i++)
-            {
-                if (battleObj.aChar[i].IsAlive())
-                {
-                    currentChar = i;
-                    break;
-                }
-            }
-
-            for (int i = 0; i < 6; i++)
-            {
-                if (battleObj.aMon[i].IsAlive())
-                {
-                    currentMon = i;
-                    break;
-                }
-            }
-
-            battleObj.currentChar = currentChar;
-            battleObj.currentMon = currentMon;
-
-            if (battleObj.inSession)
-                msg = battleObj.Turn(battleObj.aChar[currentChar], battleObj.aMon[currentMon]);
-
 
             OnAppearing();
         }

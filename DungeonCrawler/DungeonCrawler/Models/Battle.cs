@@ -65,25 +65,26 @@ namespace DungeonCrawler.Models
                     if (App.inputHitVal == 1 || App.inputHitVal == 20)
                         HMC = 3;
                     else if (App.disabledRandom)
-                        HMC = 2; 
-                    
+                        HMC = 2;
+
 
                     if (HMC > 0)
                     {
-                        if(App.inputHitVal == 20){
-                            getCharAtt = App.globalForceToHitValue;;
+                        if (App.inputHitVal == 20)
+                        {
+                            getCharAtt = App.globalForceToHitValue; ;
                         }
                         else if (HMC == 2)
                         {
                             getCharAtt *= 2; // double regular attack
                             msg += "***CRITICAL HIT!****\n";
                         }
-                        else if( App.inputHitVal == 1) 
+                        else if (App.inputHitVal == 1)
                         {
-                            getCharAtt =0; 
+                            getCharAtt = 0;
                             msg += "***MISS!****\n";
                         }
-                        
+
                         //Character attacks, monster loses health
                         int experience = aMon.TakeDamage(getCharAtt);
                         msg += "Character " + aChar.number + " attacked Monster " + aMon.number + " with a damage of " + getCharAtt + '\n';
@@ -115,7 +116,7 @@ namespace DungeonCrawler.Models
                     if (App.inputHitVal == 1 || App.inputHitVal == 20)
                         HMC = 3;
                     else if (App.disabledRandom)
-                        HMC = 2; 
+                        HMC = 2;
 
 
 
@@ -151,7 +152,8 @@ namespace DungeonCrawler.Models
                                 aChar.attributes.alive = true;
                                 msg += "Miraculously, Miracle Max saved the " + aChar.name + " from death!\n";
                             }
-                            else{
+                            else
+                            {
                                 aChar.Die(aChar); // Relinquish inventory and drop all items
                                 msg += "Character " + aChar.number + " has died!" + '\n';
                                 summary += "Monster " + aMon.number + " has killed Character " + aChar.number + '\n';
@@ -189,11 +191,12 @@ namespace DungeonCrawler.Models
                     this.aMon[i].number = i;
                 }
                 CanReviveThisBattle = true;
-                currentTurn = true; 
+                currentTurn = true;
             }
 
             return msg;
         }
+
 
         // User begins game, switch inSession to true
         //This function will be the Green light to begin Battle Engine. It will initialize characters and monsters, as well as handle turns
@@ -387,7 +390,7 @@ namespace DungeonCrawler.Models
         {
             if (App.disabledRandom)
                 return App.globalForcedRandomValue;
-            
+
             int DiceRoll = (character.d10.Next() % 20) + 1;
             if (DiceRoll == 20)
                 return 2;
@@ -414,6 +417,45 @@ namespace DungeonCrawler.Models
                 > (character.attributes.level + character.ItemAttackModifier() + character.attributes.attack))
                 return 1;
             return 0;
+        }
+
+
+        public string PlayHandler()
+        {
+            //Game over -- send battle summary to Battle Over
+            string msg = "";
+
+            if (!this.inSession) // END GAME, open up BattleMessage summary
+                return null;
+
+            //loop through and select currentChar as the first one that is still alive. otherwise increment
+            //if at end of (index 5), restart to index 0 
+
+            this.EntityOrder(true);
+            this.EntityOrder(false);
+
+            for (int i = 0; i < 6; i++)
+            {
+                if (this.aChar[i].IsAlive())
+                {
+                    currentChar = i;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < 6; i++)
+            {
+                if (this.aMon[i].IsAlive())
+                {
+                    currentMon = i;
+                    break;
+                }
+            }
+
+            if (this.inSession)
+                msg = this.Turn(this.aChar[currentChar], this.aMon[currentMon]);
+
+            return msg;
         }
     }
 }
