@@ -34,7 +34,6 @@ namespace DungeonCrawler.Models
 
         public Character[] aChar;
         public Monster[] aMon;
-
         public Battle()
         {
             inSession = true;
@@ -209,8 +208,8 @@ namespace DungeonCrawler.Models
 
             for (int i = 0; i < SIZE; i++)
             {
-                aChar[i] = new Character();
-                aMon[i] = new Monster();
+                aChar[i] = BattlePageViewModel.Instance.Dataset[i];
+                aMon[i] = BattlePageViewModel.Instance.DatasetMonster[i];
                 aChar[i].number = i;
                 aMon[i].number = i;
             }
