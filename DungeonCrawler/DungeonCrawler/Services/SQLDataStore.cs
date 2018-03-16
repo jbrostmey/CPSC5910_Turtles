@@ -83,26 +83,72 @@ namespace DungeonCrawler.Services
         private async void InitilizeSeedData()
         {
             
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description = "This is an item description.", defense = 1, speed = 2, attack = 3, range = 4, position = EquipmentPosition.body });
 
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "First Character", description = "This is an Character description.", characterClass = "Warrior"});
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Second Character", description = "This is an Character description.", characterClass = "Paladin"});
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Third Character", description = "This is an Character description.", characterClass = "Wizard"});
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Fourth Character", description = "This is an Character description.", characterClass = "Ranger"});
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Fifth Character", description = "This is an Character description.", characterClass = "Animal"});
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), name = "Sixth Character", description = "This is an Character description.", characterClass = "Alchemist"});
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Hat", Description = "Basic hat.", defense = 2, speed = 0, attack = 0, range = 4, position = EquipmentPosition.head });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Shirt", Description = "Basic shirt.", defense = 3, speed = 0, attack = 0, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Right Hand", Description = "Basic right handed weapon.", defense = 0, speed = 0, attack = 5, range = 4, position = EquipmentPosition.rightHand });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Left Hand", Description = "Basic left handed weapon.", defense = 3, speed = 0, attack = 2, range = 4, position = EquipmentPosition.rightHand });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Shoes", Description = "Basic shoes.", defense = 1, speed = 2, attack = 0, range = 4, position = EquipmentPosition.feet });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Right Finger", Description = "Basic right finger ring.", defense = 1, speed = 0, attack = 2, range = 4, position = EquipmentPosition.rightFinger });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Left Finger", Description = "Basic left finger ring.", defense = 2, speed = 0, attack = 1, range = 4, position = EquipmentPosition.leftFinger });
 
-            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(), description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "First Monster name" });
-            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Second Monster name" });
-            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Third Monster name" });
-            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Fourth Monster name" });
-            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Fifth Monster name" });
-            await AddAsync_Monster(new Monster {Id = Guid.NewGuid().ToString(),  description = "monster description", equipmentPositions = EquipmentPosition.body, imageSource = "image source", name = "Sixth Monster name" });
+            //Set up our base classes
+            Character toBeAdded = new Character { Id = Guid.NewGuid().ToString(), name = "Arnold", description = "Schwarzenegger got nothing on him.", characterClass = "Warrior" };
+            toBeAdded.attributes.attack = 4;
+            await AddAsync_Character(toBeAdded);
+
+            toBeAdded = new Character { Id = Guid.NewGuid().ToString(), name = "Harold", description = "Abused, but a stone wall.", characterClass = "Paladin" };
+            toBeAdded.attributes.defense = 4;
+            await AddAsync_Character(toBeAdded);
+
+            toBeAdded = new Character { Id = Guid.NewGuid().ToString(), name = "ChunChunMaru", description = "Rough childhoods lead to mystical habits.", characterClass = "Wizard" };
+            toBeAdded.attributes.attack = 3;
+            toBeAdded.attributes.speed = 2;
+            await AddAsync_Character(toBeAdded);
+
+            toBeAdded = new Character { Id = Guid.NewGuid().ToString(), name = "Cow XD", description = "Lurkin in the shadows, used to do target practice on cow tippers.", characterClass = "Ranger" };
+            toBeAdded.attributes.attack = 2;
+            toBeAdded.attributes.speed = 3;
+            await AddAsync_Character(toBeAdded);
+
+            toBeAdded = new Character { Id = Guid.NewGuid().ToString(), name = "Kankles the Chinchilla", description = "Fastest Chinchilla around!", characterClass = "Animal"};
+            toBeAdded.attributes.speed = 4;
+            await AddAsync_Character(toBeAdded);
+
+            toBeAdded = new Character { Id = Guid.NewGuid().ToString(), name = "Laurance", description = "Master of matter and space.", characterClass = "Alchemist" };
+            toBeAdded.attributes.attack = 3;
+            toBeAdded.attributes.defense = 2;
+            await AddAsync_Character(toBeAdded);
+
+
+            //Add monsters to monster list
+            Monster monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "Gelatinous goo that seems to corrode and consume any living thing it touches. Eww!", equipmentPositions = EquipmentPosition.rightFinger, name = "Ewwy Ooze" };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 1, defense = 1, speed = 1, health = 2, currentHealth = 2, currentExperience = LevelStats.MasterLevelStats.levels[1].currentExperience, level = 1, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+            
+            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "Gallant knight of the arachnid order. To him, chivalry is never dead.", equipmentPositions = EquipmentPosition.leftHand, name = "Spider Knight" };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 3, defense = 2, speed = 2, health = 15, currentHealth = 15, currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, level = 2, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+            
+            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "Head of the Wizardly College, the Grandmaster Wizard is always keen to experiment on newcomers.", equipmentPositions = EquipmentPosition.leftFinger, name = "Grandmaster Wizard" };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 10, defense = 0, speed = 1, health = 100, currentHealth = 100, currentExperience = LevelStats.MasterLevelStats.levels[13].currentExperience, level = 13, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "Dapper Dino is always dressed for the occasion. In this case, your funeral.", equipmentPositions = EquipmentPosition.head, name = "Dapper Dino" };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 15, defense = 7, speed = 3, health = 350, currentHealth = 350, currentExperience = LevelStats.MasterLevelStats.levels[17].currentExperience, level = 17, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "The gate keeper between the mortal world and the afterlife. Some say it is the debt collector for the soul.", equipmentPositions = EquipmentPosition.rightHand, name = "Grim Reaper" };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 20, defense = 10, speed = 15, health = 1000, currentHealth = 1000, currentExperience = LevelStats.MasterLevelStats.levels[19].currentExperience, level = 20, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "Tim may not be the biggest or bravest, but he certainly packs a punch! Armed with his fishing spear, he is ready to fight even the toughest fisherman!", equipmentPositions = EquipmentPosition.body, name = "Tim the Timid Goldfish" };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 5, defense = 2, speed = 1, health = 50, currentHealth = 50, currentExperience = LevelStats.MasterLevelStats.levels[5].currentExperience, level = 5, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "This bear is CRAZY! Armed with portable grill gloves, anyone who approaches risks 3rd degree burns!", equipmentPositions = EquipmentPosition.feet, name = "Bear Grillz" };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 4, defense = 5, speed = 1, health = 75, currentHealth = 75, currentExperience = LevelStats.MasterLevelStats.levels[9].currentExperience, level = 9, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
 
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });

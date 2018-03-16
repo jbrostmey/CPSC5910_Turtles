@@ -11,7 +11,7 @@ namespace DungeonCrawler.Models
         public Attributes()
         {
             health = 10;
-            currentHealth = 2;
+            currentHealth = 10;
             currentExperience = 0;
             speed = 1;
             attack = 1;

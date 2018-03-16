@@ -17,7 +17,6 @@ namespace DungeonCrawler
         public CharacterPage()
         {
             InitializeComponent();
-            //BindingContext = _viewModel = MonstersViewModel.Instance;
 
             BindingContext = _viewModel = CharacterViewModel.Instance;
         }

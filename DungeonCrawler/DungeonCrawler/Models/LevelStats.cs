@@ -5,6 +5,17 @@ namespace DungeonCrawler.Models
     {
         public Attributes[] levels { get; }
         private const int MAXLEVEL = 20;
+
+        private static LevelStats _levelStats;
+        public static LevelStats MasterLevelStats { 
+            get{
+                if (_levelStats == null)
+                {
+                    _levelStats = new LevelStats();
+                }
+                return _levelStats;
+            } 
+        }
         public LevelStats()
         {
             levels = new Attributes[MAXLEVEL];

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using DungeonCrawler.Models;
 
 namespace DungeonCrawler.Views.Party
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PartyMemberSelect : ContentPage
     {
         private CharacterViewModel _viewModel;
@@ -27,6 +29,33 @@ namespace DungeonCrawler.Views.Party
                 partyMember.update(selected);
                 await Navigation.PopAsync();
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            BindingContext = null;
+
+            if (ToolbarItems.Count > 0)
+            {
+                ToolbarItems.RemoveAt(0);
+            }
+
+            InitializeComponent();
+
+            if (_viewModel.Dataset.Count == 0)
+            {
+                _viewModel.LoadDataCommand.Execute(null);
+            }
+            else if (_viewModel.NeedsRefresh())
+            {
+                _viewModel.LoadDataCommand.Execute(null);
+            }
+
+            BindingContext = _viewModel;
+
+
         }
     }
 

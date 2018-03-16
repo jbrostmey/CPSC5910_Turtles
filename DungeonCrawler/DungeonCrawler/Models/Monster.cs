@@ -32,7 +32,7 @@ namespace DungeonCrawler.Models
 
         // Droprate is used to determine if the monster drops its item upon death.
         //      This is done by comparing if a d10 dice roll is higher than the drop rate.
-        private int dropRate = 5;
+        //private int dropRate = 5;
 
         private string drop { get; set; }
       
