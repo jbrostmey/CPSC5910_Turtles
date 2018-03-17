@@ -4,7 +4,7 @@ namespace DungeonCrawler.Models
     public class LevelStats
     {
         public Attributes[] levels { get; }
-        private const int MAXLEVEL = 20;
+        private const int MAXLEVEL = 21;
 
         private static LevelStats _levelStats;
         public static LevelStats MasterLevelStats { 
@@ -28,6 +28,10 @@ namespace DungeonCrawler.Models
              * The index is based on the character's current level, with the modifiers
              *   to apply when moving to the next level.
              */
+
+
+            // int experience, int attack, int defense, int speed
+
 
             levels[1] = new Attributes().SetLevelUpModifier(300, 0, 1, 0);
 
@@ -66,6 +70,9 @@ namespace DungeonCrawler.Models
             levels[18] = new Attributes().SetLevelUpModifier(305000, 1, 1, 0);
 
             levels[19] = new Attributes().SetLevelUpModifier(355000, 1, 1, 1);
+
+            levels[20] = new Attributes().SetLevelUpModifier(395000, 1, 1, 1);
+
 
         }
 

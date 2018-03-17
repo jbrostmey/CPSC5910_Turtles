@@ -128,7 +128,9 @@ namespace DungeonCrawler.Services
                 description = "Gelatinous goo that seems to corrode and consume any living thing it touches. Eww!", 
                 equipmentPositions = EquipmentPosition.rightFinger, 
                 name = "Ewwy Ooze" };    
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 2, defense = 1, speed = 1, health = 10, currentHealth = 2, currentExperience = LevelStats.MasterLevelStats.levels[1].currentExperience, level = 1, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 2, defense = 1, speed = 1, 
+                health = 10, currentHealth = 2, 
+                currentExperience = LevelStats.MasterLevelStats.levels[1].currentExperience, level = 1, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
             // change level/ add to documentation?
@@ -156,7 +158,7 @@ namespace DungeonCrawler.Services
                 name = "Spooky Skeleton"
             };
             monsterToBeAdded.attributes.Update(new Attributes { attack = 5, defense = 0, speed = 3, health = 20, currentHealth = 15, 
-                currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, level = 2, alive = true });
+                currentExperience = LevelStats.MasterLevelStats.levels[3].currentExperience, level = 3, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
 
@@ -168,7 +170,9 @@ namespace DungeonCrawler.Services
                 equipmentPositions = EquipmentPosition.leftHand,
                 name = "Fire Sprite"
             };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 2, defense = 0, speed = 3, health = 15, currentHealth = 15, currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, level = 2, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes {
+                attack = 2, defense = 0, speed = 3, health = 15, currentHealth = 15, 
+                currentExperience = LevelStats.MasterLevelStats.levels[3].currentExperience, level = 3, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
             // Goblin Wizard
@@ -179,7 +183,9 @@ namespace DungeonCrawler.Services
                 equipmentPositions = EquipmentPosition.leftFinger,
                 name = "Goblin Wizard"
             };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 6, defense = 1, speed = 5, health = 40, currentHealth = 100, currentExperience = LevelStats.MasterLevelStats.levels[13].currentExperience, level = 13, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 6, 
+                defense = 1, speed = 5, health = 40, currentHealth = 100, 
+                currentExperience = LevelStats.MasterLevelStats.levels[4].currentExperience, level = 4, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
             // Bear Grillz
@@ -190,7 +196,9 @@ namespace DungeonCrawler.Services
                 equipmentPositions = EquipmentPosition.feet,
                 name = "Bear Grillz"
             };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 3, defense = 5, speed = 1, health = 50, currentHealth = 75, currentExperience = LevelStats.MasterLevelStats.levels[9].currentExperience, level = 9, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 3, 
+                defense = 5, speed = 1, health = 50, currentHealth = 75, 
+                currentExperience = LevelStats.MasterLevelStats.levels[5].currentExperience, level = 5, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
 
@@ -202,7 +210,9 @@ namespace DungeonCrawler.Services
                 equipmentPositions = EquipmentPosition.feet,
                 name = "Mad Duck"
             };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 3, defense = 2, speed = 6, health = 40, currentHealth = 75, currentExperience = LevelStats.MasterLevelStats.levels[9].currentExperience, level = 9, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 3, defense = 2, speed = 6, health = 40, 
+                currentHealth = 75, 
+                currentExperience = LevelStats.MasterLevelStats.levels[5].currentExperience, level = 5, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
 
@@ -214,7 +224,8 @@ namespace DungeonCrawler.Services
                 equipmentPositions = EquipmentPosition.body,
                 name = "Tim the Timid Goldfish"
             };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 7, defense = 2, speed = 5, health = 75, currentHealth = 50, currentExperience = LevelStats.MasterLevelStats.levels[5].currentExperience, level = 5, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 7, defense = 2, speed = 5, health = 75, currentHealth = 50, 
+                currentExperience = LevelStats.MasterLevelStats.levels[7].currentExperience, level = 7, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
             // Dapper Dragon
@@ -225,7 +236,8 @@ namespace DungeonCrawler.Services
                 equipmentPositions = EquipmentPosition.head,
                 name = "Dapper Dragon"
             };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 10, defense = 5, speed = 3, health = 100, currentHealth = 350, currentExperience = LevelStats.MasterLevelStats.levels[17].currentExperience, level = 17, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 10, defense = 5, speed = 3, health = 100, currentHealth = 350, 
+                currentExperience = LevelStats.MasterLevelStats.levels[10].currentExperience, level = 10, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
 
@@ -237,7 +249,8 @@ namespace DungeonCrawler.Services
                 equipmentPositions = EquipmentPosition.head,
                 name = "Snoring Stone Giant"
             };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 1, defense = 10, speed = 1, health = 200, currentHealth = 350, currentExperience = LevelStats.MasterLevelStats.levels[17].currentExperience, level = 17, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 1, defense = 10, speed = 1, health = 200, currentHealth = 350, 
+                currentExperience = LevelStats.MasterLevelStats.levels[12].currentExperience, level = 12, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
             // Grandmaster Wizard
@@ -245,7 +258,8 @@ namespace DungeonCrawler.Services
                 description = "Head of the Wizardly College, the Grandmaster Wizard is always keen to experiment on newcomers.", 
                 equipmentPositions = EquipmentPosition.leftFinger, 
                 name = "Grandmaster Wizard" };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 15, defense = 0, speed = 7, health = 350, currentHealth = 100, currentExperience = LevelStats.MasterLevelStats.levels[13].currentExperience, level = 13, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 15, defense = 0, speed = 7, health = 350, currentHealth = 100, 
+                currentExperience = LevelStats.MasterLevelStats.levels[15].currentExperience, level = 15, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
          
@@ -257,7 +271,8 @@ namespace DungeonCrawler.Services
                 equipmentPositions = EquipmentPosition.leftHand,
                 name = "Rapping Rhino"
             };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 5, defense = 10, speed = 6, health = 400, currentHealth = 15, currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, level = 2, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 5, defense = 10, speed = 6, health = 400, currentHealth = 15, 
+                currentExperience = LevelStats.MasterLevelStats.levels[15].currentExperience, level = 15, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
             //Vloging Velociraptor
@@ -265,7 +280,8 @@ namespace DungeonCrawler.Services
                 description = "Vloging Velociraptor will do ANYTHING for a view on Velocitube.", 
                 equipmentPositions = EquipmentPosition.leftFinger, 
                 name = "Vloging Velociraptor" };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 8, defense = 5, speed = 5, health = 500, currentHealth = 100, currentExperience = LevelStats.MasterLevelStats.levels[13].currentExperience, level = 13, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 8, defense = 5, speed = 5, health = 500, currentHealth = 100, 
+                currentExperience = LevelStats.MasterLevelStats.levels[17].currentExperience, level = 17, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
          
@@ -274,7 +290,9 @@ namespace DungeonCrawler.Services
                 description = "The gate keeper between the mortal world and the afterlife. Some say it is the debt collector for the soul.", 
                 equipmentPositions = EquipmentPosition.rightHand, 
                 name = "Grim Reaper" };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 20, defense = 10, speed = 15, health = 1000, currentHealth = 1000, currentExperience = LevelStats.MasterLevelStats.levels[19].currentExperience, level = 20, alive = true });
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 20, defense = 10, speed = 15, health = 1000, 
+                currentHealth = 1000, currentExperience = LevelStats.MasterLevelStats.levels[20].currentExperience, 
+                level = 20, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
             // Warrior of the Light
@@ -286,8 +304,8 @@ namespace DungeonCrawler.Services
                 name = "Warrior of the Light"
             };
             monsterToBeAdded.attributes.Update(new Attributes { attack = 50, defense = 25, speed = 30, health = 2000, currentHealth = 15, 
-                currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, 
-                level = 2, alive = true });
+                currentExperience = LevelStats.MasterLevelStats.levels[20].currentExperience, 
+                level = 20, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
 
