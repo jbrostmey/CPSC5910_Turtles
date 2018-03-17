@@ -18,6 +18,8 @@ namespace DungeonCrawler
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static BattlePageViewModel _instance;
         private int MaxPartySize = 6;
+        //used in choosing monsters for a round and player party for autoplay
+        private Random RNG;
 
         public static BattlePageViewModel Instance
         {
@@ -41,9 +43,11 @@ namespace DungeonCrawler
             Title = "Battle Info List";
             Dataset = new ObservableCollection<Character>();
             DatasetMonster = new ObservableCollection<Monster>();
-            //LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
+
+            RNG = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
         }
 
+        //Resets the dataset to an empty party
         public void NewParty()
         {
             Dataset.Clear();
@@ -53,6 +57,52 @@ namespace DungeonCrawler
             }
         }
 
+        public void AutoPlayPartyInitialize()
+        {
+            NewParty();
+            Console.WriteLine(CharacterViewModel.Instance.Dataset.Count);
+            int nextPartyMemberIndex;
+            for (int i = 0; i < MaxPartySize; i++)
+            {
+                nextPartyMemberIndex = RNG.Next() % CharacterViewModel.Instance.Dataset.Count;
+                Dataset[i].update(CharacterViewModel.Instance.Dataset[nextPartyMemberIndex]);
+            }
+        }
+
+        //grabs the average party level for the members who are alive.
+        private int GetPartyAverageLevel()
+        {
+            int level = 0;
+            int numberAlive = 0;
+            foreach (Character member in Dataset)
+            {
+                if (member.IsAlive())
+                {
+                    level += member.attributes.level;
+                    numberAlive++;
+                }
+            }
+            return level / numberAlive;
+        }
+
+        //grabs monsters randomly who are not too difficult
+        public void ResetMonsters()
+        {
+            Console.WriteLine(MonsterViewModel.Instance.Dataset.Count);
+            DatasetMonster.Clear();
+            int partyAverageLevel = GetPartyAverageLevel();
+            int nextMonsterIndex = RNG.Next() % MonsterViewModel.Instance.Dataset.Count;
+            for (int i = 0; i < MaxPartySize; i++)
+            {
+                nextMonsterIndex = RNG.Next() % MonsterViewModel.Instance.Dataset.Count;
+                DatasetMonster.Add(new Monster());
+                while(MonsterViewModel.Instance.Dataset[nextMonsterIndex].attributes.level > (partyAverageLevel+2))
+                    nextMonsterIndex = RNG.Next() % MonsterViewModel.Instance.Dataset.Count;
+                DatasetMonster[i].Update(MonsterViewModel.Instance.Dataset[nextMonsterIndex]);
+            }
+        }
+
+        //checks to see that all party members have been chosen
         public bool ValidParty()
         {
             foreach (Character member in Dataset)

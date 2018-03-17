@@ -9,7 +9,7 @@ namespace DungeonCrawler.Services
     {
         // Holds which datastore to use.
 
-        private static DataStoreEnum _dataStoreEnum = DataStoreEnum.Mock;
+        private static DataStoreEnum _dataStoreEnum = DataStoreEnum.Sql;
 
         // Returns which dtatstore to use
         public static DataStoreEnum GetDataStoreMockFlag()

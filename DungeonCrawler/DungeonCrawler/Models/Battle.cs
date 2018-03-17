@@ -86,21 +86,21 @@ namespace DungeonCrawler.Models
 
                         //Character attacks, monster loses health
                         int experience = aMon.TakeDamage(getCharAtt);
-                        msg += "Character " + aChar.number + " attacked Monster " + aMon.number + " with a damage of " + getCharAtt + '\n';
+                        msg += "Character " + aChar.name + " attacked Monster " + aMon.name + " with a damage of " + getCharAtt + '\n';
 
                         aChar.GainExperience(experience); // EXP not yet determined
                         if (!aMon.IsAlive())
                         {
                             //Item[] drops = aMon.dropPool; // Items dropped from monster's death
                             aMon.Die(aMon);
-                            msg += "Monster " + aMon.number + " has died!" + '\n';
-                            summary += "Character " + aChar.number + " has killed Monster " + aMon.number + '\n';
+                            msg += "Monster " + aMon.name + " has died!" + '\n';
+                            summary += "Character " + aChar.name + " has killed Monster " + aMon.name + '\n';
 
                         }
                     }
                     else
                     {
-                        msg = "Character " + aChar.number + " attacked and missed Monster " + aMon.number + "!\n";
+                        msg = "Character " + aChar.name + " attacked and missed Monster " + aMon.name + "!\n";
                     }
                     currentTurn = true;
                 }
@@ -139,7 +139,7 @@ namespace DungeonCrawler.Models
                         //Character attacks, monster loses health
                         aChar.TakeDamage(getMonAtt);
 
-                        msg += "Monster " + aMon.number + " attacked Character " + aChar.number + " with a damage of " + getMonAtt + '\n';
+                        msg += "Monster " + aMon.name + " attacked Character " + aChar.name + " with a damage of " + getMonAtt + '\n';
 
                         if (!aChar.IsAlive())
                         {
@@ -154,15 +154,15 @@ namespace DungeonCrawler.Models
                             else
                             {
                                 aChar.Die(aChar); // Relinquish inventory and drop all items
-                                msg += "Character " + aChar.number + " has died!" + '\n';
-                                summary += "Monster " + aMon.number + " has killed Character " + aChar.number + '\n';
+                                msg += "Character " + aChar.name + " has died!" + '\n';
+                                summary += "Monster " + aMon.name + " has killed Character " + aChar.name + '\n';
                             }
 
                         }
                     }
                     else
                     {
-                        msg = "Monster " + aMon.number + " attacked and missed Character " + aChar.number + "!\n";
+                        msg = "Monster " + aMon.name + " attacked and missed Character " + aChar.name + "!\n";
                     }
 
                     currentTurn = false;
@@ -184,9 +184,11 @@ namespace DungeonCrawler.Models
                 msg += "\n\n\n Next round! Round: " + round + '\n';
                 summary += "\nRound: " + round + '\n';
                 //init new party of monsters
+
+                BattlePageViewModel.Instance.ResetMonsters();
                 for (int i = 0; i < SIZE; i++)
                 {
-                    this.aMon[i] = new Monster();
+                    this.aMon[i] = BattlePageViewModel.Instance.DatasetMonster[i];
                     this.aMon[i].number = i;
                 }
                 CanReviveThisBattle = true;
@@ -206,6 +208,7 @@ namespace DungeonCrawler.Models
             aChar = new Character[SIZE];
             aMon = new Monster[SIZE];
 
+            BattlePageViewModel.Instance.ResetMonsters();
             for (int i = 0; i < SIZE; i++)
             {
                 aChar[i] = BattlePageViewModel.Instance.Dataset[i];
@@ -222,7 +225,7 @@ namespace DungeonCrawler.Models
 
 
             //Test functionality of EntityOrder, character 2 should always attack first
-            aChar[2].attributes.speed = 500;
+            //aChar[2].attributes.speed = 500;
 
             round = 1;
             summary = "Round: " + round + '\n';
