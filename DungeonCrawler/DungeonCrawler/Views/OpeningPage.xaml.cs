@@ -23,7 +23,9 @@ namespace DungeonCrawler.Views
         //Need to add battle page when it is ready
         async void PlayButtonClick(Object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PartySelect());
+
+
+         await Navigation.PushAsync(new PartySelect());
             //await Navigation.PushAsync(new BattlePage());
         }
 
@@ -38,7 +40,6 @@ namespace DungeonCrawler.Views
         }
         async void AutoPlayButtonClick(Object sender, EventArgs e)
         {
-            BattlePageViewModel.Instance.AutoPlayPartyInitialize();
             Battle battleObj = new Battle();
             //game messages and summary
             battleObj.BeginGame();
