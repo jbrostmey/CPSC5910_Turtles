@@ -122,33 +122,176 @@ namespace DungeonCrawler.Services
 
 
             //Add monsters to monster list
-            Monster monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "Gelatinous goo that seems to corrode and consume any living thing it touches. Eww!", equipmentPositions = EquipmentPosition.rightFinger, name = "Ewwy Ooze" };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 1, defense = 1, speed = 1, health = 2, currentHealth = 2, currentExperience = LevelStats.MasterLevelStats.levels[1].currentExperience, level = 1, alive = true });
-            await AddAsync_Monster(monsterToBeAdded);
-            
-            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "Gallant knight of the arachnid order. To him, chivalry is never dead.", equipmentPositions = EquipmentPosition.leftHand, name = "Spider Knight" };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 3, defense = 2, speed = 2, health = 15, currentHealth = 15, currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, level = 2, alive = true });
-            await AddAsync_Monster(monsterToBeAdded);
-            
-            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "Head of the Wizardly College, the Grandmaster Wizard is always keen to experiment on newcomers.", equipmentPositions = EquipmentPosition.leftFinger, name = "Grandmaster Wizard" };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 10, defense = 0, speed = 1, health = 100, currentHealth = 100, currentExperience = LevelStats.MasterLevelStats.levels[13].currentExperience, level = 13, alive = true });
+
+            // Ewwy Ooze
+            Monster monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), 
+                description = "Gelatinous goo that seems to corrode and consume any living thing it touches. Eww!", 
+                equipmentPositions = EquipmentPosition.rightFinger, 
+                name = "Ewwy Ooze" };    
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 2, defense = 1, speed = 1, health = 10, currentHealth = 2, currentExperience = LevelStats.MasterLevelStats.levels[1].currentExperience, level = 1, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
-            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "Dapper Dino is always dressed for the occasion. In this case, your funeral.", equipmentPositions = EquipmentPosition.head, name = "Dapper Dino" };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 15, defense = 7, speed = 3, health = 350, currentHealth = 350, currentExperience = LevelStats.MasterLevelStats.levels[17].currentExperience, level = 17, alive = true });
+            // change level/ add to documentation?
+            // current health?
+            // equipment positions?
+
+            // base level, alter the current experience
+
+            // Spider Knight
+            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), 
+                description = "Gallant knight of the arachnid order. To him, chivalry is never dead.",
+                equipmentPositions = EquipmentPosition.leftHand, name = "Spider Knight" };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 3, defense = 2, speed = 2, health = 15, currentHealth = 15, 
+                currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, 
+                level = 2, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
-            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "The gate keeper between the mortal world and the afterlife. Some say it is the debt collector for the soul.", equipmentPositions = EquipmentPosition.rightHand, name = "Grim Reaper" };
+
+            // Spooky Skeleton
+            monsterToBeAdded = new Monster
+            {
+                Id = Guid.NewGuid().ToString(),
+                description = "Though its bones may be brittle, its speed and power pack a punch! Not to mentions its excellent clarinet skills!",
+                equipmentPositions = EquipmentPosition.leftHand,
+                name = "Spooky Skeleton"
+            };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 5, defense = 0, speed = 3, health = 20, currentHealth = 15, 
+                currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, level = 2, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+
+            // Fire Sprite
+            monsterToBeAdded = new Monster
+            {
+                Id = Guid.NewGuid().ToString(),
+                description = "Though its bones may be brittle, its speed and power pack a punch! Not to mentions its excellent clarinet skills!",
+                equipmentPositions = EquipmentPosition.leftHand,
+                name = "Fire Sprite"
+            };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 2, defense = 0, speed = 3, health = 15, currentHealth = 15, currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, level = 2, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+            // Goblin Wizard
+            monsterToBeAdded = new Monster
+            {
+                Id = Guid.NewGuid().ToString(),
+                description = "Wizard in training, this goblin tries hard to learn the arcane arts. Armed with her trusty wand, she casts novice spells at any intruder.",
+                equipmentPositions = EquipmentPosition.leftFinger,
+                name = "Goblin Wizard"
+            };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 6, defense = 1, speed = 5, health = 40, currentHealth = 100, currentExperience = LevelStats.MasterLevelStats.levels[13].currentExperience, level = 13, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+            // Bear Grillz
+            monsterToBeAdded = new Monster
+            {
+                Id = Guid.NewGuid().ToString(),
+                description = "This bear is CRAZY! Armed with portable grill gloves, anyone who approaches risks 3rd degree burns!",
+                equipmentPositions = EquipmentPosition.feet,
+                name = "Bear Grillz"
+            };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 3, defense = 5, speed = 1, health = 50, currentHealth = 75, currentExperience = LevelStats.MasterLevelStats.levels[9].currentExperience, level = 9, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+
+            // Mad Duck
+            monsterToBeAdded = new Monster
+            {
+                Id = Guid.NewGuid().ToString(),
+                description = "As crazy as a newly hatched chick, this duck has hit its head one too many times. Armed with its bow and arrows and trusty helmet, this duck is arrow crazy!",
+                equipmentPositions = EquipmentPosition.feet,
+                name = "Mad Duck"
+            };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 3, defense = 2, speed = 6, health = 40, currentHealth = 75, currentExperience = LevelStats.MasterLevelStats.levels[9].currentExperience, level = 9, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+
+            // Tim the Timid Goldfish
+            monsterToBeAdded = new Monster
+            {
+                Id = Guid.NewGuid().ToString(),
+                description = "Tim may not be the biggest or bravest, but he certainly packs a punch! Armed with his fishing spear, he is ready to fight even the toughest fisherman!",
+                equipmentPositions = EquipmentPosition.body,
+                name = "Tim the Timid Goldfish"
+            };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 7, defense = 2, speed = 5, health = 75, currentHealth = 50, currentExperience = LevelStats.MasterLevelStats.levels[5].currentExperience, level = 5, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+            // Dapper Dragon
+            monsterToBeAdded = new Monster
+            {
+                Id = Guid.NewGuid().ToString(),
+                description = "Dapper Dragon is always ready for the wedding bells to ring. Just don't let the bride know where he was during his bachelor party...",
+                equipmentPositions = EquipmentPosition.head,
+                name = "Dapper Dragon"
+            };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 10, defense = 5, speed = 3, health = 100, currentHealth = 350, currentExperience = LevelStats.MasterLevelStats.levels[17].currentExperience, level = 17, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+
+            // Snoring Stone Giant
+            monsterToBeAdded = new Monster
+            {
+                Id = Guid.NewGuid().ToString(),
+                description = "Sleeping peacefully, this stone giant loves to snuggle up with its teddy bear.",
+                equipmentPositions = EquipmentPosition.head,
+                name = "Snoring Stone Giant"
+            };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 1, defense = 10, speed = 1, health = 200, currentHealth = 350, currentExperience = LevelStats.MasterLevelStats.levels[17].currentExperience, level = 17, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+            // Grandmaster Wizard
+            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), 
+                description = "Head of the Wizardly College, the Grandmaster Wizard is always keen to experiment on newcomers.", 
+                equipmentPositions = EquipmentPosition.leftFinger, 
+                name = "Grandmaster Wizard" };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 15, defense = 0, speed = 7, health = 350, currentHealth = 100, currentExperience = LevelStats.MasterLevelStats.levels[13].currentExperience, level = 13, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+         
+            // Rapping Rhino
+            monsterToBeAdded = new Monster
+            {
+                Id = Guid.NewGuid().ToString(),
+                description = "This rhino is too cool for school. In its oversized fleece hoody, it drops rhymes like you have never seen before.",
+                equipmentPositions = EquipmentPosition.leftHand,
+                name = "Rapping Rhino"
+            };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 5, defense = 10, speed = 6, health = 400, currentHealth = 15, currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, level = 2, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+            //Vloging Velociraptor
+            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), 
+                description = "Vloging Velociraptor will do ANYTHING for a view on Velocitube.", 
+                equipmentPositions = EquipmentPosition.leftFinger, 
+                name = "Vloging Velociraptor" };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 8, defense = 5, speed = 5, health = 500, currentHealth = 100, currentExperience = LevelStats.MasterLevelStats.levels[13].currentExperience, level = 13, alive = true });
+            await AddAsync_Monster(monsterToBeAdded);
+
+         
+            // Grim Reaper
+            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), 
+                description = "The gate keeper between the mortal world and the afterlife. Some say it is the debt collector for the soul.", 
+                equipmentPositions = EquipmentPosition.rightHand, 
+                name = "Grim Reaper" };
             monsterToBeAdded.attributes.Update(new Attributes { attack = 20, defense = 10, speed = 15, health = 1000, currentHealth = 1000, currentExperience = LevelStats.MasterLevelStats.levels[19].currentExperience, level = 20, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
-            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "Tim may not be the biggest or bravest, but he certainly packs a punch! Armed with his fishing spear, he is ready to fight even the toughest fisherman!", equipmentPositions = EquipmentPosition.body, name = "Tim the Timid Goldfish" };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 5, defense = 2, speed = 1, health = 50, currentHealth = 50, currentExperience = LevelStats.MasterLevelStats.levels[5].currentExperience, level = 5, alive = true });
+            // Warrior of the Light
+            monsterToBeAdded = new Monster
+            {
+                Id = Guid.NewGuid().ToString(),
+                description = "Here to vanquish evil wherever it hides, and let's face it: you haven't been on the best of behaviors.",
+                equipmentPositions = EquipmentPosition.leftHand,
+                name = "Warrior of the Light"
+            };
+            monsterToBeAdded.attributes.Update(new Attributes { attack = 50, defense = 25, speed = 30, health = 2000, currentHealth = 15, 
+                currentExperience = LevelStats.MasterLevelStats.levels[2].currentExperience, 
+                level = 2, alive = true });
             await AddAsync_Monster(monsterToBeAdded);
 
-            monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), description = "This bear is CRAZY! Armed with portable grill gloves, anyone who approaches risks 3rd degree burns!", equipmentPositions = EquipmentPosition.feet, name = "Bear Grillz" };
-            monsterToBeAdded.attributes.Update(new Attributes { attack = 4, defense = 5, speed = 1, health = 75, currentHealth = 75, currentExperience = LevelStats.MasterLevelStats.levels[9].currentExperience, level = 9, alive = true });
-            await AddAsync_Monster(monsterToBeAdded);
+
+
 
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 111, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(),  ScoreTotal = 222, GameDate = DateTime.Now, AutoBattle = false, TurnNumber = 1, MonsterSlainNumber = 2, ExperienceGainedTotal = 3, CharacterAtDeathList = "death list", MonstersKilledList = "monsters killed", ItemsDroppedList = "sword" });
