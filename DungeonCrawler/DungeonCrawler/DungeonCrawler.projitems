@@ -134,6 +134,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Party\PartyMemberSelect.xaml.cs">
       <DependentUpon>PartyMemberSelect.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MasterDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DataStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />

@@ -18,7 +18,7 @@
                 </ContentView>
             </StackLayout>
         </StackLayout>
-
+         
 
         
         <ScrollView Grid.Row="1">
@@ -76,7 +76,7 @@
                     IsVisible="false"
                     IsEnabled="false"
                     Toggled="UseMockDatabaseSwitch_OnToggled"
-                    IsToggled="False"/>
+                    IsToggled="{Binding useMockDatabaseIsToggled}"/>
 
 
 
@@ -93,6 +93,8 @@
                     Toggled="DisableRandomNumbersSwitch_OnToggled"
                     IsToggled="False"/>
 
+
+                
                    <Label Text="Edit Box to set a value for the Hit" FontSize="Medium" FontAttributes="Italic" HorizontalOptions="Start"/>
                    <Entry Placeholder="Input Hit Value" Completed="ToHit_EditBox" />
                 

@@ -11,7 +11,7 @@ namespace DungeonCrawler
     {
         
         public BaseViewModel() {
-            SetDataStore(DataStoreEnum.Sql);
+            SetDataStore(DataStoreEnum.Sql); // initialize to sql data store
        }
 
         private IDataStore DataStoreMock => DependencyService.Get<IDataStore>() ?? MockDataStore.Instance;
