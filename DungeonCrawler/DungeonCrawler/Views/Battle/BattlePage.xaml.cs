@@ -37,7 +37,7 @@ namespace DungeonCrawler.Views
 
             // Move user to equip item page when all monsters are killed and player needs to get 6 more.
             if (Battle.equipItems == true)
-            {
+           {
               await Navigation.PushAsync(new EquipItemPage());
             }
            // await Navigation.PushAsync(new EquipItemPage());

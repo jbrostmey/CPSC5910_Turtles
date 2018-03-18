@@ -64,7 +64,7 @@ namespace DungeonCrawler.Views.EquipItem
             var itemselected = itemSelected as Item;
 
             // Adds the item to inventory, adds the item to the list of items held by the character at the time.
-            BattlePage.Instance.AddItem(itemSelected, characterSelected); // todo: might want to delete this...
+           // BattlePage.Instance.AddItem(itemSelected, characterSelected); // todo: might want to delete this...
 
             bool previouslyEquipped = false;
             foreach (var character in CharacterInfoListView.ItemsSource)

@@ -28,7 +28,7 @@ namespace DungeonCrawler.Models
         public int rounds;
         public string summary;
         private bool CanReviveThisBattle = true;
-
+        public static bool equipItems;
         public List<Item> itemInventory; // holds item id's
         public Character[] aChar;
         public Monster[] aMon;
@@ -37,19 +37,32 @@ namespace DungeonCrawler.Models
             inSession = true;
             currentTurn = false;
             itemInventory = new List<Item>();
+
+
+            actorItemsRecentlyEquipped = new List<Boolean> { };
+
+            for (int i = 0; i < ENUMLOCATIONS; i++)
+            {
+                actorItemsRecentlyEquipped.Add(false);
+            }
         }
+
 
         /*Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
           *return string for BattleMessage.xaml
           *CheckParty switches inSession to false or initiates a new round. 
           */
-
+             private int ENUMLOCATIONS = 7;     
+              
+        public List<Boolean> actorItemsRecentlyEquipped; 
         public string Turn(Character aChar, Monster aMon)
         {
             string msg = "";
 
             if (inSession == true)
             {
+            equipItems = false;
+
                 currentScore.NumTurns++;
                 int HMC; // hit miss critical
                 if (currentTurn == false) // Character's turn (by default, character goes first)
@@ -147,6 +160,9 @@ namespace DungeonCrawler.Models
                             {
                                 aChar.MiracleMaxLive = false;
                                 CanReviveThisBattle = false;
+
+                            currentScore.BattleNumber = rounds;
+
                                 aChar.attributes.currentHealth = aChar.attributes.health;
                                 aChar.attributes.alive = true;
                                 msg += "Miraculously, Miracle Max saved the " + aChar.name + " from death!\n";
@@ -183,8 +199,9 @@ namespace DungeonCrawler.Models
             }
             else if (CheckParty(false))
             {
+            equipItems = true;
                 rounds++;
-                msg += "\n Next round! Round: " + rounds + '\n';
+            msg += "\n Next round! Round: " + rounds + '\n';
                 summary += "\nRound: " + rounds + '\n';
                 //init new party of monsters
 
@@ -210,7 +227,7 @@ namespace DungeonCrawler.Models
             currentScore = new Score();
             aChar = new Character[SIZE];
             aMon = new Monster[SIZE];
-
+        equipItems = false;
             BattlePageViewModel.Instance.ResetMonsters();
             for (int i = 0; i < SIZE; i++)
             {
@@ -389,14 +406,14 @@ namespace DungeonCrawler.Models
             }
         }
 
-        public void AddItem(Item item)
+        public void AddItem(Item item, Character character)
         {
             
             itemInventory.Add(item);
 
+       //     character.actorItemsCorrespondingToLocation[(int)item.position - 1] = item;
+
             character.actorItemsCorrespondingToLocation[(int)item.position - 1] = item;
-
-
         }
 
         private int CanAttackMonster(Character character, Monster monster)
@@ -470,8 +487,28 @@ namespace DungeonCrawler.Models
 
             return msg;
         }
+
+    public virtual void ResetActorItemsRecentlyEquipped()
+         {     
+             actorItemsRecentlyEquipped.Clear();       
+             for (int i = 0; i<ENUMLOCATIONS; i++)     
+             {     
+                 actorItemsRecentlyEquipped.Add(false);        
+             }     
+         }     
+       
+         public bool CheckIfAllItemsEquipped()
+         {     
+             if (actorItemsRecentlyEquipped.All(c => c == true))       
+             {     
+                 return true;      
+             }     
+             return false;     
+         }     
+           
+      }
     }
-}
+
 
 
 

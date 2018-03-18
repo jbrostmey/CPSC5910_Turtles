@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{D029CD12-A4AB-4A7A-8082-DB19B0DE8448}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="DungeonCrawler Status">
     <Files>
-      <File FileName="DungeonCrawler/Views/EquipItem/EquipItemPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="DungeonCrawler/Views/EquipItem/EquipItemPage.xaml.cs" Line="67" Column="14" />
       <File FileName="DungeonCrawler/Views/EquipItem/EquipItemPage.xaml" Line="124" Column="15" />
-      <File FileName="DungeonCrawler/Models/Battle.cs" Line="1" Column="1" />
-      <File FileName="DungeonCrawler/Models/EquipmentPosition.cs" Line="47" Column="19" />
+      <File FileName="DungeonCrawler/Models/Battle.cs" Line="512" Column="1" />
+      <File FileName="DungeonCrawler/Models/EquipmentPosition.cs" Line="47" Column="1" />
       <File FileName="DungeonCrawler/Models/Attributes.cs" Line="98" Column="21" />
       <File FileName="DungeonCrawler/Models/Character.cs" Line="114" Column="52" />
       <File FileName="DungeonCrawler/Models/Item.cs" Line="1" Column="1" />
       <File FileName="DungeonCrawler/ViewModels/EquipItemViewModel.cs" Line="65" Column="36" />
       <File FileName="iOS/Main.cs" Line="17" Column="1" />
       <File FileName="DungeonCrawler/Views/Battle/BattleMessage.xaml" Line="26" Column="1" />
-      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml.cs" Line="96" Column="28" />
+      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml.cs" Line="40" Column="12" />
       <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml" Line="233" Column="15" />
       <File FileName="iOS/obj/iPhoneSimulator/Debug/DungeonCrawler.iOS.Views.Battle.BattlePage.xaml.g.cs" Line="1" Column="1" />
       <File FileName="DungeonCrawler/ViewModels/BattlePageViewModel.cs" Line="23" Column="1" />
@@ -28,6 +28,7 @@
       <File FileName="DungeonCrawler/Models/Actor.cs" Line="98" Column="10" />
       <File FileName="DungeonCrawler/Models/LevelStats.cs" Line="7" Column="11" />
       <File FileName="DungeonCrawler/Models/BaseMonster.cs" Line="1" Column="1" />
+      <File FileName="DungeonCrawler/ViewModels/ItemsViewModel.cs" Line="134" Column="55" />
       <File FileName="DungeonCrawler Status" />
     </Files>
     <Pads>
@@ -37,7 +38,7 @@
             <Node name="DungeonCrawler" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True">
-                <Node name="Character.cs" selected="True" />
+                <Node name="Battle.cs" selected="True" />
               </Node>
               <Node name="Services" expanded="True" />
               <Node name="ViewModels" expanded="True" />
@@ -75,9 +76,9 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Models/LevelStats.cs" relfile="DungeonCrawler/Models/LevelStats.cs" line="7" column="11" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Models/Battle.cs" relfile="DungeonCrawler/Models/Battle.cs" line="509" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Models/Battle.cs" relfile="DungeonCrawler/Models/Battle.cs" line="511" column="1" />
-      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Models/Battle.cs" relfile="DungeonCrawler/Models/Battle.cs" line="513" column="1" />
+      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Models/Battle.cs" relfile="DungeonCrawler/Models/Battle.cs" line="546" column="1" />
+      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Models/Battle.cs" relfile="DungeonCrawler/Models/Battle.cs" line="548" column="1" />
+      <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Models/Battle.cs" relfile="DungeonCrawler/Models/Battle.cs" line="550" column="1" />
       <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Models/Character.cs" relfile="DungeonCrawler/Models/Character.cs" line="131" column="1" />
       <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Models/Item.cs" relfile="DungeonCrawler/Models/Item.cs" line="137" column="1" />
       <Breakpoint file="/Users/juliabrostmeyer/CPSC5910_Turtles/DungeonCrawler/DungeonCrawler/Models/Item.cs" relfile="DungeonCrawler/Models/Item.cs" line="139" column="1" />
