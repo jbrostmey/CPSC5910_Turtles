@@ -52,7 +52,7 @@ namespace DungeonCrawler.Views.EquipItem
         }
 
 
-        private async void Save_Clicked(object sender, EventArgs e)
+        private async void Save_Clicked(object sender, SelectedItemChangedEventArgs e)
         {
             // Do nothing if equip button is pressed without a character and/or item is selected
             if (itemSelected == null || characterSelected == null)
@@ -77,9 +77,11 @@ namespace DungeonCrawler.Views.EquipItem
             }
 
             // deselect item and character.
-            // todo: redo selection to match partymemberselect.
-            itemSelected = null;
-            characterSelected = null;
+     
+            CharacterInfoListView.SelectedItem = null;
+            ItemsInfoListView.SelectedItem = null;
+  
+
 
         }
 
