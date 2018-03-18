@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DungeonCrawler.Views;
 using Xamarin.Forms;
+using DungeonCrawler.Models;
 
 namespace DungeonCrawler.Models
 {
@@ -38,7 +39,23 @@ namespace DungeonCrawler.Models
             inSession = true;
             currentTurn = false;
             itemInventory = new List<Item>();
+        
+      
+            actorItemsRecentlyEquipped = new List<Boolean> { };
+
+            for (int i = 0; i < ENUMLOCATIONS; i++)
+            {
+                actorItemsRecentlyEquipped.Add(false);
+            }
         }
+
+        private int ENUMLOCATIONS = 7;
+        
+        public List<Boolean> actorItemsRecentlyEquipped; 
+
+
+
+
 
         /*Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
           *return string for BattleMessage.xaml
@@ -396,10 +413,14 @@ namespace DungeonCrawler.Models
             }
         }
 
-        public void AddItem(Item item)
+        // Adds item to inventory and assigns the selected character the selected item based on it's location.
+        public void AddItem(Item item, Character character)
         {
             itemInventory.Add(item);
+
+            character.actorItemsCorrespondingToLocation[(int)item.position - 1] = item;
         }
+
 
         private int CanAttackMonster(Character character, Monster monster)
         {
@@ -472,6 +493,27 @@ namespace DungeonCrawler.Models
 
             return msg;
         }
+
+
+
+        public virtual void ResetActorItemsRecentlyEquipped()
+        {
+            actorItemsRecentlyEquipped.Clear();
+            for (int i = 0; i < ENUMLOCATIONS; i++)
+            {
+                actorItemsRecentlyEquipped.Add(false);
+            }
+        }
+
+        public bool CheckIfAllItemsEquipped()
+        {
+            if (actorItemsRecentlyEquipped.All(c => c == true))
+            {
+                return true;
+            }
+            return false;
+        }
+    
     }
 }
 

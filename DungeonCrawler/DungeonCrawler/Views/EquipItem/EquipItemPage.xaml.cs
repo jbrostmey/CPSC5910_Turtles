@@ -60,35 +60,27 @@ namespace DungeonCrawler.Views.EquipItem
                 return;
             }
 
-            // Adds the item to inventory
-            BattlePage.Instance.AddItem(itemSelected);
-
-            // Equip item for character in actor class. Item is stored in list corresponding to location
-            characterSelected.actorItemsCorrespondingToLocation[(int)itemSelected.position - 1] = itemSelected; 
+            // Adds the item to inventory, adds the item to the list of items held by the character at the time.
+            BattlePage.Instance.AddItem(itemSelected, characterSelected);
 
             // Ensures the user an item has been equipped.
             await DisplayAlert("Equip Item", itemSelected.Text + " Equipped!", "Yes", "No");
 
 
-
-            // todo: load items in game not all items.
-            // have this boolean list be only for items in list not actor,
-            if(characterSelected.actorItemsRecentlyEquipped.All(c => c == true)){
-                await DisplayAlert("All items have been equipped.", itemSelected.Text + " Equipped!", "Yes", "No");
+            var response = false;
+            if(BattlePage.Instance.CheckIfAllItemsEquipped() == true) {
+                 response = await DisplayAlert("All Items Have Been Equipped.", itemSelected.Text + " All Equipped! Return to Battle?", "Yes", "No");
+            };
+            // Return to battle.
+            if(response) {
+                await Navigation.PopAsync();
             }
 
-            //if(characterSelected.actorItemsRecentlyEquipped =)
-    
+            itemSelected = null;
+            characterSelected = null;
 
-           // characterSelected.actorItemsCorrespondingToLocation
+            // deselect item and character.
 
-            //actorItemsCorrespondingToLocation = new List<Item> { };
-
-            //for (int i = 0; i < ENUMLOCATIONS; i++)
-            //{
-              //  Item itemNew = new Item();
-               // actorItemsCorrespondingToLocation.Add(itemNew);
-            //}
         }
 
 

@@ -18,19 +18,15 @@ namespace DungeonCrawler.Models
             // List containing item ID's for each location. There are 7 item locations.
             // Items are stored, corresponding to the location integers.
             actorItemsCorrespondingToLocation = new List<Item> { }; 
-            actorItemsRecentlyEquipped = new List<Boolean> { }; 
              for (int i = 0; i < ENUMLOCATIONS; i++){ 
                 Item itemNew = new Item();                 actorItemsCorrespondingToLocation.Add(itemNew);
-                actorItemsRecentlyEquipped.Add(false);             }
+            }
         }
 
         private int ENUMLOCATIONS = 7;
 
         // To store the inventory for a specific actor
         public List<Item> actorItemsCorrespondingToLocation; 
-
-        public List<Boolean> actorItemsRecentlyEquipped; 
-
 
 
         public EquipmentPosition equipmentPositions { get; set; }
@@ -94,16 +90,6 @@ namespace DungeonCrawler.Models
         public virtual void ResetActorItems(List<Item> newItemsList)
         {
             actorItemsCorrespondingToLocation = newItemsList;
-        }
-
-
-        public virtual void ResetActorItemsRecentlyEquipped()
-        {
-            actorItemsRecentlyEquipped.Clear();
-            for (int i = 0; i < ENUMLOCATIONS; i++)
-            {
-                actorItemsRecentlyEquipped.Add(false);
-            }
         }
 
     }
