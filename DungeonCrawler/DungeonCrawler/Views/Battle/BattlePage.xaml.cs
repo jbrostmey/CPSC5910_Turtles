@@ -13,6 +13,8 @@ namespace DungeonCrawler.Views
     {
         private BattlePageViewModel _viewModel;
         private String msg;
+        private String score { get; set; }
+        private String round { get; set; }
 
         public static Battle battleObj = new Battle();
         public static Battle Instance { get { return battleObj; } }
@@ -36,6 +38,8 @@ namespace DungeonCrawler.Views
             if(msg == null)
                 await Navigation.PushAsync(new BattleOver(battleObj.summary));
 
+            round = "Battle: " + battleObj.currentScore.BattleNumber;
+            score = "Current Score: " + battleObj.currentScore.ScoreTotal;
             OnAppearing();
         }
 
@@ -110,6 +114,8 @@ namespace DungeonCrawler.Views
 
             // Battle MEssage defined here 
             BattleMessageName.Text = msg;
+            BattleScore.Text = score;
+            BattleRound.Text = round;
 
             var inventory = string.Empty;
             foreach (var item in battleObj.itemInventory)

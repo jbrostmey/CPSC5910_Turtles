@@ -9,10 +9,10 @@
 
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
     <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-        <Button Text="Level:"/>
+                  <Label x:Name="BattleRound" TextColor = "Blue" HorizontalOptions = "StartAndExpand"  />
     </StackLayout>
     <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-        <Button Text="Current Score:"/>
+                  <Label x:Name="BattleScore" TextColor = "Blue" HorizontalOptions = "EndAndExpand"  />
     </StackLayout>
 </StackLayout>
 
