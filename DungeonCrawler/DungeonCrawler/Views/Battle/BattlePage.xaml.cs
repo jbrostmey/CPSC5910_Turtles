@@ -5,6 +5,7 @@ using DungeonCrawler.ViewModels;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms;
 using DungeonCrawler.Services;
+using DungeonCrawler.Views.EquipItem;
 namespace DungeonCrawler.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -13,8 +14,6 @@ namespace DungeonCrawler.Views
     {
         private BattlePageViewModel _viewModel;
         private String msg;
-        private String score { get; set; }
-        private String round { get; set; }
 
         public static Battle battleObj = new Battle();
         public static Battle Instance { get { return battleObj; } }
@@ -34,13 +33,20 @@ namespace DungeonCrawler.Views
 
         private async void Play_Clicked(object sender, EventArgs e)
         {
+
+            // Move user to equip item page when all monsters are killed and player needs to get 6 more.
+            if (Battle.equipItems == true)
+            {
+              await Navigation.PushAsync(new EquipItemPage());
+            }
+           // await Navigation.PushAsync(new EquipItemPage());
             this.msg = battleObj.PlayHandler();
             if(msg == null)
                 await Navigation.PushAsync(new BattleOver(battleObj.summary));
 
-            round = "Battle: " + battleObj.currentScore.BattleNumber;
-            score = "Current Score: " + battleObj.currentScore.ScoreTotal;
             OnAppearing();
+        
+        
         }
 
         //Nonfunctional at this time
@@ -114,8 +120,6 @@ namespace DungeonCrawler.Views
 
             // Battle MEssage defined here 
             BattleMessageName.Text = msg;
-            BattleScore.Text = score;
-            BattleRound.Text = round;
 
             var inventory = string.Empty;
             foreach (var item in battleObj.itemInventory)

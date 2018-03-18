@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using DungeonCrawler.Views;
 using Xamarin.Forms;
 
 namespace DungeonCrawler.Models
@@ -20,7 +20,7 @@ namespace DungeonCrawler.Models
     {
         const int SIZE = 6;
 
-        public Score currentScore;
+        Score currentScore;
         public bool inSession;
         public bool currentTurn; // 0 is character, 1 is for monster
         public int currentChar;
@@ -30,6 +30,7 @@ namespace DungeonCrawler.Models
         private bool CanReviveThisBattle = true;
 
         public List<Item> itemInventory; // holds item id's
+        public static bool equipItems;
         public Character[] aChar;
         public Monster[] aMon;
         public Battle()
@@ -50,6 +51,8 @@ namespace DungeonCrawler.Models
 
             if (inSession == true)
             {
+                equipItems = false;
+
                 currentScore.NumTurns++;
                 int HMC; // hit miss critical
                 if (currentTurn == false) // Character's turn (by default, character goes first)
@@ -166,6 +169,7 @@ namespace DungeonCrawler.Models
                     }
 
                     currentTurn = false;
+
                 }
                 msg += "\n\n";
             }
@@ -177,12 +181,17 @@ namespace DungeonCrawler.Models
             {
                 inSession = false;
                 CanReviveThisBattle = true;
+                currentScore.BattleNumber = rounds;
                 currentScore.Update(currentScore); // final update to score when game ends
             }
             else if (CheckParty(false))
             {
+
+                equipItems = true;
+
+
                 rounds++;
-                msg += "\n Next round! Round: " + rounds + '\n';
+                msg += "\n\n\n Next round! Round: " + rounds + '\n';
                 summary += "\nRound: " + rounds + '\n';
                 //init new party of monsters
 
@@ -195,7 +204,7 @@ namespace DungeonCrawler.Models
                 CanReviveThisBattle = true;
                 currentTurn = true;
             }
-            currentScore.BattleNumber = rounds;
+
             return msg;
         }
 
@@ -208,7 +217,7 @@ namespace DungeonCrawler.Models
             currentScore = new Score();
             aChar = new Character[SIZE];
             aMon = new Monster[SIZE];
-
+            equipItems = false;
             BattlePageViewModel.Instance.ResetMonsters();
             for (int i = 0; i < SIZE; i++)
             {

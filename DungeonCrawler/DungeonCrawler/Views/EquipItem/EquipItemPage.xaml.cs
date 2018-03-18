@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Forms;
 using DungeonCrawler.Services;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 using System.Threading.Tasks;
 namespace DungeonCrawler.Views.EquipItem
 {
@@ -67,6 +68,27 @@ namespace DungeonCrawler.Views.EquipItem
 
             // Ensures the user an item has been equipped.
             await DisplayAlert("Equip Item", itemSelected.Text + " Equipped!", "Yes", "No");
+
+
+
+            // todo: load items in game not all items.
+            // have this boolean list be only for items in list not actor,
+            if(characterSelected.actorItemsRecentlyEquipped.All(c => c == true)){
+                await DisplayAlert("All items have been equipped.", itemSelected.Text + " Equipped!", "Yes", "No");
+            }
+
+            //if(characterSelected.actorItemsRecentlyEquipped =)
+    
+
+           // characterSelected.actorItemsCorrespondingToLocation
+
+            //actorItemsCorrespondingToLocation = new List<Item> { };
+
+            //for (int i = 0; i < ENUMLOCATIONS; i++)
+            //{
+              //  Item itemNew = new Item();
+               // actorItemsCorrespondingToLocation.Add(itemNew);
+            //}
         }
 
 

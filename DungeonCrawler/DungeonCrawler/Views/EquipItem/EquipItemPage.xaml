@@ -3,7 +3,7 @@
     <ContentPage.Content>
    <StackLayout Spacing="10" Padding="15">
 
-            <Label Text="Equip Items Page" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="Pick Up Items!" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
 
                    <Label Text="Select one character, one item, and choose 'Equip Item' to pick up" FontSize="Small" FontAttributes="Italic" HorizontalOptions="Center"/>
 
@@ -117,4 +117,3 @@
 
     </ContentPage.Content>
 </ContentPage>
-                

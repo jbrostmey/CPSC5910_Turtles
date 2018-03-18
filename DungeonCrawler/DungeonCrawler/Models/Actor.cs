@@ -12,13 +12,16 @@ namespace DungeonCrawler.Models
     {
         public Actor()
         {
+            attributes = new Attributes();
             imageSource = "DapperDino.png";
 
             // List containing item ID's for each location. There are 7 item locations.
             // Items are stored, corresponding to the location integers.
             actorItemsCorrespondingToLocation = new List<Item> { }; 
+            actorItemsRecentlyEquipped = new List<Boolean> { }; 
              for (int i = 0; i < ENUMLOCATIONS; i++){ 
-                Item itemNew = new Item();                 actorItemsCorrespondingToLocation.Add(itemNew);                         }
+                Item itemNew = new Item();                 actorItemsCorrespondingToLocation.Add(itemNew);
+                actorItemsRecentlyEquipped.Add(false);             }
         }
 
         private int ENUMLOCATIONS = 7;
@@ -26,7 +29,12 @@ namespace DungeonCrawler.Models
         // To store the inventory for a specific actor
         public List<Item> actorItemsCorrespondingToLocation; 
 
+        public List<Boolean> actorItemsRecentlyEquipped; 
+
+
+
         public EquipmentPosition equipmentPositions { get; set; }
+
 
         //Name of actor. Actors can be characters or monsters.
         public string name { get; set; }
@@ -43,6 +51,15 @@ namespace DungeonCrawler.Models
         // d10 used for calculations
         public Random d10;
 
+        //Allows getting of Attributes. No setting: must be done through methods.
+        public Attributes attributes { get; }
+
+
+        //Returns true if the character is still alive.
+        public bool IsAlive()
+        {
+            return attributes.alive;
+        }
 
         // If a character has died, it will drop all of its equipment and return it to
         // the field as an array of items.
@@ -73,5 +90,21 @@ namespace DungeonCrawler.Models
         // Monsters do not get to equip items.
         public virtual void EquipItem(Character character, Item item)         {             int itemLocation = (int)item.position;             actorItemsCorrespondingToLocation[itemLocation-1] = item;
         }
+
+        public virtual void ResetActorItems(List<Item> newItemsList)
+        {
+            actorItemsCorrespondingToLocation = newItemsList;
+        }
+
+
+        public virtual void ResetActorItemsRecentlyEquipped()
+        {
+            actorItemsRecentlyEquipped.Clear();
+            for (int i = 0; i < ENUMLOCATIONS; i++)
+            {
+                actorItemsRecentlyEquipped.Add(false);
+            }
+        }
+
     }
 }
