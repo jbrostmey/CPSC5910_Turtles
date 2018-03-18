@@ -124,17 +124,17 @@ namespace DungeonCrawler.Views
             BattleMessageName.Text = msg;
             BattleScore.Text = score;
             BattleRound.Text = round;
-            var inventory = string.Empty;
+            var inventoryList = string.Empty;
             foreach (var item in battleObj.itemInventory)
             {
-                inventory = inventory + item.Text + "\n";
+                inventoryList = inventoryList + item.Text + "\n";
 
             }
             if (battleObj.itemInventory.Count <= 0)
             {
-                inventory = "No items in Inventory.";
+                inventoryList = "No items in Inventory.";
             }
-
+            BattleInventory.Text = inventoryList;
         
         }
 

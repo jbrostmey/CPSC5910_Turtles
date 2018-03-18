@@ -81,6 +81,7 @@ namespace DungeonCrawler.Views.EquipItem
             if (!previouslyEquipped)
             {
                 characterSelected.inventory.Add(itemSelected.position, itemselected);
+                BattlePage.Instance.AddItem(itemSelected); // add item to inventory.
                 await DisplayAlert("Equip Item", itemSelected.Text + " Equipped by " + characterSelected.name, "OK");
                 // todo: might want to add. await Navigation.PushAsync(new EquipItemSuccessPage(itemselected, characterSelected));
             }

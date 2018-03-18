@@ -406,14 +406,9 @@ namespace DungeonCrawler.Models
             }
         }
 
-        public void AddItem(Item item, Character character)
+        public void AddItem(Item item)
         {
-            
             itemInventory.Add(item);
-
-       //     character.actorItemsCorrespondingToLocation[(int)item.position - 1] = item;
-
-            character.actorItemsCorrespondingToLocation[(int)item.position - 1] = item;
         }
 
         private int CanAttackMonster(Character character, Monster monster)
