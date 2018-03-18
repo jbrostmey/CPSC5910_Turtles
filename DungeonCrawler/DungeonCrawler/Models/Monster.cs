@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using SQLite;
 
 namespace DungeonCrawler.Models
 {
@@ -14,29 +13,53 @@ namespace DungeonCrawler.Models
     * Compiling Implemented code for monster: 
         Properties implementation 
         Method stubs implementation */
-    public class Monster : Actor
+    public class Monster : BaseMonster
     {
         //Basic constructor.
         // Each monster will initialize their own d10 on creation.
         public Monster()
         {
             d10 = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+            attributes = new Attributes();
             //attributes.health = 2;
             //attributes.currentHealth = 2;
             //attributes.level = 20;
             //attributes.currentExperience = 3000;
         }
 
-        [PrimaryKey]
-        public string Id { get; set; }
+        public Monster(BaseMonster monster)
+        {
+            d10 = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+            attributes = new Attributes();
+            Id = monster.Id;
+            ImageURI = monster.ImageURI;
+            AttributeString = monster.AttributeString;
+            attributes.PopulateFromString(AttributeString);
+            name = monster.name;
+            number = monster.number;
+            description = monster.description;
+        }
+
+        public void SaveAttributes()
+        {
+            AttributeString = attributes.AttributeString();
+        }
 
         // Droprate is used to determine if the monster drops its item upon death.
         //      This is done by comparing if a d10 dice roll is higher than the drop rate.
         //private int dropRate = 5;
 
         private string drop { get; set; }
-      
-        public string ImageURI { get; set; }
+
+        //Allows getting of Attributes. No setting: must be done through methods.
+        public Attributes attributes { get; set; }
+
+
+        //Returns true if the character is still alive.
+        public bool IsAlive()
+        {
+            return attributes.alive;
+        }
 
         private int ENUMLOCATIONS = 7;
 

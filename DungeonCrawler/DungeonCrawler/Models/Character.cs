@@ -1,5 +1,6 @@
 ﻿using System;
-using SQLite;
+using System.Collections.Generic;
+
 namespace DungeonCrawler.Models
 {
     /* Team: Turtles 
@@ -18,18 +19,34 @@ namespace DungeonCrawler.Models
         public Character() {
             d10 = new Random((int) DateTime.Now.Ticks & 0x0000FFFF);
             MiracleMaxLive = true;
+            inventory = new Dictionary<EquipmentPosition, Item>();
+            attributes = new Attributes();
         }
 
-        [PrimaryKey]
-        public string Id { get; set; }
+        public Character(BaseCharacter character)
+        {
+            d10 = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+            inventory = new Dictionary<EquipmentPosition, Item>();
+            attributes = new Attributes();
 
-        // local variable to hold the levelstats that change on a per-level base.
-        private LevelStats _levelStats = new LevelStats();
+            MiracleMaxLive = character.MiracleMaxLive;
+            AttributeString = character.AttributeString;
+            ImageURI = character.ImageURI;
+            characterClass = character.characterClass;
+            Id = character.Id;
+            name = character.name;
+            number = character.number;
+            description = character.description;
 
-        //Allows for getting/setting of the character class. Players can choose from
-        //  one of 6 character classes. This is where it is stored. May change
-        //  to an enum in the future.
-        public string characterClass { get; set; }
+            this.attributes.PopulateFromString(this.AttributeString);
+        }
+
+        //This will hold the items the character has equiped. It is publically gettable
+        //  to allow views to grab the entire inventory of the characters to display on different screens.
+        public Dictionary<EquipmentPosition, Item> inventory { get; }
+
+        //Allows getting of Attributes. No setting: must be done through methods.
+        public Attributes attributes { get; set; }
 
         //Drops item being held in the specific item type slot
         public Item DropItem(Enum itemType) { return null; }
@@ -38,14 +55,23 @@ namespace DungeonCrawler.Models
         //  being filled, will return false.
         public bool EquipItem(Item item) { return false; }
 
-        public string ImageURI { get; set; }
+        public void SaveAttributes()
+        {
+            AttributeString = attributes.AttributeString();
+        }
+
+        //Returns true if the character is still alive.
+        public bool IsAlive()
+        {
+            return attributes.alive;
+        }
 
         //Level up, called from GainXP when a level up is needed.
         private void LevelUp() { 
             //first grab all the attribute changes
-            attributes.attack += _levelStats.levels[attributes.level].attack;
-            attributes.defense += _levelStats.levels[attributes.level].defense;
-            attributes.speed += _levelStats.levels[attributes.level].speed;
+            attributes.attack += LevelStats.MasterLevelStats.levels[attributes.level].attack;
+            attributes.defense += LevelStats.MasterLevelStats.levels[attributes.level].defense;
+            attributes.speed += LevelStats.MasterLevelStats.levels[attributes.level].speed;
 
             //then update level
             attributes.level++;
@@ -68,8 +94,8 @@ namespace DungeonCrawler.Models
         //logic to check if a character is eligable for a levelup
         private bool CheckLevelUp(){
             //if not max level and has enough xp to level up
-            return attributes.level < _levelStats.MaxLevel()
-                             && attributes.currentExperience >= _levelStats.levels[attributes.level].currentExperience;
+            return attributes.level < LevelStats.MasterLevelStats.MaxLevel()
+                             && attributes.currentExperience >= LevelStats.MasterLevelStats.levels[attributes.level].currentExperience;
         }
 
         //Increases xp based on xp passed as parameter. Can call LevelUp when necessary.
@@ -115,6 +141,37 @@ namespace DungeonCrawler.Models
             inventory.Clear();
             foreach (EquipmentPosition position in c.inventory.Keys)
                 inventory.Add(position,c.inventory[position]);
+        }
+
+        public int ItemAttackModifier()
+        {
+            int attackModifier = 0;
+            foreach (Item item in inventory.Values)
+            {
+                attackModifier += item.attack;
+            }
+
+            return attackModifier;
+        }
+
+        public int ItemDamageModifier()
+        {
+            int damageModifier = 0;
+            foreach (Item item in inventory.Values)
+            {
+                damageModifier += item.damage;
+            }
+            return damageModifier;
+        }
+
+        public int ItemDefenseModifer()
+        {
+            int defenseModifier = 0;
+            foreach (Item item in inventory.Values)
+            {
+                defenseModifier += item.defense;
+            }
+            return defenseModifier;
         }
        
     }

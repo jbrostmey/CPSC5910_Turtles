@@ -2,6 +2,9 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 namespace DungeonCrawler.Models
 {
     public class Attributes
@@ -94,6 +97,34 @@ namespace DungeonCrawler.Models
 
         public void Update(Attributes c)
         {
+            alive = c.alive;
+            attack = c.attack;
+            attackModifier = c.attackModifier;
+            currentExperience = c.currentExperience;
+            currentHealth = c.currentHealth;
+            defense = c.defense;
+            defenseModifier = c.defenseModifier;
+            health = c.health;
+            level = c.level;
+            speed = c.speed;
+            speedModifier = c.speedModifier;
+        }
+
+        public string AttributeString()
+        {
+            string attributeString = ((JObject)JToken.FromObject(this)).ToString();
+            return attributeString;
+        }
+
+        public void PopulateFromString(string data)
+        {
+            if (string.IsNullOrEmpty(data))
+            {
+                return;
+            }
+
+            var c = JsonConvert.DeserializeObject<Attributes>(data);
+
             alive = c.alive;
             attack = c.attack;
             attackModifier = c.attackModifier;

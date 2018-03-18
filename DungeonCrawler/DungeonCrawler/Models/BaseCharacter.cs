@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SQLite;
 
 namespace DungeonCrawler.Models
 {
@@ -8,46 +9,35 @@ namespace DungeonCrawler.Models
     {
         public BaseCharacter()
         {
-            inventory = new Dictionary<EquipmentPosition, Item>();
             MiracleMaxLive = true;
         }
 
-        //This will hold the items the character has equiped. It is publically gettable
-        //  to allow views to grab the entire inventory of the characters to display on different screens.
-        public Dictionary<EquipmentPosition, Item> inventory { get; }
+        public BaseCharacter(Character character)
+        {
+            MiracleMaxLive = character.MiracleMaxLive;
+            AttributeString = character.AttributeString;
+            ImageURI = character.ImageURI;
+            characterClass = character.characterClass;
+            Id = character.Id;
+            name = character.name;
+            description = character.description;
+            number = character.number;
+        }
 
+        // for the MiracleMax event
         public bool MiracleMaxLive { get; set; }
 
-        public int ItemAttackModifier()
-        {
-            int attackModifier = 0;
-            foreach (Item item in inventory.Values)
-            {
-                attackModifier += item.attack;
-            }
+        public string AttributeString { get; set; }
 
-            return attackModifier;
-        }
+        public string ImageURI { get; set; }
 
-        public int ItemDamageModifier()
-        {
-            int damageModifier = 0;
-            foreach (Item item in inventory.Values)
-            {
-                damageModifier += item.damage;
-            }
-            return damageModifier;
-        }
+        //Allows for getting/setting of the character class. Players can choose from
+        //  one of 6 character classes. This is where it is stored. May change
+        //  to an enum in the future.
+        public string characterClass { get; set; }
 
-        public int ItemDefenseModifer()
-        {
-            int defenseModifier = 0;
-            foreach (Item item in inventory.Values)
-            {
-                defenseModifier += item.defense;
-            }
-            return defenseModifier;
-        }
+        [PrimaryKey]
+        public string Id { get; set; }
 
     }
 }

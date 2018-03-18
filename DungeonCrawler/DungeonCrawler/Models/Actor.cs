@@ -12,7 +12,6 @@ namespace DungeonCrawler.Models
     {
         public Actor()
         {
-            attributes = new Attributes();
             imageSource = "DapperDino.png";
 
             // List containing item ID's for each location. There are 7 item locations.
@@ -44,14 +43,6 @@ namespace DungeonCrawler.Models
         // d10 used for calculations
         public Random d10;
 
-        //Allows getting of Attributes. No setting: must be done through methods.
-        public Attributes attributes { get; }
-
-        //Returns true if the character is still alive.
-        public bool IsAlive()
-        {
-            return attributes.alive;
-        }
 
         // If a character has died, it will drop all of its equipment and return it to
         // the field as an array of items.

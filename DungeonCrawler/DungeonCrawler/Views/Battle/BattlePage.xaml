@@ -130,17 +130,6 @@
                                             </StackLayout>
                                             </StackLayout>
 
-                                    <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
-                            <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
-                                  <Label Text="Type" FontSize="Small" FontAttributes="Bold"/>
-                            </StackLayout>
-                               <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding characterClass}" FontSize="Small"/>
-                                            </StackLayout>
-                                            </StackLayout>
-                                    
-                             
-
                                       <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
                             <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
                                   <Label Text="Alive" FontSize="Small" FontAttributes="Bold"/>
@@ -156,7 +145,7 @@
                                   <Label Text="Health" FontSize="Small" FontAttributes="Bold"/>
                             </StackLayout>
                                <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
-                                <Label Text="{Binding attributes.health}" FontSize="Small"/>
+                                <Label Text="{Binding attributes.currentHealth}" FontSize="Small"/>
                                             </StackLayout>
                                             </StackLayout>
                    

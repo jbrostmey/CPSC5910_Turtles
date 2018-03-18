@@ -40,6 +40,7 @@ namespace DungeonCrawler.Views
         }
         async void AutoPlayButtonClick(Object sender, EventArgs e)
         {
+            BattlePageViewModel.Instance.AutoPlayPartyInitialize();
             Battle battleObj = new Battle();
             //game messages and summary
             battleObj.BeginGame();

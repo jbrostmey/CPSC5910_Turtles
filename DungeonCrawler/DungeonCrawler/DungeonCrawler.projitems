@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Services\MasterDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\BaseMonster.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
