@@ -412,12 +412,10 @@ namespace DungeonCrawler.Models
         // Adds item to inventory and assigns the selected character the selected item based on it's location.
         public void AddItem(Item item, Character character)
         {
+            
             itemInventory.Add(item);
 
             character.actorItemsCorrespondingToLocation[(int)item.position - 1] = item;
-
-            item.IsEquipped = true;
-
 
         }
 

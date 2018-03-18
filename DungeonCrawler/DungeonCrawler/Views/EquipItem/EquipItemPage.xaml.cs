@@ -57,47 +57,40 @@ namespace DungeonCrawler.Views.EquipItem
             // Do nothing if equip button is pressed without a character and/or item is selected
             if (itemSelected == null || characterSelected == null)
             {
+                await DisplayAlert("Error!", "Please re-select.", "OK");
                 return;
             }
 
             var itemselected = itemSelected as Item;
 
             // Adds the item to inventory, adds the item to the list of items held by the character at the time.
-            BattlePage.Instance.AddItem(itemSelected, characterSelected);
+            BattlePage.Instance.AddItem(itemSelected, characterSelected); // todo: might want to delete this...
 
-            // Ensures the user an item has been equipped.
-            await DisplayAlert("Equip Item", itemSelected.Text + " Equipped!", "Yes", "No");
+            bool previouslyEquipped = false;
+            foreach (var character in CharacterInfoListView.ItemsSource)
+            {
+                var data = character as Character;
+                if (data.inventory.ContainsValue(itemselected))
+                {
+                    previouslyEquipped = true;
+                    await DisplayAlert("Item Previously Equipped", "Item has already been equipped.", "OK");
+                }
 
-
-            var response = false;
-            if(BattlePage.Instance.CheckIfAllItemsEquipped() == true) {
-                 response = await DisplayAlert("All Items Have Been Equipped.", itemSelected.Text + " All Equipped! Return to Battle?", "Yes", "No");
-            
-            };
-
-
-            // Return to battle.
-            if(response) {
-                await Navigation.PopAsync();
             }
-            Console.WriteLine("character selected: " + characterSelected.name); // correct
-            Console.WriteLine("itemn selected: " + itemSelected.Text); // correct
 
-            Console.WriteLine("item selected: " + itemSelected.IsEquipped.ToString()); // correct
+            if (!previouslyEquipped)
+            {
+                characterSelected.inventory.Add(itemSelected.position, itemselected);
+                await DisplayAlert("Equip Item", itemSelected.Text + " Equipped by " + characterSelected.name, "OK");
+                // todo: might want to add. await Navigation.PushAsync(new EquipItemSuccessPage(itemselected, characterSelected));
+            }
 
-
-            //  CharacterInfoListView.u
-            //  ItemsInfoListView.u
-
-            itemSelected.Update(itemselected);
-            EquipItemViewModel.Instance.SetNeedsRefresh(true);
-
+            // Deselect item and character.
             CharacterInfoListView.SelectedItem = null;
             ItemsInfoListView.SelectedItem = null;
- 
-            // Boolean isEquipped value not updated.
-
         }
+
+
 
 
         private async void Cancel_Clicked(object sender, EventArgs e)
