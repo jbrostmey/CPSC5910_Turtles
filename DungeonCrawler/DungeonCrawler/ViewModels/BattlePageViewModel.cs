@@ -60,11 +60,26 @@ namespace DungeonCrawler
         public void AutoPlayPartyInitialize()
         {
             NewParty();
+
+            if(CharacterViewModel.Instance == null){
+                Console.WriteLine("characterviewmodel null");
+            }
+
+            if(CharacterViewModel.Instance.Dataset == null) {
+                Console.WriteLine("characterview dataset is null");
+            } 
+
             Console.WriteLine(CharacterViewModel.Instance.Dataset.Count);
             int nextPartyMemberIndex;
             for (int i = 0; i < MaxPartySize; i++)
             {
-                nextPartyMemberIndex = RNG.Next() % CharacterViewModel.Instance.Dataset.Count;
+              /*  if (CharacterViewModel.Instance.Dataset.Count == 0) // dataset count is 0
+                {
+                    nextPartyMemberIndex = RNG.Next() % 5;
+                }*/
+             
+                    nextPartyMemberIndex = RNG.Next() % CharacterViewModel.Instance.Dataset.Count;
+
                 Dataset[i].update(CharacterViewModel.Instance.Dataset[nextPartyMemberIndex]);
             }
         }
@@ -96,7 +111,7 @@ namespace DungeonCrawler
             {
                 nextMonsterIndex = RNG.Next() % MonsterViewModel.Instance.Dataset.Count;
                 DatasetMonster.Add(new Monster());
-                while(MonsterViewModel.Instance.Dataset[nextMonsterIndex].attributes.level > (partyAverageLevel+2))
+                while (MonsterViewModel.Instance.Dataset[nextMonsterIndex].attributes.level > (partyAverageLevel + 2))
                     nextMonsterIndex = RNG.Next() % MonsterViewModel.Instance.Dataset.Count;
                 DatasetMonster[i].Update(MonsterViewModel.Instance.Dataset[nextMonsterIndex]);
             }
@@ -105,8 +120,22 @@ namespace DungeonCrawler
         //checks to see that all party members have been chosen
         public bool ValidParty()
         {
+
+            if(Dataset == null){
+                Console.WriteLine("dataset is null");
+
+            }
+
+
             foreach (Character member in Dataset)
             {
+
+                if (member == null)
+                {
+                    Console.WriteLine("member is null");
+
+                }
+                
                 if (member.name == "Select Character")
                 {
                     return false;

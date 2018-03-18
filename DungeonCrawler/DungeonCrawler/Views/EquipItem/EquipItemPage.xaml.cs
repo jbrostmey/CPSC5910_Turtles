@@ -60,6 +60,8 @@ namespace DungeonCrawler.Views.EquipItem
                 return;
             }
 
+            var itemselected = itemSelected as Item;
+
             // Adds the item to inventory, adds the item to the list of items held by the character at the time.
             BattlePage.Instance.AddItem(itemSelected, characterSelected);
 
@@ -83,6 +85,12 @@ namespace DungeonCrawler.Views.EquipItem
 
             Console.WriteLine("item selected: " + itemSelected.IsEquipped.ToString()); // correct
 
+
+            //  CharacterInfoListView.u
+            //  ItemsInfoListView.u
+
+            itemSelected.Update(itemselected);
+            EquipItemViewModel.Instance.SetNeedsRefresh(true);
 
             CharacterInfoListView.SelectedItem = null;
             ItemsInfoListView.SelectedItem = null;

@@ -133,6 +133,8 @@ namespace DungeonCrawler.Views
             }
 
             BattleInventory.Text = inventory;
+
+
         }
 
     }
