@@ -25,11 +25,10 @@ namespace DungeonCrawler
         {
             InitializeComponent();
 
-
             MainPage = new NavigationPage(new OpeningPage());
 
-
-
+            CharacterViewModel.Instance.InitializeDataset();
+            MonsterViewModel.Instance.InitializeDataset();
         }
 
 
