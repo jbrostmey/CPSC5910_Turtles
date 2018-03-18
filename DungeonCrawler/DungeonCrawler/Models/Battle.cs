@@ -20,18 +20,16 @@ namespace DungeonCrawler.Models
     {
         const int SIZE = 6;
 
-
+        Score currentScore;
         public bool inSession;
         public bool currentTurn; // 0 is character, 1 is for monster
         public int currentChar;
         public int currentMon;
-        public int round;
+        public int rounds;
         public string summary;
-
         private bool CanReviveThisBattle = true;
 
         public List<Item> itemInventory; // holds item id's
-
         public Character[] aChar;
         public Monster[] aMon;
         public Battle()
@@ -52,6 +50,7 @@ namespace DungeonCrawler.Models
 
             if (inSession == true)
             {
+                currentScore.NumTurns++;
                 int HMC; // hit miss critical
                 if (currentTurn == false) // Character's turn (by default, character goes first)
                 {
@@ -87,13 +86,14 @@ namespace DungeonCrawler.Models
                         //Character attacks, monster loses health
                         int experience = aMon.TakeDamage(getCharAtt);
                         msg += "Character " + aChar.name + " attacked Monster " + aMon.name + " with a damage of " + getCharAtt + '\n';
-
                         aChar.GainExperience(experience); // EXP not yet determined
+                        currentScore.ScoreTotal += experience; // total exp earned
                         if (!aMon.IsAlive())
                         {
                             //Item[] drops = aMon.dropPool; // Items dropped from monster's death
                             aMon.Die(aMon);
-                            msg += "Monster " + aMon.name + " has died!" + '\n';
+                            currentScore.MonsterSlainNumber++;
+                            msg += "Monster " + aMon.name + " has died at " + DateTime.Now + "!\n";
                             summary += "Character " + aChar.name + " has killed Monster " + aMon.name + '\n';
 
                         }
@@ -177,12 +177,14 @@ namespace DungeonCrawler.Models
             {
                 inSession = false;
                 CanReviveThisBattle = true;
+                currentScore.BattleNumber = rounds;
+                currentScore.Update(currentScore); // final update to score when game ends
             }
             else if (CheckParty(false))
             {
-                round++;
-                msg += "\n\n\n Next round! Round: " + round + '\n';
-                summary += "\nRound: " + round + '\n';
+                rounds++;
+                msg += "\n\n\n Next round! Round: " + rounds + '\n';
+                summary += "\nRound: " + rounds + '\n';
                 //init new party of monsters
 
                 BattlePageViewModel.Instance.ResetMonsters();
@@ -204,7 +206,7 @@ namespace DungeonCrawler.Models
         //This function is to be called in BattlePage.xaml.cs
         public void BeginGame()
         {
-
+            currentScore = new Score();
             aChar = new Character[SIZE];
             aMon = new Monster[SIZE];
 
@@ -227,8 +229,8 @@ namespace DungeonCrawler.Models
             //Test functionality of EntityOrder, character 2 should always attack first
             //aChar[2].attributes.speed = 500;
 
-            round = 1;
-            summary = "Round: " + round + '\n';
+            rounds = 1;
+            summary = "Round: " + rounds + '\n';
         }
 
         //Will take in a character object and retrieve stats of that character to determine what the attack will be. OR if it is a monster, will retrieve attack of monster
@@ -275,6 +277,9 @@ namespace DungeonCrawler.Models
                 msg += Turn(this.aChar[currentChar], this.aMon[currentMon]);
             }
             msg += "\n\n\n" + summary;
+
+            currentScore.AutoBattle = true; 
+            currentScore.Update(currentScore);
             return msg;
         }
 

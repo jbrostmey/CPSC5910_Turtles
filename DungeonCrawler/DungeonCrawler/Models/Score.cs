@@ -21,10 +21,11 @@ namespace DungeonCrawler.Models
         // Missign property, to add as part of the SQL lecture...
         public int TurnNumber { get; set; }
 
-        // Number of battles this game
-        public int BattleCount { get; set; }
+        //Number of rounds/battles in game
+        public int BattleNumber { get; set; }
 
-
+        //Number of total turns in game
+        public int NumTurns { get; set; }
 
         // The count of monsters slain during battle
         public int MonsterSlainNumber { get; set; }
@@ -53,6 +54,8 @@ namespace DungeonCrawler.Models
             CharacterAtDeathList = null;
             MonstersKilledList = null;
             ItemsDroppedList = null;
+            BattleNumber = 0;
+            NumTurns = 0;
         }
 
 
@@ -68,6 +71,7 @@ namespace DungeonCrawler.Models
             GameDate = newData.GameDate;
             AutoBattle = newData.AutoBattle;
             TurnNumber = newData.TurnNumber;
+            BattleNumber = newData.BattleNumber;
             MonsterSlainNumber = newData.MonsterSlainNumber;
             ExperienceGainedTotal = newData.ExperienceGainedTotal;
             CharacterAtDeathList = newData.CharacterAtDeathList;
