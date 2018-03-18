@@ -138,6 +138,19 @@ namespace DungeonCrawler.Models
             speedModifier = c.speedModifier;
         }
 
+        public string StringOutput()
+        {
+            var myReturn = string.Empty;
+            myReturn += "Attack : " + attack;
+            myReturn += " , Defense : " + defense;
+            myReturn += " , Speed : " + speed;
+            myReturn += " , Max Health : " + health;
+            myReturn += " , Level : " + level;
+            myReturn += " , Experience : " + currentExperience;
+
+            return myReturn;
+        }
+
         // Helper functions for the AttribureList
         public static class AttributeList
         {

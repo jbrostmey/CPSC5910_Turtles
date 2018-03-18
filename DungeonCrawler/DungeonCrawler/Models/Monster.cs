@@ -107,5 +107,15 @@ namespace DungeonCrawler.Models
             description = m.description;
             attributes.Update(m.attributes);
         }
+
+        public string DeadState()
+        {
+            var myReturn = string.Empty;
+            myReturn += name;
+            myReturn += " , " + description;
+            myReturn += " , " + attributes.StringOutput();
+
+            return myReturn;
+        }
     }
 }

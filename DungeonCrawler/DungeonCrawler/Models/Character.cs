@@ -173,6 +173,29 @@ namespace DungeonCrawler.Models
             }
             return defenseModifier;
         }
+
+        public string DeadState()
+        {
+            var myReturn = string.Empty;
+            myReturn += name;
+            myReturn += " , " + description;
+            myReturn += " , " + attributes.StringOutput();
+            myReturn += " , Items : " + ItemSlotsFormatOutput();
+
+            return myReturn;
+        }
+
+        private string ItemSlotsFormatOutput()
+        {
+            var returnString = string.Empty;
+            returnString += "[ ";
+            foreach(EquipmentPosition key in inventory.Keys)
+            {
+                returnString += key.ToString() + " : " + inventory[key] + ", ";
+            }
+            returnString += "]";
+            return returnString;
+        }
        
     }
 }
