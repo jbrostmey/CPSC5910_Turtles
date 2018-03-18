@@ -11,14 +11,14 @@
       <File FileName="DungeonCrawler/ViewModels/EquipItemViewModel.cs" Line="65" Column="36" NotebookId="1" />
       <File FileName="iOS/Main.cs" Line="17" Column="1" NotebookId="1" />
       <File FileName="DungeonCrawler/Views/Battle/BattleMessage.xaml" Line="26" Column="1" NotebookId="1" />
-      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml.cs" Line="137" Column="13" NotebookId="1" />
-      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml" Line="15" Column="45" NotebookId="1" />
+      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml.cs" Line="126" Column="13" NotebookId="1" />
+      <File FileName="DungeonCrawler/Views/Battle/BattlePage.xaml" Line="12" Column="45" NotebookId="1" />
       <File FileName="iOS/obj/iPhoneSimulator/Debug/DungeonCrawler.iOS.Views.Battle.BattlePage.xaml.g.cs" Line="28" Column="45" NotebookId="1" />
       <File FileName="DungeonCrawler/ViewModels/BattlePageViewModel.cs" Line="23" Column="1" NotebookId="1" />
       <File FileName="DungeonCrawler Status" NotebookId="1" />
     </Files>
     <FloatingWindows>
-      <FloatingWindow WindowId="1" X="1440" Y="23" Width="896" Height="913">
+      <FloatingWindow WindowId="1" X="1457" Y="353" Width="896" Height="913">
         <Files>
           <File FileName="DungeonCrawler/Views/Party/PartyMemberSelect.xaml.cs" Line="25" Column="11" />
         </Files>
@@ -44,9 +44,7 @@
                   <Node name="CharacterPage.xaml" expanded="True" />
                 </Node>
                 <Node name="EquipItem" expanded="True">
-                  <Node name="EquipItemPage.xaml" expanded="True">
-                    <Node name="EquipItemPage.xaml.cs" selected="True" />
-                  </Node>
+                  <Node name="EquipItemPage.xaml" expanded="True" />
                 </Node>
                 <Node name="Party" expanded="True">
                   <Node name="PartyMemberSelect.xaml" expanded="True" />
@@ -56,7 +54,9 @@
                 <Node name="OpeningPage.xaml" expanded="True" />
               </Node>
             </Node>
-            <Node name="DungeonCrawler.iOS" expanded="True" />
+            <Node name="DungeonCrawler.iOS" expanded="True">
+              <Node name="Main.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

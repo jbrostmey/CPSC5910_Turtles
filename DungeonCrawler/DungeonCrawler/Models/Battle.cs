@@ -21,7 +21,7 @@ namespace DungeonCrawler.Models
     {
         const int SIZE = 6;
 
-        Score currentScore;
+        public Score currentScore;
         public bool inSession;
         public bool currentTurn; // 0 is character, 1 is for monster
         public int currentChar;
