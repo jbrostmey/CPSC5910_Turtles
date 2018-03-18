@@ -75,11 +75,24 @@
                             
                                          <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                             <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                                  <Label Text="Name:" FontSize="Small"/>
+                                  <Label Text="Name:" FontSize="Small" FontAttributes="Bold"/>
                             </StackLayout>
                                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                                 <Label Text="{Binding Text}" FontSize="Small"/>
                                             </StackLayout>
+
+
+                                                         <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="Is Equipped?" FontSize="Small" FontAttributes="Bold"/>
+                                            </StackLayout>
+
+                                              <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding IsEquipped}" FontSize="Small"/>
+                                            </StackLayout>
+
+
+
+                                        
                                             </StackLayout>
 
                          
@@ -105,13 +118,12 @@
                     BorderWidth=".5"/>
 
 
-                 <Button Text = "Cancel"
+                 <Button Text = "Continue Game"
                     Clicked = "Cancel_Clicked"
                     BorderWidth=".5"/>
 
 
-
-
+                
             
                     </StackLayout>
 

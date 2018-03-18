@@ -70,18 +70,24 @@ namespace DungeonCrawler.Views.EquipItem
             var response = false;
             if(BattlePage.Instance.CheckIfAllItemsEquipped() == true) {
                  response = await DisplayAlert("All Items Have Been Equipped.", itemSelected.Text + " All Equipped! Return to Battle?", "Yes", "No");
+            
             };
+
+
             // Return to battle.
             if(response) {
                 await Navigation.PopAsync();
             }
+            Console.WriteLine("character selected: " + characterSelected.name); // correct
+            Console.WriteLine("itemn selected: " + itemSelected.Text); // correct
 
-            // deselect item and character.
-     
+            Console.WriteLine("item selected: " + itemSelected.IsEquipped.ToString()); // correct
+
+
             CharacterInfoListView.SelectedItem = null;
             ItemsInfoListView.SelectedItem = null;
-  
-
+ 
+            // Boolean isEquipped value not updated.
 
         }
 
@@ -91,6 +97,7 @@ namespace DungeonCrawler.Views.EquipItem
             await Navigation.PopAsync();
         }
 
+      
 
         protected override void OnAppearing()
         {

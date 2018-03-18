@@ -28,6 +28,8 @@ namespace DungeonCrawler
         public int attack { get; set; }
         public int damage { get; set; }
 
+        public bool IsEquipped { get; set; }
+
         //Base attributes
         public int range { get; set; }
         public EquipmentPosition position { get; set; }
@@ -57,6 +59,7 @@ namespace DungeonCrawler
 
             position = EquipmentPosition.body;
 
+            IsEquipped = false;
         }
 
         // To determine where the item goes, just an example of a equip on the body
@@ -105,7 +108,7 @@ namespace DungeonCrawler
         }
 
         // Constructor for Item called if needed to create a new item with set values.
-        public Item(string text, string description, string guid, string imageuri, int _speed, int _attack, int _range, int _defense, EquipmentPosition _position)
+        public Item(string text, string description, string guid, string imageuri, int _speed, int _attack, int _range, int _defense, EquipmentPosition _position, bool isEquipped)
         {
 
             Text = text;
@@ -117,6 +120,7 @@ namespace DungeonCrawler
             attack = _attack;
             range = _range;
             position = _position;
+            IsEquipped = isEquipped;
 
         }
 
@@ -148,7 +152,7 @@ namespace DungeonCrawler
             attack = newData.attack;
             range = newData.range;
             position = newData.position;
-
+            IsEquipped = newData.IsEquipped;
         }
 
 

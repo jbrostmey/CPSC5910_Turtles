@@ -415,6 +415,10 @@ namespace DungeonCrawler.Models
             itemInventory.Add(item);
 
             character.actorItemsCorrespondingToLocation[(int)item.position - 1] = item;
+
+            item.IsEquipped = true;
+
+
         }
 
 
