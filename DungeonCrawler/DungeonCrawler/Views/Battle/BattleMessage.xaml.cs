@@ -10,9 +10,6 @@ namespace DungeonCrawler.Views
 
     public partial class BattleMessage : ContentPage
     {
-        public string message;
-
-
         //END GAME display
         public BattleMessage(string msg)
         {
