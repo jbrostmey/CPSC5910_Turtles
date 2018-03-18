@@ -76,10 +76,10 @@ namespace DungeonCrawler.Views.EquipItem
                 await Navigation.PopAsync();
             }
 
+            // deselect item and character.
+            // todo: redo selection to match partymemberselect.
             itemSelected = null;
             characterSelected = null;
-
-            // deselect item and character.
 
         }
 

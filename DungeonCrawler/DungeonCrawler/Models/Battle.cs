@@ -53,10 +53,6 @@ namespace DungeonCrawler.Models
         
         public List<Boolean> actorItemsRecentlyEquipped; 
 
-
-
-
-
         /*Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
           *return string for BattleMessage.xaml
           *CheckParty switches inSession to false or initiates a new round. 
