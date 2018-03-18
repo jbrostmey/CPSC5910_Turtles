@@ -206,9 +206,11 @@ namespace DungeonCrawler.Controllers
                 myData.Id = myData.Guid;    // Set to be the same as Guid, does not come down from server, but needed for DB
                 myData.Description = JsonHelper.GetJsonString(json, "Description");
                 myData.ImageURI = JsonHelper.GetJsonString(json, "ImageURI");
+                myData.damage = JsonHelper.GetJsonInteger(json, "Damage");
 
                 var val = JsonHelper.GetJsonInteger(json, "Value");
-                switch(val){
+                switch (val)
+                {
                     case 10:
                         myData.speed = val;
                         break;
@@ -226,9 +228,42 @@ namespace DungeonCrawler.Controllers
 
                 // Note:  no attributes in mydata for health
 
-           //     myData.range = JsonHelper.GetJsonInteger(json, "Range");
+                //     myData.range = JsonHelper.GetJsonInteger(json, "Range");
 
-              //  myData.position = (ItemLocationEnum)JsonHelper.GetJsonInteger(json, "Location");
+                EquipmentPosition position;
+                switch ((ItemLocationEnum)JsonHelper.GetJsonInteger(json, "Location"))
+                {
+                    case ItemLocationEnum.Head:
+                        position = EquipmentPosition.head;
+                        break;
+                    case ItemLocationEnum.Necklass:
+                        position = EquipmentPosition.body;
+                        break;
+                    case ItemLocationEnum.PrimaryHand:
+                        position = EquipmentPosition.rightHand;
+                        break;
+                    case ItemLocationEnum.Feet:
+                        position = EquipmentPosition.feet;
+                        break;
+                    case ItemLocationEnum.Finger:
+                        position = EquipmentPosition.finger;
+                        break;
+                    case ItemLocationEnum.RightFinger:
+                        position = EquipmentPosition.rightFinger;
+                        break;
+                    case ItemLocationEnum.LeftFinger:
+                        position = EquipmentPosition.leftFinger;
+                        break;
+                    case ItemLocationEnum.OffHand:
+                        position = EquipmentPosition.leftHand;
+                        break;
+                    case ItemLocationEnum.Unknown:
+                    default:
+                        position = EquipmentPosition.unknown;
+                        break;
+                }
+
+                myData.position = position;
                 //todo:
                // myData.position = (ItemLocationEnum)JsonHelper.GetJsonInteger(json, "Location");
 

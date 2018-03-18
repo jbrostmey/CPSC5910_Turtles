@@ -6,13 +6,15 @@ namespace DungeonCrawler.Models
 {
     public enum EquipmentPosition
     {
-        head        = 1, 
-        body        = 2, 
-        feet        = 3, 
-        leftHand    = 4, 
-        rightHand   = 5, 
-        leftFinger  = 6, 
-        rightFinger = 7
+        unknown = 0,
+        head = 1,
+        body = 2,
+        feet = 3,
+        leftHand = 4,
+        rightHand = 5,
+        leftFinger = 6,
+        rightFinger = 7,
+        finger = 8
     }
 
 

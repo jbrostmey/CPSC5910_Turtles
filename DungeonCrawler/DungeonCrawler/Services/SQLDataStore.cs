@@ -81,15 +81,15 @@ namespace DungeonCrawler.Services
 
         private async void InitilizeSeedData()
         {
-            
 
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Hat", Description = "Basic hat.", defense = 2, speed = 0, attack = 0, range = 4, position = EquipmentPosition.head });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Shirt", Description = "Basic shirt.", defense = 3, speed = 0, attack = 0, range = 4, position = EquipmentPosition.body });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Right Hand", Description = "Basic right handed weapon.", defense = 0, speed = 0, attack = 5, range = 4, position = EquipmentPosition.rightHand });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Left Hand", Description = "Basic left handed weapon.", defense = 3, speed = 0, attack = 2, range = 4, position = EquipmentPosition.rightHand });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Shoes", Description = "Basic shoes.", defense = 1, speed = 2, attack = 0, range = 4, position = EquipmentPosition.feet });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Right Finger", Description = "Basic right finger ring.", defense = 1, speed = 0, attack = 2, range = 4, position = EquipmentPosition.rightFinger });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Left Finger", Description = "Basic left finger ring.", defense = 2, speed = 0, attack = 1, range = 4, position = EquipmentPosition.leftFinger });
+
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Hat", Description = "Basic hat.", damage = 0, defense = 2, speed = 0, attack = 0, range = 4, position = EquipmentPosition.head });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Shirt", Description = "Basic shirt.", damage = 0, defense = 3, speed = 0, attack = 0, range = 4, position = EquipmentPosition.body });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Right Hand", Description = "Basic right handed weapon.", damage = 3, defense = 0, speed = 0, attack = 5, range = 4, position = EquipmentPosition.rightHand });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Left Hand", Description = "Basic left handed weapon.", damage = 2, defense = 3, speed = 0, attack = 2, range = 4, position = EquipmentPosition.rightHand });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Shoes", Description = "Basic shoes.", damage = 0, defense = 1, speed = 2, attack = 0, range = 4, position = EquipmentPosition.feet });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Right Finger", Description = "Basic right finger ring.", damage = 1, defense = 1, speed = 0, attack = 2, range = 4, position = EquipmentPosition.finger });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Left Finger", Description = "Basic left finger ring.", damage = 2, defense = 2, speed = 0, attack = 1, range = 4, position = EquipmentPosition.finger });
 
             //Set up our base classes
             Character toBeAdded = new Character { Id = Guid.NewGuid().ToString(), name = "Arnold", description = "Schwarzenegger got nothing on him.", characterClass = "Warrior" };
@@ -132,7 +132,7 @@ namespace DungeonCrawler.Services
             // Ewwy Ooze
             Monster monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), 
                 description = "Gelatinous goo that seems to corrode and consume any living thing it touches. Eww!", 
-                equipmentPositions = EquipmentPosition.rightFinger, 
+                equipmentPositions = EquipmentPosition.finger, 
                 name = "Ewwy Ooze" };    
             monsterToBeAdded.attributes.Update(new Attributes { attack = 2, defense = 1, speed = 1, 
                 health = 10, currentHealth = 2, 
@@ -190,7 +190,7 @@ namespace DungeonCrawler.Services
             {
                 Id = Guid.NewGuid().ToString(),
                 description = "Wizard in training, this goblin tries hard to learn the arcane arts. Armed with her trusty wand, she casts novice spells at any intruder.",
-                equipmentPositions = EquipmentPosition.leftFinger,
+                equipmentPositions = EquipmentPosition.finger,
                 name = "Goblin Wizard"
             };
             monsterToBeAdded.attributes.Update(new Attributes { attack = 6, 

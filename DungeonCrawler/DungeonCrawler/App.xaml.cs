@@ -29,6 +29,7 @@ namespace DungeonCrawler
 
             CharacterViewModel.Instance.InitializeDataset();
             MonsterViewModel.Instance.InitializeDataset();
+            ItemsViewModel.Instance.InitializeDataset();
         }
 
 

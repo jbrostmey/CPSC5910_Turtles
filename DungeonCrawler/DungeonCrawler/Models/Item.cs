@@ -29,6 +29,8 @@ namespace DungeonCrawler
         public int damage { get; set; }
 
 
+        public static int NumberSlots = 7;
+
         //Base attributes
         public int range { get; set; }
         public EquipmentPosition position { get; set; }

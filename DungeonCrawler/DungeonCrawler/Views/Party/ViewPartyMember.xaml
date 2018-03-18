@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.Views.Party.ViewPartyMember">
+    <StackLayout Spacing="20" Padding="15">
+
+
+         <Label Text="Character Description" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+          <Image Source="{Binding Data.ImageURI}"
+                WidthRequest="150"
+                HeightRequest="150" 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        
+           <Label Text="Name:" FontSize="Medium" />
+        <Label Text="{Binding Data.name}" FontSize="Small"/>
+
+        <Label Text="Class:" FontSize="Medium" />
+        <Label Text="{Binding Data.characterClass}" FontSize="Small"/>
+
+       <Label Text="Description:" FontSize="Medium" />
+        <Label Text="{Binding Data.description}" FontSize="Small"/>
+      
+
+               <Label Text="Defense:" FontSize="Medium" />
+            <Label Text="{Binding Data.attributes.defense}" FontSize="Small" />
+
+            <Label Text="Speed:" FontSize="Medium" />
+            <Label Text="{Binding Data.attributes.speed}" FontSize="Small" />
+
+            <Label Text="Attack:" FontSize="Medium" />
+            <Label Text="{Binding Data.attributes.attack}" FontSize="Small" />
+
+    </StackLayout>
+</ContentPage>

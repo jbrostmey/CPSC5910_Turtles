@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DungeonCrawler.Views;
+
 using Xamarin.Forms;
-using DungeonCrawler.Models;
 
 namespace DungeonCrawler.Models
 {
@@ -31,7 +30,6 @@ namespace DungeonCrawler.Models
         private bool CanReviveThisBattle = true;
 
         public List<Item> itemInventory; // holds item id's
-        public static bool equipItems;
         public Character[] aChar;
         public Monster[] aMon;
         public Battle()
@@ -39,19 +37,7 @@ namespace DungeonCrawler.Models
             inSession = true;
             currentTurn = false;
             itemInventory = new List<Item>();
-        
-      
-            actorItemsRecentlyEquipped = new List<Boolean> { };
-
-            for (int i = 0; i < ENUMLOCATIONS; i++)
-            {
-                actorItemsRecentlyEquipped.Add(false);
-            }
         }
-
-        private int ENUMLOCATIONS = 7;
-        
-        public List<Boolean> actorItemsRecentlyEquipped; 
 
         /*Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
           *return string for BattleMessage.xaml
@@ -64,8 +50,6 @@ namespace DungeonCrawler.Models
 
             if (inSession == true)
             {
-                equipItems = false;
-
                 currentScore.NumTurns++;
                 int HMC; // hit miss critical
                 if (currentTurn == false) // Character's turn (by default, character goes first)
@@ -172,6 +156,8 @@ namespace DungeonCrawler.Models
                                 aChar.Die(aChar); // Relinquish inventory and drop all items
                                 msg += "Character " + aChar.name + " has died!" + '\n';
                                 summary += "Monster " + aMon.name + " has killed Character " + aChar.name + '\n';
+                                currentScore.CharacterAtDeathList += aChar.DeadState() + "\n";
+
                             }
 
                         }
@@ -182,7 +168,6 @@ namespace DungeonCrawler.Models
                     }
 
                     currentTurn = false;
-
                 }
                 msg += "\n\n";
             }
@@ -194,17 +179,12 @@ namespace DungeonCrawler.Models
             {
                 inSession = false;
                 CanReviveThisBattle = true;
-                currentScore.BattleNumber = rounds;
                 currentScore.Update(currentScore); // final update to score when game ends
             }
             else if (CheckParty(false))
             {
-
-                equipItems = true;
-
-
                 rounds++;
-                msg += "\n\n\n Next round! Round: " + rounds + '\n';
+                msg += "\n Next round! Round: " + rounds + '\n';
                 summary += "\nRound: " + rounds + '\n';
                 //init new party of monsters
 
@@ -217,7 +197,7 @@ namespace DungeonCrawler.Models
                 CanReviveThisBattle = true;
                 currentTurn = true;
             }
-
+            currentScore.BattleNumber = rounds;
             return msg;
         }
 
@@ -230,7 +210,7 @@ namespace DungeonCrawler.Models
             currentScore = new Score();
             aChar = new Character[SIZE];
             aMon = new Monster[SIZE];
-            equipItems = false;
+
             BattlePageViewModel.Instance.ResetMonsters();
             for (int i = 0; i < SIZE; i++)
             {
@@ -409,16 +389,15 @@ namespace DungeonCrawler.Models
             }
         }
 
-        // Adds item to inventory and assigns the selected character the selected item based on it's location.
-        public void AddItem(Item item, Character character)
+        public void AddItem(Item item)
         {
             
             itemInventory.Add(item);
 
             character.actorItemsCorrespondingToLocation[(int)item.position - 1] = item;
 
-        }
 
+        }
 
         private int CanAttackMonster(Character character, Monster monster)
         {
@@ -491,27 +470,6 @@ namespace DungeonCrawler.Models
 
             return msg;
         }
-
-
-
-        public virtual void ResetActorItemsRecentlyEquipped()
-        {
-            actorItemsRecentlyEquipped.Clear();
-            for (int i = 0; i < ENUMLOCATIONS; i++)
-            {
-                actorItemsRecentlyEquipped.Add(false);
-            }
-        }
-
-        public bool CheckIfAllItemsEquipped()
-        {
-            if (actorItemsRecentlyEquipped.All(c => c == true))
-            {
-                return true;
-            }
-            return false;
-        }
-    
     }
 }
 

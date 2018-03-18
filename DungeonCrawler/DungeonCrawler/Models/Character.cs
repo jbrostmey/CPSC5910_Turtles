@@ -45,15 +45,31 @@ namespace DungeonCrawler.Models
         //  to allow views to grab the entire inventory of the characters to display on different screens.
         public Dictionary<EquipmentPosition, Item> inventory { get; }
 
+
         //Allows getting of Attributes. No setting: must be done through methods.
         public Attributes attributes { get; set; }
 
         //Drops item being held in the specific item type slot
-        public Item DropItem(Enum itemType) { return null; }
+        public Item DropItem(EquipmentPosition itemType) 
+        {
+            if (inventory.ContainsKey(itemType))
+            {
+                Item toDrop = inventory[itemType];
+                inventory.Remove(itemType);
+                return toDrop;
+            }
+            return null;
+        }
 
         //Equips new item if it can. If it cannot equip the item due to the item slot
         //  being filled, will return false.
-        public bool EquipItem(Item item) { return false; }
+        public bool EquipItem(Item item) 
+        {
+            if(inventory.ContainsKey(item.position))
+                return false;
+            
+            return true;
+        }
 
         public void SaveAttributes()
         {
@@ -159,7 +175,8 @@ namespace DungeonCrawler.Models
             int damageModifier = 0;
             foreach (Item item in inventory.Values)
             {
-                damageModifier += item.damage;
+                if (item.damage > 0) 
+                    damageModifier += (d10.Next() % item.damage) + 1;
             }
             return damageModifier;
         }
