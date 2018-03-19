@@ -62,21 +62,19 @@ namespace DungeonCrawler.Models
         public virtual List<Item> Die(Character character)
         {
             List<Item> items = new List<Item>();
-            for (int i = 0; i < ENUMLOCATIONS; i++) 
-            {
-                items.Add(character.actorItemsCorrespondingToLocation[i]);
+            foreach(var item in character.inventory){
+                items.Add(item.Value);
             }
-            return items;
 
+
+
+
+            return items;
         }
-        // Todo: combine monster and character die using generic type
+        // Todo: Add die functionality here. Currently in Battle.
         public virtual List<Item> Die(Monster monster)
         {
             List<Item> items = new List<Item>();
-            for (int i = 0; i < ENUMLOCATIONS; i++)
-            {
-                items.Add(monster.actorItemsCorrespondingToLocation[i]);
-            }
             return items;
         }
 
@@ -84,7 +82,8 @@ namespace DungeonCrawler.Models
         // The item gets stored in the character item list corresponding to location.
         // Note: this method is only for characters; not monsters.
         // Monsters do not get to equip items.
-        public virtual void EquipItem(Character character, Item item)         {             int itemLocation = (int)item.position;             actorItemsCorrespondingToLocation[itemLocation-1] = item;
+        public virtual void EquipItem(Character character, Item item)         {
+            character.inventory.Add(item.position, item);
         }
 
         public virtual void ResetActorItems(List<Item> newItemsList)

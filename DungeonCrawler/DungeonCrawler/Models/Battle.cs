@@ -109,6 +109,20 @@ namespace DungeonCrawler.Models
                         {
                             //Item[] drops = aMon.dropPool; // Items dropped from monster's death
                             aMon.Die(aMon);
+
+                            Item item = BattlePageViewModel.Instance.GenerateNewRandomItem();
+                            itemInventory.Add(item);
+                            string itemString = item.ItemString();
+
+                            Score scoreMonsterDeath = new Score()
+                            {
+                                ItemsDroppedList = itemString
+                            };
+
+                            MessagingCenter.Send(this, "AddData", scoreMonsterDeath);
+
+                            //Update
+
                             currentScore.MonsterSlainNumber++;
                             msg += "Monster " + aMon.name + " has died at " + DateTime.Now + "!\n";
                             summary += "Character " + aChar.name + " has killed Monster " + aMon.name + '\n';
@@ -173,7 +187,22 @@ namespace DungeonCrawler.Models
                             }
                             else
                             {
-                                aChar.Die(aChar); // Relinquish inventory and drop all items
+                                List<Item> characterItemsDropped = new List<Item>();
+                                characterItemsDropped = aChar.Die(aChar); // Relinquish inventory and drop all items
+
+                              
+                                foreach(var itemToAdd in characterItemsDropped){
+                                    itemInventory.Add(itemToAdd);
+                                    string itemString = itemToAdd.ItemString();
+                                    Score scoreCharacterDeath = new Score()
+                                    {
+                                        ItemsDroppedList = itemString
+                                    };
+
+                                    MessagingCenter.Send(this, "AddData", scoreCharacterDeath);
+
+                                }
+                               
                                 msg += "Character " + aChar.name + " has died!" + '\n';
                                 summary += "Monster " + aMon.name + " has killed Character " + aChar.name + '\n';
                                 currentScore.CharacterAtDeathList += aChar.DeadState() + "\n";

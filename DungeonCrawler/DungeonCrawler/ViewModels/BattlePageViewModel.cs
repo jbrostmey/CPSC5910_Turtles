@@ -35,6 +35,7 @@ namespace DungeonCrawler
 
         public ObservableCollection<Character> Dataset { get; set; }
         public ObservableCollection<Monster> DatasetMonster { get; set; }
+        public ObservableCollection<Item> DatasetItem { get; set; }
 
         public Command LoadDataCommand { get; set; }
 
@@ -43,6 +44,9 @@ namespace DungeonCrawler
             Title = "Battle Info List";
             Dataset = new ObservableCollection<Character>();
             DatasetMonster = new ObservableCollection<Monster>();
+            DatasetItem = new ObservableCollection<Item>();
+
+            LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
             RNG = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
         }
@@ -56,6 +60,14 @@ namespace DungeonCrawler
                 Dataset.Add(new Character { name = "Select Character", description = "", characterClass = "" });
             }
         }
+
+        // generate new random item
+        public Item GenerateNewRandomItem(){
+        
+            return new Item(); // todo: implement random functionality
+        }
+
+
 
         public void AutoPlayPartyInitialize()
         {
@@ -122,6 +134,33 @@ namespace DungeonCrawler
                 }
             }
             return true;
+        }
+        private async Task ExecuteLoadDataCommand()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                DatasetItem.Clear();
+                var dataset = await DataStore.GetAllAsync_Item(true);
+                foreach (var data in dataset)
+                {
+                    DatasetItem.Add(data);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
     }
