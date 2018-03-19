@@ -114,12 +114,7 @@ namespace DungeonCrawler.Models
                             itemInventory.Add(item);
                             string itemString = item.ItemString();
 
-                            Score scoreMonsterDeath = new Score()
-                            {
-                                ItemsDroppedList = itemString
-                            };
-
-                            MessagingCenter.Send(this, "AddData", scoreMonsterDeath);
+                            currentScore.ItemsDroppedList += itemString;
 
                             //Update
 
@@ -194,12 +189,8 @@ namespace DungeonCrawler.Models
                                 foreach(var itemToAdd in characterItemsDropped){
                                     itemInventory.Add(itemToAdd);
                                     string itemString = itemToAdd.ItemString();
-                                    Score scoreCharacterDeath = new Score()
-                                    {
-                                        ItemsDroppedList = itemString
-                                    };
 
-                                    MessagingCenter.Send(this, "AddData", scoreCharacterDeath);
+                                    currentScore.ItemsDroppedList += itemString;
 
                                 }
                                

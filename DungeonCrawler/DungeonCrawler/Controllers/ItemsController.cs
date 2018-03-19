@@ -18,6 +18,7 @@ namespace DungeonCrawler.Controllers
     {
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static ItemsController _instance;
+        private static Random RNG;
 
         public static ItemsController Instance
         {
@@ -26,6 +27,7 @@ namespace DungeonCrawler.Controllers
                 if (_instance == null)
                 {
                     _instance = new ItemsController();
+                    RNG = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
                 }
                 return _instance;
             }
@@ -246,7 +248,7 @@ namespace DungeonCrawler.Controllers
                         position = EquipmentPosition.feet;
                         break;
                     case ItemLocationEnum.Finger:
-                        if (BattlePageViewModel.RNG.Next() % 2 == 0)
+                        if (RNG.Next() % 2 == 0)
                             position = EquipmentPosition.rightFinger;
                         else
                             position = EquipmentPosition.leftFinger;
