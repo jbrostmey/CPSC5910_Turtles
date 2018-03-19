@@ -86,10 +86,10 @@ namespace DungeonCrawler.Services
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Hat", Description = "Basic hat.", damage = 0, defense = 2, speed = 0, attack = 0, range = 4, position = EquipmentPosition.head });
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Shirt", Description = "Basic shirt.", damage = 0, defense = 3, speed = 0, attack = 0, range = 4, position = EquipmentPosition.body });
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Right Hand", Description = "Basic right handed weapon.", damage = 3, defense = 0, speed = 0, attack = 5, range = 4, position = EquipmentPosition.rightHand });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Left Hand", Description = "Basic left handed weapon.", damage = 2, defense = 3, speed = 0, attack = 2, range = 4, position = EquipmentPosition.rightHand });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Left Hand", Description = "Basic left handed weapon.", damage = 2, defense = 3, speed = 0, attack = 2, range = 4, position = EquipmentPosition.leftHand });
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Shoes", Description = "Basic shoes.", damage = 0, defense = 1, speed = 2, attack = 0, range = 4, position = EquipmentPosition.feet });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Right Finger", Description = "Basic right finger ring.", damage = 1, defense = 1, speed = 0, attack = 2, range = 4, position = EquipmentPosition.finger });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Left Finger", Description = "Basic left finger ring.", damage = 2, defense = 2, speed = 0, attack = 1, range = 4, position = EquipmentPosition.finger });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Right Finger", Description = "Basic right finger ring.", damage = 1, defense = 1, speed = 0, attack = 2, range = 4, position = EquipmentPosition.rightFinger });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Left Finger", Description = "Basic left finger ring.", damage = 2, defense = 2, speed = 0, attack = 1, range = 4, position = EquipmentPosition.leftFinger });
 
             //Set up our base classes
             Character toBeAdded = new Character { Id = Guid.NewGuid().ToString(), name = "Arnold", description = "Schwarzenegger got nothing on him.", characterClass = "Warrior" };

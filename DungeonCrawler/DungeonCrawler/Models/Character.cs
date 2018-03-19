@@ -67,7 +67,9 @@ namespace DungeonCrawler.Models
         {
             if(inventory.ContainsKey(item.position))
                 return false;
-            
+            Item toEquip = new Item();
+            toEquip.Update(item);
+            inventory.Add(toEquip.position, toEquip);
             return true;
         }
 
@@ -156,7 +158,11 @@ namespace DungeonCrawler.Models
 
             inventory.Clear();
             foreach (EquipmentPosition position in c.inventory.Keys)
-                inventory.Add(position,c.inventory[position]);
+            {
+                Item toEquip = new Item();
+                toEquip.Update(c.inventory[position]);
+                inventory.Add(position, toEquip);
+            }
         }
 
         public int ItemAttackModifier()
@@ -208,7 +214,7 @@ namespace DungeonCrawler.Models
             returnString += "[ ";
             foreach(EquipmentPosition key in inventory.Keys)
             {
-                returnString += key.ToString() + " : " + inventory[key] + ", ";
+                returnString += key.ToString() + " :" + inventory[key].ItemString() + ", ";
             }
             returnString += "]";
             return returnString;

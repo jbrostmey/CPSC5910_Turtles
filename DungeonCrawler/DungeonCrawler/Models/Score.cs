@@ -51,11 +51,12 @@ namespace DungeonCrawler.Models
            // ScoreTotal = 0;
             GameDate = DateTime.Now;    // Set to be now by default.
             AutoBattle = false;         //assume user battle
-            CharacterAtDeathList = null;
-            MonstersKilledList = null;
-            ItemsDroppedList = null;
+            CharacterAtDeathList = "";
+            MonstersKilledList = "";
+            ItemsDroppedList = "";
             BattleNumber = 0;
             NumTurns = 0;
+            Id = Guid.NewGuid().ToString();
         }
 
 
@@ -77,6 +78,7 @@ namespace DungeonCrawler.Models
             CharacterAtDeathList = newData.CharacterAtDeathList;
             MonstersKilledList = newData.MonstersKilledList;
             ItemsDroppedList = newData.ItemsDroppedList;
+            Id = newData.Id;
         }
     }
 }

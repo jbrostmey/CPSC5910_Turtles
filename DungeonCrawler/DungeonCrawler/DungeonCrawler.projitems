@@ -137,9 +137,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\MasterDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseMonster.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\EquipItem\EquipItemSuccessPage.xaml.cs">
-      <DependentUpon>EquipItemSuccessPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Party\ViewPartyMember.xaml.cs">
       <DependentUpon>ViewPartyMember.xaml</DependentUpon>
     </Compile>
@@ -256,10 +253,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Party\PartyMemberSelect.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\EquipItem\EquipItemSuccessPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

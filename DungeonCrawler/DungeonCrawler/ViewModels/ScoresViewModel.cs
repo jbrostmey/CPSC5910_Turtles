@@ -53,6 +53,12 @@ namespace DungeonCrawler.ViewModels
                 await DataStore.AddAsync_Score(data);
             });
 
+            MessagingCenter.Subscribe<Battle, Score>(this, "AddData", async (obj, data) =>
+            {
+                Dataset.Add(data);
+                await DataStore.AddAsync_Score(data);
+            });
+
             MessagingCenter.Subscribe<EditScorePage, Score>(this, "EditData", async (obj, data) =>
             {
                 // Find the Score, then update it

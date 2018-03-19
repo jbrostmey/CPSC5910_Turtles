@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Forms;
 using DungeonCrawler.Services;
 using DungeonCrawler.Views.EquipItem;
+using DungeonCrawler.Views.Party;
 namespace DungeonCrawler.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -36,10 +37,12 @@ namespace DungeonCrawler.Views
         {
 
             // Move user to equip item page when all monsters are killed and player needs to get 6 more.
+
             if (Battle.equipItems == true)
-           {
+            {
               await Navigation.PushAsync(new EquipItemPage());
-            }
+            }   
+
            // await Navigation.PushAsync(new EquipItemPage());
             this.msg = battleObj.PlayHandler();
             if(msg == null)
@@ -85,7 +88,7 @@ namespace DungeonCrawler.Views
                 return;
             }
 
-            await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
+            await Navigation.PushAsync(new ViewPartyMember(data));
 
             // Manually deselect item.
             CharacterInfoListView.SelectedItem = null;

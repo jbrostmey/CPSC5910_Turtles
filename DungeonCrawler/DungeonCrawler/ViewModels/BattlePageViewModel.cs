@@ -19,7 +19,7 @@ namespace DungeonCrawler
         private static BattlePageViewModel _instance;
         private int MaxPartySize = 6;
         //used in choosing monsters for a round and player party for autoplay
-        private Random RNG;
+        public static Random RNG { get; set; }
 
         public static BattlePageViewModel Instance
         {
@@ -70,8 +70,10 @@ namespace DungeonCrawler
                 while(Dataset[i].inventory.Count != Item.NumberSlots)
                 {
                     itemIndex = RNG.Next() % ItemsViewModel.Instance.Dataset.Count;
-                    while(!Dataset[i].EquipItem(ItemsViewModel.Instance.Dataset[itemIndex])) 
-                        itemIndex = RNG.Next() % ItemsViewModel.Instance.Dataset.Count;
+                    while(!Dataset[i].EquipItem(ItemsViewModel.Instance.Dataset[itemIndex])) {
+                        itemIndex = (itemIndex+1) % ItemsViewModel.Instance.Dataset.Count;
+                    }
+                        
                 }
             }
         }

@@ -101,6 +101,7 @@ namespace DungeonCrawler.Models
                         msg += "Character " + aChar.name + " attacked Monster " + aMon.name + " with a damage of " + getCharAtt + '\n';
                         aChar.GainExperience(experience); // EXP not yet determined
                         currentScore.ScoreTotal += experience; // total exp earned
+                        currentScore.ExperienceGainedTotal += experience;
                         if (!aMon.IsAlive())
                         {
                             //Item[] drops = aMon.dropPool; // Items dropped from monster's death
@@ -108,7 +109,7 @@ namespace DungeonCrawler.Models
                             currentScore.MonsterSlainNumber++;
                             msg += "Monster " + aMon.name + " has died at " + DateTime.Now + "!\n";
                             summary += "Character " + aChar.name + " has killed Monster " + aMon.name + '\n';
-
+                            currentScore.MonstersKilledList += "[ " + aMon.DeadState() + " ] ";
                         }
                     }
                     else
@@ -185,7 +186,7 @@ namespace DungeonCrawler.Models
 
                     currentTurn = false;
                 }
-                msg += "\n\n";
+                //msg += "\n\n";
             }
 
             /*If character party dies, END GAME (inSession = false). If monster party is dead, send message
@@ -196,6 +197,7 @@ namespace DungeonCrawler.Models
                 inSession = false;
                 CanReviveThisBattle = true;
                 currentScore.Update(currentScore); // final update to score when game ends
+                MessagingCenter.Send(this, "AddData", currentScore);
             }
             else if (CheckParty(false))
             {
@@ -266,6 +268,8 @@ namespace DungeonCrawler.Models
         //User selects AutoPlay, run game indefinitely until inSession is switched to false
         public string AutoPlay()
         {
+            currentScore = new Score();
+            currentScore.AutoBattle = true;
             string msg = summary; // one long message output at the end of the game summary
             while (inSession)
             {
@@ -409,6 +413,12 @@ namespace DungeonCrawler.Models
         public void AddItem(Item item)
         {
             itemInventory.Add(item);
+
+
+            //character.actorItemsCorrespondingToLocation[(int)item.position - 1] = item;
+
+
+
         }
 
         private int CanAttackMonster(Character character, Monster monster)

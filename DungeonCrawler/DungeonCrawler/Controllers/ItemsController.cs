@@ -246,7 +246,10 @@ namespace DungeonCrawler.Controllers
                         position = EquipmentPosition.feet;
                         break;
                     case ItemLocationEnum.Finger:
-                        position = EquipmentPosition.finger;
+                        if (BattlePageViewModel.RNG.Next() % 2 == 0)
+                            position = EquipmentPosition.rightFinger;
+                        else
+                            position = EquipmentPosition.leftFinger;
                         break;
                     case ItemLocationEnum.RightFinger:
                         position = EquipmentPosition.rightFinger;

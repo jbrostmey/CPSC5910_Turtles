@@ -123,16 +123,19 @@ namespace DungeonCrawler
 
         }
 
+        public string ItemString()
+        {
+            var returnString = "";
+            returnString += " [ " + Text;
+            returnString += " , " + Description;
+            returnString += " , Defense : " + defense;
+            returnString += " , Attack : " + attack;
+            returnString += " , Speed : " + speed;
+            returnString += " , Damage : " + damage;
+            returnString += " ] ";
 
-
-
-
-
-
-
-
-
-
+            return returnString;
+        }
 
         public void Update(Item newData)
         {
@@ -151,6 +154,7 @@ namespace DungeonCrawler
             attack = newData.attack;
             range = newData.range;
             position = newData.position;
+            damage = newData.damage;
         }
 
 
