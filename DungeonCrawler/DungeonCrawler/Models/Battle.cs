@@ -31,6 +31,8 @@ namespace DungeonCrawler.Models
         public static bool newRound;
         public static bool equipItems;
         public List<Item> itemInventory; // holds item id's
+        public List<Item> itemsMonstersDrop; // holds item id's
+
         public Character[] aChar;
         public Monster[] aMon;
         public Battle()
@@ -100,7 +102,7 @@ namespace DungeonCrawler.Models
                             aMon.Die(aMon);
 
                             Item item = ItemsViewModel.Instance.RandomItem(); 
-                            itemInventory.Add(item);
+                            itemsMonstersDrop.Add(item);
                             string itemString = item.ItemString();
 
                             currentScore.ItemsDroppedList += itemString;
@@ -221,7 +223,14 @@ namespace DungeonCrawler.Models
                 //init new party of monsters
                 newRound = true;
 
+                // reset inventory, add items dropped by monsters in the previous round.
+                itemInventory.Clear();
+                foreach(var item in itemsMonstersDrop){
+                    itemInventory.Add(item);
+                }
 
+                // clear items monsters dropped
+                itemsMonstersDrop.Clear();
                 BattlePageViewModel.Instance.ResetMonsters();
                 for (int i = 0; i < SIZE; i++)
                 {
