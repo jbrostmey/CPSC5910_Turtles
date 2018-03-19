@@ -24,9 +24,6 @@
                 <Label Text="Score:" FontSize="Medium" />
             <Label Text="{Binding Data.ScoreTotal}" FontSize="Small"/>
 
-             <Label Text="Name:" FontSize="Medium" />
-            <Label Text="{Binding Data.Name}" FontSize="Small"/>
-
 
                     <Label Text="Date:" FontSize="Medium" />
             <Label Text="{Binding Data.GameDate}" FontSize="Small"/>
@@ -44,7 +41,7 @@
 
 
                    <Label Text="Experience Gained Total:" FontSize="Medium" />
-            <Entry Text="{Binding Data.ExperienceGainedTotal}" FontSize="Small"/>
+            <Label Text="{Binding Data.ExperienceGainedTotal}" FontSize="Small"/>
 
 
                        <Label Text="Character At Death List:" FontSize="Medium" />
