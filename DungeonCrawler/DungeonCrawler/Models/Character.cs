@@ -85,11 +85,29 @@ namespace DungeonCrawler.Models
         }
 
         //Level up, called from GainXP when a level up is needed.
-        private void LevelUp() { 
+        private string LevelUp() {
+            //set up strings for if any new level stats happen
+            string attackUp = "", defenseUp = "", speedUp = "";
+
             //first grab all the attribute changes
-            attributes.attack += LevelStats.MasterLevelStats.levels[attributes.level].attack;
-            attributes.defense += LevelStats.MasterLevelStats.levels[attributes.level].defense;
-            attributes.speed += LevelStats.MasterLevelStats.levels[attributes.level].speed;
+            if (LevelStats.MasterLevelStats.levels[attributes.level].attack > 0)
+            {
+                attributes.attack += LevelStats.MasterLevelStats.levels[attributes.level].attack;
+                attackUp = "Attack Up: +" + LevelStats.MasterLevelStats.levels[attributes.level].attack + "! ";
+            }
+
+            if (LevelStats.MasterLevelStats.levels[attributes.level].defense > 0)
+            {
+                attributes.defense += LevelStats.MasterLevelStats.levels[attributes.level].defense;
+                defenseUp = "Defense Up: +" + LevelStats.MasterLevelStats.levels[attributes.level].defense + "! ";
+            }
+
+            if (LevelStats.MasterLevelStats.levels[attributes.level].speed > 0)
+            {
+                attributes.speed += LevelStats.MasterLevelStats.levels[attributes.level].speed;
+                speedUp = "Speed Up: +" + LevelStats.MasterLevelStats.levels[attributes.level].speed + "! ";
+            }
+
 
             //then update level
             attributes.level++;
@@ -100,6 +118,8 @@ namespace DungeonCrawler.Models
             attributes.currentHealth += additionalHealth;
             attributes.health += additionalHealth;
 
+
+            return "\nLevel Up! Level: " + attributes.level + "! " + attackUp + defenseUp + speedUp + "Health Up: +" +additionalHealth + "!";
         }
 
         public void TakeDamage(int Damage)
@@ -117,16 +137,18 @@ namespace DungeonCrawler.Models
         }
 
         //Increases xp based on xp passed as parameter. Can call LevelUp when necessary.
-        public void GainExperience(int experience) {
+        public string GainExperience(int experience) {
             //add experience
             attributes.currentExperience += experience;
 
+            string returnMessage = "";
             //Loop while eligable for a level up
             while(CheckLevelUp())
             {
                 //level up if eligable
-                LevelUp();
+                returnMessage += LevelUp();
             }
+            return returnMessage;
         }
 
         ////Item gets passed into this function to update attributes of character

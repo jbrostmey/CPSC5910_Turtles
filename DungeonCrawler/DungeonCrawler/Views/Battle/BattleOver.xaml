@@ -20,10 +20,6 @@
                 BorderColor = "Black"
                 BorderWidth = "1"
                 Clicked="OnPickUpItemsButton_Clicked"/> <!-- To add items to the list of current items in the database.-->
-            <Button Text="View Statistics"
-                BorderColor = "Black"
-                BorderWidth = "1"
-                Clicked="OnViewStatistics_ButtonClicked"/> <!-- To go to the Current Statistics Page.-->
 
             
         </StackLayout>

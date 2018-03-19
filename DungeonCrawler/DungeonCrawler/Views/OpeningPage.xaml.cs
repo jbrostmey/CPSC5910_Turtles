@@ -23,10 +23,7 @@ namespace DungeonCrawler.Views
         //Need to add battle page when it is ready
         async void PlayButtonClick(Object sender, EventArgs e)
         {
-
-
          await Navigation.PushAsync(new PartySelect());
-            //await Navigation.PushAsync(new BattlePage());
         }
 
         async void CRUDiPageButtonClick(Object sender, EventArgs e)

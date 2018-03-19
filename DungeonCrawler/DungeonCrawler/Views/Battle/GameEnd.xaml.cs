@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
+using DungeonCrawler.Views.Party;
+
 namespace DungeonCrawler.Views
 {
     public partial class GameEnd : ContentPage
@@ -10,13 +12,12 @@ namespace DungeonCrawler.Views
         public GameEnd()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
         }
 
         private async void PlayAgain_Clicked(object sender, EventArgs e)
         {
             //MUST REINITIALIZE SQL DATASTORE...
-            var root = Navigation.NavigationStack[0];
-            Navigation.InsertPageBefore(new OpeningPage(), root);
             await Navigation.PopToRootAsync();
         }
     }

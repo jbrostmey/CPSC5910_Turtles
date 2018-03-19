@@ -12,7 +12,7 @@
                 <Label Text = "User2 950" HorizontalOptions="Center"/>
             </StackLayout> 
 
-            <Button Text = "Play Again!"
+            <Button Text = "Exit Game"
                 Clicked = "PlayAgain_Clicked"
                 BorderColor="Black"
                 BorderWidth = "1"/>

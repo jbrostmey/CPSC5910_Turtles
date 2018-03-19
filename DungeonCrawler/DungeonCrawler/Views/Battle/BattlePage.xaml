@@ -84,6 +84,15 @@
                                 <Label Text="{Binding attributes.currentHealth}" FontSize="Small"/>
                                             </StackLayout>
                                             </StackLayout>
+
+                                    <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
+                                  <Label Text="Level" FontSize="Small" FontAttributes="Bold"/>
+                            </StackLayout>
+                               <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
+                                <Label Text="{Binding attributes.level}" FontSize="Small"/>
+                                            </StackLayout>
+                                            </StackLayout>
                             
                             </StackLayout>
                         </ViewCell>

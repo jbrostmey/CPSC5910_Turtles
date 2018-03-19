@@ -24,6 +24,8 @@ namespace DungeonCrawler.Views
         {
             msg = "Click Play to Begin!";
 
+            NavigationPage.SetHasBackButton(this, false);
+
             InitializeComponent();
 
             BindingContext = _viewModel = BattlePageViewModel.Instance;

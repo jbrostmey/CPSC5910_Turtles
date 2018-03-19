@@ -13,6 +13,7 @@ namespace DungeonCrawler.Views
         public BattleOver()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
         }
 
         //New round display
@@ -34,19 +35,5 @@ namespace DungeonCrawler.Views
             await Navigation.PushAsync(new EquipItemPage());
         }
 
-
-
-
-
-
-
-        //Functions below are not functional at this time.
-        private async void OnViewStatistics_ButtonClicked(object sender, EventArgs e)
-        {
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-            await Navigation.PopAsync();
-
-            //  await Navigation.PopToRootAsync();
-        }
     }
 }

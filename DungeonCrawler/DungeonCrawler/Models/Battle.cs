@@ -102,7 +102,7 @@ namespace DungeonCrawler.Models
                         //Character attacks, monster loses health
                         int experience = aMon.TakeDamage(getCharAtt);
                         msg += "Character " + aChar.name + " attacked Monster " + aMon.name + " with a damage of " + getCharAtt + '\n';
-                        aChar.GainExperience(experience); // EXP not yet determined
+                        string levelUp = aChar.GainExperience(experience); // EXP not yet determined
                         currentScore.ScoreTotal += experience; // total exp earned
                         currentScore.ExperienceGainedTotal += experience;
                         if (!aMon.IsAlive())
@@ -123,11 +123,13 @@ namespace DungeonCrawler.Models
                             summary += "Character " + aChar.name + " has killed Monster " + aMon.name + '\n';
                             currentScore.MonstersKilledList += "[ " + aMon.DeadState() + " ] ";
                         }
+                        msg += levelUp;
                     }
                     else
                     {
                         msg = "Character " + aChar.name + " attacked and missed Monster " + aMon.name + "!\n";
                     }
+
                     currentTurn = true;
                 }
                 else // Monster's turn
