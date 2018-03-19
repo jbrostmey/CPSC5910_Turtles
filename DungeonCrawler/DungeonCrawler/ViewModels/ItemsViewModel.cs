@@ -17,6 +17,7 @@ namespace DungeonCrawler
     {
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static ItemsViewModel _instance;
+        private static Random RNG;
 
         public static ItemsViewModel Instance
         {
@@ -25,6 +26,7 @@ namespace DungeonCrawler
                 if (_instance == null)
                 {
                     _instance = new ItemsViewModel();
+                    RNG = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
                 }
                 return _instance;
             }
@@ -140,6 +142,19 @@ namespace DungeonCrawler
             {
                 return null;
             }
+        }
+
+        // Copys a random item from the dataset
+        public Item RandomItem()
+        {
+            if (Dataset.Count == 0)
+                InitializeDataset();
+            if (Dataset.Count == 0)
+                return new Item();
+            int randomIndex = RNG.Next() % Dataset.Count;
+            Item returnItem = new Item();
+            returnItem.Update(Dataset[randomIndex]);
+            return returnItem;
         }
 
         // Sets the need to refresh
