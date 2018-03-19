@@ -138,7 +138,7 @@ namespace DungeonCrawler.Views
             {
                 inventoryList = "No items in Inventory.";
             }
-            BattleInventory.Text = inventoryList;
+            //BattleInventory.Text = inventoryList;
         
         }
 

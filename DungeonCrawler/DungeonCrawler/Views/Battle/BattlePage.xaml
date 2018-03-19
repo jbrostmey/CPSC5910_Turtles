@@ -2,10 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DungeonCrawler.Views.BattlePage" Title="Battle Page">
     <ContentPage.Content>
 
-        <StackLayout Spacing="10" Padding="15">
-            <Label Text="Battle Page" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
-
-
+        <StackLayout  Padding="15">
 
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
     <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
@@ -162,18 +159,18 @@
 
              </ScrollView>
 
-
+             <ScrollView>
+                <StackLayout Orientation="Vertical" HeightRequest="300">
                                           <Label Text="Battle Message: " FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start"/>
 
 
                   <Label x:Name="BattleMessageName" Text="Click Play to Begin!" />
-                              <Label Text="Inventory: " FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start"/>
+                              <!--<Label Text="Inventory: " FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start"/>
 
-              <Label x:Name="BattleInventory" Text="Start Battle to Collect Inventory!" />
+               <Label x:Name="BattleInventory" Text="Start Battle to Collect Inventory!" />-->
 
-                                                     
-            
-                                              <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                             
+                                              <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                             <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                           
 
@@ -226,6 +223,9 @@
                     BorderColor="Black"
                     BorderWidth=".5"/>
                     -->
+                    </StackLayout>
+                
+                </ScrollView>
         </StackLayout>
             
         
