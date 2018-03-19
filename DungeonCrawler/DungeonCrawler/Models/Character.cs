@@ -132,6 +132,7 @@ namespace DungeonCrawler.Models
         //logic to check if a character is eligable for a levelup
         private bool CheckLevelUp(){
             //if not max level and has enough xp to level up
+
             return attributes.level < LevelStats.MasterLevelStats.MaxLevel()
                              && attributes.currentExperience >= LevelStats.MasterLevelStats.levels[attributes.level].currentExperience;
         }
@@ -145,6 +146,7 @@ namespace DungeonCrawler.Models
             //Loop while eligable for a level up
             while(CheckLevelUp())
             {
+                
                 //level up if eligable
                 returnMessage += LevelUp();
             }

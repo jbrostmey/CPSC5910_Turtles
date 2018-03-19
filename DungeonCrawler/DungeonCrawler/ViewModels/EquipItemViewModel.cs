@@ -34,6 +34,16 @@ namespace DungeonCrawler
         public ObservableCollection<Character> Dataset { get; set; }
         public ObservableCollection<Item> DatasetItems { get; set; }
 
+
+        // change dataset items to all items fallen itno fiesled
+        // pull items from field, pulling from battle itself.
+        // pupulate from field, take in a list of items in field load into dataset. 
+        // popuilate everytime round ends , going to round over screen. 
+        // call on transiiton from game to gam/ropund over
+        // use function to send all items in game to dataset items.
+        // inventory should reset. dataset reset with what's coming from the battle field.
+
+
         public Command LoadDataCommand { get; set; }
 
         private bool _needsRefresh;

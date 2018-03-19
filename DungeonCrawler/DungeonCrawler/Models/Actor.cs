@@ -86,10 +86,7 @@ namespace DungeonCrawler.Models
             character.inventory.Add(item.position, item);
         }
 
-        public virtual void ResetActorItems(List<Item> newItemsList)
-        {
-            actorItemsCorrespondingToLocation = newItemsList;
-        }
+       
 
     }
 }

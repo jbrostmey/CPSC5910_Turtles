@@ -39,32 +39,21 @@ namespace DungeonCrawler.Models
             currentTurn = false;
             newRound = false;
             itemInventory = new List<Item>();
-
-
-            actorItemsRecentlyEquipped = new List<Boolean> { };
-
-            for (int i = 0; i < ENUMLOCATIONS; i++)
-            {
-                actorItemsRecentlyEquipped.Add(false);
-            }
         }
-
 
         /*Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
           *return string for BattleMessage.xaml
           *CheckParty switches inSession to false or initiates a new round. 
           */
-             private int ENUMLOCATIONS = 7;     
-              
-        public List<Boolean> actorItemsRecentlyEquipped; 
+
         public string Turn(Character aChar, Monster aMon)
         {
             string msg = "";
 
             if (inSession == true)
             {
-            equipItems = false;
-                newRound = false; 
+                equipItems = false;
+                newRound = false;
 
                 currentScore.NumTurns++;
                 int HMC; // hit miss critical
@@ -110,13 +99,11 @@ namespace DungeonCrawler.Models
                             //Item[] drops = aMon.dropPool; // Items dropped from monster's death
                             aMon.Die(aMon);
 
-                            Item item = BattlePageViewModel.Instance.GenerateNewRandomItem();
+                            Item item = ItemsViewModel.Instance.RandomItem(); 
                             itemInventory.Add(item);
                             string itemString = item.ItemString();
 
                             currentScore.ItemsDroppedList += itemString;
-
-                            //Update
 
                             currentScore.MonsterSlainNumber++;
                             msg += "Monster " + aMon.name + " has died at " + DateTime.Now + "!\n";
@@ -176,7 +163,7 @@ namespace DungeonCrawler.Models
                                 aChar.MiracleMaxLive = false;
                                 CanReviveThisBattle = false;
 
-                            currentScore.BattleNumber = rounds;
+                                currentScore.BattleNumber = rounds;
 
                                 aChar.attributes.currentHealth = aChar.attributes.health;
                                 aChar.attributes.alive = true;
@@ -187,15 +174,16 @@ namespace DungeonCrawler.Models
                                 List<Item> characterItemsDropped = new List<Item>();
                                 characterItemsDropped = aChar.Die(aChar); // Relinquish inventory and drop all items
 
-                              
-                                foreach(var itemToAdd in characterItemsDropped){
+
+                                foreach (var itemToAdd in characterItemsDropped)
+                                {
                                     itemInventory.Add(itemToAdd);
                                     string itemString = itemToAdd.ItemString();
 
                                     currentScore.ItemsDroppedList += itemString;
 
                                 }
-                               
+
                                 msg += "Character " + aChar.name + " has died!" + '\n';
                                 summary += "Monster " + aMon.name + " has killed Character " + aChar.name + '\n';
                                 currentScore.CharacterAtDeathList += aChar.DeadState() + "\n";
@@ -226,12 +214,12 @@ namespace DungeonCrawler.Models
             }
             else if (CheckParty(false))
             {
-            equipItems = true;
+                equipItems = true;
                 rounds++;
-            msg += "\n Next round! Round: " + rounds + '\n';
+                msg += "\n Next round! Round: " + rounds + '\n';
                 summary += "\nRound: " + rounds + '\n';
                 //init new party of monsters
-                newRound = true; 
+                newRound = true;
 
 
                 BattlePageViewModel.Instance.ResetMonsters();
@@ -253,10 +241,11 @@ namespace DungeonCrawler.Models
         //This function is to be called in BattlePage.xaml.cs
         public void BeginGame()
         {
+            
             currentScore = new Score();
             aChar = new Character[SIZE];
             aMon = new Monster[SIZE];
-        equipItems = false;
+            equipItems = false;
             BattlePageViewModel.Instance.ResetMonsters();
             for (int i = 0; i < SIZE; i++)
             {
@@ -278,6 +267,9 @@ namespace DungeonCrawler.Models
 
             rounds = 1;
             summary = "Round: " + rounds + '\n';
+
+           
+
         }
 
         //Will take in a character object and retrieve stats of that character to determine what the attack will be. OR if it is a monster, will retrieve attack of monster
@@ -327,7 +319,7 @@ namespace DungeonCrawler.Models
             }
             msg += "\n\n\n" + summary;
 
-            currentScore.AutoBattle = true; 
+            currentScore.AutoBattle = true;
             currentScore.Update(currentScore);
             return msg;
         }
@@ -440,12 +432,6 @@ namespace DungeonCrawler.Models
         public void AddItem(Item item)
         {
             itemInventory.Add(item);
-
-
-            //character.actorItemsCorrespondingToLocation[(int)item.position - 1] = item;
-
-
-
         }
 
         private int CanAttackMonster(Character character, Monster monster)
@@ -520,26 +506,11 @@ namespace DungeonCrawler.Models
             return msg;
         }
 
-    public virtual void ResetActorItemsRecentlyEquipped()
-         {     
-             actorItemsRecentlyEquipped.Clear();       
-             for (int i = 0; i<ENUMLOCATIONS; i++)     
-             {     
-                 actorItemsRecentlyEquipped.Add(false);        
-             }     
-         }     
-       
-         public bool CheckIfAllItemsEquipped()
-         {     
-             if (actorItemsRecentlyEquipped.All(c => c == true))       
-             {     
-                 return true;      
-             }     
-             return false;     
-         }     
-           
-      }
+
+
+
     }
+}
 
 
 

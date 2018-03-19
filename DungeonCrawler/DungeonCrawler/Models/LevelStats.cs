@@ -4,7 +4,7 @@ namespace DungeonCrawler.Models
     public class LevelStats
     {
         public Attributes[] levels { get; }
-        private const int MAXLEVEL = 21;
+        private const int MAXLEVEL = 20;
 
         private static LevelStats _levelStats;
         public static LevelStats MasterLevelStats { 
@@ -18,7 +18,7 @@ namespace DungeonCrawler.Models
         }
         public LevelStats()
         {
-            levels = new Attributes[MAXLEVEL];
+            levels = new Attributes[MAXLEVEL+1];
             levels[0] = null;
 
             /* Setting up the modifiers by level. Each will be held as an attribute

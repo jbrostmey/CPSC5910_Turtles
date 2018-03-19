@@ -61,18 +61,14 @@ namespace DungeonCrawler.Models
             return attributes.alive;
         }
 
-        private int ENUMLOCATIONS = 7;
-
-
         // Upon death, the monster may drop an item (based on d10 roll and drop rate)
         public override List<Item> Die(Monster monster){
 
-            List<Item> items = new List<Item>();
-            for (int i = 0; i < ENUMLOCATIONS; i++)
-            {
-                items.Add(monster.actorItemsCorrespondingToLocation[i]);
-            }
-            return items;
+            Item newItem = ItemsViewModel.Instance.RandomItem(); 
+
+            List<Item> droppedItems = new List<Item>();
+            droppedItems.Add(newItem);
+            return droppedItems;
         }
 
         // Call this when you want to deal damage to the monster.

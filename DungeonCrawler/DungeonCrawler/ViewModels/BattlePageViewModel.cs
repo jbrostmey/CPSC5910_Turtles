@@ -61,13 +61,6 @@ namespace DungeonCrawler
             }
         }
 
-        // generate new random item
-        public Item GenerateNewRandomItem(){
-        
-            return new Item(); // todo: implement random functionality
-        }
-
-
 
         public void AutoPlayPartyInitialize()
         {
