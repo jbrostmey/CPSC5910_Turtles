@@ -28,6 +28,7 @@ namespace DungeonCrawler.Models
         public int rounds;
         public string summary;
         private bool CanReviveThisBattle = true;
+        public static bool newRound;
         public static bool equipItems;
         public List<Item> itemInventory; // holds item id's
         public Character[] aChar;
@@ -36,6 +37,7 @@ namespace DungeonCrawler.Models
         {
             inSession = true;
             currentTurn = false;
+            newRound = false;
             itemInventory = new List<Item>();
 
 
@@ -62,6 +64,7 @@ namespace DungeonCrawler.Models
             if (inSession == true)
             {
             equipItems = false;
+                newRound = false; 
 
                 currentScore.NumTurns++;
                 int HMC; // hit miss critical
@@ -206,6 +209,8 @@ namespace DungeonCrawler.Models
             msg += "\n Next round! Round: " + rounds + '\n';
                 summary += "\nRound: " + rounds + '\n';
                 //init new party of monsters
+                newRound = true; 
+
 
                 BattlePageViewModel.Instance.ResetMonsters();
                 for (int i = 0; i < SIZE; i++)

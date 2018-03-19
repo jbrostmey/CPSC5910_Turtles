@@ -61,7 +61,7 @@ namespace DungeonCrawler.Views
 
             async void ExitGame_Clicked(object sender, EventArgs e)
             {
-                await Navigation.PopToRootAsync();
+                await Navigation.PushAsync(new GameEnd());
             }
         }
     }
