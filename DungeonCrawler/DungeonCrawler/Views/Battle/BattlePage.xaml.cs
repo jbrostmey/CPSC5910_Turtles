@@ -32,6 +32,7 @@ namespace DungeonCrawler.Views
 
             //initialize. OK to have here because we are only creating one instance of BattlePage in OpeningPage
             //Therefor we aren't recreating an instance each time we return to the BattlePage (i.g resets data)
+            battleObj = new Battle();
             battleObj.BeginGame();
         }
 
@@ -48,7 +49,7 @@ namespace DungeonCrawler.Views
            // await Navigation.PushAsync(new EquipItemPage());
             this.msg = battleObj.PlayHandler();
             if(msg == null)
-                await Navigation.PushAsync(new BattleMessage(battleObj.summary));
+                await Navigation.PushAsync(new BattleMessage(battleObj));
             else if(Battle.newRound)
                 await Navigation.PushAsync(new BattleOver(msg));
             
@@ -79,7 +80,7 @@ namespace DungeonCrawler.Views
         {
             //game messages and summary
             string output = battleObj.AutoPlay();
-            await Navigation.PushAsync(new BattleMessage(output));
+            await Navigation.PushAsync(new BattleMessage(battleObj));
         }
 
 

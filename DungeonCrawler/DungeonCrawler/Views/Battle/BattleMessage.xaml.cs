@@ -4,16 +4,20 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using DungeonCrawler.Models;
+
 namespace DungeonCrawler.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
     public partial class BattleMessage : ContentPage
     {
+        private Battle battle;
         //END GAME display
-        public BattleMessage(string msg)
+        public BattleMessage(Battle battle)
         {
 
+            this.battle = battle;
             Label header = new Label
             {
                 Text = "Battle Message: ",
@@ -26,7 +30,7 @@ namespace DungeonCrawler.Views
             };
             Label message = new Label
             {
-                Text = msg,
+                Text = battle.summary,
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
@@ -61,7 +65,7 @@ namespace DungeonCrawler.Views
 
             async void ExitGame_Clicked(object sender, EventArgs e)
             {
-                await Navigation.PushAsync(new GameEnd());
+                await Navigation.PushAsync(new GameEnd(this.battle.currentScore));
             }
         }
     }

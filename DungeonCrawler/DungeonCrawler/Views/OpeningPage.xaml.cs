@@ -40,7 +40,7 @@ namespace DungeonCrawler.Views
             //game messages and summary
             battleObj.BeginGame();
             string output = battleObj.AutoPlay();
-            await Navigation.PushAsync(new BattleMessage(output));
+            await Navigation.PushAsync(new BattleMessage(battleObj));
         }
     }
 }

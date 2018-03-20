@@ -27,7 +27,7 @@ namespace DungeonCrawler.Views
         }
         private async void PlayAgain_Clicked(object sender, EventArgs e)
         {
-            SQLDataStore.Instance.InitializeDatabaseNewTables();
+            //SQLDataStore.Instance.InitializeDatabaseNewTables();
             await Navigation.PopToRootAsync();
         }
     }

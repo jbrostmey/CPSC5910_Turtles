@@ -42,6 +42,7 @@ namespace DungeonCrawler.Models
             newRound = false;
             itemInventory = new List<Item>();
             itemsMonstersDrop = new List<Item>();
+            currentScore = new Score();
         }
 
         /*Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn
@@ -350,7 +351,7 @@ namespace DungeonCrawler.Models
             }
             msg += "\n\n\n" + summary;
 
-           
+            summary = msg;
             currentScore.Update(currentScore);
             return msg;
         }

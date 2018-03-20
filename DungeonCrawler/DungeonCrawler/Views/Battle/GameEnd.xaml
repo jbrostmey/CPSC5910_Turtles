@@ -8,7 +8,7 @@
         <ScrollView>
             <StackLayout Padding="10">
                 <Label Text = "High Score" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
-                <Label x:Name = "Display" HorizontalOptions="Center" />
+                <Label x:Name="Display" HorizontalOptions="Center" />
             </StackLayout> 
        </ScrollView>
             <Button Text = "Exit Game"

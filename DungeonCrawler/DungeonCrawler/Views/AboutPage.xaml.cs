@@ -31,13 +31,7 @@ namespace DungeonCrawler
             }
         }
 
-        public void ToHit_EditBox(object sender, EventArgs e)
-        {
-            var text = ((Entry)sender).Text; //cast sender to access the properties of the Entry
-            int num = Convert.ToInt32(text);
-            Console.WriteLine(num);
-            App.inputHitVal = num;
-        }
+
 
 
         public AboutPage()
@@ -111,41 +105,12 @@ namespace DungeonCrawler
 
             MasterDataStore.ToggleDataStore(set);
 
-
-            /*if (isMock == true)
-            {
-                ItemsViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Mock);
-                MonsterViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Mock);
-                CharacterViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Mock);
-                ScoresViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Mock);
-            }
-            else
-            {
-                ItemsViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
-                MonsterViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
-                CharacterViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
-                ScoresViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
-            }
-
-            // Have the data refresh
-            ItemsViewModel.Instance.SetNeedsRefresh(true);
-            MonsterViewModel.Instance.SetNeedsRefresh(true);
-            CharacterViewModel.Instance.SetNeedsRefresh(true);
-            ScoresViewModel.Instance.SetNeedsRefresh(true);
-*/
-            //MasterDataStore.ToggleDataStore(set);
         }
 
         // Sets the DataStore to be the Mock Data Store if toggled on, or SQL if toggled off.
         private void UseMockDatabaseSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
-         /*   if (useMockDatabaseIsToggled)
-            {
-                useMockDatabaseIsToggled = false;
-            }
-            else{
-                useMockDatabaseIsToggled = true;
-            }*/
+       
 
             SetDataSource(e.Value);
         }
