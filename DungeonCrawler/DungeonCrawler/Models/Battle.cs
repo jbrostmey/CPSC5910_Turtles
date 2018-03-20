@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Xamarin.Forms;
-
+using DungeonCrawler.ViewModels;
 namespace DungeonCrawler.Models
 {
     /* Team: Turtles 
@@ -103,7 +103,7 @@ namespace DungeonCrawler.Models
                             //Item[] drops = aMon.dropPool; // Items dropped from monster's death
                             aMon.Die(aMon);
 
-                            Item item = ItemsViewModel.Instance.RandomItem(); 
+                            Item item = ItemsViewModel.Instance.RandomItem();
                             itemsMonstersDrop.Add(item);
                             string itemString = item.ItemString();
 
@@ -236,7 +236,7 @@ namespace DungeonCrawler.Models
 
                 // reset inventory
                 itemInventory.Clear();
-              
+
 
                 // clear items monsters dropped
                 itemsMonstersDrop.Clear();
@@ -266,7 +266,7 @@ namespace DungeonCrawler.Models
                 itemInventory.Add(newItem);
             }
             EquipItemViewModel.Instance.InitializeItemsCollection(itemInventory);
-       
+
             currentScore = new Score();
             aChar = new Character[SIZE];
             aMon = new Monster[SIZE];
@@ -297,7 +297,7 @@ namespace DungeonCrawler.Models
             rounds = 1;
             summary = "Round: " + rounds + '\n';
 
-           
+
 
         }
 
@@ -353,6 +353,7 @@ namespace DungeonCrawler.Models
 
             summary = msg;
             currentScore.Update(currentScore);
+
             return msg;
         }
 
