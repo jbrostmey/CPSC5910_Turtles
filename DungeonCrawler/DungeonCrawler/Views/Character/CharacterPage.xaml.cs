@@ -20,7 +20,7 @@ namespace DungeonCrawler
 
             BindingContext = _viewModel = CharacterViewModel.Instance;
         }
-
+        // select character, go to detail page
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Character;
@@ -32,7 +32,7 @@ namespace DungeonCrawler
             // Manually deselect item.
             CharacterListView.SelectedItem = null;
         }
-
+        // add new character (go to new creation page)
         private async void AddCharacter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NewCharacterPage());

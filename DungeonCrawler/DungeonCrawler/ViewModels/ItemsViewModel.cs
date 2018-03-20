@@ -154,6 +154,9 @@ namespace DungeonCrawler
             int randomIndex = RNG.Next() % Dataset.Count;
             Item returnItem = new Item();
             returnItem.Update(Dataset[randomIndex]);
+
+            Console.WriteLine(returnItem);
+            Console.WriteLine(returnItem.Text);
             return returnItem;
         }
 

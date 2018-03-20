@@ -21,7 +21,7 @@ namespace DungeonCrawler
             // Set the data binding for the page
             BindingContext = _viewModel = viewModel;
         }
-
+        // remove character from the database
         private async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "DeleteData", Data);
@@ -31,7 +31,7 @@ namespace DungeonCrawler
 
             await Navigation.PopAsync();
         }
-
+        // cancel, go back
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

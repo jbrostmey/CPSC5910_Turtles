@@ -17,6 +17,7 @@ namespace DungeonCrawler
         {
             InitializeComponent();
 
+            // create and initilaize new character
             data = new Character
             {
                 Id = Guid.NewGuid().ToString(),
@@ -43,7 +44,7 @@ namespace DungeonCrawler
 
             BindingContext = this;
         }
-
+        // save to database
         private async void Save_Clicked(object sender, EventArgs e)
         {
 
@@ -54,7 +55,7 @@ namespace DungeonCrawler
             MessagingCenter.Send(this, "AddData", data);
             await Navigation.PopAsync();
         }
-
+         // cancel, go back
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

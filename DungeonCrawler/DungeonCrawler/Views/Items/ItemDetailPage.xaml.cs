@@ -32,26 +32,24 @@ namespace DungeonCrawler
                 attack = 3,
                 range = 4,
                 position = EquipmentPosition.body
-
-
-
+                                            
             };
 
             _viewModel = new ItemDetailViewModel(data);
             BindingContext = _viewModel;
         }
 
-
+        // To edit create new edit item page using viewmodel instance
         private async void Edit_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new EditItemPage(_viewModel));
         }
-
+        // To delete create new edit delete page using viewmodel instance
         private async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new DeleteItemPage(_viewModel));
         }
-
+        // cancel, go back
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
