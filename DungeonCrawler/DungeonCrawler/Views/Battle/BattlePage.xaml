@@ -30,7 +30,7 @@
             
                 <Label Text="Characters:" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
 
-            <ScrollView  Orientation="Horizontal"> 
+            <ScrollView  Orientation="Horizontal" HeightRequest="165">
 
 
 
@@ -110,7 +110,7 @@
            
 
                             <Label Text="Monsters:" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
-                               <ScrollView Orientation="Horizontal">
+                               <ScrollView Orientation="Horizontal" HeightRequest="165">
 
 
 
@@ -168,17 +168,17 @@
 
              </ScrollView>
 
-             <ScrollView>
-                <StackLayout Orientation="Vertical" HeightRequest="300">
+                <StackLayout Orientation="Vertical">
                                           <Label Text="Battle Message: " FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start"/>
-
-
+</StackLayout>
+            <ScrollView HeightRequest="120">
+    <StackLayout>
                   <Label x:Name="BattleMessageName" Text="Click Play to Begin!" />
                               <!--<Label Text="Inventory: " FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start"/>
 
                <Label x:Name="BattleInventory" Text="Start Battle to Collect Inventory!" />-->
-
-                             
+               </StackLayout>
+                            </ScrollView> 
                                               <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                             <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                           
@@ -233,10 +233,5 @@
                     BorderWidth=".5"/>
                     -->
                     </StackLayout>
-                
-                </ScrollView>
-        </StackLayout>
-            
-        
     </ContentPage.Content>
 </ContentPage>

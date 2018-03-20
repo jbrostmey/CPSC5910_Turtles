@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+using System;
 
 using Xamarin.Forms;
+using DungeonCrawler.Services;
 
-using DungeonCrawler.Views.Party;
+using DungeonCrawler.ViewModels;
+using DungeonCrawler.Models;
+
+using DungeonCrawler.Controllers;
 
 namespace DungeonCrawler.Views
 {
@@ -17,7 +21,7 @@ namespace DungeonCrawler.Views
 
         private async void PlayAgain_Clicked(object sender, EventArgs e)
         {
-            //MUST REINITIALIZE SQL DATASTORE...
+            SQLDataStore.Instance.InitializeDatabaseNewTables();
             await Navigation.PopToRootAsync();
         }
     }
