@@ -9,11 +9,13 @@ namespace DungeonCrawler.Views.Party
 {
     public partial class ViewPartyMember : ContentPage
     {
-        private Character Data;
+        private CharacterDetailViewModel _viewModel;
+
         public ViewPartyMember(Character character)
         {
             InitializeComponent();
-            Data = character;
+            BindingContext = _viewModel = new CharacterDetailViewModel(character);
+            Title = character.name;
         }
     }
 }

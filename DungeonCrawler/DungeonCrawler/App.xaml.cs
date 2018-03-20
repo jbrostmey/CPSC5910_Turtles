@@ -27,9 +27,7 @@ namespace DungeonCrawler
 
             MainPage = new NavigationPage(new OpeningPage());
 
-            CharacterViewModel.Instance.InitializeDataset();
-            MonsterViewModel.Instance.InitializeDataset();
-            ItemsViewModel.Instance.InitializeDataset();
+
         }
 
 

@@ -150,6 +150,11 @@ namespace DungeonCrawler
             SetDataSource(e.Value);
         }
 
+        async void CRUDiPageButtonClick(Object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
+
         // Button to get the items from the server and insert them into the SQL Database.
         private async void UsePostButtonClick(object sender, EventArgs e)
         {

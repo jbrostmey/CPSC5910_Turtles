@@ -232,7 +232,7 @@ namespace DungeonCrawler.Models
             return myReturn;
         }
 
-        private string ItemSlotsFormatOutput()
+        public string ItemSlotsFormatOutput()
         {
             var returnString = string.Empty;
             returnString += "[ ";

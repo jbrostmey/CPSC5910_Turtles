@@ -103,7 +103,7 @@ namespace DungeonCrawler.Views
             if (data == null)
                 return;
 
-            await Navigation.PushAsync(new MonsterDetailPage(new MonsterDetailViewModel(data)));
+            await Navigation.PushAsync(new ViewMonsterMember(data));
 
             // Manually deselect item.
             MonsterListView.SelectedItem = null;

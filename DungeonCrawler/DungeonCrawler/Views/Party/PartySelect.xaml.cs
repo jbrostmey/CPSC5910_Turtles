@@ -28,6 +28,10 @@ namespace DungeonCrawler.Views.Party
             BindingContext = _viewModel = BattlePageViewModel.Instance;
 
             _viewModel.NewParty();
+
+            CharacterViewModel.Instance.InitializeDataset();
+            MonsterViewModel.Instance.InitializeDataset();
+            ItemsViewModel.Instance.InitializeDataset();
         }
 
         async void SelectPlayer(object sender, SelectedItemChangedEventArgs args)

@@ -47,6 +47,8 @@
                     </Label.FormattedText>
                 </Label>
 
+                <Button Text="CRUDi" Clicked="CRUDiPageButtonClick" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+                
                 <Button  
                     Text="Initialize Data" 
                     Clicked="InitializeData_Command" 
