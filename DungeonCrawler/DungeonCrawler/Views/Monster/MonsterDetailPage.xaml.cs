@@ -45,17 +45,17 @@ namespace DungeonCrawler
             BindingContext = _viewModel;
         }
 
-
+        //Edit monster
         private async void Edit_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new EditMonsterPage(_viewModel));
         }
-
+        //Delete monster
         private async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new DeleteMonsterPage(_viewModel));
         }
-
+        //Cancel and pop back to prev page
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

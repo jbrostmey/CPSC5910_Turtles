@@ -27,7 +27,7 @@ namespace DungeonCrawler
             // Set the data binding for the page
             BindingContext = _viewModel = viewModel;
         }
-
+        //Save changes to monster object
         private async void Save_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Data.ImageURI))

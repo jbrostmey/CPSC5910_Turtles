@@ -22,6 +22,7 @@ namespace DungeonCrawler
             BindingContext = _viewModel = viewModel;
         }
 
+        //Remove character and pop back to selection
         private async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "DeleteData", Data);
@@ -32,6 +33,7 @@ namespace DungeonCrawler
             await Navigation.PopAsync();
         }
 
+        //Cancel action, pop back to prev page
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

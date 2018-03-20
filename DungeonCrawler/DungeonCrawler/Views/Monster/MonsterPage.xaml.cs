@@ -21,7 +21,7 @@ namespace DungeonCrawler
 
             BindingContext = _viewModel = MonsterViewModel.Instance;
         }
-
+        //Select monster from list
         private async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Monster;
@@ -33,7 +33,7 @@ namespace DungeonCrawler
             // Manually deselect item.
             MonsterListView.SelectedItem = null;
         }
-
+        //Add monster and pull up new configuration page for object
         private async void AddMonster_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NewMonsterPage());
