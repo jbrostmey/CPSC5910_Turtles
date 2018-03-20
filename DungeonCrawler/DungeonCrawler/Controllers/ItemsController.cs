@@ -3,12 +3,7 @@ using System;
 using System.Collections.Generic;
 using DungeonCrawler.Services;
 using DungeonCrawler.Models;
-using DungeonCrawler.ViewModels;
 using Newtonsoft.Json.Linq;
-using System.Text;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 using System.Threading.Tasks;
 
@@ -19,7 +14,7 @@ namespace DungeonCrawler.Controllers
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static ItemsController _instance;
         private static Random RNG;
-
+        //singleton and gurantee that RNG is initialized
         public static ItemsController Instance
         {
             get
@@ -63,17 +58,7 @@ namespace DungeonCrawler.Controllers
             // Then update the database
 
             // Use a foreach on myList
-       /*     foreach (var item in myList)
-            {
-                if(item.Id == null){
-                    Console.WriteLine("id is null");
-                }
-                else if (item != null)
-                {
-                    await ItemsViewModel.Instance.InsertUpdateAsync_Item(item);
-                }
-            }
-*/
+       
             // When foreach is done, call to the items view model to set needs refresh to true, so it can refetch the list...
             ItemsViewModel.Instance.SetNeedsRefresh(true);
         }
@@ -109,20 +94,7 @@ namespace DungeonCrawler.Controllers
 
             var dict = new Dictionary<string, string>
             {
-                //TODO: add other variables to dictionary 
-
-                //number.ToString();
-              //  { "Text", attribute.ToString()}, //.ToString()},
-             //   { "Description", description.ToString()},
-               // { "id", .ToString()},
-              //  { "Defense", defense.ToString()},
-                //{ "Speed", speed.ToString()},
-                //{ "Attack", attack.ToString()},
-                //{ "Damage", damage.ToString()},
-                //{ "Range", range.ToString()},
-               
-                //{ "Position", location.ToString()},
-               // { "ImageURI", imageURI.ToString()},
+ 
                 { "Number", number.ToString()},
                 {"Level", level.ToString()},
                 {"Random", random.ToString()},
@@ -197,6 +169,7 @@ namespace DungeonCrawler.Controllers
             }
         }
 
+        // manually convert server items into our items
         private Item ConvertFromJson(JObject json)
         {
             var myData = new Item();
@@ -230,8 +203,7 @@ namespace DungeonCrawler.Controllers
 
                 // Note:  no attributes in mydata for health
 
-                //     myData.range = JsonHelper.GetJsonInteger(json, "Range");
-
+                // Translating Server enums to our enums
                 EquipmentPosition position;
                 switch ((ItemLocationEnum)JsonHelper.GetJsonInteger(json, "Location"))
                 {
@@ -248,7 +220,7 @@ namespace DungeonCrawler.Controllers
                         position = EquipmentPosition.feet;
                         break;
                     case ItemLocationEnum.Finger:
-                        if (RNG.Next() % 2 == 0)
+                        if (RNG.Next() % 2 == 0) //randomly choose a finger
                             position = EquipmentPosition.rightFinger;
                         else
                             position = EquipmentPosition.leftFinger;
@@ -269,15 +241,10 @@ namespace DungeonCrawler.Controllers
                 }
 
                 myData.position = position;
-                //todo:
-               // myData.position = (ItemLocationEnum)JsonHelper.GetJsonInteger(json, "Location");
-
-     
-
-
 
             }
 
+            //anything goes wrong, exit gracefully
             catch (Exception Ex)
             {
                 Console.WriteLine(Ex.ToString());
@@ -289,59 +256,7 @@ namespace DungeonCrawler.Controllers
 
     }
 }
-        /*
-        private Item ConvertFromJson(JObject json)
-        {
-            var myData = new Item();
 
-            try
-            {
-                myData.Text = JsonHelper.GetJsonString(json, "Text");
-
-                myData.Description = JsonHelper.GetJsonString(json, "Description");
-
-
-                myData.Guid = JsonHelper.GetJsonString(json, "Guid");
-                myData.Id = myData.Guid;
-
-                myData.defense = JsonHelper.GetJsonInteger(json, "Defense");
-                myData.speed = JsonHelper.GetJsonInteger(json, "Speed");
-
-                myData.attack = JsonHelper.GetJsonInteger(json, "Attack");
-
-                myData.damage = JsonHelper.GetJsonInteger(json, "Damage");
-
-
-                myData.range = JsonHelper.GetJsonInteger(json, "Range");
-
-                myData.position = (EquipmentPosition)JsonHelper.GetJsonInteger(json, "Position");
-
-            }
- 
-            /*  myData.Text = JsonHelper.GetJsonString(json, "Name");
-              myData.Guid = JsonHelper.GetJsonString(json, "Guid");
-              myData.Id = myData.Guid;    // Set to be the same as Guid, does not come down from server, but needed for DB
-
-              myData.Description = JsonHelper.GetJsonString(json, "Description");
-              myData.ImageURI = JsonHelper.GetJsonString(json, "ImageURI");
-
-              myData.Value = JsonHelper.GetJsonInteger(json, "Value");
-              myData.Range = JsonHelper.GetJsonInteger(json, "Range");
-
-              myData.Location = (ItemLocationEnum)JsonHelper.GetJsonInteger(json, "Location");
-              myData.Attribute = (AttributeEnum)JsonHelper.GetJsonInteger(json, "Attribute");
-
-
-
-            catch (Exception Ex)
-            {
-                Console.WriteLine(Ex.ToString());
-                return null;
-            }
-
-            return myData;
-        }
-    }*/
 
 
 
