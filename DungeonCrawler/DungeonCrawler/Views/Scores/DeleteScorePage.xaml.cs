@@ -11,13 +11,12 @@ namespace DungeonCrawler.Views.Scores
 
     public partial class DeleteScorePage : ContentPage
     {
-
-
-        // ReSharper disable once NotAccessedField.Local
+        
         private ScoreDetailViewModel _viewModel;
 
         public Score Data { get; set; }
 
+        //constructor
         public DeleteScorePage (ScoreDetailViewModel viewModel)
         {
             // Save off the item
@@ -30,16 +29,19 @@ namespace DungeonCrawler.Views.Scores
             BindingContext = _viewModel = viewModel;
         }
 
+        //delete score function, pulls the trigger on a deletion
         private async void Delete_Clicked(object sender, EventArgs e)
         {
+            //sends message for ScoresViewModel to pick up and delete the data
             MessagingCenter.Send(this, "DeleteData", Data);
 
             // Remove Item Details Page manualy
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            //popping to root because we got crashes by just popping async...
             await Navigation.PopToRootAsync();
-            //await Navigation.PopAsync(); //here
         }
 
+        //pops to previous page
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Xamarin.Forms.Xaml;
 
 using Xamarin.Forms;
@@ -17,6 +16,7 @@ namespace DungeonCrawler.Views.Scores
 
         public Score Data { get; set; }
 
+        //constructor
         public EditScorePage(ScoreDetailViewModel viewModel)
         {
             // Save off the item
@@ -29,12 +29,14 @@ namespace DungeonCrawler.Views.Scores
             BindingContext = _viewModel = viewModel;
         }
 
+        // saves to ScoresViewModel via a message
         private async void Save_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Data.ImageURI))
             {
                 Data.ImageURI = "Score.png";
             }
+            //saves to ScoresViewModel listening for this message
             MessagingCenter.Send(this, "EditData", Data);
 
             // removing the old ItemDetails page, 2 up counting this page
@@ -47,6 +49,7 @@ namespace DungeonCrawler.Views.Scores
             Navigation.RemovePage(this);
         }
 
+        //pops to previous page
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

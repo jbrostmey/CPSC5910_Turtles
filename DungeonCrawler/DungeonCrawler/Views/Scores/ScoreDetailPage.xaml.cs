@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Xamarin.Forms;
-//using DungeonCrawler.Views;
-//using Xamarin.Forms.Xaml;
 using DungeonCrawler.Models;
 
 using DungeonCrawler.ViewModels;
 namespace DungeonCrawler.Views.Scores {  
-                     
-
-    //[XamlCompilation(XamlCompilationOptions.Compile)]
+                    
     public partial class ScoreDetailPage : ContentPage
     {
-        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private ScoreDetailViewModel _viewModel;
 
+        //initialize and set view model
         public ScoreDetailPage(ScoreDetailViewModel viewModel)
         {
             InitializeComponent();
@@ -23,6 +18,7 @@ namespace DungeonCrawler.Views.Scores {
             BindingContext = _viewModel = viewModel;
         }
 
+        //if no view model provided, creates a new score to display and creates a new view model
         public ScoreDetailPage()
         {
             InitializeComponent();
@@ -47,17 +43,19 @@ namespace DungeonCrawler.Views.Scores {
             BindingContext = _viewModel;
         }
 
-
+        // push edit screen for this score
         private async void Edit_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new EditScorePage(_viewModel));
         }
 
+        //push delete screen for this score
         private async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new DeleteScorePage(_viewModel));
         }
 
+        //return to previous screen (ScoresPage)
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

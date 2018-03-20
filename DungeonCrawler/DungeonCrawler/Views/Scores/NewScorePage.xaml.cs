@@ -9,22 +9,13 @@ using Xamarin.Forms.Xaml;
 
 namespace DungeonCrawler.Views.Scores
 {
-    /*
-    public partial class NewScorePage : ContentPage
-    {
-        public NewScorePage()
-        {
-            InitializeComponent();
-        }
-    }
-}
-*/
 
   [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewScorePage : ContentPage
     {
         public Score Data { get; set; }
 
+        //creates a new score to later be saved if the user chooses to
         public NewScorePage()
         {
             InitializeComponent();
@@ -51,17 +42,21 @@ namespace DungeonCrawler.Views.Scores
             BindingContext = this;
         }
 
+        //saves the object and sends a message for ScoresViewModel to pick up
         private async void Save_Clicked(object sender, EventArgs e)
         {
-
+            //if image is null, set default
             if (string.IsNullOrEmpty(Data.ImageURI))
             {
                 Data.ImageURI = "Score.png";
             }
+            //sends message for ScoresViewModel to pick up
             MessagingCenter.Send(this, "AddData", Data);
+            //return back to list
             await Navigation.PopAsync();
         }
 
+        //go back to previous page
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
