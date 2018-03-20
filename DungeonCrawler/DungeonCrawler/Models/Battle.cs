@@ -41,6 +41,7 @@ namespace DungeonCrawler.Models
             currentTurn = false;
             newRound = false;
             itemInventory = new List<Item>();
+            itemsMonstersDrop = new List<Item>();
         }
 
         /*Turn implementation, keeps track of who's turn and the actions+ouputs associated with a turn

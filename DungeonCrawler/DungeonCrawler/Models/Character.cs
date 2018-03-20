@@ -45,6 +45,7 @@ namespace DungeonCrawler.Models
         //  to allow views to grab the entire inventory of the characters to display on different screens.
         public Dictionary<EquipmentPosition, Item> inventory { get; }
 
+        public string InventoryString { get; set; }
 
         //Allows getting of Attributes. No setting: must be done through methods.
         public Attributes attributes { get; set; }
@@ -241,6 +242,7 @@ namespace DungeonCrawler.Models
                 returnString += key.ToString() + " :" + inventory[key].ItemString() + ", ";
             }
             returnString += "]";
+            InventoryString = returnString;
             return returnString;
         }
        

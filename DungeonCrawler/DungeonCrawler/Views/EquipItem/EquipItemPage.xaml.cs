@@ -61,6 +61,15 @@ namespace DungeonCrawler.Views.EquipItem
                 return;
             }
 
+            //If player is dead, dont equip
+            if(!characterSelected.IsAlive())
+            {
+                await DisplayAlert("Uh Oh", characterSelected.name + " is dead!", "OK");
+                CharacterInfoListView.SelectedItem = null;
+                return;
+            }
+                
+
             var itemselected = itemSelected as Item;
 
             // Adds the item to inventory, adds the item to the list of items held by the character at the time.
@@ -80,15 +89,26 @@ namespace DungeonCrawler.Views.EquipItem
 
             if (!previouslyEquipped)
             {
-                characterSelected.inventory.Add(itemSelected.position, itemselected);
-                BattlePage.Instance.AddItem(itemSelected); // add item to inventory.
-                await DisplayAlert("Equip Item", itemSelected.Text + " Equipped by " + characterSelected.name, "OK");
+                //If character does not have something there, equip
+                if (characterSelected.EquipItem(itemselected))
+                {
+                    BattlePage.Instance.AddItem(itemSelected); // add item to inventory.
+                    await DisplayAlert("Equip Item", itemSelected.Text + " Equipped by " + characterSelected.name, "OK");
+                }else{// Else drop item, then equip
+                    Item dropped = characterSelected.DropItem(itemselected.position);
+                    _viewModel.DatasetItems.Add(dropped);
+                    characterSelected.EquipItem(itemselected);
+                    await DisplayAlert("Equip Item", itemSelected.Text + " Equipped by " + characterSelected.name + ". Dropped " + dropped.Text, "OK");
+                }
+                _viewModel.DatasetItems.Remove(itemselected);
                 // todo: might want to add. await Navigation.PushAsync(new EquipItemSuccessPage(itemselected, characterSelected));
             }
 
             // Deselect item and character.
             CharacterInfoListView.SelectedItem = null;
             ItemsInfoListView.SelectedItem = null;
+
+            OnAppearing();
         }
 
 
@@ -96,6 +116,8 @@ namespace DungeonCrawler.Views.EquipItem
 
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
+            foreach (Character member in _viewModel.Dataset)
+                member.ItemSlotsFormatOutput();
             await Navigation.PopAsync();
         }
 

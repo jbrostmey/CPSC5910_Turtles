@@ -11,7 +11,7 @@
 
                 <Label Text="Characters:" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
 
-            <ScrollView>
+
 
 
 
@@ -47,13 +47,11 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            </ScrollView>
 
 
 
                 <Label Text="Items:" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
 
-            <ScrollView>
 
 
 
@@ -101,8 +99,6 @@
 
 
 
-
-             </ScrollView>
 
 
          
