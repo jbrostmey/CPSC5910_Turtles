@@ -45,9 +45,10 @@ namespace DungeonCrawler.Views.Party
 
         async void PlayPressed(Object sender, EventArgs e)
         {
-            if(_viewModel.ValidParty())
+            if(_viewModel.ValidParty()){
+                BattlePageViewModel.Instance.GivePartyEquipment();
                 await Navigation.PushAsync(new BattlePage());
-            else
+            }else
                 await DisplayAlert("Wait!", "You haven't selected all of your characters!", "Try Again!");
         }
 

@@ -67,22 +67,28 @@ namespace DungeonCrawler
             NewParty();
             Console.WriteLine(CharacterViewModel.Instance.Dataset.Count);
             int nextPartyMemberIndex;
-            int itemIndex;
             for (int i = 0; i < MaxPartySize; i++)
             {
                 nextPartyMemberIndex = RNG.Next() % CharacterViewModel.Instance.Dataset.Count;
                 Dataset[i].update(CharacterViewModel.Instance.Dataset[nextPartyMemberIndex]);
-                while(Dataset[i].inventory.Count != Item.NumberSlots)
-                {
-                    itemIndex = RNG.Next() % ItemsViewModel.Instance.Dataset.Count;
-                    while(!Dataset[i].EquipItem(ItemsViewModel.Instance.Dataset[itemIndex])) {
-                        itemIndex = (itemIndex+1) % ItemsViewModel.Instance.Dataset.Count;
-                    }
-                        
-                }
             }
+            GivePartyEquipment();
         }
 
+
+        public void GivePartyEquipment()
+        {
+            int itemIndex;
+            for (int i = 0; i < MaxPartySize; i++)
+                while (Dataset[i].inventory.Count != Item.NumberSlots)
+                {
+                    itemIndex = RNG.Next() % ItemsViewModel.Instance.Dataset.Count;
+                    while (!Dataset[i].EquipItem(ItemsViewModel.Instance.Dataset[itemIndex]))
+                    {
+                        itemIndex = (itemIndex + 1) % ItemsViewModel.Instance.Dataset.Count;
+                    }
+                }
+        }
         //grabs the average party level for the members who are alive.
         private int GetPartyAverageLevel()
         {
