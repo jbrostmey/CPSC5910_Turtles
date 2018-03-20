@@ -11,12 +11,12 @@ namespace DungeonCrawler
         {
 
 
-
+            //used for our CRUDi
             Page itemsPage, monsterPage, scorePage, characterPage = null;
 
             switch (Device.RuntimePlatform)
             {
-                case Device.iOS: //bryan was here
+                case Device.iOS: 
                     characterPage = new CharacterPage()
                     {
                         Title = "Characters"
@@ -64,6 +64,7 @@ namespace DungeonCrawler
 
             }
 
+            //adds them in the order we want the tabs
             Children.Add(characterPage);
             Children.Add(monsterPage);
             Children.Add(itemsPage);
@@ -72,6 +73,7 @@ namespace DungeonCrawler
             Title = Children[0].Title;
         }
 
+        //updates title per tab
         protected override void OnCurrentPageChanged()
         {
             base.OnCurrentPageChanged();

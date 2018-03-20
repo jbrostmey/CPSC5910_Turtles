@@ -18,6 +18,8 @@ namespace DungeonCrawler.Views
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
         }
+
+        //This displays the ending score at the end of the game.
         public GameEnd(Score obj)
         {
             BindingContext = this;
@@ -25,6 +27,7 @@ namespace DungeonCrawler.Views
             int score = obj.ScoreTotal;
             Display.Text = score.ToString();
         }
+        //Pops back to opening page
         private async void PlayAgain_Clicked(object sender, EventArgs e)
         {
             //SQLDataStore.Instance.InitializeDatabaseNewTables();

@@ -14,14 +14,12 @@ namespace DungeonCrawler
     public partial class AboutPage : ContentPage
     {
 
-        private static bool useMockDatabaseIsToggled = false;
-       // private static bool useSQLDatabaseIsToggled = true;
-
         void Handle_Focused(object sender, Xamarin.Forms.FocusEventArgs e)
         {
             throw new NotImplementedException();
         }
 
+        //for setting if we want rng in hit rolls (if on, roll is 20)
         public void DisableRandomNumbersSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
             Switch toggleSwitch = sender as Switch;
@@ -38,22 +36,18 @@ namespace DungeonCrawler
         {
             InitializeComponent();
 
-           // this.BindingContext = this;
-
             // Set the flag for Mock on or off...
-
             UseMockDatabaseSwitch.IsToggled = (MasterDataStore.GetDataStoreMockFlag() == DataStoreEnum.Mock);
             SetDataSource(UseMockDatabaseSwitch.IsToggled);
-            //UseMockDataSource.IsToggled = (MasterDataStore.GetDataStoreMockFlag() == DataStoreEnum.Mock);
-            //SetDataSource(UseMockDataSource.IsToggled);
         }
 
+        //confirms request, initializes database if yes
         private async void InitializeData_Command(object sender, EventArgs e)
         {
             var answer = await DisplayAlert("Initialize", "Are you sure you want to re-initialize the data?", "Yes", "No");
             if (answer)
             {
-                // Call to the SQL DataStore and have it clear the tables.
+                // Call to the SQL DataStore and have it clear the tables and reset.
                 SQLDataStore.Instance.InitializeDatabaseNewTables();
             }
         }
@@ -94,6 +88,7 @@ namespace DungeonCrawler
             }
         }
 
+        //switches datasource from sql to mock
         private void SetDataSource(bool isMock)
         {
             var set = DataStoreEnum.Sql;
@@ -103,6 +98,7 @@ namespace DungeonCrawler
                 set = DataStoreEnum.Mock;
             }
 
+            //tells MasterDataStore to set to appropriate database
             MasterDataStore.ToggleDataStore(set);
 
         }
@@ -110,11 +106,10 @@ namespace DungeonCrawler
         // Sets the DataStore to be the Mock Data Store if toggled on, or SQL if toggled off.
         private void UseMockDatabaseSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
-       
-
             SetDataSource(e.Value);
         }
 
+        //sends user to the CRUDi pages
         async void CRUDiPageButtonClick(Object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainPage());

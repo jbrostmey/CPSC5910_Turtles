@@ -18,28 +18,34 @@ namespace DungeonCrawler.Views
 
         }
 
-        //Need to add battle page when it is ready
+        //Goes to a screen for player to select party members
         async void PlayButtonClick(Object sender, EventArgs e)
         {
          await Navigation.PushAsync(new PartySelect());
         }
 
+        //goes to a the scores page
         async void ScoreButtonClick(Object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ScoresPage());
         }
 
+        //goes to the about page (CRUDi and POST there)
         async void AboutPageButtonClick(Object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AboutPage());
         }
+
+        //Runs autoplay
         async void AutoPlayButtonClick(Object sender, EventArgs e)
         {
+            //Randomly creates party
             BattlePageViewModel.Instance.AutoPlayPartyInitialize();
+            //creates battle
             Battle battleObj = new Battle();
             //game messages and summary
             battleObj.BeginGame();
-            string output = battleObj.AutoPlay();
+            //passes battle to the battle message page to show all that happened
             await Navigation.PushAsync(new BattleMessage(battleObj));
         }
     }

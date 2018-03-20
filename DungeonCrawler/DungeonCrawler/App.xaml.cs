@@ -21,23 +21,14 @@ namespace DungeonCrawler
         public static int inputHitVal = 0;
         public static bool disabledRandom = false; 
 
-        private CharacterViewModel characterViewModel;
-        private MonsterViewModel monsterViewModel;
-        private ItemsViewModel itemsViewModel;
-        private ScoresViewModel scoresViewModel;
-
         public App ()
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new OpeningPage());
 
+            //defaults to sql database
             MasterDataStore.ToggleDataStore(Models.DataStoreEnum.Sql);
-
-            characterViewModel = CharacterViewModel.Instance;
-            monsterViewModel = MonsterViewModel.Instance;
-            itemsViewModel = ItemsViewModel.Instance;
-            scoresViewModel = ScoresViewModel.Instance;
 
         }
 
