@@ -18,7 +18,14 @@ namespace DungeonCrawler.Views
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
         }
+        public GameEnd(Score obj)
+        {
+            BindingContext = this;
+            int score = obj.ScoreTotal;
+            Display.Text = score.ToString();
+            InitializeComponent();
 
+        }
         private async void PlayAgain_Clicked(object sender, EventArgs e)
         {
             SQLDataStore.Instance.InitializeDatabaseNewTables();

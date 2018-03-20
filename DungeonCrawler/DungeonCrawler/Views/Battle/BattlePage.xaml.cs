@@ -72,7 +72,7 @@ namespace DungeonCrawler.Views
         //Return to Opening Page
         private async void ExitGame_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GameEnd());
+            await Navigation.PushAsync(new GameEnd(battleObj.currentScore));
         }
 
         private async void AutoPlay_Clicked(object sender, EventArgs e)

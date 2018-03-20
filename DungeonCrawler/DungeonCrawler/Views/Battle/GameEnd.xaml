@@ -3,15 +3,14 @@
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
             <Label Text="Game Ended!" FontSize="Large" HorizontalOptions="Center"/>
-            <Label Text="Battle History Statistics: Ended!" FontSize="Medium" HorizontalOptions="Center"/>
+            <Label Text="Battle History Statistics:" FontSize="Medium" HorizontalOptions="Center"/>
         
-
+        <ScrollView>
             <StackLayout Padding="10">
-                <Label Text = "New High Score" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
-                <Label Text = "User1 1050" HorizontalOptions="Center" />
-                <Label Text = "User2 950" HorizontalOptions="Center"/>
+                <Label Text = "High Score" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="Silver" FontSize="14" />
+                <Label x:Name = "Display" HorizontalOptions="Center" />
             </StackLayout> 
-
+       </ScrollView>
             <Button Text = "Exit Game"
                 Clicked = "PlayAgain_Clicked"
                 BorderColor="Black"
