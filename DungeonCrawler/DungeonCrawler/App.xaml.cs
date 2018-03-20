@@ -32,14 +32,12 @@ namespace DungeonCrawler
 
             MainPage = new NavigationPage(new OpeningPage());
 
+            MasterDataStore.ToggleDataStore(Models.DataStoreEnum.Sql);
+
             characterViewModel = CharacterViewModel.Instance;
             monsterViewModel = MonsterViewModel.Instance;
             itemsViewModel = ItemsViewModel.Instance;
             scoresViewModel = ScoresViewModel.Instance;
-
-            characterViewModel.InitializeDataset();
-            monsterViewModel.InitializeDataset();
-            itemsViewModel.InitializeDataset();
 
         }
 

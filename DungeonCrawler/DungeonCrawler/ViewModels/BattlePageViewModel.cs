@@ -64,14 +64,16 @@ namespace DungeonCrawler
 
         public void AutoPlayPartyInitialize()
         {
+            
             NewParty();
             Console.WriteLine(CharacterViewModel.Instance.Dataset.Count);
             int nextPartyMemberIndex;
-            for (int i = 0; i < MaxPartySize; i++)
-            {
-                nextPartyMemberIndex = RNG.Next() % CharacterViewModel.Instance.Dataset.Count;
-                Dataset[i].update(CharacterViewModel.Instance.Dataset[nextPartyMemberIndex]);
-            }
+            if (CharacterViewModel.Instance.Dataset.Count != 0)
+                for (int i = 0; i < MaxPartySize; i++)
+                {
+                    nextPartyMemberIndex = RNG.Next() % CharacterViewModel.Instance.Dataset.Count;
+                    Dataset[i].update(CharacterViewModel.Instance.Dataset[nextPartyMemberIndex]);
+                }
             GivePartyEquipment();
         }
 
