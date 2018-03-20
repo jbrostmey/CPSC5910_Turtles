@@ -20,6 +20,7 @@ namespace DungeonCrawler
         {
             InitializeComponent();
 
+            // create and initialize new data
             var data = new Character
             {
                 Id = Guid.NewGuid().ToString(),
@@ -46,17 +47,17 @@ namespace DungeonCrawler
             BindingContext = _viewModel;
         }
 
-
+        // edit character using viewmodel
         private async void Edit_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new EditCharacterPage(_viewModel));
         }
-
+        // remove from the database
         private async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new DeleteCharacterPage(_viewModel));
         }
-
+        // cancel, go back
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

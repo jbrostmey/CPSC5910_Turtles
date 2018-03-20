@@ -35,6 +35,8 @@ namespace DungeonCrawler.ViewModels
 
         private bool _needsRefresh;
 
+        public int highScore;
+
         public ScoresViewModel()
         {
             Title = "Score List";

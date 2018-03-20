@@ -17,11 +17,10 @@ namespace DungeonCrawler
         public ItemsPage()
         {
             InitializeComponent();
-            //BindingContext = _viewModel = MonstersViewModel.Instance;
-
             BindingContext = _viewModel = ItemsViewModel.Instance;
         }
 
+        // Select item, go to details
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Item;
@@ -34,6 +33,7 @@ namespace DungeonCrawler
             ItemsListView.SelectedItem = null;
         }
 
+        // create new item
         private async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NewItemPage());

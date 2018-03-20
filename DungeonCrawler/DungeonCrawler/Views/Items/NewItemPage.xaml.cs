@@ -17,6 +17,7 @@ namespace DungeonCrawler
         {
             InitializeComponent();
 
+            // create and initailize new data item
             Data = new Item
             {
 
@@ -36,18 +37,18 @@ namespace DungeonCrawler
             BindingContext = this;
         }
 
+        // add item to the database
         private async void Save_Clicked(object sender, EventArgs e)
         {
-
             if (string.IsNullOrEmpty(Data.ImageURI))
             {
                 Data.ImageURI = "Items.png";
             }
-
+            // add to the database
             MessagingCenter.Send(this, "AddData", Data);
             await Navigation.PopAsync();
         }
-
+        // cancel, go back
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

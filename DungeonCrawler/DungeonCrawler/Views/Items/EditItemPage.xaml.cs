@@ -25,6 +25,7 @@ namespace DungeonCrawler.Views.Items
             BindingContext = _viewModel = viewModel;
         }
 
+        // Save item to the database
         private async void Save_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Data.ImageURI))
@@ -43,6 +44,7 @@ namespace DungeonCrawler.Views.Items
             Navigation.RemovePage(this);
         }
 
+        // Cancel, go back
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

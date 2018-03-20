@@ -28,6 +28,7 @@ namespace DungeonCrawler
             BindingContext = _viewModel = viewModel;
         }
 
+        // add to the database
         private async void Save_Clicked(object sender, EventArgs e)
         {
 
@@ -46,7 +47,7 @@ namespace DungeonCrawler
             // Last, remove this page
             Navigation.RemovePage(this);
         }
-
+        // cancel, go back
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

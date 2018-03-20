@@ -41,7 +41,7 @@ namespace DungeonCrawler.Views.EquipItem
         }
 
 
-        // Allows the user to specify which item to equip
+        // Allows the user to specify which item to equip (pick up)
         private void SelectItem_Clicked(object sender, SelectedItemChangedEventArgs args)
         {
             itemSelected = args.SelectedItem as Item;
@@ -52,6 +52,7 @@ namespace DungeonCrawler.Views.EquipItem
         }
 
 
+        // Saves the equipped item to the character's inventory.
         private async void Save_Clicked(object sender, SelectedItemChangedEventArgs e)
         {
             // Do nothing if equip button is pressed without a character and/or item is selected
@@ -69,11 +70,7 @@ namespace DungeonCrawler.Views.EquipItem
                 return;
             }
                 
-
             var itemselected = itemSelected as Item;
-
-            // Adds the item to inventory, adds the item to the list of items held by the character at the time.
-           // BattlePage.Instance.AddItem(itemSelected, characterSelected); // todo: might want to delete this...
 
             bool previouslyEquipped = false;
             foreach (var character in CharacterInfoListView.ItemsSource)
@@ -94,14 +91,14 @@ namespace DungeonCrawler.Views.EquipItem
                 {
                     BattlePage.Instance.AddItem(itemSelected); // add item to inventory.
                     await DisplayAlert("Equip Item", itemSelected.Text + " Equipped by " + characterSelected.name, "OK");
-                }else{// Else drop item, then equip
+                }
+                else{ // Else drop item, then equip
                     Item dropped = characterSelected.DropItem(itemselected.position);
                     _viewModel.DatasetItems.Add(dropped);
                     characterSelected.EquipItem(itemselected);
                     await DisplayAlert("Equip Item", itemSelected.Text + " Equipped by " + characterSelected.name + ". Dropped " + dropped.Text, "OK");
                 }
                 _viewModel.DatasetItems.Remove(itemselected);
-                // todo: might want to add. await Navigation.PushAsync(new EquipItemSuccessPage(itemselected, characterSelected));
             }
 
             // Deselect item and character.
@@ -113,7 +110,10 @@ namespace DungeonCrawler.Views.EquipItem
 
 
 
-
+        // Cancel equipping item and go back to the previous page.
+        // Tells each party member to output their items equipped
+        // as a string variable so they can be seen by the ViewPartyMember
+        // view in order to see what people have equipped.
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             foreach (Character member in _viewModel.Dataset)
@@ -122,7 +122,7 @@ namespace DungeonCrawler.Views.EquipItem
         }
 
       
-
+        // Initilaizes and loads data.
         protected override void OnAppearing()
         {
             

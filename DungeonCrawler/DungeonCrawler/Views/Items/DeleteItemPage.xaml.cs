@@ -26,6 +26,7 @@ namespace DungeonCrawler.Views.Items
             BindingContext = _viewModel = viewModel;
         }
 
+        // Delete the data selected from the database
         private async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "DeleteData", Data);
@@ -36,6 +37,7 @@ namespace DungeonCrawler.Views.Items
             await Navigation.PopAsync();
         }
 
+        // Cancel, go back.
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
