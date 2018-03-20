@@ -21,10 +21,9 @@ namespace DungeonCrawler.Views
         public GameEnd(Score obj)
         {
             BindingContext = this;
+            InitializeComponent();
             int score = obj.ScoreTotal;
             Display.Text = score.ToString();
-            InitializeComponent();
-
         }
         private async void PlayAgain_Clicked(object sender, EventArgs e)
         {
