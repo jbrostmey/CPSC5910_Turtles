@@ -42,12 +42,14 @@ namespace DungeonCrawler
             Dataset = new ObservableCollection<Character>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
+            //listens to DeleteCharacterPage objects for Characters to be sent via a message
             MessagingCenter.Subscribe<DeleteCharacterPage, Character>(this, "DeleteData", async (obj, data) =>
             {
                 Dataset.Remove(data);
                 await DataStore.DeleteAsync_Character(data);
             });
 
+            //listens to NewCharacterPage objects for Characters to be sent via a message
             MessagingCenter.Subscribe<NewCharacterPage, Character>(this, "AddData", async (obj, data) =>
             {
                 Dataset.Add(data);
@@ -55,6 +57,7 @@ namespace DungeonCrawler
                 _needsRefresh = true;
             });
 
+            //listens to EditCharacterPage objects for Characters to be sent via a message
             MessagingCenter.Subscribe<EditCharacterPage, Character>(this, "EditData", async (obj, data) =>
             {
                 // Find the Item, then update it
@@ -96,6 +99,7 @@ namespace DungeonCrawler
             await ExecuteLoadDataCommand();
         }
 
+        //reloads the data from the database
         private async Task ExecuteLoadDataCommand()
         {
             if (IsBusy)
