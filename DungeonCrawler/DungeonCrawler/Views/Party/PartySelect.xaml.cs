@@ -31,6 +31,7 @@ namespace DungeonCrawler.Views.Party
             _viewModel.NewParty();
         }
 
+        // select player to choose character
         async void SelectPlayer(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Character;
@@ -43,6 +44,7 @@ namespace DungeonCrawler.Views.Party
             CharacterListView.SelectedItem = null;
         }
 
+        // play game, give party equipment if all characters have been seleced.
         async void PlayPressed(Object sender, EventArgs e)
         {
             if(_viewModel.ValidParty()){

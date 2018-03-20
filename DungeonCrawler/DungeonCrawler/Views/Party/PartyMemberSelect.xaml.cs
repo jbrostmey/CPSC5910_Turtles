@@ -20,12 +20,14 @@ namespace DungeonCrawler.Views.Party
             Title = "Select Member";
         }
 
+        // Select character and ask user if they want to add it to the party
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs e) 
         {
             var selected = e.SelectedItem as Character;
             var response = await DisplayAlert(selected.name, "Add " + selected.name + " to the party?", "Aye", "Nay");
             if(response)
             {
+                // update party members
                 partyMember.update(selected);
                 await Navigation.PopAsync();
             }
