@@ -12,6 +12,7 @@ namespace DungeonCrawler.Models
             MiracleMaxLive = true;
         }
 
+        //Init base character attributes
         public BaseCharacter(Character character)
         {
             MiracleMaxLive = character.MiracleMaxLive;

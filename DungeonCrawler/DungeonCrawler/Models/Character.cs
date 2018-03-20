@@ -190,6 +190,7 @@ namespace DungeonCrawler.Models
             }
         }
 
+        //Update attack with items equipped
         public int ItemAttackModifier()
         {
             int attackModifier = 0;
@@ -200,7 +201,7 @@ namespace DungeonCrawler.Models
 
             return attackModifier;
         }
-
+        //Update damage on character
         public int ItemDamageModifier()
         {
             int damageModifier = 0;
@@ -211,7 +212,7 @@ namespace DungeonCrawler.Models
             }
             return damageModifier;
         }
-
+        //Update defense on character
         public int ItemDefenseModifer()
         {
             int defenseModifier = 0;
@@ -221,7 +222,7 @@ namespace DungeonCrawler.Models
             }
             return defenseModifier;
         }
-
+        //Character dies, init to dead state
         public string DeadState()
         {
             var myReturn = string.Empty;
@@ -232,7 +233,7 @@ namespace DungeonCrawler.Models
 
             return myReturn;
         }
-
+        //Helper function to retreive equipped slots
         public string ItemSlotsFormatOutput()
         {
             var returnString = string.Empty;

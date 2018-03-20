@@ -97,6 +97,7 @@ namespace DungeonCrawler.Models
         }
 
 
+        //Update monster attributes
         public void Update(Monster m)
         {
             name = m.name;
@@ -104,6 +105,7 @@ namespace DungeonCrawler.Models
             attributes.Update(m.attributes);
         }
 
+        //Called when Monster is dead
         public string DeadState()
         {
             var myReturn = string.Empty;

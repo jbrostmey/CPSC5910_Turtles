@@ -7,7 +7,7 @@ namespace DungeonCrawler.Models
         public BaseMonster()
         {
         }
-
+        //Init base monster attributes
         public BaseMonster(BaseMonster monster)
         {
             AttributeString = monster.AttributeString;

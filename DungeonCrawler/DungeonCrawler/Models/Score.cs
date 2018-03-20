@@ -9,6 +9,7 @@ namespace DungeonCrawler.Models
 
         public string Name { get; set; }
 
+        //Total score of entire game
         public int ScoreTotal { get; set; }
 
         // The Date the game played, and when the score was saved
@@ -44,8 +45,7 @@ namespace DungeonCrawler.Models
        
         public string ImageURI { get; set; }
 
-        //Basic constructor for Score class
-       
+        //Basic constructor for Score class, sets default values
         public Score()
         {
            // ScoreTotal = 0;
@@ -59,7 +59,7 @@ namespace DungeonCrawler.Models
             Id = Guid.NewGuid().ToString();
         }
 
-
+        //This function will update all the appropriate fields associated with Score object
         public void Update(Score newData)
         {
             if (newData == null)

@@ -498,7 +498,7 @@ namespace DungeonCrawler.Models
             return 0;
         }
 
-
+        //Helper function in Turn to handle navigation/game flow
         public string PlayHandler()
         {
             //Game over -- send battle summary to Battle Over
