@@ -13,7 +13,7 @@ namespace DungeonCrawler.Views
     public partial class BattleMessage : ContentPage
     {
         private Battle battle;
-        //END GAME display
+        //END GAME display. This view will display the message at the end of the game. Typically a summary.
         public BattleMessage(Battle battle)
         {
 

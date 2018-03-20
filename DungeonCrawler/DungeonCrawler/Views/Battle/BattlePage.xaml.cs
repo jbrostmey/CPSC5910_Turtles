@@ -20,6 +20,7 @@ namespace DungeonCrawler.Views
         public static Battle battleObj = new Battle();
         public static Battle Instance { get { return battleObj; } }
 
+        //Default constructor instantiates members and sets up environment for game play
         public BattlePage()
         {
             msg = "Click Play to Begin!";
@@ -35,18 +36,9 @@ namespace DungeonCrawler.Views
             battleObj = new Battle();
             battleObj.BeginGame();
         }
-
+        //Begins battle and runs the game by going turn by turn
         private async void Play_Clicked(object sender, EventArgs e)
         {
-
-            // Move user to equip item page when all monsters are killed and player needs to get 6 more.
-
-            /*
-            if (Battle.equipItems == true)
-              await Navigation.PushAsync(new EquipItemPage());
-*/
-
-           // await Navigation.PushAsync(new EquipItemPage());
             this.msg = battleObj.PlayHandler();
             if(msg == null)
                 await Navigation.PushAsync(new BattleMessage(battleObj));
@@ -58,12 +50,12 @@ namespace DungeonCrawler.Views
             OnAppearing();
         }
 
-        //Nonfunctional at this time
+        //Clicking a character in the list view will display description
         private async void ViewCharacters_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CharacterPage());
         }
-
+        //Clicking a monster in the list view will display description
         private async void ViewMonsters_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MonsterPage());
@@ -75,7 +67,7 @@ namespace DungeonCrawler.Views
         {
             await Navigation.PushAsync(new GameEnd(battleObj.currentScore));
         }
-
+        //Initiate Auto Play
         private async void AutoPlay_Clicked(object sender, EventArgs e)
         {
             //game messages and summary
@@ -83,7 +75,7 @@ namespace DungeonCrawler.Views
             await Navigation.PushAsync(new BattleMessage(battleObj));
         }
 
-
+        //Selects Item
         public async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Character;
@@ -110,7 +102,7 @@ namespace DungeonCrawler.Views
             MonsterListView.SelectedItem = null;
         }
 
-
+        //Refreshes the page when called. This helps with refreshing page afte a play has happened
         protected override void OnAppearing()
         {
             
