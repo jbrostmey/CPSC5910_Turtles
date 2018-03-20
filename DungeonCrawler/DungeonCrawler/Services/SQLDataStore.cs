@@ -2,7 +2,6 @@ using System;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DungeonCrawler.Services;
 using DungeonCrawler.Models;
 using DungeonCrawler.ViewModels;
 namespace DungeonCrawler.Services
@@ -137,7 +136,7 @@ namespace DungeonCrawler.Services
             monsterToBeAdded.SaveAttributes();
             await AddAsync_Monster(monsterToBeAdded);
 
-          
+
             // Spider Knight
             monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), 
                 description = "Gallant knight of the arachnid order. To him, chivalry is never dead.",
