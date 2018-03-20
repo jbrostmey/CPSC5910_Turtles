@@ -8,6 +8,7 @@
             <StackLayout Orientation="Vertical" Padding="25,10,25,0" Spacing="0">
                <Button Margin="0,20,0,0" Text="Play" Clicked="PlayButtonClick" BackgroundColor="{StaticResource Primary}" TextColor="White" />
                <Button Margin="0,20,0,0" Text="AutoPlay" Clicked="AutoPlayButtonClick" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+                <Button Margin="0,20,0,0" Text="High Score" Clicked="ScoreButtonClick" BackgroundColor="{StaticResource Primary}" TextColor="White" />
                <Button Margin="0,20,0,0" Text="About" Clicked="AboutPageButtonClick" BackgroundColor="{StaticResource Primary}" TextColor="White" />
 
 

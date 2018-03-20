@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using DungeonCrawler.Models;
-using DungeonCrawler.ViewModels;
-using DungeonCrawler.Views;
-using DungeonCrawler.Services;
+using DungeonCrawler.Views.Scores;
+
 using DungeonCrawler.Views.Party;
 
 using Xamarin.Forms;
@@ -16,8 +15,7 @@ namespace DungeonCrawler.Views
         {
             InitializeComponent();
             Title = "Main Menu";
-            //  BaseViewModel.DataStoreEnum.Sql; //.Instance.s;
-          //  BaseViewModel.Instance.SetDataStore(BaseViewModel.DataStoreEnum.Sql);
+
         }
 
         //Need to add battle page when it is ready
@@ -26,9 +24,9 @@ namespace DungeonCrawler.Views
          await Navigation.PushAsync(new PartySelect());
         }
 
-        async void CRUDiPageButtonClick(Object sender, EventArgs e)
+        async void ScoreButtonClick(Object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new ScoresPage());
         }
 
         async void AboutPageButtonClick(Object sender, EventArgs e)

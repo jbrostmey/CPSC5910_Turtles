@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using DungeonCrawler.Views;
 using SQLite;
 using DungeonCrawler.Services;
+using DungeonCrawler.ViewModels;
 
 namespace DungeonCrawler
 {
@@ -20,6 +21,10 @@ namespace DungeonCrawler
         public static int inputHitVal = 0;
         public static bool disabledRandom = false; 
 
+        private CharacterViewModel characterViewModel;
+        private MonsterViewModel monsterViewModel;
+        private ItemsViewModel itemsViewModel;
+        private ScoresViewModel scoresViewModel;
 
         public App ()
         {
@@ -27,6 +32,14 @@ namespace DungeonCrawler
 
             MainPage = new NavigationPage(new OpeningPage());
 
+            characterViewModel = CharacterViewModel.Instance;
+            monsterViewModel = MonsterViewModel.Instance;
+            itemsViewModel = ItemsViewModel.Instance;
+            scoresViewModel = ScoresViewModel.Instance;
+
+            characterViewModel.InitializeDataset();
+            monsterViewModel.InitializeDataset();
+            itemsViewModel.InitializeDataset();
 
         }
 
