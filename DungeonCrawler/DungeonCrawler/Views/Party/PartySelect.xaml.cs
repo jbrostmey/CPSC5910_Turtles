@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using DungeonCrawler.Models;
+using DungeonCrawler.ViewModels;
 
 namespace DungeonCrawler.Views.Party
 {
@@ -28,10 +29,6 @@ namespace DungeonCrawler.Views.Party
             BindingContext = _viewModel = BattlePageViewModel.Instance;
 
             _viewModel.NewParty();
-
-            CharacterViewModel.Instance.InitializeDataset();
-            MonsterViewModel.Instance.InitializeDataset();
-            ItemsViewModel.Instance.InitializeDataset();
         }
 
         async void SelectPlayer(object sender, SelectedItemChangedEventArgs args)
@@ -48,9 +45,10 @@ namespace DungeonCrawler.Views.Party
 
         async void PlayPressed(Object sender, EventArgs e)
         {
-            if(_viewModel.ValidParty())
+            if(_viewModel.ValidParty()){
+                BattlePageViewModel.Instance.GivePartyEquipment();
                 await Navigation.PushAsync(new BattlePage());
-            else
+            }else
                 await DisplayAlert("Wait!", "You haven't selected all of your characters!", "Try Again!");
         }
 

@@ -227,6 +227,7 @@ namespace DungeonCrawler.Models
 
                 equipItems = true;
                 rounds++;
+                currentScore.BattleNumber = rounds;
                 msg += "\n Next round! Round: " + rounds + '\n';
                 summary += "\nRound: " + rounds + '\n';
                 //init new party of monsters
@@ -314,8 +315,11 @@ namespace DungeonCrawler.Models
         //User selects AutoPlay, run game indefinitely until inSession is switched to false
         public string AutoPlay()
         {
-            currentScore = new Score();
-            currentScore.AutoBattle = true;
+            if (currentScore == null)
+            {
+                currentScore = new Score();
+                currentScore.AutoBattle = true;
+            }
             string msg = summary; // one long message output at the end of the game summary
             while (inSession)
             {
@@ -346,7 +350,7 @@ namespace DungeonCrawler.Models
             }
             msg += "\n\n\n" + summary;
 
-            currentScore.AutoBattle = true;
+           
             currentScore.Update(currentScore);
             return msg;
         }
