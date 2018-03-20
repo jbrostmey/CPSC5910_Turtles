@@ -1,4 +1,8 @@
-﻿using System;
+﻿
+
+      
+     
+using System;
 using System.Collections.Generic;
 using DungeonCrawler.Models;
 using DungeonCrawler.ViewModels;
@@ -63,13 +67,13 @@ namespace DungeonCrawler.Views.EquipItem
             }
 
             //If player is dead, dont equip
-            if(!characterSelected.IsAlive())
+            if (!characterSelected.IsAlive())
             {
                 await DisplayAlert("Uh Oh", characterSelected.name + " is dead!", "OK");
                 CharacterInfoListView.SelectedItem = null;
                 return;
             }
-                
+
             var itemselected = itemSelected as Item;
 
             bool previouslyEquipped = false;
@@ -92,7 +96,8 @@ namespace DungeonCrawler.Views.EquipItem
                     BattlePage.Instance.AddItem(itemSelected); // add item to inventory.
                     await DisplayAlert("Equip Item", itemSelected.Text + " Equipped by " + characterSelected.name, "OK");
                 }
-                else{ // Else drop item, then equip
+                else
+                { // Else drop item, then equip
                     Item dropped = characterSelected.DropItem(itemselected.position);
                     _viewModel.DatasetItems.Add(dropped);
                     characterSelected.EquipItem(itemselected);
@@ -121,11 +126,11 @@ namespace DungeonCrawler.Views.EquipItem
             await Navigation.PopAsync();
         }
 
-      
+
         // Initilaizes and loads data.
         protected override void OnAppearing()
         {
-            
+
             base.OnAppearing();
 
             BindingContext = null;

@@ -37,7 +37,7 @@ namespace DungeonCrawler.Views.Party
             var data = args.SelectedItem as Character;
             if (data == null)
                 return;
-
+             
             await Navigation.PushAsync(new PartyMemberSelect(data));
 
             // Manually deselect item.

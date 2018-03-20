@@ -86,38 +86,10 @@ namespace DungeonCrawler.Services
                 }
 
 
-                /*Could be in two different formats.  
-                    * Calls from the server have the full format for timespan
-                    * Local created objects, have the newtonsoft object of a single string
-                    * Need to determine which type and then parse correclty
-                */
-
-                // Look for Ticks in string to determine which path to follow
                 if (tempJsonObject.Contains("Ticks"))
                 {
 
-                    // Can't directly parse json to TimeSpan, it is a flaw in .net
-                    // Need to do it manualy
-                    // So get total seconds, and then convert that to the time span.
-
-                    // Time span looks like:
-
-                    /*
-                     *
-                            "Ticks": 0,
-                            "Days": 0,
-                            "Hours": 0,
-                            "Milliseconds": 0,
-                            "Minutes": 0,
-                            "Seconds": 0,
-                            "TotalDays": 0,
-                            "TotalHours": 0,
-                            "TotalMilliseconds": 0,
-                            "TotalMinutes": 0,
-                            "TotalSeconds": 0
-
-                     */
-
+              
                     // Split on the comma seperator
                     // Then find the sub string with Ticks
                     // Then split on the :
@@ -417,11 +389,6 @@ namespace DungeonCrawler.Services
                 //Parse the string to make sure it is valid json
                 json = JObject.Parse(tempJsonObject);
 
-                //Could not get unit Test to generate invalid json, so commenting out this block of clode.
-                //if (json == null)
-                //{
-                //    return null;
-                //}
 
                 return json;
             }

@@ -36,7 +36,7 @@ namespace DungeonCrawler.Views.Items
 
             await Navigation.PopAsync();
         }
-
+         
         // Cancel, go back.
         private async void Cancel_Clicked(object sender, EventArgs e)
         {

@@ -10,5 +10,5 @@ namespace DungeonCrawler
             Title = data?.Text;
             Data = data;
         }
-    }
+    } 
 }

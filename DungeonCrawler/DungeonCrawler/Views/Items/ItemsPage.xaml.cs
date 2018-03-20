@@ -32,7 +32,7 @@ namespace DungeonCrawler
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
         }
-
+         
         // create new item
         private async void AddItem_Clicked(object sender, EventArgs e)
         {

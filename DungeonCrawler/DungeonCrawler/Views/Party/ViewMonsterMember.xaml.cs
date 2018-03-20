@@ -17,3 +17,4 @@ namespace DungeonCrawler.Views.Party
         }
     }
 }
+ 

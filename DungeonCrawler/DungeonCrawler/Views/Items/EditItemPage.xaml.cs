@@ -24,7 +24,7 @@ namespace DungeonCrawler.Views.Items
             // Set the data binding for the page
             BindingContext = _viewModel = viewModel;
         }
-
+         
         // Save item to the database
         private async void Save_Clicked(object sender, EventArgs e)
         {

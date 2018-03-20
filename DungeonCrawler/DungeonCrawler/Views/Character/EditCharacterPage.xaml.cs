@@ -31,7 +31,7 @@ namespace DungeonCrawler
         // add to the database
         private async void Save_Clicked(object sender, EventArgs e)
         {
-
+             
             if (string.IsNullOrEmpty(Data.ImageURI))
             {
                 Data.ImageURI = "Character.png";

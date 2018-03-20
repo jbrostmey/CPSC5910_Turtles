@@ -18,7 +18,7 @@ namespace DungeonCrawler.Services
         }
 
         // Switches the datastore values.
-        // Loads the databases...
+        // Loads the databases
         public static void ToggleDataStore(DataStoreEnum dataStoreEnum)
         {
             switch (dataStoreEnum)

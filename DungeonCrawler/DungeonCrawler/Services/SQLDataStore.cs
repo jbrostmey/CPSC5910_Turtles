@@ -81,8 +81,7 @@ namespace DungeonCrawler.Services
 
         private async void InitilizeSeedData()
         {
-
-
+            
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Hat", Description = "Basic hat.", damage = 0, defense = 2, speed = 0, attack = 0, range = 4, position = EquipmentPosition.head });
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Shirt", Description = "Basic shirt.", damage = 0, defense = 3, speed = 0, attack = 0, range = 4, position = EquipmentPosition.body });
             await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Text = "Base Right Hand", Description = "Basic right handed weapon.", damage = 3, defense = 0, speed = 0, attack = 5, range = 4, position = EquipmentPosition.rightHand });
@@ -127,8 +126,6 @@ namespace DungeonCrawler.Services
             await AddAsync_Character(toBeAdded);
 
 
-            //Add monsters to monster list
-
             // Ewwy Ooze
             Monster monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), 
                 description = "Gelatinous goo that seems to corrode and consume any living thing it touches. Eww!", 
@@ -140,12 +137,7 @@ namespace DungeonCrawler.Services
             monsterToBeAdded.SaveAttributes();
             await AddAsync_Monster(monsterToBeAdded);
 
-            // change level/ add to documentation?
-            // current health?
-            // equipment positions?
-
-            // base level, alter the current experience
-
+          
             // Spider Knight
             monsterToBeAdded = new Monster { Id = Guid.NewGuid().ToString(), 
                 description = "Gallant knight of the arachnid order. To him, chivalry is never dead.",

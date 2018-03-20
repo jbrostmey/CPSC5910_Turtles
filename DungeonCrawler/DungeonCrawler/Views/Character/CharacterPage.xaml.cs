@@ -60,7 +60,7 @@ namespace DungeonCrawler
                 _viewModel.LoadDataCommand.Execute(null);
             }
             
-            BindingContext = _viewModel;
+            BindingContext  = _viewModel;
 
 
         }

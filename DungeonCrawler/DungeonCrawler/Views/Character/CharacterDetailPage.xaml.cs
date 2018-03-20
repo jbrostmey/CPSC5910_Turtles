@@ -29,7 +29,7 @@ namespace DungeonCrawler
                 description = "Dan is the man",
                 characterClass = "paladin",
             };
-
+              
             data.attributes.defense = 1;
             data.attributes.alive = true;
             data.attributes.attack = 1;

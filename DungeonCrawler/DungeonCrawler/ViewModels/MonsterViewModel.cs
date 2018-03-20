@@ -41,6 +41,7 @@ namespace DungeonCrawler
             Dataset = new ObservableCollection<Monster>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
+            // to process deleting, adding, updating data
             MessagingCenter.Subscribe<DeleteMonsterPage, Monster>(this, "DeleteData", async (obj, data) =>
             {
                 Dataset.Remove(data);
@@ -95,6 +96,7 @@ namespace DungeonCrawler
             await ExecuteLoadDataCommand();
         }
 
+        // loads data from the database
         private async Task ExecuteLoadDataCommand()
         {
             if (IsBusy)
@@ -111,7 +113,7 @@ namespace DungeonCrawler
                     Dataset.Add(data);
                 }
             }
-
+             
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);

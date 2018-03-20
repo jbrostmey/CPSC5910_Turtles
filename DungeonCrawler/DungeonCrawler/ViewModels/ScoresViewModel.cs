@@ -29,13 +29,11 @@ namespace DungeonCrawler.ViewModels
                 return _instance;
             }
         }
-
+         
         public ObservableCollection<Score> Dataset { get; set; }
         public Command LoadDataCommand { get; set; }
 
         private bool _needsRefresh;
-
-        public int highScore;
 
         public ScoresViewModel()
         {
@@ -43,6 +41,7 @@ namespace DungeonCrawler.ViewModels
             Dataset = new ObservableCollection<Score>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
+            // to process deleting, adding, updating data
             MessagingCenter.Subscribe<DeleteScorePage, Score>(this, "DeleteData", async (obj, data) =>
             {
                 Dataset.Remove(data);

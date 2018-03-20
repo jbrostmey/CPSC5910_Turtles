@@ -36,7 +36,7 @@ namespace DungeonCrawler
         {
             await Navigation.PopAsync();
         }
-    }
+    } 
 }
 
 

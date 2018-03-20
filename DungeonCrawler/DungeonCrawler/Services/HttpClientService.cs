@@ -78,17 +78,14 @@ namespace DungeonCrawler.Services
             }
             catch (Exception)
             {
-                // todo Add Sequence
-                // Jump to restart app sequence 
+     
                 return null;
             }
 
             // Check for error code            
             if (JsonHelper.GetJsonInteger(json, "error_code") == WebGlobals.ErrorResultCode)
             {
-                // todo Add Sequence
-                // Jump to Update App Sequence
-
+  
                 var myError = new
                 {
                     ServerError = true,
@@ -115,8 +112,6 @@ namespace DungeonCrawler.Services
                 var MinorCode = myVersionSplit[1];
                 var MajorData = myVersionSplit[2];
                 var MinorData = myVersionSplit[3];
-
-                //Todo Validate on the Version String
             }
 
 

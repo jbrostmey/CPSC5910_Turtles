@@ -32,6 +32,7 @@ namespace DungeonCrawler
             }
         }
 
+        // items dataset
         public ObservableCollection<Item> Dataset { get; set; }
         public Command LoadDataCommand { get; set; }
 
@@ -43,6 +44,7 @@ namespace DungeonCrawler
             Dataset = new ObservableCollection<Item>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
+            // to process updating, deleting, adding items
             MessagingCenter.Subscribe<DeleteItemPage, Item>(this, "DeleteData", async (obj, data) =>
             {
                 Dataset.Remove(data);
@@ -115,6 +117,7 @@ namespace DungeonCrawler
             return false;
         }
 
+        // update in database
         public async Task<bool> UpdateAsync_Item(Item data)
         {
             var result = await App.Database.UpdateAsync(data);
@@ -126,7 +129,7 @@ namespace DungeonCrawler
             return false;
         }
 
-
+         // get item from database
         public async Task<Item> GetAsync_Item(string id)
 
         {
@@ -167,12 +170,13 @@ namespace DungeonCrawler
         }
 
 
-
+         
         public async void InitializeDataset()
         {
             await ExecuteLoadDataCommand();
         }
 
+        // loads data from the database
         private async Task ExecuteLoadDataCommand()
         {
             if (IsBusy)
