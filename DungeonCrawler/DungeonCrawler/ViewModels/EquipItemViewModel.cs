@@ -11,6 +11,7 @@ using DungeonCrawler.Views.Items;
 using DungeonCrawler.Views.Scores;
 
 using System.Linq;
+using System.Collections.Generic;
 
 namespace DungeonCrawler
 {
@@ -58,6 +59,24 @@ namespace DungeonCrawler
 
         }
 
+        public void InitializeItemsCollection( List<Item> items )
+        {
+            DatasetItems.Clear();
+            foreach(var itemNew in items){
+                DatasetItems.Add(itemNew);
+            }
+        }
+
+
+        public void InitializeCharacterCollection(List<Character> characters)
+        {
+            Dataset.Clear();
+            foreach (var charNew in characters)
+            {
+                Dataset.Add(charNew);
+            }
+        }
+
         // Return True if a refresh is needed
         // It sets the refresh flag to false
         public bool NeedsRefresh()
@@ -103,11 +122,10 @@ namespace DungeonCrawler
                 DatasetItems.Clear();
 
                 // Get all items from database
-                var datasetItems = await DataStore.GetAllAsync_Item(true);
-                foreach (var dataI in datasetItems)
-                {
-                    DatasetItems.Add(dataI);
-                }
+               // var datasetItems = await DataStore.GetAllAsync_Item(true);
+              //  foreach (var dataI in BattlePageViewModel.Instance.)
+               // {
+               //  }
             }
 
             catch (Exception ex)

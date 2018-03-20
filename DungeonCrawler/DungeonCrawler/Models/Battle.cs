@@ -216,6 +216,14 @@ namespace DungeonCrawler.Models
             }
             else if (CheckParty(false))
             {
+                // combine items monsters dropped to item inventory and reset in equip items view model
+                foreach (var item in itemsMonstersDrop)
+                {
+                    itemInventory.Add(item);
+                }
+                EquipItemViewModel.Instance.InitializeItemsCollection(itemInventory);
+
+
                 equipItems = true;
                 rounds++;
                 msg += "\n Next round! Round: " + rounds + '\n';
@@ -223,11 +231,9 @@ namespace DungeonCrawler.Models
                 //init new party of monsters
                 newRound = true;
 
-                // reset inventory, add items dropped by monsters in the previous round.
+                // reset inventory
                 itemInventory.Clear();
-                foreach(var item in itemsMonstersDrop){
-                    itemInventory.Add(item);
-                }
+              
 
                 // clear items monsters dropped
                 itemsMonstersDrop.Clear();
@@ -250,7 +256,14 @@ namespace DungeonCrawler.Models
         //This function is to be called in BattlePage.xaml.cs
         public void BeginGame()
         {
-            
+            // initialize list of items on ground for game start up
+            for (int i = 0; i < SIZE; i++)
+            {
+                Item newItem = ItemsViewModel.Instance.RandomItem();
+                itemInventory.Add(newItem);
+            }
+            EquipItemViewModel.Instance.InitializeItemsCollection(itemInventory);
+       
             currentScore = new Score();
             aChar = new Character[SIZE];
             aMon = new Monster[SIZE];
@@ -263,6 +276,10 @@ namespace DungeonCrawler.Models
                 aChar[i].number = i;
                 aMon[i].number = i;
             }
+
+            // add characters to game to equip items dataset
+            List<Character> charactersPlaying = aChar.OfType<Character>().ToList();
+            EquipItemViewModel.Instance.InitializeCharacterCollection(charactersPlaying);
 
             //For now, selection of Character and Monster are automated (characer 1 fights monster 1 until one dies)
             //Will go in order from index 0 to index 6
